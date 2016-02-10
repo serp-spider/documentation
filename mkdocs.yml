@@ -1,0 +1,21 @@
+site_name: Serps - the PHP SERP Scraper
+pages:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Search Engine:
+    - Google: search-engine/google.md
+
+repo_url: https://github.com/serp-scrape/serps
+
+site_description: >
+  SERPS is SERP Scraper for php.
+  It offers a set of tools to manipulate and parse popular search engines such as Google, Yahoo, Bing...
+
+site_favicon: null
+
+google_analytics: null
+
+theme: yeti
+
+extra_css:
+  - css/serps.css
