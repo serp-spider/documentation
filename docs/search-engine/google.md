@@ -48,9 +48,9 @@ The builder offers the required tools to build an url from scratch
     use Serps\SearchEngine\Google\GoogleUrl;
     
     $googleUrl = new GoogleUrl();
-    $google->setSearchTerm('simpsons');
-    $google->setLanguageRestriction('lang_en');
-    echo $google->buildUrl();
+    $googleUrl->setSearchTerm('simpsons');
+    $googleUrl->setLanguageRestriction('lang_en');
+    echo $googleUrl->buildUrl();
     // https://google.com/search?q=simpsons&lr=lang_en
 ```
 
@@ -69,7 +69,7 @@ It's possible to import an url from an existing google url string
 Additionally you can continue to manipulate this url
 
 ```php
-    $google->setLanguageRestriction('lang_en');
+    $googleUrl->setLanguageRestriction('lang_en');
     echo $googleUrl->buildUrl();
     // https://google.com/search?q=simpsons&lr=lang_en
 ```
