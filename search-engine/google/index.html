@@ -223,9 +223,9 @@
 <pre><code class="php">    use Serps\SearchEngine\Google\GoogleUrl;
 
     $googleUrl = new GoogleUrl();
-    $google-&gt;setSearchTerm('simpsons');
-    $google-&gt;setLanguageRestriction('lang_en');
-    echo $google-&gt;buildUrl();
+    $googleUrl-&gt;setSearchTerm('simpsons');
+    $googleUrl-&gt;setLanguageRestriction('lang_en');
+    echo $googleUrl-&gt;buildUrl();
     // https://google.com/search?q=simpsons&amp;lr=lang_en
 </code></pre>
 
@@ -239,7 +239,7 @@
 </code></pre>
 
 <p>Additionally you can continue to manipulate this url</p>
-<pre><code class="php">    $google-&gt;setLanguageRestriction('lang_en');
+<pre><code class="php">    $googleUrl-&gt;setLanguageRestriction('lang_en');
     echo $googleUrl-&gt;buildUrl();
     // https://google.com/search?q=simpsons&amp;lr=lang_en
 </code></pre>
