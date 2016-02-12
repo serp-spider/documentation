@@ -4,19 +4,18 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="SERPS is SERP Scraper for php. It offers a set of tools to manipulate and parse popular search engines such as Google, Yahoo, Bing...
-">
         
         
-        <link rel="shortcut icon" href="./img/favicon.ico">
+        
+        <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-	<title>Serps - the PHP SERP Scraper</title>
+	<title>Search Parameters - Serps - the PHP SERP Scraper</title>
 
-        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="./css/font-awesome-4.5.0.css" rel="stylesheet">
-        <link href="./css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="./css/highlight.css">
-        <link href="./css/serps.css" rel="stylesheet">
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../../css/highlight.css">
+        <link href="../../../css/serps.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -27,7 +26,7 @@
         
     </head>
 
-    <body class="homepage">
+    <body>
 
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -45,7 +44,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href=".">Serps - the PHP SERP Scraper</a>
+            <a class="navbar-brand" href="../../..">Serps - the PHP SERP Scraper</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -55,8 +54,8 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="active">
-                        <a href=".">Home</a>
+                    <li >
+                        <a href="../../..">Home</a>
                     </li>
                 
                 
@@ -67,25 +66,25 @@
                         
                             
 <li >
-    <a href="overview/">Overview</a>
+    <a href="../../../overview/">Overview</a>
 </li>
 
                         
                             
 <li >
-    <a href="http-client/">Http Client</a>
+    <a href="../../../http-client/">Http Client</a>
 </li>
 
                         
                             
 <li >
-    <a href="proxies/">Proxies</a>
+    <a href="../../../proxies/">Proxies</a>
 </li>
 
                         
                             
 <li >
-    <a href="captcha/">Captcha</a>
+    <a href="../../../captcha/">Captcha</a>
 </li>
 
                         
@@ -94,7 +93,7 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search Engine <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
@@ -105,19 +104,19 @@
         
             
 <li >
-    <a href="search-engine/google/">Google Client</a>
+    <a href="../">Google Client</a>
+</li>
+
+        
+            
+<li class="active">
+    <a href="./">Search Parameters</a>
 </li>
 
         
             
 <li >
-    <a href="search-engine/google/parameters/">Search Parameters</a>
-</li>
-
-        
-            
-<li >
-    <a href="search-engine/google/result-types/">Result Types</a>
+    <a href="../result-types/">Result Types</a>
 </li>
 
         
@@ -139,13 +138,13 @@
                     </a>
                 </li>
                 
-                    <li class="disabled">
-                        <a rel="next" >
+                    <li >
+                        <a rel="next" href="../">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="overview/">
+                        <a rel="prev" href="../result-types/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -170,59 +169,15 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#serps-home">Serps - Home</a></li>
-        
-            <li><a href="#what-is-it">What is it?</a></li>
-        
-            <li><a href="#the-problem">The problem</a></li>
-        
-            <li><a href="#the-solution">The solution</a></li>
-        
-            <li><a href="#getting-started">Getting Started</a></li>
-        
-            <li><a href="#licensing">Licensing</a></li>
+        <li class="main active"><a href="#google-search-parameters">Google: Search parameters</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="serps-home">Serps - Home</h1>
-<p><strong>The PHP Search Engine Result Page Scraper</strong></p>
-<blockquote>
-<p><cite><strong>Web scraping</strong> (web harvesting or web data extraction) is a computer software technique of extracting 
-information from websites. Usually, such software programs simulate human exploration of the World Wide Web 
-by either implementing low-level Hypertext Transfer Protocol (HTTP), 
-or embedding a fully-fledged web browser, such as Mozilla Firefox.</cite></p>
-<p><small><a href="https://en.wikipedia.org/wiki/Web_scraping">Wikipedia</a></small></p>
-</blockquote>
-<h2 id="what-is-it">What is it?</h2>
-<p>Serps is a set of tools that ease the parsing of <strong>popular search engines</strong>.
-It helps to parse <strong>SERP</strong> (Search Engine Result Page) and gives you a standard output of what is parsed.</p>
-<h2 id="the-problem">The problem</h2>
-<p>Most of times search engines don't want you to parse them, and they don't offer a documentation or a standard way 
-to extract the results from the SERP.</p>
-<h2 id="the-solution">The solution</h2>
-<p>We tried to solve this problems by <strong>analysing</strong> how search engines behave and we built the necessary tools to
-work with them, from the URL generation to the parsing of the results. 
-At the endpoint we offer a <strong>standard and documented API</strong>.</p>
-<p><strong>TODO</strong> We place additional efforts on monitoring them to make sure that our tools are always up to date.</p>
-<h2 id="getting-started">Getting Started</h2>
-<p>Looking forward to work with the library? </p>
-<ul>
-<li>Read the <a href="overview/">overview</a>.</li>
-<li>Check the available search engines from the top menu.</li>
-<li>Get information about <a href="http-client/">http client implementations</a>.</li>
-<li>See how proxies work <a href="proxies/">proxies</a>.</li>
-<li>Work with <a href="captcha/">captcha services</a>.</li>
-</ul>
-<h2 id="licensing">Licensing</h2>
-<p>The work is placed under the terms of the <a href="https://github.com/serp-scrape/serps/blob/master/LICENSE"><strong>Fair License</strong></a>.</p>
-<blockquote>
-<p><cite>Usage of the works is permitted provided that this instrument is retained with the works, 
-so that any entity that uses the works is notified of this instrument.</cite></p>
-<p><cite>DISCLAIMER: THE WORKS ARE WITHOUT WARRANTY.</cite></p>
-</blockquote></div>
+<h1 id="google-search-parameters">Google: Search parameters</h1>
+<p>TODO</p></div>
             
         </div>
 
@@ -232,12 +187,12 @@ so that any entity that uses the works is notified of this instrument.</cite></p
             <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
-        <script src="./js/jquery-1.10.2.min.js"></script>
-        <script src="./js/bootstrap-3.0.3.min.js"></script>
-        <script src="./js/highlight.pack.js"></script>
-        <script>var base_url = '.';</script>
-        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
-        <script src="./js/base.js"></script>
+        <script src="../../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script>var base_url = '../../..';</script>
+        <script data-main="../../../mkdocs/js/search.js" src="../../../mkdocs/js/require.js"></script>
+        <script src="../../../js/base.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
             <div class="modal-dialog">
@@ -266,8 +221,3 @@ so that any entity that uses the works is notified of this instrument.</cite></p
 
     </body>
 </html>
-
-<!--
-MkDocs version : 0.15.2
-Build Date UTC : 2016-02-12 22:33:40.632626
--->

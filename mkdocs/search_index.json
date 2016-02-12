@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Serps - Home\n\n\nThe PHP Search Engine Result Page Scraper\n\n\n\n\nWeb scraping\n (web harvesting or web data extraction) is a computer software technique of extracting \ninformation from websites. Usually, such software programs simulate human exploration of the World Wide Web \nby either implementing low-level Hypertext Transfer Protocol (HTTP), \nor embedding a fully-fledged web browser, such as Mozilla Firefox.\n\n\nWikipedia\n\n\n\n\nOverview\n\n\nSerps is a set of tools that make it easy to parse \npopular search engines\n and to create reports.\nIt helps to parse \nSERP\n (Search Engine Result Page) and gives you a standard output of what is parsed.\n\n\nThe problem\n\n\nMost of times search engines don't want you to parse them, and they don't offer a documentation or a standard way \nto extract the results from the SERP.\n\n\nWe tried to solve this problems by \nanalysing\n how search engines behave and we give you the necessary tools to\nwork with them, from the URL generation to the parsing of the results. \nAt the endpoint we give you a \nstandard and documented API\n.\n\n\nTODO\n We place additional efforts on monitoring them to make sure that our tools are always up to date.\n\n\nGetting Started\n\n\nLooking forward to work with the library? \n\n\n\n\nRead our \ngetting started\n.\n\n\nCheck the \navailable search engines\n.\n\n\nGet information about \nproxies\n and \nhttp client implementations\n.\n\n\nWork with \ncaptcha services\n.\n\n\n\n\nLicensing\n\n\nThe work is placed under the terms of the \nFair License\n.\n\n\n\n\nUsage of the works is permitted provided that this instrument is retained with the works, \nso that any entity that uses the works is notified of this instrument.\n\n\nDISCLAIMER: THE WORKS ARE WITHOUT WARRANTY.", 
+            "text": "Serps - Home\n\n\nThe PHP Search Engine Result Page Scraper\n\n\n\n\nWeb scraping\n (web harvesting or web data extraction) is a computer software technique of extracting \ninformation from websites. Usually, such software programs simulate human exploration of the World Wide Web \nby either implementing low-level Hypertext Transfer Protocol (HTTP), \nor embedding a fully-fledged web browser, such as Mozilla Firefox.\n\n\nWikipedia\n\n\n\n\nWhat is it?\n\n\nSerps is a set of tools that ease the parsing of \npopular search engines\n.\nIt helps to parse \nSERP\n (Search Engine Result Page) and gives you a standard output of what is parsed.\n\n\nThe problem\n\n\nMost of times search engines don't want you to parse them, and they don't offer a documentation or a standard way \nto extract the results from the SERP.\n\n\nThe solution\n\n\nWe tried to solve this problems by \nanalysing\n how search engines behave and we built the necessary tools to\nwork with them, from the URL generation to the parsing of the results. \nAt the endpoint we offer a \nstandard and documented API\n.\n\n\nTODO\n We place additional efforts on monitoring them to make sure that our tools are always up to date.\n\n\nGetting Started\n\n\nLooking forward to work with the library? \n\n\n\n\nRead the \noverview\n.\n\n\nCheck the available search engines from the top menu.\n\n\nGet information about \nhttp client implementations\n.\n\n\nSee how proxies work \nproxies\n.\n\n\nWork with \ncaptcha services\n.\n\n\n\n\nLicensing\n\n\nThe work is placed under the terms of the \nFair License\n.\n\n\n\n\nUsage of the works is permitted provided that this instrument is retained with the works, \nso that any entity that uses the works is notified of this instrument.\n\n\nDISCLAIMER: THE WORKS ARE WITHOUT WARRANTY.", 
             "title": "Home"
         }, 
         {
@@ -11,18 +11,23 @@
             "title": "Serps - Home"
         }, 
         {
-            "location": "/#overview", 
-            "text": "Serps is a set of tools that make it easy to parse  popular search engines  and to create reports.\nIt helps to parse  SERP  (Search Engine Result Page) and gives you a standard output of what is parsed.", 
-            "title": "Overview"
+            "location": "/#what-is-it", 
+            "text": "Serps is a set of tools that ease the parsing of  popular search engines .\nIt helps to parse  SERP  (Search Engine Result Page) and gives you a standard output of what is parsed.", 
+            "title": "What is it?"
         }, 
         {
             "location": "/#the-problem", 
-            "text": "Most of times search engines don't want you to parse them, and they don't offer a documentation or a standard way \nto extract the results from the SERP.  We tried to solve this problems by  analysing  how search engines behave and we give you the necessary tools to\nwork with them, from the URL generation to the parsing of the results. \nAt the endpoint we give you a  standard and documented API .  TODO  We place additional efforts on monitoring them to make sure that our tools are always up to date.", 
+            "text": "Most of times search engines don't want you to parse them, and they don't offer a documentation or a standard way \nto extract the results from the SERP.", 
             "title": "The problem"
         }, 
         {
+            "location": "/#the-solution", 
+            "text": "We tried to solve this problems by  analysing  how search engines behave and we built the necessary tools to\nwork with them, from the URL generation to the parsing of the results. \nAt the endpoint we offer a  standard and documented API .  TODO  We place additional efforts on monitoring them to make sure that our tools are always up to date.", 
+            "title": "The solution"
+        }, 
+        {
             "location": "/#getting-started", 
-            "text": "Looking forward to work with the library?    Read our  getting started .  Check the  available search engines .  Get information about  proxies  and  http client implementations .  Work with  captcha services .", 
+            "text": "Looking forward to work with the library?    Read the  overview .  Check the available search engines from the top menu.  Get information about  http client implementations .  See how proxies work  proxies .  Work with  captcha services .", 
             "title": "Getting Started"
         }, 
         {
@@ -31,49 +36,79 @@
             "title": "Licensing"
         }, 
         {
-            "location": "/getting-started/", 
-            "text": "Getting Started\n\n\nThis getting started will help you to understand how the library is built and what are its main components.\n\n\nInstall\n\n\nTwo work with SERPS you need two things:\n\n\n\n\nOne or more search engine clients you want to parse\n\n\nAn http clients\n\n\n\n\nComposer\n is required to manage the necessary dependencies.\n\n\n\n\nExample with the \nGoogle client\n and the \nCurl http client\n\n\n\n\n{\n    \nrequire\n: {\n        \nserps/search-engine-google\n: \n*\n,\n        \nserps/http-client-curl\n: \n*\n\n    }\n}\n\n\n\n\nSearch Engine client\n\n\nIn a regular workflow a search engine client allows to:\n\n\n\n\nManipulate an url and generate a request specific to the search engine\n\n\nRetrieve the response from the search engine\n\n\nParse this response to a standard sets of results\n\n\n\n\nEach \nsearch engine\n has its set of specificities and thus each search engine implementation has its own dedicated guide.\n\n\nCheck the list of \navailable search engines\n.\n\n\nHttp client\n\n\nWorking with search engines involves to work with \nhttp requests\n to be able to interact with them.\nUssually the \nsearch engine client\n will need a http client to work correctly.\n\n\n\n\nExample with the \ngoogle client\n and the \ncurl http client\n\n\n\n\n    use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n\n\n\nCheck the list of \navailable http clients\n.\n\n\nCaptcha\n\n\nAs said before, most of time search engines don't want you to parse them, additionally if you submit a lot of \nrequests to them, they might - \nthey will\n - detect you as a bot and they will send you a \ncaptcha\n that you have\nto solve before you continue.\n\n\nOf course captcha are search engine dependent, but we are aware of this issue\nand we offer you a common interface to solve them. \n\n\n\n\nExample of \ncaptcha handling\ns with the google client\n\n\n\n\n    use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n    use Serps\\Exception\\CaptchaException;\n    use Serps\\Exception\\CaptchaException;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n    try{\n        $googleClient-\nquery($googleUrl, $proxy);\n    }catch(CaptchaException $e){  \n        $captcha = $e-\ngetCaptcha();\n    }\n\n\n\n\nRead more about \ncaptcha\n.\n\n\nProxies\n\n\nWhen you deal with a very \nlarge number of requests\n solving captcha is not enough, you will need to send requests\nthrough proxies.\n\n\nThis is a major feature of scraping and we placed proxies at the very heart of the library. \nWe made the choice to make each request being proxy aware. \nThis way with a single client you can use as many proxies as you want.\n\n\n\n\nExample of \nproxy\n usage with the google client\n\n\n\n\n    use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n    $googleClient-\nquery($googleUrl, $proxy);\n\n\n\n\nRead more about \nproxies\n.\n\n\nProxies and captcha\n\n\nWhen a proxy got blocked by a captcha it's important to solve the captcha with the proxy, if you don't, the search\nengine might detect it's not the same ip that solved the captcha and wont accept to solve it.", 
-            "title": "Getting Started"
+            "location": "/overview/", 
+            "text": "Overview\n\n\nThis overview will help you to understand how the library is built and what are its main components.\n\n\nInstall\n\n\nTwo work with SERPS you need two things:\n\n\n\n\nOne or more search engine clients you want to parse\n\n\nAn http clients\n\n\n\n\nComposer\n is required to manage the necessary dependencies.\n\n\n\n\nExample with the \nGoogle client\n and the \nCurl http client\n\n\n\n\n{\n    \nrequire\n: {\n        \nserps/search-engine-google\n: \n*\n,\n        \nserps/http-client-curl\n: \n*\n\n    }\n}\n\n\n\n\nSearch Engine client\n\n\nIn a regular workflow a search engine client allows to:\n\n\n\n\nManipulate an url and generate a request specific to the search engine\n\n\nRetrieve the response from the search engine\n\n\nParse this response to a standard sets of results\n\n\n\n\nEach \nsearch engine\n has its set of specificities and thus each search engine implementation has its own dedicated guide.\n\n\nCheck the list of from the top menu.\n\n\nHttp client\n\n\nWorking with search engines involves to work with \nhttp requests\n to be able to interact with them.\nUssually the \nsearch engine client\n will need a http client to work correctly.\n\n\n\n\nExample with the \ngoogle client\n and the \ncurl http client\n\n\n\n\n    use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n\n\n\nCheck the list of \navailable http clients\n.\n\n\nCaptcha\n\n\nAs said before, most of time search engines don't want you to parse them, additionally if you submit a lot of \nrequests to them, they might - \nthey will\n - detect you as a bot and they will send you a \ncaptcha\n that you have\nto solve before you continue.\n\n\n\n\nExample of \ncaptcha handling\ns with the google client\n\n\n\n\n    use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n    use Serps\\Exception\\CaptchaException;\n    use Serps\\Exception\\CaptchaException;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n    try{\n        $googleClient-\nquery($googleUrl, $proxy);\n    }catch(CaptchaException $e){  \n        $captcha = $e-\ngetCaptcha();\n    }\n\n\n\n\nRead more about \ncaptcha\n.\n\n\nProxies\n\n\nWhen you deal with a very \nlarge number of requests\n solving captcha is not enough, you will need to send requests\nthrough proxies.\n\n\nThis is a major feature of scraping and we placed proxies at the very heart of the library. \nWe made the choice to make each request being proxy aware. \nThis way with a single client you can use as many proxies as you want.\n\n\n\n\nExample of \nproxy\n usage with the google client\n\n\n\n\n    use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n    $googleClient-\nquery($googleUrl, $proxy);\n\n\n\n\nRead more about \nproxies\n.\n\n\nProxies and captcha\n\n\nWhen a proxy got blocked by a captcha it's important to solve the captcha with the proxy, if you don't, the search\nengine might detect it's not the same ip that solved the captcha and wont accept to solve it.", 
+            "title": "Overview"
         }, 
         {
-            "location": "/getting-started/#getting-started", 
-            "text": "This getting started will help you to understand how the library is built and what are its main components.", 
-            "title": "Getting Started"
+            "location": "/overview/#overview", 
+            "text": "This overview will help you to understand how the library is built and what are its main components.", 
+            "title": "Overview"
         }, 
         {
-            "location": "/getting-started/#install", 
+            "location": "/overview/#install", 
             "text": "Two work with SERPS you need two things:   One or more search engine clients you want to parse  An http clients   Composer  is required to manage the necessary dependencies.   Example with the  Google client  and the  Curl http client   {\n     require : {\n         serps/search-engine-google :  * ,\n         serps/http-client-curl :  * \n    }\n}", 
             "title": "Install"
         }, 
         {
-            "location": "/getting-started/#search-engine-client", 
-            "text": "In a regular workflow a search engine client allows to:   Manipulate an url and generate a request specific to the search engine  Retrieve the response from the search engine  Parse this response to a standard sets of results   Each  search engine  has its set of specificities and thus each search engine implementation has its own dedicated guide.  Check the list of  available search engines .", 
+            "location": "/overview/#search-engine-client", 
+            "text": "In a regular workflow a search engine client allows to:   Manipulate an url and generate a request specific to the search engine  Retrieve the response from the search engine  Parse this response to a standard sets of results   Each  search engine  has its set of specificities and thus each search engine implementation has its own dedicated guide.  Check the list of from the top menu.", 
             "title": "Search Engine client"
         }, 
         {
-            "location": "/getting-started/#http-client", 
+            "location": "/overview/#http-client", 
             "text": "Working with search engines involves to work with  http requests  to be able to interact with them.\nUssually the  search engine client  will need a http client to work correctly.   Example with the  google client  and the  curl http client       use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n\n    $googleClient = new GoogleClient(new CurlClient());  Check the list of  available http clients .", 
             "title": "Http client"
         }, 
         {
-            "location": "/getting-started/#captcha", 
-            "text": "As said before, most of time search engines don't want you to parse them, additionally if you submit a lot of \nrequests to them, they might -  they will  - detect you as a bot and they will send you a  captcha  that you have\nto solve before you continue.  Of course captcha are search engine dependent, but we are aware of this issue\nand we offer you a common interface to solve them.    Example of  captcha handling s with the google client       use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n    use Serps\\Exception\\CaptchaException;\n    use Serps\\Exception\\CaptchaException;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n    try{\n        $googleClient- query($googleUrl, $proxy);\n    }catch(CaptchaException $e){  \n        $captcha = $e- getCaptcha();\n    }  Read more about  captcha .", 
+            "location": "/overview/#captcha", 
+            "text": "As said before, most of time search engines don't want you to parse them, additionally if you submit a lot of \nrequests to them, they might -  they will  - detect you as a bot and they will send you a  captcha  that you have\nto solve before you continue.   Example of  captcha handling s with the google client       use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n    use Serps\\Exception\\CaptchaException;\n    use Serps\\Exception\\CaptchaException;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n    try{\n        $googleClient- query($googleUrl, $proxy);\n    }catch(CaptchaException $e){  \n        $captcha = $e- getCaptcha();\n    }  Read more about  captcha .", 
             "title": "Captcha"
         }, 
         {
-            "location": "/getting-started/#proxies", 
+            "location": "/overview/#proxies", 
             "text": "When you deal with a very  large number of requests  solving captcha is not enough, you will need to send requests\nthrough proxies.  This is a major feature of scraping and we placed proxies at the very heart of the library. \nWe made the choice to make each request being proxy aware. \nThis way with a single client you can use as many proxies as you want.   Example of  proxy  usage with the google client       use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n    $googleClient- query($googleUrl, $proxy);  Read more about  proxies .", 
             "title": "Proxies"
         }, 
         {
-            "location": "/getting-started/#proxies-and-captcha", 
+            "location": "/overview/#proxies-and-captcha", 
             "text": "When a proxy got blocked by a captcha it's important to solve the captcha with the proxy, if you don't, the search\nengine might detect it's not the same ip that solved the captcha and wont accept to solve it.", 
             "title": "Proxies and captcha"
         }, 
         {
+            "location": "/http-client/", 
+            "text": "Http Client\n\n\nTODO", 
+            "title": "Http Client"
+        }, 
+        {
+            "location": "/http-client/#http-client", 
+            "text": "TODO", 
+            "title": "Http Client"
+        }, 
+        {
+            "location": "/proxies/", 
+            "text": "Work with proxy\n\n\nTODO", 
+            "title": "Proxies"
+        }, 
+        {
+            "location": "/proxies/#work-with-proxy", 
+            "text": "TODO", 
+            "title": "Work with proxy"
+        }, 
+        {
+            "location": "/captcha/", 
+            "text": "Captcha\n\n\nTODO", 
+            "title": "Captcha"
+        }, 
+        {
+            "location": "/captcha/#captcha", 
+            "text": "TODO", 
+            "title": "Captcha"
+        }, 
+        {
             "location": "/search-engine/google/", 
-            "text": "Google Client\n\n\nInstallation\n\n\nThe google client is available with the package \n\nserps/search-engine-google\n: \n\n\n$ composer require 'serps/search-engine-google'\n\n\nOverview\n\n\nThe google client needs an http client interface to be constructed and an url to be parsed\n\n\n\n\nOverview of querying google for the keyword 'simpsons' and getting the natural results\n\n\n\n\n    use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n    use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n    $googleUrl = new GoogleUrl();\n    $google-\nsetSearchTerm('simpsons');\n\n    $response = $googleClient-\nquery($googleUrl);\n\n    $results = $response-\ngetNaturalResults();\n\n    foreach($results as $result){\n        $resultTitle = $result-\ngetDataValue('title');\n    }\n\n\n\n\nTODO", 
-            "title": "Google"
+            "text": "Google Client\n\n\nInstallation\n\n\nThe google client is available with the package \n\nserps/search-engine-google\n: \n\n\n$ composer require 'serps/search-engine-google'\n\n\nOverview\n\n\nThe google client needs an http client interface to be constructed and an url to be parsed\n\n\n\n\nOverview of querying google for the keyword 'simpsons' and getting the natural results\n\n\n\n\n    use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n    use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n    $googleUrl = new GoogleUrl();\n    $google-\nsetSearchTerm('simpsons');\n\n    $response = $googleClient-\nquery($googleUrl);\n\n    $results = $response-\ngetNaturalResults();\n\n    foreach($results as $result){\n        $resultTitle = $result-\ngetDataValue('title');\n    }\n\n\n\n\nWorking with urls\n\n\nGoogleUrl\n class offers many convenient tools to work with google urls.\n\n\nCreate an url\n\n\nThe builder offers the required tools to build an url from scratch\n\n\n    use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleUrl = new GoogleUrl();\n    $google-\nsetSearchTerm('simpsons');\n    $google-\nsetLanguageRestriction('lang_en');\n    echo $google-\nbuildUrl();\n    // https://google.com/search?q=simpsons\nlr=lang_en\n\n\n\n\nImport an url\n\n\nIt's possible to import an url from an existing google url string\n\n\n    use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleUrl = GoogleUrl::fromString('https://google.com/search?q=simpsons');\n    echo $googleUrl-\ngetSearchTerm();\n    // simpsons\n\n\n\n\nAdditionally you can continue to manipulate this url\n\n\n    $google-\nsetLanguageRestriction('lang_en');\n    echo $googleUrl-\nbuildUrl();\n    // https://google.com/search?q=simpsons\nlr=lang_en\n\n\n\n\nGoogle domain\n\n\nBy default an url is generated for \ngoogle.com\n but you can choose any domain of your choice:\n\n\n    use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleUrl = new GoogleUrl('google.fr');\n    $googleUrl-\nsetSearchTerm('simpsons');\n    echo $googleUrl-\nbuildUrl();\n    // https://google.fr/search?q=simpsons\n\n\n\n\nIt's also possible to modify it latter\n\n\n    $googleUrl-\nsetHost('google.de');\n    echo $googleUrl-\nbuildUrl();\n    // https://google.de/search?q=simpsons\n\n\n\n\nAdd and remove parameters\n\n\nIt's possible to add or remove parameters\n\n\n    use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleUrl = new GoogleUrl();\n    $googleUrl-\nsetParam('q', 'simpsons');\n    $googleUrl-\nsetParam('start', 11);\n    echo $googleUrl-\nbuildUrl();\n    // https://google.com/search?q=simpsons\nstart=11\n\n    $googleUrl-\nremoveParam('start');\n    echo $googleUrl-\nbuildUrl();\n    // https://google.com/search?q=simpsons\n\n\n\n\nRaw parameters\n\n\nBy default parameters are encoded for urls. For instance \n\"Homer Simpsons\"\n will become \n\"Homer+Simpsons\"\n\nbut \n\"Homer+Simpsons\"\n will become \n\"Homer%2BSimpson\"\n\n\n    use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleUrl = new GoogleUrl();\n    $googleUrl-\nsetParam('q', 'Homer+Simpson');\n    echo $googleUrl-\nbuildUrl();\n    // https://google.com/search?q=Homer%2BSimpson\n\n\n\n\nIt's possible to deal with raw params, this way the param will be passed to the url with no additional encoding. \nThat is achieved by passing true as the third argument of \nsetParam\n.\n\n\n    $googleUrl = new GoogleUrl();\n    $googleUrl-\nsetParam('q', 'Homer+Simpson', true);\n    echo $googleUrl-\nbuildUrl();\n    // https://google.com/search?q=Homer+Simpson\n\n\n\n\nMore parameters\n\n\nSome parameters are very common and for some of them we created convenient shortcuts\ncheck our \nlist of parameters\n.\n\n\nParsing results\n\n\nTODO\n\n\nProxy usage\n\n\nYou can use a proxy at the request time\n\n\n\n\nUse the proxy '1.1.1.1:80'\n\n\n\n\n    use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n    use Serps\\SearchEngine\\Google\\GoogleUrl;\n    use Serps\\Core\\Http\\Proxy;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n    $googleUrl = new GoogleUrl();\n    $google-\nsetSearchTerm('simpsons');\n\n    $proxy = new Proxy('1.1.1.1', 8080);\n\n    $response = $googleClient-\nquery($googleUrl, $proxy);\n\n\n\n\nRead the \nproxy documentation\n\n\nSolve a Captcha\n\n\nTODO", 
+            "title": "Google Client"
         }, 
         {
             "location": "/search-engine/google/#google-client", 
@@ -87,8 +122,78 @@
         }, 
         {
             "location": "/search-engine/google/#overview", 
-            "text": "The google client needs an http client interface to be constructed and an url to be parsed   Overview of querying google for the keyword 'simpsons' and getting the natural results       use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n    use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n    $googleUrl = new GoogleUrl();\n    $google- setSearchTerm('simpsons');\n\n    $response = $googleClient- query($googleUrl);\n\n    $results = $response- getNaturalResults();\n\n    foreach($results as $result){\n        $resultTitle = $result- getDataValue('title');\n    }  TODO", 
+            "text": "The google client needs an http client interface to be constructed and an url to be parsed   Overview of querying google for the keyword 'simpsons' and getting the natural results       use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n    use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n    $googleUrl = new GoogleUrl();\n    $google- setSearchTerm('simpsons');\n\n    $response = $googleClient- query($googleUrl);\n\n    $results = $response- getNaturalResults();\n\n    foreach($results as $result){\n        $resultTitle = $result- getDataValue('title');\n    }", 
             "title": "Overview"
+        }, 
+        {
+            "location": "/search-engine/google/#working-with-urls", 
+            "text": "GoogleUrl  class offers many convenient tools to work with google urls.", 
+            "title": "Working with urls"
+        }, 
+        {
+            "location": "/search-engine/google/#create-an-url", 
+            "text": "The builder offers the required tools to build an url from scratch      use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleUrl = new GoogleUrl();\n    $google- setSearchTerm('simpsons');\n    $google- setLanguageRestriction('lang_en');\n    echo $google- buildUrl();\n    // https://google.com/search?q=simpsons lr=lang_en", 
+            "title": "Create an url"
+        }, 
+        {
+            "location": "/search-engine/google/#import-an-url", 
+            "text": "It's possible to import an url from an existing google url string      use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleUrl = GoogleUrl::fromString('https://google.com/search?q=simpsons');\n    echo $googleUrl- getSearchTerm();\n    // simpsons  Additionally you can continue to manipulate this url      $google- setLanguageRestriction('lang_en');\n    echo $googleUrl- buildUrl();\n    // https://google.com/search?q=simpsons lr=lang_en", 
+            "title": "Import an url"
+        }, 
+        {
+            "location": "/search-engine/google/#google-domain", 
+            "text": "By default an url is generated for  google.com  but you can choose any domain of your choice:      use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleUrl = new GoogleUrl('google.fr');\n    $googleUrl- setSearchTerm('simpsons');\n    echo $googleUrl- buildUrl();\n    // https://google.fr/search?q=simpsons  It's also possible to modify it latter      $googleUrl- setHost('google.de');\n    echo $googleUrl- buildUrl();\n    // https://google.de/search?q=simpsons", 
+            "title": "Google domain"
+        }, 
+        {
+            "location": "/search-engine/google/#add-and-remove-parameters", 
+            "text": "It's possible to add or remove parameters      use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleUrl = new GoogleUrl();\n    $googleUrl- setParam('q', 'simpsons');\n    $googleUrl- setParam('start', 11);\n    echo $googleUrl- buildUrl();\n    // https://google.com/search?q=simpsons start=11\n\n    $googleUrl- removeParam('start');\n    echo $googleUrl- buildUrl();\n    // https://google.com/search?q=simpsons", 
+            "title": "Add and remove parameters"
+        }, 
+        {
+            "location": "/search-engine/google/#raw-parameters", 
+            "text": "By default parameters are encoded for urls. For instance  \"Homer Simpsons\"  will become  \"Homer+Simpsons\" \nbut  \"Homer+Simpsons\"  will become  \"Homer%2BSimpson\"      use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleUrl = new GoogleUrl();\n    $googleUrl- setParam('q', 'Homer+Simpson');\n    echo $googleUrl- buildUrl();\n    // https://google.com/search?q=Homer%2BSimpson  It's possible to deal with raw params, this way the param will be passed to the url with no additional encoding. \nThat is achieved by passing true as the third argument of  setParam .      $googleUrl = new GoogleUrl();\n    $googleUrl- setParam('q', 'Homer+Simpson', true);\n    echo $googleUrl- buildUrl();\n    // https://google.com/search?q=Homer+Simpson", 
+            "title": "Raw parameters"
+        }, 
+        {
+            "location": "/search-engine/google/#more-parameters", 
+            "text": "Some parameters are very common and for some of them we created convenient shortcuts\ncheck our  list of parameters .", 
+            "title": "More parameters"
+        }, 
+        {
+            "location": "/search-engine/google/#parsing-results", 
+            "text": "TODO", 
+            "title": "Parsing results"
+        }, 
+        {
+            "location": "/search-engine/google/#proxy-usage", 
+            "text": "You can use a proxy at the request time   Use the proxy '1.1.1.1:80'       use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n    use Serps\\SearchEngine\\Google\\GoogleUrl;\n    use Serps\\Core\\Http\\Proxy;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n    $googleUrl = new GoogleUrl();\n    $google- setSearchTerm('simpsons');\n\n    $proxy = new Proxy('1.1.1.1', 8080);\n\n    $response = $googleClient- query($googleUrl, $proxy);  Read the  proxy documentation", 
+            "title": "Proxy usage"
+        }, 
+        {
+            "location": "/search-engine/google/#solve-a-captcha", 
+            "text": "TODO", 
+            "title": "Solve a Captcha"
+        }, 
+        {
+            "location": "/search-engine/google/parameters/", 
+            "text": "Google: Search parameters\n\n\nTODO", 
+            "title": "Search Parameters"
+        }, 
+        {
+            "location": "/search-engine/google/parameters/#google-search-parameters", 
+            "text": "TODO", 
+            "title": "Google: Search parameters"
+        }, 
+        {
+            "location": "/search-engine/google/result-types/", 
+            "text": "Google: Result Types\n\n\nTODO", 
+            "title": "Result Types"
+        }, 
+        {
+            "location": "/search-engine/google/result-types/#google-result-types", 
+            "text": "TODO", 
+            "title": "Google: Result Types"
         }
     ]
 }
