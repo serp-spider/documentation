@@ -10,10 +10,10 @@ Serps - Home
 >
 > <small>[Wikipedia](https://en.wikipedia.org/wiki/Web_scraping)</small>
 
-Overview
---------
+What is it?
+-----------
 
-Serps is a set of tools that make it easy to parse **popular search engines** and to create reports.
+Serps is a set of tools that ease the parsing of **popular search engines**.
 It helps to parse **SERP** (Search Engine Result Page) and gives you a standard output of what is parsed.
 
 The problem
@@ -22,9 +22,12 @@ The problem
 Most of times search engines don't want you to parse them, and they don't offer a documentation or a standard way 
 to extract the results from the SERP.
 
-We tried to solve this problems by **analysing** how search engines behave and we give you the necessary tools to
+The solution
+------------
+
+We tried to solve this problems by **analysing** how search engines behave and we built the necessary tools to
 work with them, from the URL generation to the parsing of the results. 
-At the endpoint we give you a **standard and documented API**.
+At the endpoint we offer a **standard and documented API**.
 
 **TODO** We place additional efforts on monitoring them to make sure that our tools are always up to date.
 
@@ -33,9 +36,10 @@ Getting Started
 
 Looking forward to work with the library? 
 
-- Read our [getting started](getting-started.md).
-- Check the [available search engines](search-engines.md).
-- Get information about [proxies](proxies.md) and [http client implementations](http-clients.md).
+- Read the [overview](overview.md).
+- Check the available search engines from the top menu.
+- Get information about [http client implementations](http-client.md).
+- See how proxies work [proxies](proxies.md).
 - Work with [captcha services](captcha.md).
 
 Licensing

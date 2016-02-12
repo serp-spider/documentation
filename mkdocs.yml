@@ -1,9 +1,19 @@
 site_name: Serps - the PHP SERP Scraper
 pages:
   - Home: index.md
-  - Getting Started: getting-started.md
+  - Getting Started:
+    - Overview: overview.md
+    - Http Client: http-client.md
+    - Proxies: proxies.md
+    - Captcha: captcha.md
   - Search Engine:
-    - Google: search-engine/google.md
+    - Google:
+      - Google Client: search-engine/google.md
+      - Search Parameters: search-engine/google/parameters.md
+      - Result Types: search-engine/google/result-types.md
+
+
+
 
 repo_url: https://github.com/serp-scrape/serps
 
@@ -15,7 +25,6 @@ site_favicon: null
 
 google_analytics: null
 
-theme: yeti
 
 extra_css:
   - css/serps.css

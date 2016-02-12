@@ -1,7 +1,7 @@
-Getting Started
-===============
+Overview
+========
 
-This getting started will help you to understand how the library is built and what are its main components.
+This overview will help you to understand how the library is built and what are its main components.
 
 Install
 -------
@@ -35,7 +35,7 @@ In a regular workflow a search engine client allows to:
 
 Each **search engine** has its set of specificities and thus each search engine implementation has its own dedicated guide.
 
-Check the list of [**available search engines**](search-engines.md).
+Check the list of from the top menu.
 
 Http client
 -----------
@@ -52,7 +52,7 @@ Ussually the **search engine client** will need a http client to work correctly.
     $googleClient = new GoogleClient(new CurlClient());
 ```
 
-Check the list of [**available http clients**](http-clients.md).
+Check the list of [**available http clients**](http-client.md).
 
 
 Captcha
@@ -61,10 +61,6 @@ Captcha
 As said before, most of time search engines don't want you to parse them, additionally if you submit a lot of 
 requests to them, they might - *they will* - detect you as a bot and they will send you a **captcha** that you have
 to solve before you continue.
-
-Of course captcha are search engine dependent, but we are aware of this issue
-and we offer you a common interface to solve them. 
-
 
 
 > <sub>Example of **captcha handling**s with the google client</sub>

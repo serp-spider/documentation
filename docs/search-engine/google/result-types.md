@@ -1,0 +1,4 @@
+# Google: Result Types
+
+
+TODO
