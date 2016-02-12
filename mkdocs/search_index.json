@@ -72,13 +72,23 @@
         }, 
         {
             "location": "/search-engine/google/", 
-            "text": "Google Parser\n\n\nTODO", 
+            "text": "Google Client\n\n\nInstallation\n\n\nThe google client is available with the package \n\nserps/search-engine-google\n: \n\n\n$ composer require 'serps/search-engine-google'\n\n\nOverview\n\n\nThe google client needs an http client interface to be constructed and an url to be parsed\n\n\n\n\nOverview of querying google for the keyword 'simpsons' and getting the natural results\n\n\n\n\n    use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n    use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n    $googleUrl = new GoogleUrl();\n    $google-\nsetSearchTerm('simpsons');\n\n    $response = $googleClient-\nquery($googleUrl);\n\n    $results = $response-\ngetNaturalResults();\n\n    foreach($results as $result){\n        $resultTitle = $result-\ngetDataValue('title');\n    }\n\n\n\n\nTODO", 
             "title": "Google"
         }, 
         {
-            "location": "/search-engine/google/#google-parser", 
-            "text": "TODO", 
-            "title": "Google Parser"
+            "location": "/search-engine/google/#google-client", 
+            "text": "", 
+            "title": "Google Client"
+        }, 
+        {
+            "location": "/search-engine/google/#installation", 
+            "text": "The google client is available with the package  serps/search-engine-google :   $ composer require 'serps/search-engine-google'", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/search-engine/google/#overview", 
+            "text": "The google client needs an http client interface to be constructed and an url to be parsed   Overview of querying google for the keyword 'simpsons' and getting the natural results       use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n    use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    $googleClient = new GoogleClient(new CurlClient());\n\n    $googleUrl = new GoogleUrl();\n    $google- setSearchTerm('simpsons');\n\n    $response = $googleClient- query($googleUrl);\n\n    $results = $response- getNaturalResults();\n\n    foreach($results as $result){\n        $resultTitle = $result- getDataValue('title');\n    }  TODO", 
+            "title": "Overview"
         }
     ]
 }

@@ -113,15 +113,46 @@
             <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#google-parser">Google Parser</a></li>
+        <li class="main active"><a href="#google-client">Google Client</a></li>
+        
+            <li><a href="#installation">Installation</a></li>
+        
+            <li><a href="#overview">Overview</a></li>
         
     
     </ul>
 </div></div>
             <div class="col-md-9" role="main">
 
-<h1 id="google-parser">Google Parser</h1>
-<p>TODO</p></div>
+<h1 id="google-client">Google Client</h1>
+<h2 id="installation">Installation</h2>
+<p>The google client is available with the package 
+<a href="https://packagist.org/packages/serps/search-engine-google">serps/search-engine-google</a>: </p>
+<p><code>$ composer require 'serps/search-engine-google'</code></p>
+<h2 id="overview">Overview</h2>
+<p>The google client needs an http client interface to be constructed and an url to be parsed</p>
+<blockquote>
+<p><sub>Overview of querying google for the keyword 'simpsons' and getting the natural results</sub></p>
+</blockquote>
+<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
+    use Serps\HttpClient\CurlClient;
+    use Serps\SearchEngine\Google\GoogleUrl;
+
+    $googleClient = new GoogleClient(new CurlClient());
+
+    $googleUrl = new GoogleUrl();
+    $google-&gt;setSearchTerm('simpsons');
+
+    $response = $googleClient-&gt;query($googleUrl);
+
+    $results = $response-&gt;getNaturalResults();
+
+    foreach($results as $result){
+        $resultTitle = $result-&gt;getDataValue('title');
+    }
+</code></pre>
+
+<p><strong>TODO</strong></p></div>
         </div>
 
         <footer class="col-md-12">
