@@ -77,13 +77,18 @@
         }, 
         {
             "location": "/http-client/", 
-            "text": "Http Client\n\n\nTODO", 
+            "text": "Http Client\n\n\nAn Http client is required in order to query the search engine.\n\n\nThis is the list of the officially supported http clients:\n\n\n\n\nCURL\n\n\nphantomJS\n\n\n\n\nImplement your http client\n\n\nTODO", 
             "title": "Http Client"
         }, 
         {
             "location": "/http-client/#http-client", 
-            "text": "TODO", 
+            "text": "An Http client is required in order to query the search engine.  This is the list of the officially supported http clients:   CURL  phantomJS", 
             "title": "Http Client"
+        }, 
+        {
+            "location": "/http-client/#implement-your-http-client", 
+            "text": "TODO", 
+            "title": "Implement your http client"
         }, 
         {
             "location": "/proxies/", 
@@ -194,6 +199,41 @@
             "location": "/search-engine/google/result-types/#google-result-types", 
             "text": "TODO", 
             "title": "Google: Result Types"
+        }, 
+        {
+            "location": "/http-client/curl/", 
+            "text": "Curl HTTP Client\n\n\nTODO", 
+            "title": "CURL"
+        }, 
+        {
+            "location": "/http-client/curl/#curl-http-client", 
+            "text": "TODO", 
+            "title": "Curl HTTP Client"
+        }, 
+        {
+            "location": "/http-client/phantomJS/", 
+            "text": "PhantomJS HTTP Client\n\n\nPhantomJS\n is a webkit implementation that helps to simulate the real browser.\nBy using this client you will execute the inner javascript code and make the DOM as real as in the true browser,\nthat can be required for some search engines to work properly.\n\n\n\n\nImportant notice\n\n\nWhen you use phantomJS client and you submit a request from it the resulting DOM \nmight be different of the source code returned by a server because\njavascript is executed before returning the DOM.\n\n\n\n\nInstallation\n\n\nThe client is available with the package \n\nserps/http-client-phantomjs\n: \n\n\n$ composer require 'serps/http-client-phantomjs'\n\n\nAdditional requirement\n\n\nPhantomJS\n bianries have to be installed\n to use the client. The process for installing\nit depends on your environment, you will find further guides on the internet.\n\n\nThe package \njakoch/phantomjs-installer\n \ncan help you to manage phantomJS as a dependency of your project.\n\n\nUsage\n\n\nuse Serps\\HttpClient\\PhantomJsClient;\n\n// The client needs the path to the binary.\n// By default it will use 'phantomjs'\n$client = new PhantomJsClient(__DIR__ . '/bin/phantomjs');\n\n// you can optionally add a proxy as a second parameter \n$response = $client-\nquery($request);", 
+            "title": "PhantomJS"
+        }, 
+        {
+            "location": "/http-client/phantomJS/#phantomjs-http-client", 
+            "text": "PhantomJS  is a webkit implementation that helps to simulate the real browser.\nBy using this client you will execute the inner javascript code and make the DOM as real as in the true browser,\nthat can be required for some search engines to work properly.   Important notice  When you use phantomJS client and you submit a request from it the resulting DOM \nmight be different of the source code returned by a server because\njavascript is executed before returning the DOM.", 
+            "title": "PhantomJS HTTP Client"
+        }, 
+        {
+            "location": "/http-client/phantomJS/#installation", 
+            "text": "The client is available with the package  serps/http-client-phantomjs :   $ composer require 'serps/http-client-phantomjs'", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/http-client/phantomJS/#additional-requirement", 
+            "text": "PhantomJS  bianries have to be installed  to use the client. The process for installing\nit depends on your environment, you will find further guides on the internet.  The package  jakoch/phantomjs-installer  \ncan help you to manage phantomJS as a dependency of your project.", 
+            "title": "Additional requirement"
+        }, 
+        {
+            "location": "/http-client/phantomJS/#usage", 
+            "text": "use Serps\\HttpClient\\PhantomJsClient;\n\n// The client needs the path to the binary.\n// By default it will use 'phantomjs'\n$client = new PhantomJsClient(__DIR__ . '/bin/phantomjs');\n\n// you can optionally add a proxy as a second parameter \n$response = $client- query($request);", 
+            "title": "Usage"
         }
     ]
 }

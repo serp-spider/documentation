@@ -7,15 +7,15 @@
         
         
         
-        <link rel="shortcut icon" href="../img/favicon.ico">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
 
-	<title>Captcha - The PHP SERP Scraper</title>
+	<title>PhantomJS - The PHP SERP Scraper</title>
 
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="../css/highlight.css">
-        <link href="../css/serps.css" rel="stylesheet">
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
+        <link href="../../css/serps.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -44,7 +44,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href="..">The PHP SERP Scraper</a>
+            <a class="navbar-brand" href="../..">The PHP SERP Scraper</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -55,36 +55,36 @@
                 
                 
                     <li >
-                        <a href="..">Home</a>
+                        <a href="../..">Home</a>
                     </li>
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../overview/">Overview</a>
+    <a href="../../overview/">Overview</a>
 </li>
 
                         
                             
 <li >
-    <a href="../http-client/">Http Client</a>
+    <a href="../">Http Client</a>
 </li>
 
                         
                             
 <li >
-    <a href="../proxies/">Proxies</a>
+    <a href="../../proxies/">Proxies</a>
 </li>
 
                         
                             
-<li class="active">
-    <a href="./">Captcha</a>
+<li >
+    <a href="../../captcha/">Captcha</a>
 </li>
 
                         
@@ -104,19 +104,19 @@
         
             
 <li >
-    <a href="../search-engine/google/">Google Client</a>
+    <a href="../../search-engine/google/">Google Client</a>
 </li>
 
         
             
 <li >
-    <a href="../search-engine/google/parameters/">Search Parameters</a>
+    <a href="../../search-engine/google/parameters/">Search Parameters</a>
 </li>
 
         
             
 <li >
-    <a href="../search-engine/google/result-types/">Result Types</a>
+    <a href="../../search-engine/google/result-types/">Result Types</a>
 </li>
 
         
@@ -129,19 +129,19 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Http Clients <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../http-client/curl/">CURL</a>
+    <a href="../curl/">CURL</a>
 </li>
 
                         
                             
-<li >
-    <a href="../http-client/phantomJS/">PhantomJS</a>
+<li class="active">
+    <a href="./">PhantomJS</a>
 </li>
 
                         
@@ -160,12 +160,12 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../proxies/">
+                        <a rel="next" href="../curl/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
-                    <li >
-                        <a rel="prev" href="../search-engine/google/">
+                    <li class="disabled">
+                        <a rel="prev" >
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -190,15 +190,46 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#captcha">Captcha</a></li>
+        <li class="main active"><a href="#phantomjs-http-client">PhantomJS HTTP Client</a></li>
+        
+            <li><a href="#installation">Installation</a></li>
+        
+            <li><a href="#usage">Usage</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="captcha">Captcha</h1>
-<p>TODO</p></div>
+<h1 id="phantomjs-http-client">PhantomJS HTTP Client</h1>
+<p><a href="http://phantomjs.org/">PhantomJS</a> is a webkit implementation that helps to simulate the real browser.
+By using this client you will execute the inner javascript code and make the DOM as real as in the true browser,
+that can be required for some search engines to work properly.</p>
+<blockquote>
+<p><sub><strong>Important notice</strong></sub></p>
+<p><cite>When you use phantomJS client and you submit a request from it the resulting DOM 
+might be different of the source code returned by a server because
+javascript is executed before returning the DOM.</cite></p>
+</blockquote>
+<h2 id="installation">Installation</h2>
+<p>The client is available with the package 
+<a href="https://packagist.org/packages/serps/http-client-phantomjs">serps/http-client-phantomjs</a>: </p>
+<p><code>$ composer require 'serps/http-client-phantomjs'</code></p>
+<h3 id="additional-requirement">Additional requirement</h3>
+<p><strong><a href="http://phantomjs.org/">PhantomJS</a> bianries have to be installed</strong> to use the client. The process for installing
+it depends on your environment, you will find further guides on the internet.</p>
+<p>The package <a href="https://github.com/jakoch/phantomjs-installer">jakoch/phantomjs-installer</a> 
+can help you to manage phantomJS as a dependency of your project.</p>
+<h2 id="usage">Usage</h2>
+<pre><code class="php">use Serps\HttpClient\PhantomJsClient;
+
+// The client needs the path to the binary.
+// By default it will use 'phantomjs'
+$client = new PhantomJsClient(__DIR__ . '/bin/phantomjs');
+
+// you can optionally add a proxy as a second parameter 
+$response = $client-&gt;query($request);
+</code></pre></div>
             
         </div>
 
@@ -208,12 +239,12 @@
             <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
         </footer>
 
-        <script src="../js/jquery-1.10.2.min.js"></script>
-        <script src="../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../js/highlight.pack.js"></script>
-        <script>var base_url = '..';</script>
-        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
-        <script src="../js/base.js"></script>
+        <script src="../../js/jquery-1.10.2.min.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
+        <script src="../../js/base.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
             <div class="modal-dialog">
