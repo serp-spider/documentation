@@ -1,4 +1,4 @@
-site_name: Serps - the PHP SERP Scraper
+site_name: The PHP SERP Scraper
 pages:
   - Home: index.md
   - Getting Started:
@@ -12,13 +12,17 @@ pages:
       - Search Parameters: search-engine/google/parameters.md
       - Result Types: search-engine/google/result-types.md
 
+  - Http Clients:
+      - CURL: http-client/curl.md
+      - PhantomJS: http-client/phantomJS.md
+
 
 
 
 repo_url: https://github.com/serp-scrape/serps
 
 site_description: >
-  SERPS is SERP Scraper for php.
+  SERPS is a SERP Scraper for php.
   It offers a set of tools to manipulate and parse popular search engines such as Google, Yahoo, Bing...
 
 site_favicon: null
