@@ -147,7 +147,13 @@ check our [list of parameters](google/parameters.md).
 Parsing results
 ---------------
 
-**TODO**
+The library is responsible for parsing the page and outputting a standard result set.
+
+A page can return different kind of results. For convenience the standard result types
+have been listed on their own page.
+
+[**View list of results**](google/parse-page.md)
+
 
 Proxy usage
 -----------

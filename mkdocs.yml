@@ -10,7 +10,7 @@ pages:
     - Google:
       - Google Client: search-engine/google.md
       - Search Parameters: search-engine/google/parameters.md
-      - Result Types: search-engine/google/result-types.md
+      - Parse a Page: search-engine/google/parse-page.md
 
   - Http Clients:
       - CURL: http-client/curl.md
