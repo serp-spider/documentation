@@ -9,7 +9,7 @@
         
         <link rel="shortcut icon" href="../../../img/favicon.ico">
 
-	<title>Result Types - The PHP SERP Scraper</title>
+	<title>Parse a Page - The PHP SERP Scraper</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome-4.5.0.css" rel="stylesheet">
@@ -116,7 +116,7 @@
         
             
 <li class="active">
-    <a href="./">Result Types</a>
+    <a href="./">Parse a Page</a>
 </li>
 
         
@@ -190,15 +190,147 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#google-result-types">Google: Result Types</a></li>
+        <li class="main active"><a href="#google-parse-a-page">Google: Parse a Page</a></li>
+        
+    
+        <li class="main "><a href="#natural-results">Natural Results</a></li>
+        
+            <li><a href="#natural-result-types">Natural Result Types</a></li>
+        
+            <li><a href="#classical">Classical</a></li>
+        
+            <li><a href="#classical-video">Classical Video</a></li>
+        
+    
+        <li class="main "><a href="#adwords-results">Adwords Results</a></li>
+        
+    
+        <li class="main "><a href="#related-searches">Related searches</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="google-result-types">Google: Result Types</h1>
-<p>TODO</p></div>
+<h1 id="google-parse-a-page">Google: Parse a Page</h1>
+<p>A google SERP can contains different type of result.</p>
+<p><img alt="Classical Results" src="../images/serp.png" /></p>
+<p>Firstly they are divided in three distinct regions: natural (organic), paid (adwords) and graph results and each of them
+has its own results types.</p>
+<p>Through there is a great diversity of results the library gives you the api to work with them, here we explain
+what are their differences.</p>
+<h1 id="natural-results">Natural Results</h1>
+<p>Natural results (aka organic results) are main results of the page.</p>
+<p>Each natural result has a position and some available data. You can access them the following way (see the foreach loop):</p>
+<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
+    use Serps\SearchEngine\Google\GoogleUrl;
+
+    $googleClient = new GoogleClient($httpClient);
+
+    $googleUrl = new GoogleUrl();
+    $google-&gt;setSearchTerm('simpsons');
+
+    $response = $googleClient-&gt;query($googleUrl);
+
+    $results = $response-&gt;getNaturalResults();
+
+    foreach($results as $result){
+        // Here we iterate over the result list
+        // Each result will have different data based on its type
+    }
+</code></pre>
+
+<p>Each of the result from the loop will have the following methods available:</p>
+<ul>
+<li><code>getType()</code>: the type of the result</li>
+<li><code>is($type)</code>: check if the result is of the given type</li>
+<li><code>getDataValue($type)</code>: Get the given data from the result</li>
+<li><code>getData()</code>: Get the all the data of the result</li>
+<li><code>getOnPagePosition()</code>: Get the position of the result on the page (not aware of the pagination)</li>
+<li><code>getRealPosition()</code>: Get the global position of the result (aware of the pagination)</li>
+</ul>
+<p>The difference between each result type is the list of data available with <code>getDataValue($type)</code> and <code>getData()</code>.
+See bellow for all available data per result type.</p>
+<h2 id="natural-result-types">Natural Result Types</h2>
+<p><strong>Result types</strong> can be accessed through the class <code>NaturalResultType</code>,
+thus there are 2 ways to compare a result type</p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+    // 1. compare a single result type
+    if($result-&gt;is(NaturalResultType::CLASSICAL)){}
+
+    // 2. compare many result types with a switch
+    switch($result-&gt;getType()){
+        case NaturalResultType::CLASSICAL:
+            // ...
+            break;
+        case NaturalResultType::IMAGE_GROUP:
+            // ...
+            break;
+    }
+</code></pre>
+
+<p>From the <strong>resultSet</strong> you can also access all the results matching the given type:</p>
+<pre><code class="php">
+    // Get all the results that are either classical or image_group
+    $results = $results-&gt;getResultsByType(NaturalResultType::CLASSICAL, NaturalResultType::IMAGE_GROUP);
+
+</code></pre>
+
+<h2 id="classical">Classical</h2>
+<p>These results are the common natural results that have always existed in google.</p>
+<p><img alt="Classical Results" src="../images/result-types/classical.png" /></p>
+<p><strong>Available with</strong></p>
+<ul>
+<li><code>NaturalResultType::CLASSICAL</code></li>
+</ul>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>title</code> <small><strong>string</strong></small> [<strong>A</strong>]</li>
+<li><code>url</code> <small><strong>string</strong></small>: the url targeted on clicking the title</li>
+<li><code>destination</code> <small><strong>string</strong></small> [<strong>B</strong>]: either a url or a breadcrumb-like destination</li>
+<li><code>description</code> <small><strong>string</strong></small> [<strong>C</strong>]</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+    if($result-&gt;is(ResultType::CLASSICAL)){
+        $title = $result-&gt;getData('title');
+        $url   = $result-&gt;getData('url');
+    }
+</code></pre>
+
+<h2 id="classical-video">Classical Video</h2>
+<p>This type of result is very similar with the classical result, but it refers to a video result.</p>
+<p>The video result can be illustrated with either a thumbnail or a large image.</p>
+<p>These results are the common natural results that have always existed in google.</p>
+<p><img alt="Classical Results" src="../images/result-types/classical_video.png" /></p>
+<p><strong>Available with</strong></p>
+<ul>
+<li><code>NaturalResultType::CLASSICAL_VIDEO</code></li>
+</ul>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>title</code> <small><strong>string</strong></small> [<strong>A</strong>]</li>
+<li><code>url</code> <small><strong>string</strong></small>: the url targeted on clicking the title</li>
+<li><code>destination</code> <small><strong>string</strong></small> [<strong>B</strong>]: either a url or a breadcrumb-like destination</li>
+<li><code>description</code> <small><strong>string</strong></small> [<strong>C</strong>]</li>
+<li><code>videoLarge</code> <small><strong>bool</strong></small>: true if the video is image is large (usually first result)</li>
+<li><code>videoCover</code> <small><strong>string</strong></small>: the video picture as given by google (usually a base64 encoded image)</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+    if($result-&gt;is(ResultType::CLASSICAL_VIDEO)){
+        $title = $result-&gt;getData('title');
+        if($result-&gt;getData('videoLarge'){
+            // ...
+        }
+    }
+</code></pre>
+
+<h1 id="adwords-results">Adwords Results</h1>
+<h1 id="related-searches">Related searches</h1></div>
             
         </div>
 
