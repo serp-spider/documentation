@@ -37,7 +37,7 @@ Each natural result has a position and some available data. You can access them 
 
 Each of the result from the loop will have the following methods available:
 
-- ``getType()``: the type of the result
+- ``getTypes()``: the types of the result
 - ``is($type)``: check if the result is of the given type
 - ``getDataValue($type)``: Get the given data from the result
 - ``getData()``: Get the all the data of the result
@@ -47,27 +47,24 @@ Each of the result from the loop will have the following methods available:
 The difference between each result type is the list of data available with ``getDataValue($type)`` and ``getData()``.
 See bellow for all available data per result type.
 
-
 ## Natural Result Types
 
 **Result types** can be accessed through the class ``NaturalResultType``,
-thus there are 2 ways to compare a result type
 
 ```php
     use Serps\SearchEngine\Google\NaturalResultType;
 
-    // 1. compare a single result type
-    if($result->is(NaturalResultType::CLASSICAL)){}
-
-    // 2. compare many result types with a switch
-    switch($result->getType()){
-        case NaturalResultType::CLASSICAL:
-            // ...
-            break;
-        case NaturalResultType::IMAGE_GROUP:
-            // ...
-            break;
+    if($result->is(NaturalResultType::CLASSICAL)){
+        // Do stuff
     }
+
+    // You can also check many types at once
+    // Here we check if the result is classical or image group
+
+    if($result->is(NaturalResultType::CLASSICAL, NaturalResultType::IMAGE_GROUP)){
+        // Do stuff
+    }
+
 ```
 
 From the **resultSet** you can also access all the results matching the given type:
@@ -112,11 +109,9 @@ These results are the common natural results that have always existed in google.
 
 ## Classical Video
 
-This type of result is very similar with the classical result, but it refers to a video result.
+This type an extension of the [classical result](#classical), but it refers to a video result.
 
 The video result can be illustrated with either a thumbnail or a large image.
-
-These results are the common natural results that have always existed in google.
 
 ![Classical Results](images/result-types/classical_video.png)
 
@@ -124,6 +119,7 @@ These results are the common natural results that have always existed in google.
 **Available with**
 
 - ``NaturalResultType::CLASSICAL_VIDEO``
+- ``NaturalResultType::CLASSICAL``
 
 **Data**
 
@@ -132,7 +128,7 @@ These results are the common natural results that have always existed in google.
 - ``destination`` <small>**string**</small> [**B**]: either a url or a breadcrumb-like destination
 - ``description`` <small>**string**</small> [**C**]
 - ``videoLarge`` <small>**bool**</small>: true if the video is image is large (usually first result)
-- ``videoCover`` <small>**string**</small>: the video picture as given by google (usually a base64 encoded image)
+- ``videoCover`` <small>**string**</small>: the video picture as given by google - either an image url or a base64 encoded image
 
 **Example**
 
