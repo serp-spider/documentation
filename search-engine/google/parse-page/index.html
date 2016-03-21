@@ -242,7 +242,7 @@ what are their differences.</p>
 
 <p>Each of the result from the loop will have the following methods available:</p>
 <ul>
-<li><code>getType()</code>: the type of the result</li>
+<li><code>getTypes()</code>: the types of the result</li>
 <li><code>is($type)</code>: check if the result is of the given type</li>
 <li><code>getDataValue($type)</code>: Get the given data from the result</li>
 <li><code>getData()</code>: Get the all the data of the result</li>
@@ -252,22 +252,20 @@ what are their differences.</p>
 <p>The difference between each result type is the list of data available with <code>getDataValue($type)</code> and <code>getData()</code>.
 See bellow for all available data per result type.</p>
 <h2 id="natural-result-types">Natural Result Types</h2>
-<p><strong>Result types</strong> can be accessed through the class <code>NaturalResultType</code>,
-thus there are 2 ways to compare a result type</p>
+<p><strong>Result types</strong> can be accessed through the class <code>NaturalResultType</code>,</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
 
-    // 1. compare a single result type
-    if($result-&gt;is(NaturalResultType::CLASSICAL)){}
-
-    // 2. compare many result types with a switch
-    switch($result-&gt;getType()){
-        case NaturalResultType::CLASSICAL:
-            // ...
-            break;
-        case NaturalResultType::IMAGE_GROUP:
-            // ...
-            break;
+    if($result-&gt;is(NaturalResultType::CLASSICAL)){
+        // Do stuff
     }
+
+    // You can also check many types at once
+    // Here we check if the result is classical or image group
+
+    if($result-&gt;is(NaturalResultType::CLASSICAL, NaturalResultType::IMAGE_GROUP)){
+        // Do stuff
+    }
+
 </code></pre>
 
 <p>From the <strong>resultSet</strong> you can also access all the results matching the given type:</p>
@@ -301,13 +299,13 @@ thus there are 2 ways to compare a result type</p>
 </code></pre>
 
 <h2 id="classical-video">Classical Video</h2>
-<p>This type of result is very similar with the classical result, but it refers to a video result.</p>
+<p>This type an extension of the <a href="#classical">classical result</a>, but it refers to a video result.</p>
 <p>The video result can be illustrated with either a thumbnail or a large image.</p>
-<p>These results are the common natural results that have always existed in google.</p>
 <p><img alt="Classical Results" src="../images/result-types/classical_video.png" /></p>
 <p><strong>Available with</strong></p>
 <ul>
 <li><code>NaturalResultType::CLASSICAL_VIDEO</code></li>
+<li><code>NaturalResultType::CLASSICAL</code></li>
 </ul>
 <p><strong>Data</strong></p>
 <ul>
@@ -316,7 +314,7 @@ thus there are 2 ways to compare a result type</p>
 <li><code>destination</code> <small><strong>string</strong></small> [<strong>B</strong>]: either a url or a breadcrumb-like destination</li>
 <li><code>description</code> <small><strong>string</strong></small> [<strong>C</strong>]</li>
 <li><code>videoLarge</code> <small><strong>bool</strong></small>: true if the video is image is large (usually first result)</li>
-<li><code>videoCover</code> <small><strong>string</strong></small>: the video picture as given by google (usually a base64 encoded image)</li>
+<li><code>videoCover</code> <small><strong>string</strong></small>: the video picture as given by google - either an image url or a base64 encoded image</li>
 </ul>
 <p><strong>Example</strong></p>
 <pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
