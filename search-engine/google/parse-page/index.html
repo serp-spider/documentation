@@ -294,9 +294,9 @@ See bellow for all available data per result type.</p>
 <p><strong>Example</strong></p>
 <pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
 
-    if($result-&gt;is(ResultType::CLASSICAL)){
-        $title = $result-&gt;getData('title');
-        $url   = $result-&gt;getData('url');
+    if($result-&gt;is(NaturalResultType::CLASSICAL)){
+        $title = $result-&gt;getDataValue('title');
+        $url   = $result-&gt;getDataValue('url');
     }
 </code></pre>
 
@@ -321,9 +321,9 @@ See bellow for all available data per result type.</p>
 <p><strong>Example</strong></p>
 <pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
 
-    if($result-&gt;is(ResultType::CLASSICAL_VIDEO)){
-        $title = $result-&gt;getData('title');
-        if($result-&gt;getData('videoLarge'){
+    if($result-&gt;is(NaturalResultType::CLASSICAL_VIDEO)){
+        $title = $result-&gt;getDataValue('title');
+        if($result-&gt;getDataValue('videoLarge'){
             // ...
         }
     }
@@ -349,10 +349,9 @@ See bellow for all available data per result type.</p>
 <p><strong>Example</strong></p>
 <pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
 
-    if($result-&gt;is(ResultType::CLASSICAL_VIDEO)){
-        $title = $result-&gt;getData('title');
-        if($result-&gt;getData('videoLarge'){
-            // ...
+    if($result-&gt;is(NaturalResultType::IMAGE_GROUP)){
+        foreach($result-&gt;getDataValue('image') as $image){
+            $sourceUrl = $image-&gt;getDataValue('sourceUrl');
         }
     }
 </code></pre>
