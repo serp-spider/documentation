@@ -215,7 +215,7 @@
 <a href="https://packagist.org/packages/serps/search-engine-google">serps/search-engine-google</a>: </p>
 <p><code>$ composer require 'serps/search-engine-google'</code></p>
 <h2 id="overview">Overview</h2>
-<p>The google client needs an http client interface to be constructed and an url to be parsed</p>
+<p>The google client needs a http client interface to be constructed and an url to be parsed</p>
 <blockquote>
 <p><sub>Overview of querying google for the keyword 'simpsons' and getting the natural results</sub></p>
 </blockquote>
@@ -223,8 +223,10 @@
     use Serps\HttpClient\CurlClient;
     use Serps\SearchEngine\Google\GoogleUrl;
 
+    // Create a google client using the curl http client
     $googleClient = new GoogleClient(new CurlClient());
 
+    // Create the url that will be parsed
     $googleUrl = new GoogleUrl();
     $google-&gt;setSearchTerm('simpsons');
 
@@ -233,7 +235,7 @@
     $results = $response-&gt;getNaturalResults();
 
     foreach($results as $result){
-        $resultTitle = $result-&gt;getDataValue('title');
+        // Do stuff
     }
 </code></pre>
 

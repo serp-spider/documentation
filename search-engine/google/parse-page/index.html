@@ -215,7 +215,7 @@
                 <div class="col-md-9" role="main">
 
 <h1 id="google-parse-a-page">Google: Parse a Page</h1>
-<p>A google SERP can contains different type of result.</p>
+<p>A google SERP can contain different type of result.</p>
 <p><img alt="Classical Results" src="../images/serp.png" /></p>
 <p>Firstly they are divided in three distinct regions: natural (organic), paid (adwords) and graph results and each of them
 has its own results types.</p>
@@ -330,7 +330,7 @@ See bellow for all available data per result type.</p>
 </code></pre>
 
 <h2 id="image-group">Image Group</h2>
-<p>A group of images that appear among other results.</p>
+<p>Images that appear as a group of results.</p>
 <p><img alt="Classical Results" src="../images/result-types/image_group.png" /></p>
 <p><strong>Available with</strong></p>
 <ul>
@@ -350,7 +350,7 @@ See bellow for all available data per result type.</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
 
     if($result-&gt;is(NaturalResultType::IMAGE_GROUP)){
-        foreach($result-&gt;getDataValue('image') as $image){
+        foreach($result-&gt;getDataValue('images') as $image){
             $sourceUrl = $image-&gt;getDataValue('sourceUrl');
         }
     }
