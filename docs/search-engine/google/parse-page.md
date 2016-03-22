@@ -101,9 +101,9 @@ These results are the common natural results that have always existed in google.
 ```php
     use Serps\SearchEngine\Google\NaturalResultType;
 
-    if($result->is(ResultType::CLASSICAL)){
-        $title = $result->getData('title');
-        $url   = $result->getData('url');
+    if($result->is(NaturalResultType::CLASSICAL)){
+        $title = $result->getDataValue('title');
+        $url   = $result->getDataValue('url');
     }
 ```
 
@@ -135,9 +135,9 @@ The video result can be illustrated with either a thumbnail or a large image.
 ```php
     use Serps\SearchEngine\Google\NaturalResultType;
 
-    if($result->is(ResultType::CLASSICAL_VIDEO)){
-        $title = $result->getData('title');
-        if($result->getData('videoLarge'){
+    if($result->is(NaturalResultType::CLASSICAL_VIDEO)){
+        $title = $result->getDataValue('title');
+        if($result->getDataValue('videoLarge'){
             // ...
         }
     }
@@ -169,10 +169,9 @@ A group of images that appear among other results.
 ```php
     use Serps\SearchEngine\Google\NaturalResultType;
 
-    if($result->is(ResultType::CLASSICAL_VIDEO)){
-        $title = $result->getData('title');
-        if($result->getData('videoLarge'){
-            // ...
+    if($result->is(NaturalResultType::IMAGE_GROUP)){
+        foreach($result->getDataValue('image') as $image){
+            $sourceUrl = $image->getDataValue('sourceUrl');
         }
     }
 ```
