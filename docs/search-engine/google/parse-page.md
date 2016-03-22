@@ -144,6 +144,40 @@ The video result can be illustrated with either a thumbnail or a large image.
 ```
 
 
+## Image Group
+
+A group of images that appear among other results.
+
+
+![Classical Results](images/result-types/image_group.png)
+
+
+**Available with**
+
+- ``NaturalResultType::IMAGE_GROUP``
+
+**Data**
+
+- ``images`` <small>**array**</small>: the list of images that compose the image group, each image contains:
+    - ``sourceUrl`` <small>**Url**</small>: the url where the image was found
+    - ``targetUrl``<small>**Url**</small>: the url reached on clicking the image
+    - ``image`` <small>**string**</small>: the image data as specified by google (either an image url or a base64 encoded image)
+- ``moreUrl`` <small>**Url**</small>: The url corresponding to the google image search
+
+**Example**
+
+```php
+    use Serps\SearchEngine\Google\NaturalResultType;
+
+    if($result->is(ResultType::CLASSICAL_VIDEO)){
+        $title = $result->getData('title');
+        if($result->getData('videoLarge'){
+            // ...
+        }
+    }
+```
+
+
 
 
 
