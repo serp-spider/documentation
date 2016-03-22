@@ -146,7 +146,7 @@ The video result can be illustrated with either a thumbnail or a large image.
 
 ## Image Group
 
-A group of images that appear among other results.
+Images that appear as a group of results.
 
 
 ![Classical Results](images/result-types/image_group.png)
