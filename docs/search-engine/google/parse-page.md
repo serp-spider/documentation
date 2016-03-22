@@ -170,7 +170,7 @@ A group of images that appear among other results.
     use Serps\SearchEngine\Google\NaturalResultType;
 
     if($result->is(NaturalResultType::IMAGE_GROUP)){
-        foreach($result->getDataValue('image') as $image){
+        foreach($result->getDataValue('images') as $image){
             $sourceUrl = $image->getDataValue('sourceUrl');
         }
     }
