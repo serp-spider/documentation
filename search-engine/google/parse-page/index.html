@@ -201,6 +201,8 @@
         
             <li><a href="#classical-video">Classical Video</a></li>
         
+            <li><a href="#image-group">Image Group</a></li>
+        
     
         <li class="main "><a href="#adwords-results">Adwords Results</a></li>
         
@@ -315,6 +317,34 @@ See bellow for all available data per result type.</p>
 <li><code>description</code> <small><strong>string</strong></small> [<strong>C</strong>]</li>
 <li><code>videoLarge</code> <small><strong>bool</strong></small>: true if the video is image is large (usually first result)</li>
 <li><code>videoCover</code> <small><strong>string</strong></small>: the video picture as given by google - either an image url or a base64 encoded image</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+    if($result-&gt;is(ResultType::CLASSICAL_VIDEO)){
+        $title = $result-&gt;getData('title');
+        if($result-&gt;getData('videoLarge'){
+            // ...
+        }
+    }
+</code></pre>
+
+<h2 id="image-group">Image Group</h2>
+<p>A group of images that appear among other results.</p>
+<p><img alt="Classical Results" src="../images/result-types/image_group.png" /></p>
+<p><strong>Available with</strong></p>
+<ul>
+<li><code>NaturalResultType::IMAGE_GROUP</code></li>
+</ul>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>images</code> <small><strong>array</strong></small>: the list of images that compose the image group, each image contains:<ul>
+<li><code>sourceUrl</code> <small><strong>Url</strong></small>: the url where the image was found</li>
+<li><code>targetUrl</code><small><strong>Url</strong></small>: the url reached on clicking the image</li>
+<li><code>image</code> <small><strong>string</strong></small>: the image data as specified by google (either an image url or a base64 encoded image)</li>
+</ul>
+</li>
+<li><code>moreUrl</code> <small><strong>Url</strong></small>: The url corresponding to the google image search</li>
 </ul>
 <p><strong>Example</strong></p>
 <pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
