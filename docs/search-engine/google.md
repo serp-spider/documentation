@@ -12,7 +12,7 @@ The google client is available with the package
 Overview
 --------
 
-The google client needs an http client interface to be constructed and an url to be parsed
+The google client needs a http client interface to be constructed and an url to be parsed
 
 > <sub>Overview of querying google for the keyword 'simpsons' and getting the natural results</sub>
 
@@ -21,8 +21,10 @@ The google client needs an http client interface to be constructed and an url to
     use Serps\HttpClient\CurlClient;
     use Serps\SearchEngine\Google\GoogleUrl;
 
+    // Create a google client using the curl http client
     $googleClient = new GoogleClient(new CurlClient());
-    
+
+    // Create the url that will be parsed
     $googleUrl = new GoogleUrl();
     $google->setSearchTerm('simpsons');
     
@@ -31,7 +33,7 @@ The google client needs an http client interface to be constructed and an url to
     $results = $response->getNaturalResults();
     
     foreach($results as $result){
-        $resultTitle = $result->getDataValue('title');
+        // Do stuff
     }
 ```
 

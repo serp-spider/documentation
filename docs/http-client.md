@@ -1,7 +1,7 @@
 Http Client
 ===========
 
-An Http client is required in order to query the search engine.
+A Http client is required in order to query the search engine.
 
 
 This is the list of the officially supported http clients:

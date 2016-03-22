@@ -1,6 +1,6 @@
 # Google: Parse a Page
 
-A google SERP can contains different type of result.
+A google SERP can contain different type of result.
 
 ![Classical Results](images/serp.png)
 

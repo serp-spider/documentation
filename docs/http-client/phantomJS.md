@@ -38,6 +38,8 @@ use Serps\HttpClient\PhantomJsClient;
 // By default it will use 'phantomjs'
 $client = new PhantomJsClient(__DIR__ . '/bin/phantomjs');
 
-// you can optionally add a proxy as a second parameter 
 $response = $client->query($request);
+
+// you can optionally add a proxy and a cookie as a second and third parameters
+$response = $client->query($request, $proxy, $cookieJar);
 ```
