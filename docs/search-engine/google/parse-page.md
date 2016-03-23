@@ -209,7 +209,7 @@ A result illustrated by a map and that contains sub-results.
     - ``title`` <small>**string**</small> **[A]**: Name of the place
     - ``url``<small>**Url**</small> **[B]**: Website of the sub-result
     - ``street`` <small>**string**</small> **[C]**: The address of the sub-result
-    - ``stars`` <small>**float**</small> **[D]**: The rating of the result as a number
+    - ``stars`` <small>**string**</small> **[D]**: The rating of the result as a number
     - ``review`` <small>**string**</small> **[E]**: the review string as specified by google (e.g '1 review')
 - ``mapUrl`` <small>**Url**</small> **[F]**: the url to access the map search
 
