@@ -203,6 +203,8 @@
         
             <li><a href="#image-group">Image Group</a></li>
         
+            <li><a href="#map">Map</a></li>
+        
     
         <li class="main "><a href="#adwords-results">Adwords Results</a></li>
         
@@ -294,16 +296,20 @@ See bellow for all available data per result type.</p>
 <p><strong>Example</strong></p>
 <pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
 
-    if($result-&gt;is(NaturalResultType::CLASSICAL)){
-        $title = $result-&gt;getDataValue('title');
-        $url   = $result-&gt;getDataValue('url');
+    $results = $response-&gt;getNaturalResults();
+
+    foreach($results as $result){
+        if($result-&gt;is(NaturalResultType::CLASSICAL)){
+            $title = $result-&gt;getDataValue('title');
+            $url   = $result-&gt;getDataValue('url');
+        }
     }
 </code></pre>
 
 <h2 id="classical-video">Classical Video</h2>
 <p>This type an extension of the <a href="#classical">classical result</a>, but it refers to a video result.</p>
 <p>The video result can be illustrated with either a thumbnail or a large image.</p>
-<p><img alt="Classical Results" src="../images/result-types/classical_video.png" /></p>
+<p><img alt="Video Results" src="../images/result-types/classical_video.png" /></p>
 <p><strong>Available with</strong></p>
 <ul>
 <li><code>NaturalResultType::CLASSICAL_VIDEO</code></li>
@@ -321,17 +327,22 @@ See bellow for all available data per result type.</p>
 <p><strong>Example</strong></p>
 <pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
 
-    if($result-&gt;is(NaturalResultType::CLASSICAL_VIDEO)){
-        $title = $result-&gt;getDataValue('title');
-        if($result-&gt;getDataValue('videoLarge'){
-            // ...
+
+    $results = $response-&gt;getNaturalResults();
+
+    foreach($results as $result){
+        if($result-&gt;is(NaturalResultType::CLASSICAL_VIDEO)){
+            $title = $result-&gt;getDataValue('title');
+            if($result-&gt;getDataValue('videoLarge'){
+                // ...
+            }
         }
     }
 </code></pre>
 
 <h2 id="image-group">Image Group</h2>
 <p>Images that appear as a group of results.</p>
-<p><img alt="Classical Results" src="../images/result-types/image_group.png" /></p>
+<p><img alt="Image Group Result" src="../images/result-types/image_group.png" /></p>
 <p><strong>Available with</strong></p>
 <ul>
 <li><code>NaturalResultType::IMAGE_GROUP</code></li>
@@ -349,9 +360,48 @@ See bellow for all available data per result type.</p>
 <p><strong>Example</strong></p>
 <pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
 
-    if($result-&gt;is(NaturalResultType::IMAGE_GROUP)){
-        foreach($result-&gt;getDataValue('images') as $image){
-            $sourceUrl = $image-&gt;getDataValue('sourceUrl');
+
+    $results = $response-&gt;getNaturalResults();
+
+    foreach($results as $result){
+        if($result-&gt;is(NaturalResultType::IMAGE_GROUP)){
+            foreach($result-&gt;getDataValue('images') as $image){
+                $sourceUrl = $image-&gt;getDataValue('sourceUrl');
+            }
+        }
+    }
+</code></pre>
+
+<h2 id="map">Map</h2>
+<p>A result illustrated by a map and that contains sub-results.</p>
+<p><img alt="Map Result" src="../images/result-types/map.png" /></p>
+<p><strong>Available with</strong></p>
+<ul>
+<li><code>NaturalResultType::MAP</code></li>
+</ul>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>localPack</code> <small><strong>array</strong></small>: the sub results for the map:<ul>
+<li><code>title</code> <small><strong>string</strong></small> <strong>[A]</strong>: Name of the place</li>
+<li><code>website</code><small><strong>Url</strong></small> <strong>[B]</strong>: Website of the sub-result</li>
+<li><code>street</code> <small><strong>string</strong></small> <strong>[C]</strong>: The address of the sub-result</li>
+<li><code>stars</code> <small><strong>float</strong></small> <strong>[D]</strong>: The rating of the result as a number</li>
+<li><code>review</code> <small><strong>string</strong></small> <strong>[E]</strong>: the review string as specified by google (e.g '1 review')</li>
+</ul>
+</li>
+<li><code>mapUrl</code> <small><strong>Url</strong></small> <strong>[F]</strong>: the url to access the map search</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+
+    $results = $response-&gt;getNaturalResults();
+
+    foreach($results as $result){
+        if($result-&gt;is(NaturalResultType::MAP)){
+            foreach($result-&gt;getDataValue('localPack') as $place){
+                $website = $place-&gt;getDataValue('website');
+            }
         }
     }
 </code></pre>
