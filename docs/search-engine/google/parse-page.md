@@ -101,9 +101,13 @@ These results are the common natural results that have always existed in google.
 ```php
     use Serps\SearchEngine\Google\NaturalResultType;
 
-    if($result->is(NaturalResultType::CLASSICAL)){
-        $title = $result->getDataValue('title');
-        $url   = $result->getDataValue('url');
+    $results = $response->getNaturalResults();
+    
+    foreach($results as $result){
+        if($result->is(NaturalResultType::CLASSICAL)){
+            $title = $result->getDataValue('title');
+            $url   = $result->getDataValue('url');
+        }
     }
 ```
 
@@ -113,7 +117,7 @@ This type an extension of the [classical result](#classical), but it refers to a
 
 The video result can be illustrated with either a thumbnail or a large image.
 
-![Classical Results](images/result-types/classical_video.png)
+![Video Results](images/result-types/classical_video.png)
 
 
 **Available with**
@@ -135,10 +139,15 @@ The video result can be illustrated with either a thumbnail or a large image.
 ```php
     use Serps\SearchEngine\Google\NaturalResultType;
 
-    if($result->is(NaturalResultType::CLASSICAL_VIDEO)){
-        $title = $result->getDataValue('title');
-        if($result->getDataValue('videoLarge'){
-            // ...
+    
+    $results = $response->getNaturalResults();
+    
+    foreach($results as $result){
+        if($result->is(NaturalResultType::CLASSICAL_VIDEO)){
+            $title = $result->getDataValue('title');
+            if($result->getDataValue('videoLarge'){
+                // ...
+            }
         }
     }
 ```
@@ -149,7 +158,7 @@ The video result can be illustrated with either a thumbnail or a large image.
 Images that appear as a group of results.
 
 
-![Classical Results](images/result-types/image_group.png)
+![Image Group Result](images/result-types/image_group.png)
 
 
 **Available with**
@@ -169,9 +178,54 @@ Images that appear as a group of results.
 ```php
     use Serps\SearchEngine\Google\NaturalResultType;
 
-    if($result->is(NaturalResultType::IMAGE_GROUP)){
-        foreach($result->getDataValue('images') as $image){
-            $sourceUrl = $image->getDataValue('sourceUrl');
+    
+    $results = $response->getNaturalResults();
+    
+    foreach($results as $result){
+        if($result->is(NaturalResultType::IMAGE_GROUP)){
+            foreach($result->getDataValue('images') as $image){
+                $sourceUrl = $image->getDataValue('sourceUrl');
+            }
+        }
+    }
+```
+
+
+## Map
+
+A result illustrated by a map and that contains sub-results.
+
+
+![Map Result](images/result-types/map.png)
+
+
+**Available with**
+
+- ``NaturalResultType::MAP``
+
+**Data**
+
+- ``localPack`` <small>**array**</small>: the sub results for the map:
+    - ``title`` <small>**string**</small> **[A]**: Name of the place
+    - ``website``<small>**Url**</small> **[B]**: Website of the sub-result
+    - ``street`` <small>**string**</small> **[C]**: The address of the sub-result
+    - ``stars`` <small>**float**</small> **[D]**: The rating of the result as a number
+    - ``review`` <small>**string**</small> **[E]**: the review string as specified by google (e.g '1 review')
+- ``mapUrl`` <small>**Url**</small> **[F]**: the url to access the map search
+
+**Example**
+
+```php
+    use Serps\SearchEngine\Google\NaturalResultType;
+
+    
+    $results = $response->getNaturalResults();
+    
+    foreach($results as $result){
+        if($result->is(NaturalResultType::MAP)){
+            foreach($result->getDataValue('localPack') as $place){
+                $website = $place->getDataValue('website');
+            }
         }
     }
 ```
