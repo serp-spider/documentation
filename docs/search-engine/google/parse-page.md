@@ -207,7 +207,7 @@ A result illustrated by a map and that contains sub-results.
 
 - ``localPack`` <small>**array**</small>: the sub results for the map:
     - ``title`` <small>**string**</small> **[A]**: Name of the place
-    - ``website``<small>**Url**</small> **[B]**: Website of the sub-result
+    - ``url``<small>**Url**</small> **[B]**: Website of the sub-result
     - ``street`` <small>**string**</small> **[C]**: The address of the sub-result
     - ``stars`` <small>**float**</small> **[D]**: The rating of the result as a number
     - ``review`` <small>**string**</small> **[E]**: the review string as specified by google (e.g '1 review')
