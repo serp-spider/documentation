@@ -236,7 +236,7 @@ A result illustrated by a map and that contains sub-results.
 Recent tweet list from an user matching the search keywords.
 
 
-![Map Result](images/result-types/tweet_carousel.png)
+![Tweets Carousel](images/result-types/tweet_carousel.png)
 
 
 **Available with**
@@ -260,6 +260,40 @@ Recent tweet list from an user matching the search keywords.
     foreach($results as $result){
         if($result->is(NaturalResultType::TWEETS_CAROUSEL)){
             $user = $result->getDataValue('user');
+        }
+    }
+```
+
+## In the News
+
+Recent news results.
+
+
+![In the News](images/result-types/in_the_news.png)
+
+
+**Available with**
+
+- ``NaturalResultType::IN_THE_NEWS``
+
+**Data**
+
+- ``news`` <small>**array**</small>
+    - ``title`` <small>**string**</small> **[A]**
+    - ``description`` <small>**string**</small> **[B]**
+    - ``url``<small>**Url**</small>: The url reached when clicking the title
+
+**Example**
+
+```php
+    use Serps\SearchEngine\Google\NaturalResultType;
+
+    
+    $results = $response->getNaturalResults();
+    
+    foreach($results as $result){
+        if($result->is(NaturalResultType::IN_THE_NEWS)){
+            $title = $result->getDataValue('title');
         }
     }
 ```
