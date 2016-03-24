@@ -205,6 +205,10 @@
         
             <li><a href="#map">Map</a></li>
         
+            <li><a href="#tweet-carousel">Tweet Carousel</a></li>
+        
+            <li><a href="#in-the-news">In the News</a></li>
+        
     
         <li class="main "><a href="#adwords-results">Adwords Results</a></li>
         
@@ -385,7 +389,7 @@ See bellow for all available data per result type.</p>
 <li><code>title</code> <small><strong>string</strong></small> <strong>[A]</strong>: Name of the place</li>
 <li><code>url</code><small><strong>Url</strong></small> <strong>[B]</strong>: Website of the sub-result</li>
 <li><code>street</code> <small><strong>string</strong></small> <strong>[C]</strong>: The address of the sub-result</li>
-<li><code>stars</code> <small><strong>float</strong></small> <strong>[D]</strong>: The rating of the result as a number</li>
+<li><code>stars</code> <small><strong>string</strong></small> <strong>[D]</strong>: The rating of the result as a number</li>
 <li><code>review</code> <small><strong>string</strong></small> <strong>[E]</strong>: the review string as specified by google (e.g '1 review')</li>
 </ul>
 </li>
@@ -402,6 +406,61 @@ See bellow for all available data per result type.</p>
             foreach($result-&gt;getDataValue('localPack') as $place){
                 $website = $place-&gt;getDataValue('website');
             }
+        }
+    }
+</code></pre>
+
+<h2 id="tweet-carousel">Tweet Carousel</h2>
+<p>Recent tweet list from an user matching the search keywords.</p>
+<p><img alt="Tweets Carousel" src="../images/result-types/tweet_carousel.png" /></p>
+<p><strong>Available with</strong></p>
+<ul>
+<li><code>NaturalResultType::TWEETS_CAROUSEL</code></li>
+</ul>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>title</code> <small><strong>string</strong></small> <strong>[A]</strong></li>
+<li><code>url</code> <small><strong>string</strong></small>: The url reach when clicking the title</li>
+<li><code>user</code><small><strong>Url</strong></small>: The author of the tweets</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+
+    $results = $response-&gt;getNaturalResults();
+
+    foreach($results as $result){
+        if($result-&gt;is(NaturalResultType::TWEETS_CAROUSEL)){
+            $user = $result-&gt;getDataValue('user');
+        }
+    }
+</code></pre>
+
+<h2 id="in-the-news">In the News</h2>
+<p>Recent news results.</p>
+<p><img alt="In the News" src="../images/result-types/in_the_news.png" /></p>
+<p><strong>Available with</strong></p>
+<ul>
+<li><code>NaturalResultType::IN_THE_NEWS</code></li>
+</ul>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>news</code> <small><strong>array</strong></small><ul>
+<li><code>title</code> <small><strong>string</strong></small> <strong>[A]</strong></li>
+<li><code>description</code> <small><strong>string</strong></small> <strong>[B]</strong></li>
+<li><code>url</code><small><strong>Url</strong></small>: The url reached when clicking the title</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+
+    $results = $response-&gt;getNaturalResults();
+
+    foreach($results as $result){
+        if($result-&gt;is(NaturalResultType::IN_THE_NEWS)){
+            $title = $result-&gt;getDataValue('title');
         }
     }
 </code></pre>
