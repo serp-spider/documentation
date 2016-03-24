@@ -280,8 +280,8 @@ Recent news results.
 
 - ``news`` <small>**array**</small>
     - ``title`` <small>**string**</small> **[A]**
-    - ``description`` <small>**string**</small> **[B]**
-    - ``url``<small>**Url**</small>: The url reached when clicking the title
+    - ``description`` <small>**Url**</small> **[B]**
+    - ``url``<small>**string**</small>: The url reached when clicking the title
 
 **Example**
 
