@@ -231,6 +231,40 @@ A result illustrated by a map and that contains sub-results.
 ```
 
 
+## Tweet Carousel
+
+Recent tweet list from an user matching the search keywords.
+
+
+![Map Result](images/result-types/tweet_carousel.png)
+
+
+**Available with**
+
+- ``NaturalResultType::TWEETS_CAROUSEL``
+
+**Data**
+
+- ``title`` <small>**string**</small> **[A]**
+- ``url`` <small>**string**</small>: The url reach when clicking the title
+- ``user``<small>**Url**</small>: The author of the tweets
+
+**Example**
+
+```php
+    use Serps\SearchEngine\Google\NaturalResultType;
+
+    
+    $results = $response->getNaturalResults();
+    
+    foreach($results as $result){
+        if($result->is(NaturalResultType::TWEETS_CAROUSEL)){
+            $user = $result->getDataValue('user');
+        }
+    }
+```
+
+
 
 
 
