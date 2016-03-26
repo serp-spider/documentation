@@ -6,7 +6,7 @@ Guide for cookie and cookiejar manipulation
 ---
 
 
-SERPS offers a convenient tools that emulate a cookie jar and allow to persist cookies across many requests.
+SERPS offers convenient tools that emulate a cookiejar and allow to persist cookies across many requests.
  
 The following examples introduce the work with cookies
 
