@@ -50,5 +50,6 @@ $client = new PhantomJsClient(__DIR__ . '/bin/phantomjs');
 $response = $client->query($request);
 
 // you can optionally add a proxy and a cookie as a second and third parameters
+// NOTE: though cookieJar is available, it is not implemented yet
 $response = $client->query($request, $proxy, $cookieJar);
 ```
