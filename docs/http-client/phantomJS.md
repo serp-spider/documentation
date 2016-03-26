@@ -1,7 +1,7 @@
 PhantomJS HTTP Client
 =====================
 
-<img class="frameless-image" alt="PhantomJS logo" src="/images/phantomjs.png"/>
+<img class="frameless-image" alt="PhantomJS logo" src="../../images/phantomjs.png"/>
 
 <center>[PhantomJS](http://phantomjs.org/) is a webkit implementation that helps to simulate the real browser.</center>
 

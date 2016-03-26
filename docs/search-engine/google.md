@@ -1,7 +1,7 @@
 Google Client
 =============
 
-<img class="frameless-image" alt="Google logo" src="/images/logo-google.png"/>
+<img class="frameless-image" alt="Google logo" src="../../images/logo-google.png"/>
 
 <center>Everything about the google client</center>
 

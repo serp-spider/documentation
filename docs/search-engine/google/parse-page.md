@@ -1,7 +1,6 @@
 # Parse a Google Page
 
-
-<img class="frameless-image" alt="Google logo" src="/images/logo-google.png"/>
+<img class="frameless-image" alt="Google logo" src="../../../images/logo-google.png"/>
 
 <center>The necessary documentation about parsing a google page</center>
 
