@@ -90,3 +90,11 @@ div.col-md-9 img.pkg-inf-image{
     border:0;
     padding:0;
 }
+
+
+
+.admonition.info {
+    color: #666;
+    background-color: #DDD;
+    border-color: #CCC;
+}

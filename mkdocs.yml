@@ -35,3 +35,7 @@ google_analytics: null
 
 extra_css:
   - css/serps.css
+
+
+markdown_extensions:
+  - admonition
