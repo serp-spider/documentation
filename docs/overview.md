@@ -85,3 +85,11 @@ This way with a single client you can use as many proxies as you want.
     
     $googleClient->query($googleUrl, $proxy);
 ```
+
+Cookies
+-------
+
+SERPS integrates cookie management, that allows to share cookies across many requests.
+
+Cookie management is usually done at the search engine client level, but you might have to manipulate cookiejars: 
+[see cookie documentation](/cookies.md) 

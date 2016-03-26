@@ -1,7 +1,7 @@
 Cookies
 =======
 
-Learn everything about cookie jar manipulation
+Learn everything about cookie and cookiejar manipulation
 
 ---
 
