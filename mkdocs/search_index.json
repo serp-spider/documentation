@@ -306,52 +306,52 @@
             "title": "Usage"
         }, 
         {
-            "location": "/contribute/packages/", 
+            "location": "/about/packages/", 
             "text": "Packages\n\n\nList of packages that are part of this project\n\n\n\n\nCore\n\n\nThis is the core of SERPS. It contains the common tools that are used by search engine and http client implementations\n\n\n Github\n\n\n$ composer require serps/serps\n\n\n\n\n\n\n\n\n\n\nSearch engines\n\n\nGoogle\n\n\nThe google client implementation\n\n\n Github\n\n\n$ composer require serps/search-engine-google\n\n\n\n\n\n\n\n\n\n\nHttp clients\n\n\nCurl\n\n\nCurl Http client\n\n\n Doc\n\n\n Github\n\n\n$ composer require serps/http-client-curl\n\n\n\n\n\n\n\n\nPhantomJS\n\n\nPhantomJS Http client\n\n\n Doc\n\n\n Github\n\n\n$ composer require serps/http-client-phantomjs\n\n\n\n\n\n\n\n\n\n\nDocumentation\n\n\nThe package that contains this documentation\n\n\n Github\n\n\nStatus monitor\n\n\nCli application that helps to monitor search engine changes\n\n\n Github", 
             "title": "Packages"
         }, 
         {
-            "location": "/contribute/packages/#packages", 
+            "location": "/about/packages/#packages", 
             "text": "List of packages that are part of this project", 
             "title": "Packages"
         }, 
         {
-            "location": "/contribute/packages/#core", 
+            "location": "/about/packages/#core", 
             "text": "This is the core of SERPS. It contains the common tools that are used by search engine and http client implementations   Github  $ composer require serps/serps", 
             "title": "Core"
         }, 
         {
-            "location": "/contribute/packages/#search-engines", 
+            "location": "/about/packages/#search-engines", 
             "text": "", 
             "title": "Search engines"
         }, 
         {
-            "location": "/contribute/packages/#google", 
+            "location": "/about/packages/#google", 
             "text": "The google client implementation   Github  $ composer require serps/search-engine-google", 
             "title": "Google"
         }, 
         {
-            "location": "/contribute/packages/#http-clients", 
+            "location": "/about/packages/#http-clients", 
             "text": "", 
             "title": "Http clients"
         }, 
         {
-            "location": "/contribute/packages/#curl", 
+            "location": "/about/packages/#curl", 
             "text": "Curl Http client   Doc   Github  $ composer require serps/http-client-curl", 
             "title": "Curl"
         }, 
         {
-            "location": "/contribute/packages/#phantomjs", 
+            "location": "/about/packages/#phantomjs", 
             "text": "PhantomJS Http client   Doc   Github  $ composer require serps/http-client-phantomjs", 
             "title": "PhantomJS"
         }, 
         {
-            "location": "/contribute/packages/#documentation", 
+            "location": "/about/packages/#documentation", 
             "text": "The package that contains this documentation   Github", 
             "title": "Documentation"
         }, 
         {
-            "location": "/contribute/packages/#status-monitor", 
+            "location": "/about/packages/#status-monitor", 
             "text": "Cli application that helps to monitor search engine changes   Github", 
             "title": "Status monitor"
         }
