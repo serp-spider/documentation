@@ -7,15 +7,15 @@
         
         
         
-        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <link rel="shortcut icon" href="../img/favicon.ico">
 
-	<title>PhantomJS - The PHP SERP Scraper</title>
+	<title>Cookies - The PHP SERP Scraper</title>
 
-        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../../css/font-awesome-4.5.0.css" rel="stylesheet">
-        <link href="../../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="../../css/highlight.css">
-        <link href="../../css/serps.css" rel="stylesheet">
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.5.0.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../css/serps.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -54,25 +54,25 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../..">About SERPS</a>
+    <a href="..">About SERPS</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../overview/">Overview</a>
+    <a href="../overview/">Overview</a>
 </li>
 
                         
                             
-<li >
-    <a href="../../cookies/">Cookies</a>
+<li class="active">
+    <a href="./">Cookies</a>
 </li>
 
                         
@@ -92,19 +92,19 @@
         
             
 <li >
-    <a href="../../search-engine/google/">Google Client</a>
+    <a href="../search-engine/google/">Google Client</a>
 </li>
 
         
             
 <li >
-    <a href="../../search-engine/google/parameters/">Search Parameters</a>
+    <a href="../search-engine/google/parameters/">Search Parameters</a>
 </li>
 
         
             
 <li >
-    <a href="../../search-engine/google/parse-page/">Parse a Page</a>
+    <a href="../search-engine/google/parse-page/">Parse a Page</a>
 </li>
 
         
@@ -117,19 +117,19 @@
                 
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Http Clients <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="../curl/">CURL</a>
+    <a href="../http-client/curl/">CURL</a>
 </li>
 
                         
                             
-<li class="active">
-    <a href="./">PhantomJS</a>
+<li >
+    <a href="../http-client/phantomJS/">PhantomJS</a>
 </li>
 
                         
@@ -144,7 +144,7 @@
                         
                             
 <li >
-    <a href="../../contribute/packages/">Packages</a>
+    <a href="../contribute/packages/">Packages</a>
 </li>
 
                         
@@ -181,14 +181,24 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#phantomjs-http-client">PhantomJS HTTP Client</a></li>
+        <li class="main active"><a href="#cookies">Cookies</a></li>
         
-            <li class="level-2"><a href="#installation">Installation</a></li>
-            
-                <li class="level-3"><a href="#additional-requirement">Additional requirement</a></li>
+            <li class="level-2"><a href="#create-a-cookie">Create a cookie</a></li>
             
         
-            <li class="level-2"><a href="#usage">Usage</a></li>
+            <li class="level-2"><a href="#populate-a-cookie-jar">Populate a Cookie Jar</a></li>
+            
+        
+            <li class="level-2"><a href="#retrieves-cookies">Retrieves cookies</a></li>
+            
+                <li class="level-3"><a href="#retrieve-cookie-for-a-request">Retrieve cookie for a request</a></li>
+            
+        
+            <li class="level-2"><a href="#remove-cookies">Remove cookies</a></li>
+            
+                <li class="level-3"><a href="#remove-temporary-cookies">Remove temporary cookies</a></li>
+            
+                <li class="level-3"><a href="#remove-expired-cookies">Remove expired cookies</a></li>
             
         
     
@@ -196,50 +206,94 @@
 </div></div>
                 <div class="col-md-9" id="main-content" role="main">
 
-<h1 id="phantomjs-http-client">PhantomJS HTTP Client</h1>
-<p><img class="frameless-image" alt="PhantomJS logo" src="/images/phantomjs.png"/></p>
-<p><center><a href="http://phantomjs.org/">PhantomJS</a> is a webkit implementation that helps to simulate the real browser.</center></p>
+<h1 id="cookies">Cookies</h1>
+<p>Learn everything about cookie and cookiejar manipulation</p>
 <hr />
-<p>By using this client you will execute the inner javascript code and make the DOM as real as in the true browser,
-that can be required for some search engines to work properly.</p>
-<div class="admonition info">
-<p class="admonition-title">This is an evaluating adapter</p>
-<p>When you use phantomJS client and you submit a request from it the resulting DOM 
-might be different of the source code returned by a server because
-javascript is executed before returning the DOM.</p>
-</div>
-<div class="admonition danger">
-<p class="admonition-title">Known bug</p>
-<p>PhantomJS scrapping might be affected by <a href="https://github.com/ariya/phantomjs/issues/12750">this bug</a></p>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Notice about cookies</p>
-<p>At the current state phantomJS adapter does not support internal cookieJar usage.</p>
-</div>
-<h2 id="installation">Installation</h2>
-<p>The client is available with the package 
-<a href="https://packagist.org/packages/serps/http-client-phantomjs">serps/http-client-phantomjs</a>: </p>
-<p><code>$ composer require 'serps/http-client-phantomjs'</code></p>
-<h3 id="additional-requirement">Additional requirement</h3>
-<p><strong><a href="http://phantomjs.org/">PhantomJS</a> bianries have to be installed</strong> to use the client. The process for installing
-it depends on your environment, you will find further guides on the internet.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The package <a href="https://github.com/jakoch/phantomjs-installer">jakoch/phantomjs-installer</a> 
-can help you to manage phantomJS as a dependency of your project.</p>
-</div>
-<h2 id="usage">Usage</h2>
-<pre><code class="php">use Serps\HttpClient\PhantomJsClient;
+<p>SERPS offers a convenient tools that emulate a cookie jar and allow to persist cookies across many requests.</p>
+<p>The following examples introduce the work with cookies</p>
+<h2 id="create-a-cookie">Create a cookie</h2>
+<p>Parameters for creating a cookie:</p>
+<ul>
+<li><code>name</code>: the name of a cookie.</li>
+<li><code>value</code>: the value of a cookie.</li>
+<li><code>flags</code>: cookie flags. Available flags are:<ul>
+<li><code>path</code></li>
+<li><code>domain</code></li>
+<li><code>expires</code></li>
+<li><code>discard</code></li>
+<li><code>secure</code></li>
+</ul>
+</li>
+</ul>
+<pre><code class="php">use Serps\Core\Cookie\Cookie;
 
-// The client needs the path to the binary.
-// By default it will use 'phantomjs'
-$client = new PhantomJsClient(__DIR__ . '/bin/phantomjs');
+$cookie = new Cookie('baz', 'bar', [
+    'domain' =&gt; 'foo.bar',
+    'path' =&gt; '/',
+    'expires' =&gt; time() + 1000,
+]);
+</code></pre>
 
-$response = $client-&gt;query($request);
+<h2 id="populate-a-cookie-jar">Populate a Cookie Jar</h2>
+<pre><code class="php">use Serps\Core\Cookie\ArrayCookieJar;
 
-// you can optionally add a proxy and a cookie as a second and third parameters
-// NOTE: though cookieJar is available, it is not implemented yet
-$response = $client-&gt;query($request, $proxy, $cookieJar);
+$cookieJar = new ArrayCookieJar();
+
+// Add the cookie 'foo' with value 'bar' for the domain 'foo.bar'
+$cookie = new Cookie('foo', 'bar', ['domain' =&gt; 'foo.bar']);
+$cookieJar-&gt;set($cookie);
+
+// Add the cookie 'baz' with value 'bar' for the domain 'foo.bar'
+$cookie = new Cookie('baz', 'bar', ['domain' =&gt; 'foo.bar']);
+$cookieJar-&gt;set($cookie);
+</code></pre>
+
+<h2 id="retrieves-cookies">Retrieves cookies</h2>
+<p>The <code>all</code> method is responsible for getting cookies matching some filters</p>
+<p>Method parameters:</p>
+<ul>
+<li><code>domain</code>: filters the cookies matching the given domain. Pass null to match all domains.</li>
+<li><code>path</code>: filters the cookies matching the given path. Pass null to match all paths.</li>
+<li><code>name</code>: filters the cookies matching the given name. Pass null to match all names.</li>
+<li><code>skipDiscardable</code>: Set to TRUE to skip cookies with the Discard attribute. Default FALSE.</li>
+<li><code>skipExpired</code>: Set to FALSE to include expired. Default TRUE.</li>
+</ul>
+<pre><code class="php">// Retrieves all cookies
+$cookies = $cookieJar-&gt;all();
+
+// Retrieves all cookies matching the domain &quot;foo.bar&quot;
+$cookies = $cookieJar-&gt;all(&quot;foo.bar&quot;);
+
+
+// Retrieves the cookie named &quot;foo&quot; for the domain &quot;foo.bar&quot;, including expired cookies
+$cookies = $cookieJar-&gt;all(&quot;foo.bar&quot;, &quot;/&quot;, &quot;foo&quot;, false, false);
+</code></pre>
+
+<h3 id="retrieve-cookie-for-a-request">Retrieve cookie for a request</h3>
+<p>It's possible to automatically retrieve cookies that match a given PSR-7 request:</p>
+<pre><code class="php">// retrieves all cookies matching the request
+$cookies = $cookieJar-&gt;getMatchingCookies($request);
+</code></pre>
+
+<h2 id="remove-cookies">Remove cookies</h2>
+<pre><code class="php">// Remove all cookies
+$cookies = $cookieJar-&gt;remove();
+
+// Remove all cookies matching the domain &quot;foo.bar&quot;
+$cookies = $cookieJar-&gt;remove(&quot;foo.bar&quot;);
+
+// Remove the cookie named &quot;foo&quot; for the domain &quot;foo.bar&quot;
+$cookies = $cookieJar-&gt;remove(&quot;foo.bar&quot;, &quot;/&quot;, &quot;foo&quot;);
+</code></pre>
+
+<h3 id="remove-temporary-cookies">Remove temporary cookies</h3>
+<pre><code class="php">// Remove all temporary cookies
+$cookies = $cookieJar-&gt;removeTemporary();
+</code></pre>
+
+<h3 id="remove-expired-cookies">Remove expired cookies</h3>
+<pre><code class="php">// Remove all cookies that are expired
+$cookies = $cookieJar-&gt;removeExpired();
 </code></pre></div>
             
         </div>
@@ -250,12 +304,12 @@ $response = $client-&gt;query($request, $proxy, $cookieJar);
             <p>This is an open-source project built for you with <i style="color:#c24b48;" class="fa fa-heart"></i></p>
         </footer>
 
-        <script src="../../js/jquery-1.10.2.min.js"></script>
-        <script src="../../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../../js/highlight.pack.js"></script>
-        <script>var base_url = '../..';</script>
-        <script data-main="../../mkdocs/js/search.js" src="../../mkdocs/js/require.js"></script>
-        <script src="../../js/base.js"></script>
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../js/base.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
             <div class="modal-dialog">

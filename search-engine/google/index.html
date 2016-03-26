@@ -44,7 +44,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href="../..">The PHP SERP Scraper</a>
+            <a class="navbar-brand" href="/">The PHP SERP Scraper</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -54,15 +54,15 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li >
-                        <a href="../..">Home</a>
-                    </li>
-                
-                
-                
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../..">About SERPS</a>
+</li>
+
                         
                             
 <li >
@@ -72,19 +72,7 @@
                         
                             
 <li >
-    <a href="../../http-client/">Http Client</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../proxies/">Proxies</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../../captcha/">Captcha</a>
+    <a href="../../cookies/">Cookies</a>
 </li>
 
                         
@@ -94,7 +82,7 @@
                 
                 
                     <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search Engine <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search Engines <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
@@ -149,6 +137,21 @@
                     </li>
                 
                 
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contribute <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../../contribute/packages/">Packages</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
                 </ul>
             
 
@@ -158,18 +161,6 @@
                         <i class="fa fa-search"></i> Search
                     </a>
                 </li>
-                
-                    <li >
-                        <a rel="next" href="../../captcha/">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="parameters/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-                
                 
                     <li>
                         <a href="https://github.com/serp-scrape/serps">
@@ -192,24 +183,47 @@
     
         <li class="main active"><a href="#google-client">Google Client</a></li>
         
-            <li><a href="#installation">Installation</a></li>
+            <li class="level-2"><a href="#installation">Installation</a></li>
+            
         
-            <li><a href="#overview">Overview</a></li>
+            <li class="level-2"><a href="#overview">Overview</a></li>
+            
         
-            <li><a href="#working-with-urls">Working with urls</a></li>
+            <li class="level-2"><a href="#working-with-urls">Working with urls</a></li>
+            
+                <li class="level-3"><a href="#create-an-url">Create an url</a></li>
+            
+                <li class="level-3"><a href="#url-from-a-string">Url from a string</a></li>
+            
+                <li class="level-3"><a href="#google-domain">Google domain</a></li>
+            
+                <li class="level-3"><a href="#add-and-remove-parameters">Add and remove parameters</a></li>
+            
+                <li class="level-3"><a href="#raw-parameters">Raw parameters</a></li>
+            
+                <li class="level-3"><a href="#more-parameters">More parameters</a></li>
+            
         
-            <li><a href="#parsing-results">Parsing results</a></li>
+            <li class="level-2"><a href="#parsing-results">Parsing results</a></li>
+            
         
-            <li><a href="#proxy-usage">Proxy usage</a></li>
+            <li class="level-2"><a href="#proxy-usage">Proxy usage</a></li>
+            
         
-            <li><a href="#solve-a-captcha">Solve a Captcha</a></li>
+            <li class="level-2"><a href="#cookie-usage">Cookie usage</a></li>
+            
+        
+            <li class="level-2"><a href="#solve-a-captcha">Solve a Captcha</a></li>
+            
         
     
     </ul>
 </div></div>
-                <div class="col-md-9" role="main">
+                <div class="col-md-9" id="main-content" role="main">
 
 <h1 id="google-client">Google Client</h1>
+<p>The package to parse google pages</p>
+<hr />
 <h2 id="installation">Installation</h2>
 <p>The google client is available with the package 
 <a href="https://packagist.org/packages/serps/search-engine-google">serps/search-engine-google</a>: </p>
@@ -252,8 +266,8 @@
     // https://google.com/search?q=simpsons&amp;lr=lang_en
 </code></pre>
 
-<h3 id="import-an-url">Import an url</h3>
-<p>It's possible to import an url from an existing google url string</p>
+<h3 id="url-from-a-string">Url from a string</h3>
+<p>It's possible to parse an an existing google url string to an url object</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\GoogleUrl;
 
     $googleUrl = GoogleUrl::fromString('https://google.com/search?q=simpsons');
@@ -321,10 +335,8 @@ That is achieved by passing true as the third argument of <code>setParam</code>.
 <p>Some parameters are very common and for some of them we created convenient shortcuts
 check our <a href="parameters/">list of parameters</a>.</p>
 <h2 id="parsing-results">Parsing results</h2>
-<p>The library is responsible for parsing the page and outputting a standard result set.</p>
-<p>A page can return different kind of results. For convenience the standard result types
-have been listed on their own page.</p>
-<p><a href="parse-page/"><strong>View list of results</strong></a></p>
+<p>The google client is also responsible for parsing the page and outputting a standard result set.</p>
+<p>A page can return different kind of results. For convenience the guide for parsing a page has its own page: <a href="parse-page/"><strong>view the guide</strong></a></p>
 <h2 id="proxy-usage">Proxy usage</h2>
 <p>You can use a proxy at the request time</p>
 <blockquote>
@@ -345,7 +357,24 @@ have been listed on their own page.</p>
     $response = $googleClient-&gt;query($googleUrl, $proxy);
 </code></pre>
 
-<p>Read the <a href="../../proxies">proxy documentation</a></p>
+<h2 id="cookie-usage">Cookie usage</h2>
+<p>The google client can persist cookies across several requests. 
+By default it is disabled, to enable it, simply do:</p>
+<pre><code class="php">    $googleClient-&gt;enableCookies();
+</code></pre>
+
+<p>And to disable it again:</p>
+<pre><code class="php">    $googleClient-&gt;disableCookies();
+</code></pre>
+
+<p>You can also get the current state of the cookieJar:</p>
+<pre><code class="php">    $googleClient-&gt;getCookieJar();
+</code></pre>
+
+<p>Or set a custom CookieJar</p>
+<pre><code class="php">    $googleClient-&gt;setCookieJar($cookieJar);
+</code></pre>
+
 <h2 id="solve-a-captcha">Solve a Captcha</h2>
 <p><strong>TODO</strong></p></div>
             
@@ -354,7 +383,7 @@ have been listed on their own page.</p>
         <footer class="col-md-12">
             <hr>
             
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>This is an open-source project built for you with <i style="color:#c24b48;" class="fa fa-heart"></i></p>
         </footer>
 
         <script src="../../js/jquery-1.10.2.min.js"></script>

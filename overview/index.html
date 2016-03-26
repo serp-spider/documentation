@@ -44,7 +44,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href="..">The PHP SERP Scraper</a>
+            <a class="navbar-brand" href="/">The PHP SERP Scraper</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -54,15 +54,15 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li >
-                        <a href="..">Home</a>
-                    </li>
-                
-                
-                
                     <li class="dropdown active">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Getting Started <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="..">About SERPS</a>
+</li>
+
                         
                             
 <li class="active">
@@ -72,19 +72,7 @@
                         
                             
 <li >
-    <a href="../http-client/">Http Client</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../proxies/">Proxies</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../captcha/">Captcha</a>
+    <a href="../cookies/">Cookies</a>
 </li>
 
                         
@@ -94,7 +82,7 @@
                 
                 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search Engine <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Search Engines <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
@@ -149,6 +137,21 @@
                     </li>
                 
                 
+                
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contribute <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                        
+                            
+<li >
+    <a href="../contribute/packages/">Packages</a>
+</li>
+
+                        
+                        </ul>
+                    </li>
+                
+                
                 </ul>
             
 
@@ -158,18 +161,6 @@
                         <i class="fa fa-search"></i> Search
                     </a>
                 </li>
-                
-                    <li >
-                        <a rel="next" href="..">
-                            <i class="fa fa-arrow-left"></i> Previous
-                        </a>
-                    </li>
-                    <li >
-                        <a rel="prev" href="../http-client/">
-                            Next <i class="fa fa-arrow-right"></i>
-                        </a>
-                    </li>
-                
                 
                     <li>
                         <a href="https://github.com/serp-scrape/serps">
@@ -192,32 +183,38 @@
     
         <li class="main active"><a href="#overview">Overview</a></li>
         
-            <li><a href="#install">Install</a></li>
+            <li class="level-2"><a href="#install">Install</a></li>
+            
         
-            <li><a href="#search-engine-client">Search Engine client</a></li>
+            <li class="level-2"><a href="#search-engine-client">Search Engine client</a></li>
+            
         
-            <li><a href="#http-client">Http client</a></li>
+            <li class="level-2"><a href="#http-client">Http Client</a></li>
+            
         
-            <li><a href="#captcha">Captcha</a></li>
+            <li class="level-2"><a href="#proxies">Proxies</a></li>
+            
         
-            <li><a href="#proxies">Proxies</a></li>
+            <li class="level-2"><a href="#cookies">Cookies</a></li>
+            
         
     
     </ul>
 </div></div>
-                <div class="col-md-9" role="main">
+                <div class="col-md-9" id="main-content" role="main">
 
 <h1 id="overview">Overview</h1>
 <p>This overview will help you to understand how the library is built and what are its main components.</p>
+<hr />
 <h2 id="install">Install</h2>
 <p>Two work with SERPS you need two things:</p>
 <ul>
 <li>One or more search engine clients you want to parse</li>
-<li>An http clients</li>
+<li>A http client</li>
 </ul>
-<p><a href="https://getcomposer.org/">Composer</a> is required to manage the necessary dependencies.</p>
+<p>In addition <a href="https://getcomposer.org/">Composer</a> is required to manage the necessary dependencies.</p>
 <blockquote>
-<p><sub>Example with the <strong>Google client</strong> and the <strong>Curl http client</strong></sub></p>
+<p><sub>composer.json example with the <strong>Google client</strong> and the <strong>Curl http client</strong></sub></p>
 </blockquote>
 <pre><code class="json">{
     &quot;require&quot;: {
@@ -235,8 +232,11 @@
 <li>Parse this response to a standard sets of results</li>
 </ul>
 <p>Each <strong>search engine</strong> has its set of specificities and thus each search engine implementation has its own dedicated guide.</p>
-<p>Check the list of from the top menu.</p>
-<h2 id="http-client">Http client</h2>
+<p>These search engines are currently available:</p>
+<ul>
+<li><a href="../search-engine/google/">Google</a></li>
+</ul>
+<h2 id="http-client">Http Client</h2>
 <p>Working with search engines involves to work with <strong>http requests</strong> to be able to interact with them.
 Ussually the <strong>search engine client</strong> will need a http client to work correctly.</p>
 <blockquote>
@@ -248,34 +248,17 @@ Ussually the <strong>search engine client</strong> will need a http client to wo
     $googleClient = new GoogleClient(new CurlClient());
 </code></pre>
 
-<p>Check the list of <a href="../http-client/"><strong>available http clients</strong></a>.</p>
-<h2 id="captcha">Captcha</h2>
-<p>As said before, most of time search engines don't want you to parse them, additionally if you submit a lot of 
-requests to them, they might - <em>they will</em> - detect you as a bot and they will send you a <strong>captcha</strong> that you have
-to solve before you continue.</p>
-<blockquote>
-<p><sub>Example of <strong>captcha handling</strong>s with the google client</sub></p>
-</blockquote>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
-    use Serps\HttpClient\CurlClient;
-    use Serps\Exception\CaptchaException;
-    use Serps\Exception\CaptchaException;
-
-    $googleClient = new GoogleClient(new CurlClient());
-
-    try{
-        $googleClient-&gt;query($googleUrl, $proxy);
-    }catch(CaptchaException $e){  
-        $captcha = $e-&gt;getCaptcha();
-    }
-</code></pre>
-
-<p>Read more about <a href="../captcha/"><strong>captcha</strong></a>.</p>
+<p>These http clients are currently available:</p>
+<ul>
+<li><a href="../http-client/curl/">CURL</a></li>
+<li><a href="../http-client/phantomJS/">phantomJS</a></li>
+</ul>
 <h2 id="proxies">Proxies</h2>
-<p>When you deal with a very <strong>large number of requests</strong> solving captcha is not enough, you will need to send requests
+<p>As said before, most of time search engines don't want you to parse them.
+When you deal with a very <strong>large number of requests</strong>, you will need to send requests
 through proxies.</p>
 <p>This is a major feature of scraping and we placed proxies at the very heart of the library. 
-We made the choice to make each request being proxy aware. 
+Each request is proxy aware. 
 This way with a single client you can use as many proxies as you want.</p>
 <blockquote>
 <p><sub>Example of <strong>proxy</strong> usage with the google client</sub></p>
@@ -288,17 +271,17 @@ This way with a single client you can use as many proxies as you want.</p>
     $googleClient-&gt;query($googleUrl, $proxy);
 </code></pre>
 
-<p>Read more about <a href="../proxies/"><strong>proxies</strong></a>.</p>
-<h3 id="proxies-and-captcha">Proxies and captcha</h3>
-<p>When a proxy got blocked by a captcha it's important to solve the captcha with the proxy, if you don't, the search
-engine might detect it's not the same ip that solved the captcha and wont accept to solve it.</p></div>
+<h2 id="cookies">Cookies</h2>
+<p>SERPS integrates cookie management, that allows to share cookies across many requests.</p>
+<p>Cookie management is usually done at the search engine client level, but you might have to manipulate cookiejars: 
+<a href="../cookies/">see cookie documentation</a> </p></div>
             
         </div>
 
         <footer class="col-md-12">
             <hr>
             
-            <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</p>
+            <p>This is an open-source project built for you with <i style="color:#c24b48;" class="fa fa-heart"></i></p>
         </footer>
 
         <script src="../js/jquery-1.10.2.min.js"></script>
