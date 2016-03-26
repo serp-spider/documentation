@@ -109,12 +109,6 @@
         
             
 <li >
-    <a href="../search-engine/google/parameters/">Search Parameters</a>
-</li>
-
-        
-            
-<li >
     <a href="../search-engine/google/parse-page/">Parse a Page</a>
 </li>
 
@@ -206,6 +200,9 @@
             <li class="level-2"><a href="#proxies">Proxies</a></li>
             
         
+            <li class="level-2"><a href="#captcha">Captcha</a></li>
+            
+        
             <li class="level-2"><a href="#cookies">Cookies</a></li>
             
         
@@ -218,7 +215,7 @@
 <p>This overview will help you to understand how the library is built and what are its main components.</p>
 <hr />
 <h2 id="install">Install</h2>
-<p>Two work with SERPS you need two things:</p>
+<p>To work with SERPS you need two things:</p>
 <ul>
 <li>One or more search engine clients you want to parse</li>
 <li>A http client</li>
@@ -248,8 +245,8 @@
 <li><a href="../search-engine/google/">Google</a></li>
 </ul>
 <h2 id="http-client">Http Client</h2>
-<p>Working with search engines involves to work with <strong>http requests</strong> to be able to interact with them.
-Ussually the <strong>search engine client</strong> will need a http client to work correctly.</p>
+<p>Working with search engines involves to work with <strong>http requests</strong>.
+Usually the <strong>search engine client</strong> will need a http client to work correctly.</p>
 <blockquote>
 <p><sub>Example with the <strong>google client</strong> and the <strong>curl http client</strong></sub></p>
 </blockquote>
@@ -259,18 +256,27 @@ Ussually the <strong>search engine client</strong> will need a http client to wo
     $googleClient = new GoogleClient(new CurlClient());
 </code></pre>
 
+<p>There are two kinds of http clients: those that return the raw html as returned from the search engine (e.g the curl client)
+and the others that evaluate the javascript and update the DOM before before returning (e.g the phantomJS client)</p>
 <p>These http clients are currently available:</p>
 <ul>
+<li>Raw clients:<ul>
 <li><a href="../http-client/curl/">CURL</a></li>
+</ul>
+</li>
+<li>Evaluating clients<ul>
 <li><a href="../http-client/phantomJS/">phantomJS</a></li>
 </ul>
+</li>
+</ul>
 <h2 id="proxies">Proxies</h2>
-<p>As said before, most of time search engines don't want you to parse them.
+<p>Most of time search engines don't want you to parse them thus 
+they use to block you with captcha when they think you are a bot
 When you deal with a very <strong>large number of requests</strong>, you will need to send requests
 through proxies.</p>
 <p>This is a major feature of scraping and we placed proxies at the very heart of the library. 
 Each request is proxy aware. 
-This way with a single client you can use as many proxies as you want.</p>
+This way, with a single client you can use as many proxies as you want.</p>
 <blockquote>
 <p><sub>Example of <strong>proxy</strong> usage with the google client</sub></p>
 </blockquote>
@@ -282,9 +288,20 @@ This way with a single client you can use as many proxies as you want.</p>
     $googleClient-&gt;query($googleUrl, $proxy);
 </code></pre>
 
+<h2 id="captcha">Captcha</h2>
+<p>Even though you are using proxies and place all the efforts to act like an human, you might encounter the fatal captcha.</p>
+<p>When you get <strong>blocked</strong> by a captcha request, it is very important to stop sending request to the search engine and to
+solve the captcha before you continue. </p>
+<p>Dealing with captcha is not easy, at the current state the library can detect captcha but is not able to solve them
+for you we are <strong>currently working</strong> on a captcha solver implementation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Captcha are proxy specific, when solving a captcha that should be done with the proxy that was initially blocked</p>
+</div>
 <h2 id="cookies">Cookies</h2>
 <p>SERPS integrates cookie management, that allows to share cookies across many requests.</p>
-<p>Cookie management is usually done at the search engine client level, but you might have to manipulate cookiejars: 
+<p>Cookie management is usually done at the search engine client level. You still want to know
+how to manipulate cookies and cookiejars: 
 <a href="../cookies/">see cookie documentation</a> </p></div>
             
         </div>

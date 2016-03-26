@@ -109,12 +109,6 @@
         
             
 <li >
-    <a href="parameters/">Search Parameters</a>
-</li>
-
-        
-            
-<li >
     <a href="parse-page/">Parse a Page</a>
 </li>
 
@@ -344,16 +338,13 @@ That is achieved by passing true as the third argument of <code>setParam</code>.
 </code></pre>
 
 <h3 id="more-parameters">More parameters</h3>
-<p>Some parameters are very common and for some of them we created convenient shortcuts
-check our <a href="parameters/">list of parameters</a>.</p>
+<p>Some parameters are very common and for some of them we created convenient shortcuts.</p>
+<p>TODO</p>
 <h2 id="parsing-results">Parsing results</h2>
 <p>The google client is also responsible for parsing the page and outputting a standard result set.</p>
 <p>A page can return different kind of results. For convenience the guide for parsing a page has its own page: <a href="parse-page/"><strong>view the guide</strong></a></p>
 <h2 id="proxy-usage">Proxy usage</h2>
 <p>You can use a proxy at the request time</p>
-<blockquote>
-<p><sub>Use the proxy '1.1.1.1:80'</sub></p>
-</blockquote>
 <pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
     use Serps\HttpClient\CurlClient;
     use Serps\SearchEngine\Google\GoogleUrl;
@@ -387,8 +378,9 @@ By default it is disabled, to enable it, simply do:</p>
 <pre><code class="php">    $googleClient-&gt;setCookieJar($cookieJar);
 </code></pre>
 
+<p>View the dedicated <a href="../../cookies/">cookie documentation</a></p>
 <h2 id="solve-a-captcha">Solve a Captcha</h2>
-<p><strong>TODO</strong></p></div>
+<p>Solving captcha is not implemented at the moment</p></div>
             
         </div>
 

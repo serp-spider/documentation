@@ -7,7 +7,7 @@
     border-color: #251B1B;
 }
 
-h1,
+#main-content h1:first-of-type,
 #main-content>p:first-of-type{
     text-align: center;
 }
