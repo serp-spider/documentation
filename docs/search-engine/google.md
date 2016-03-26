@@ -149,8 +149,9 @@ That is achieved by passing true as the third argument of ``setParam``.
 
 ### More parameters 
 
-Some parameters are very common and for some of them we created convenient shortcuts
-check our [list of parameters](google/parameters.md).
+Some parameters are very common and for some of them we created convenient shortcuts.
+
+TODO
 
 Parsing results
 ---------------
@@ -165,7 +166,6 @@ Proxy usage
 
 You can use a proxy at the request time
 
-> <sub>Use the proxy '1.1.1.1:80'</sub>
 
 ```php
     use Serps\SearchEngine\Google\GoogleClient;
@@ -213,9 +213,11 @@ Or set a custom CookieJar
 ```
 
 
+View the dedicated [cookie documentation](/cookies.md)
+
 
 
 Solve a Captcha
 ---------------
 
-**TODO**
+Solving captcha is not implemented at the moment

@@ -9,7 +9,6 @@ pages:
   - Search Engines:
     - Google:
       - Google Client: search-engine/google.md
-      - Search Parameters: search-engine/google/parameters.md
       - Parse a Page: search-engine/google/parse-page.md
 
   - Http Clients:

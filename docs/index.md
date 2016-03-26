@@ -33,14 +33,13 @@ We tried to solve this problems by **analysing** how search engines behave and w
 work with them, from the URL generation to the parsing of the results. 
 At the endpoint we offer a **standard and documented API**.
 
-**TODO** We place additional efforts on monitoring them to make sure that our tools are always up to date.
-
 Getting Started
 ---------------
 
-Looking forward to work with the library? Start with the [overview](overview.md).
+Looking forward to work with the library? 
 
-Browse the **search engines** and **http clients** from the top menu.
+- Start with the [overview](overview.md).
+- Browse the available **search engines** and **http clients** from the top menu.
 
 Licensing
 ---------

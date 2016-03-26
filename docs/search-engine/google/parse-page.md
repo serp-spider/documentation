@@ -1,6 +1,9 @@
-# Google: Parse a Page
+# Parse a Google Page
 
-The necessary documentation about parsing a google page
+
+<img class="frameless-image" alt="Google logo" src="/images/logo-google.png"/>
+
+<center>The necessary documentation about parsing a google page</center>
 
 ---
 

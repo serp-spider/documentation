@@ -8,7 +8,7 @@ This overview will help you to understand how the library is built and what are 
 Install
 -------
 
-Two work with SERPS you need two things:
+To work with SERPS you need two things:
 
 - One or more search engine clients you want to parse
 - A http client
@@ -45,8 +45,8 @@ These search engines are currently available:
 Http Client
 -----------
 
-Working with search engines involves to work with **http requests** to be able to interact with them.
-Ussually the **search engine client** will need a http client to work correctly.
+Working with search engines involves to work with **http requests**.
+Usually the **search engine client** will need a http client to work correctly.
 
 > <sub>Example with the **google client** and the **curl http client**</sub>
 
@@ -57,22 +57,29 @@ Ussually the **search engine client** will need a http client to work correctly.
     $googleClient = new GoogleClient(new CurlClient());
 ```
 
+
+There are two kinds of http clients: those that return the raw html as returned from the search engine (e.g the curl client)
+and the others that evaluate the javascript and update the DOM before before returning (e.g the phantomJS client)
+
 These http clients are currently available:
 
-- [CURL](http-client/curl.md)
-- [phantomJS](http-client/phantomJS.md)
+- Raw clients:
+    - [CURL](http-client/curl.md)
+- Evaluating clients
+    - [phantomJS](http-client/phantomJS.md)
 
 
 Proxies
 -------
 
-As said before, most of time search engines don't want you to parse them.
+Most of time search engines don't want you to parse them thus 
+they use to block you with captcha when they think you are a bot
 When you deal with a very **large number of requests**, you will need to send requests
 through proxies.
 
 This is a major feature of scraping and we placed proxies at the very heart of the library. 
 Each request is proxy aware. 
-This way with a single client you can use as many proxies as you want.
+This way, with a single client you can use as many proxies as you want.
 
 
 > <sub>Example of **proxy** usage with the google client</sub>
@@ -86,10 +93,25 @@ This way with a single client you can use as many proxies as you want.
     $googleClient->query($googleUrl, $proxy);
 ```
 
+Captcha
+-------
+
+Even though you are using proxies and place all the efforts to act like an human, you might encounter the fatal captcha.
+
+When you get **blocked** by a captcha request, it is very important to stop sending request to the search engine and to
+solve the captcha before you continue. 
+
+Dealing with captcha is not easy, at the current state the library can detect captcha but is not able to solve them
+for you we are **currently working** on a captcha solver implementation.
+
+!!! note
+    Captcha are proxy specific, when solving a captcha that should be done with the proxy that was initially blocked
+
 Cookies
 -------
 
 SERPS integrates cookie management, that allows to share cookies across many requests.
 
-Cookie management is usually done at the search engine client level, but you might have to manipulate cookiejars: 
+Cookie management is usually done at the search engine client level. You still want to know
+how to manipulate cookies and cookiejars: 
 [see cookie documentation](/cookies.md) 
