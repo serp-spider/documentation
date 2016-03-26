@@ -1,12 +1,14 @@
 site_name: The PHP SERP Scraper
+
 pages:
-  - Home: index.md
-  - Getting Started:
+  - Documentation:
+    - Home: index.md
     - Overview: overview.md
     - Http Client: http-client.md
     - Proxies: proxies.md
     - Captcha: captcha.md
-  - Search Engine:
+
+  - Search Engines:
     - Google:
       - Google Client: search-engine/google.md
       - Search Parameters: search-engine/google/parameters.md
@@ -16,8 +18,10 @@ pages:
       - CURL: http-client/curl.md
       - PhantomJS: http-client/phantomJS.md
 
-
-
+  - Contribute:
+    - Guidelines: contribute/guidelines.md
+    - Packages: contribute/packages.md
+    - Implement Http Client: contribute/http-client-implementation.md
 
 repo_url: https://github.com/serp-scrape/serps
 
@@ -28,7 +32,6 @@ site_description: >
 site_favicon: null
 
 google_analytics: null
-
 
 extra_css:
   - css/serps.css

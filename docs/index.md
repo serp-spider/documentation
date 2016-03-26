@@ -34,13 +34,13 @@ At the endpoint we offer a **standard and documented API**.
 Getting Started
 ---------------
 
-Looking forward to work with the library? 
+Looking forward to work with the library? Start with the [overview](overview.md).
 
-- Read the [overview](overview.md).
-- Check the available search engines from the top menu.
-- Get information about [http client implementations](http-client.md).
-- See how proxies work [proxies](proxies.md).
-- Work with [captcha services](captcha.md).
+**See also**:
+
+- **search engines** and **http clients** (from the top menu).
+- work with proxies [proxies](proxies.md).
+- [captcha services](captcha.md) usage.
 
 Licensing
 ---------

@@ -54,6 +54,30 @@ Ussually the **search engine client** will need a http client to work correctly.
 
 Check the list of [**available http clients**](http-client.md).
 
+Proxies
+-------
+
+When you deal with a very **large number of requests** solving captcha is not enough, you will need to send requests
+through proxies.
+
+This is a major feature of scraping and we placed proxies at the very heart of the library. 
+We made the choice to make each request being proxy aware. 
+This way with a single client you can use as many proxies as you want.
+
+
+> <sub>Example of **proxy** usage with the google client</sub>
+
+```php
+    use Serps\SearchEngine\Google\GoogleClient;
+    use Serps\HttpClient\CurlClient;
+
+    $googleClient = new GoogleClient(new CurlClient());
+    
+    $googleClient->query($googleUrl, $proxy);
+```
+
+Read more about [**proxies**](proxies.md).
+
 
 Captcha
 -------
@@ -82,30 +106,6 @@ to solve before you continue.
 
 Read more about [**captcha**](captcha.md).
 
-
-Proxies
--------
-
-When you deal with a very **large number of requests** solving captcha is not enough, you will need to send requests
-through proxies.
-
-This is a major feature of scraping and we placed proxies at the very heart of the library. 
-We made the choice to make each request being proxy aware. 
-This way with a single client you can use as many proxies as you want.
-
-
-> <sub>Example of **proxy** usage with the google client</sub>
-
-```php
-    use Serps\SearchEngine\Google\GoogleClient;
-    use Serps\HttpClient\CurlClient;
-
-    $googleClient = new GoogleClient(new CurlClient());
-    
-    $googleClient->query($googleUrl, $proxy);
-```
-
-Read more about [**proxies**](proxies.md).
 
 ### Proxies and captcha
 
