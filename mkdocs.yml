@@ -15,8 +15,8 @@ pages:
       - CURL: http-client/curl.md
       - PhantomJS: http-client/phantomJS.md
 
-  - Contribute:
-    - Packages: contribute/packages.md
+  - About:
+    - Packages: about/packages.md
 
 repo_url: https://github.com/serp-scrape/serps
 
