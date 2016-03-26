@@ -1,9 +1,14 @@
 SERPS
 =====
 
-<img class="frameless-image" style="max-height:100px" src="images/logo.png"/>
+**The PHP Search Engine Result Page Spider**
 
-<center>**The PHP Search Engine Result Page Scraper**</center>
+<center><img class="frameless-image" style="max-height:100px" src="images/logo.png"/></center>
+
+
+---
+
+SERPS is a scraping library for php. It considerably decrease the complexity required to analyse search engines.
 
 
 > <cite>**Web scraping** (web harvesting or web data extraction) is a computer software technique of extracting 
@@ -24,12 +29,12 @@ The problem
 -----------
 
 Most of times search engines don't want you to parse them, and they don't offer a documentation or a standard way 
-to extract the results from the SERP.
+to extract the results from the SERP and it's hard to write and maintain a scraper.
 
 The solution
 ------------
 
-We tried to solve this problems by **analysing** how search engines behave and we built the necessary tools to
+To solve this problems we **analysed** how search engines behave and we built the necessary tools to
 work with them, from the URL generation to the parsing of the results. 
 At the endpoint we offer a **standard and documented API**.
 
