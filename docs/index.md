@@ -1,7 +1,9 @@
 Serps
 =====
 
-**The PHP Search Engine Result Page Scraper**
+<img class="frameless-image" style="max-height:100px" src="images/logo.png"/>
+
+<center>**The PHP Search Engine Result Page Scraper**</center>
 
 
 > <cite>**Web scraping** (web harvesting or web data extraction) is a computer software technique of extracting 

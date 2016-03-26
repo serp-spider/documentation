@@ -12,7 +12,10 @@ h1,
     text-align: center;
 }
 
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus,
+.navbar-brand:hover
+{
     background-color: #3C2020;
     outline-color: #3C2020;
 }
@@ -45,6 +48,21 @@ a {
 a:hover{
     color: #400909;
 }
+
+
+.navbar-brand{
+    position: relative;
+    padding-left: 60px;
+}
+
+.navbar-brand img{
+    max-width: 100px;
+    max-height: 45px;
+    position: absolute;
+    top: 3px;
+    left: 10px;
+}
+
 
 body{
     background-image: none;
@@ -89,6 +107,7 @@ div.col-md-9 img.frameless-image{
     margin:1px;
     border:0;
     padding:0;
+    background: none;
 }
 
 

@@ -1,4 +1,4 @@
-site_name: The PHP SERP Scraper
+site_name: SERPS Documentation
 
 pages:
   - Documentation:
@@ -27,7 +27,7 @@ site_description: >
   SERPS is a SERP Scraper for php.
   It offers a set of tools to manipulate and parse popular search engines such as Google, Yahoo, Bing...
 
-site_favicon: null
+site_favicon: favicon.ico
 
 google_analytics:
   - UA-75620778-1
