@@ -29,7 +29,9 @@ site_description: >
 
 site_favicon: null
 
-google_analytics: null
+google_analytics:
+  - UA-75620778-1
+  - serp-scrape.github.io
 
 extra_css:
   - css/serps.css
