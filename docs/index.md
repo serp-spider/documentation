@@ -22,7 +22,7 @@ SERPS is a scraping library for php. It considerably decrease the complexity req
 What is it?
 -----------
 
-Serps is a set of tools that ease the parsing of **popular search engines**.
+Serps is a set of tools that ease the parsing of **popular search engines** (such as google, yahoo or bing).
 It helps to parse **SERP** (Search Engine Result Page) and gives you a standard output of what is parsed.
 
 The problem
