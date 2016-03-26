@@ -1,7 +1,8 @@
-Serps - Home
-============
+Serps
+=====
 
 **The PHP Search Engine Result Page Scraper**
+
 
 > <cite>**Web scraping** (web harvesting or web data extraction) is a computer software technique of extracting 
 > information from websites. Usually, such software programs simulate human exploration of the World Wide Web 
@@ -9,6 +10,7 @@ Serps - Home
 > or embedding a fully-fledged web browser, such as Mozilla Firefox.</cite>
 >
 > <small>[Wikipedia](https://en.wikipedia.org/wiki/Web_scraping)</small>
+
 
 What is it?
 -----------
@@ -36,11 +38,7 @@ Getting Started
 
 Looking forward to work with the library? Start with the [overview](overview.md).
 
-**See also**:
-
-- **search engines** and **http clients** (from the top menu).
-- work with proxies [proxies](proxies.md).
-- [captcha services](captcha.md) usage.
+Browse the **search engines** and **http clients** from the top menu.
 
 Licensing
 ---------

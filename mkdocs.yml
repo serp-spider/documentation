@@ -2,11 +2,9 @@ site_name: The PHP SERP Scraper
 
 pages:
   - Documentation:
-    - Home: index.md
+    - About SERPS: index.md
     - Overview: overview.md
-    - Http Client: http-client.md
-    - Proxies: proxies.md
-    - Captcha: captcha.md
+    - Cookies: cookies.md
 
   - Search Engines:
     - Google:

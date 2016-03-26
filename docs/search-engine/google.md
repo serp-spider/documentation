@@ -1,7 +1,7 @@
 Google Client
 =============
 
-The official package to parse google pages
+The package to parse google pages
 
 ---
 
@@ -60,9 +60,9 @@ The builder offers the required tools to build an url from scratch
     // https://google.com/search?q=simpsons&lr=lang_en
 ```
 
-### Import an url
+### Url from a string
 
-It's possible to import an url from an existing google url string
+It's possible to parse an an existing google url string to an url object
 
 ```php
     use Serps\SearchEngine\Google\GoogleUrl;
@@ -153,12 +153,9 @@ check our [list of parameters](google/parameters.md).
 Parsing results
 ---------------
 
-The library is responsible for parsing the page and outputting a standard result set.
+The google client is also responsible for parsing the page and outputting a standard result set.
 
-A page can return different kind of results. For convenience the standard result types
-have been listed on their own page.
-
-[**View list of results**](google/parse-page.md)
+A page can return different kind of results. For convenience the guide for parsing a page has its own page: [**view the guide**](google/parse-page.md)
 
 
 Proxy usage
@@ -184,7 +181,37 @@ You can use a proxy at the request time
     $response = $googleClient->query($googleUrl, $proxy);
 ```
 
-Read the [proxy documentation](../proxies)
+Cookie usage
+------------
+
+The google client can persist cookies across several requests. 
+By default it is disabled, to enable it, simply do:
+
+```php
+    $googleClient->enableCookies();
+```
+
+And to disable it again:
+
+```php
+    $googleClient->disableCookies();
+```
+
+You can also get the current state of the cookieJar:
+
+```php
+    $googleClient->getCookieJar();
+```
+
+Or set a custom CookieJar
+
+
+```php
+    $googleClient->setCookieJar($cookieJar);
+```
+
+
+
 
 Solve a Captcha
 ---------------

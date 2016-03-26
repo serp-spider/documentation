@@ -1,4 +1,0 @@
-Work with proxy
-===============
-
- TODO
