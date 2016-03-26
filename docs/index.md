@@ -1,4 +1,4 @@
-Serps
+SERPS
 =====
 
 <img class="frameless-image" style="max-height:100px" src="images/logo.png"/>
