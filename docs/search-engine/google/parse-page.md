@@ -78,7 +78,7 @@ From the **resultSet** you can also access all the results matching the given ty
 
 
 
-## Classical
+### Classical
 
 These results are the common natural results that have always existed in google.
 
@@ -111,7 +111,7 @@ These results are the common natural results that have always existed in google.
     }
 ```
 
-## Classical Video
+### Classical Video
 
 This type an extension of the [classical result](#classical), but it refers to a video result.
 
@@ -153,7 +153,7 @@ The video result can be illustrated with either a thumbnail or a large image.
 ```
 
 
-## Image Group
+### Image Group
 
 Images that appear as a group of results.
 
@@ -191,7 +191,7 @@ Images that appear as a group of results.
 ```
 
 
-## Map
+### Map
 
 A result illustrated by a map and that contains sub-results.
 
@@ -231,7 +231,7 @@ A result illustrated by a map and that contains sub-results.
 ```
 
 
-## Tweet Carousel
+### Tweet Carousel
 
 Recent tweet list from an user matching the search keywords.
 
@@ -264,7 +264,7 @@ Recent tweet list from an user matching the search keywords.
     }
 ```
 
-## In the News
+### In the News
 
 Recent news results.
 

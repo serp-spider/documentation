@@ -1,5 +1,15 @@
 .navbar{
     background: #613636;
+    border-bottom: 2px solid #3C2020;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #251B1B;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: #3C2020;
+    outline-color: #3C2020;
 }
 
 .navbar-default .navbar-nav>.active>a,
@@ -58,4 +68,14 @@ cite{
 .hljs-title{
     color: #6d6d6d;
     font-weight: normal;
+}
+
+
+ul.nav li.level-2,
+ul.nav li.level-3{
+    padding-left: 8px;
+}
+ul.nav li.level-3{
+    margin-left: 8px;
+    font-size: 0.9em;
 }

@@ -25,6 +25,8 @@ pages:
 
 repo_url: https://github.com/serp-scrape/serps
 
+theme_dir: 'themes/serps'
+
 site_description: >
   SERPS is a SERP Scraper for php.
   It offers a set of tools to manipulate and parse popular search engines such as Google, Yahoo, Bing...
