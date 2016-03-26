@@ -1,7 +1,9 @@
 Google Client
 =============
 
-The package to parse google pages
+<img class="frameless-image" alt="Google logo" src="/images/logo-google.png"/>
+
+<center>Everything about the google client</center>
 
 ---
 
