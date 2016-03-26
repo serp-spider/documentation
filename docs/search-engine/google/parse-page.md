@@ -1,9 +1,13 @@
 # Google: Parse a Page
 
-A google SERP can contain different type of result.
+The necessary documentation about parsing a google page
+
+---
 
 ![Classical Results](images/serp.png)
 
+
+A google SERP can contain different type of result.
 Firstly they are divided in three distinct regions: natural (organic), paid (adwords) and graph results and each of them
 has its own results types.
 

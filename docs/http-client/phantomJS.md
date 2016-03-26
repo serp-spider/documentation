@@ -2,6 +2,9 @@ PhantomJS HTTP Client
 =====================
 
 [PhantomJS](http://phantomjs.org/) is a webkit implementation that helps to simulate the real browser.
+
+---
+
 By using this client you will execute the inner javascript code and make the DOM as real as in the true browser,
 that can be required for some search engines to work properly.
 

@@ -7,6 +7,11 @@
     border-color: #251B1B;
 }
 
+h1,
+#main-content>p:first-of-type{
+    text-align: center;
+}
+
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
     background-color: #3C2020;
     outline-color: #3C2020;
@@ -78,4 +83,10 @@ ul.nav li.level-3{
 ul.nav li.level-3{
     margin-left: 8px;
     font-size: 0.9em;
+}
+
+div.col-md-9 img.pkg-inf-image{
+    margin:1px;
+    border:0;
+    padding:0;
 }

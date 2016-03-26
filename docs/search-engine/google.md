@@ -1,6 +1,10 @@
 Google Client
 =============
 
+The official package to parse google pages
+
+---
+
 Installation
 ------------
 

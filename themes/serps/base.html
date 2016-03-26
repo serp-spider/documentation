@@ -19,7 +19,7 @@
         {%- for path in extra_css %}
         <link href="{{ path }}" rel="stylesheet">
         {%- endfor %}
-        {%- for path in page_extra_css %}
+        {%- for path in theme_extra_css %}
         <link href="{{ path }}" rel="stylesheet">
         {%- endfor %}
 
@@ -49,7 +49,7 @@
         <div class="container">
             {% block content %}
                 <div class="col-md-3">{% include "toc.html" %}</div>
-                <div class="col-md-9" role="main">{% include "content.html" %}</div>
+                <div class="col-md-9" id="main-content" role="main">{% include "content.html" %}</div>
             {% endblock %}
         </div>
 

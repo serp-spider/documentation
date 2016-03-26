@@ -19,9 +19,7 @@ pages:
       - PhantomJS: http-client/phantomJS.md
 
   - Contribute:
-    - Guidelines: contribute/guidelines.md
     - Packages: contribute/packages.md
-    - Implement Http Client: contribute/http-client-implementation.md
 
 repo_url: https://github.com/serp-scrape/serps
 
