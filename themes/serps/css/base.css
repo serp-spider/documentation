@@ -556,3 +556,13 @@ div.col-md-9 img.frameless-image{
         padding-right: 7px;
     }
 }
+
+
+
+.alpha-banner{
+    padding: 15px 0;
+    font-weight: bold;
+    background: #783D5A;
+    color: #FFF;
+    text-align: center;
+}
