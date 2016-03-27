@@ -7,9 +7,7 @@ pages:
     - Cookies: cookies.md
 
   - Search Engines:
-    - Google:
-      - Google Client: search-engine/google.md
-      - Parse a Page: search-engine/google/parse-page.md
+    - Google: search-engine/google.md
 
   - Http Clients:
       - CURL: http-client/curl.md
@@ -17,6 +15,9 @@ pages:
 
   - About:
     - Packages: about/packages.md
+
+  - _hidden:
+    - Parse a Page: search-engine/google/parse-page.md
 
 repo_url: https://github.com/serp-scrape/serps
 

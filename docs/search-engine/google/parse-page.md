@@ -6,6 +6,9 @@
 
 ---
 
+Back to the [**general google documentation**](../google.md).
+
+---
 ![Classical Results](images/serp.png)
 
 

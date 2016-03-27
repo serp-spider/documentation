@@ -7,6 +7,10 @@ Google Client
 
 ---
 
+Jump to [**parse a google page**](google/parse-page.md).
+
+---
+
 Installation
 ------------
 
