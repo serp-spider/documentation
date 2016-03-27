@@ -19,7 +19,7 @@ pages:
   - _hidden:
     - Parse a Page: search-engine/google/parse-page.md
 
-repo_url: https://github.com/serp-scrape/serps
+repo_url: https://github.com/serp-spider
 
 theme_dir: 'themes/serps'
 
@@ -31,10 +31,7 @@ site_favicon: favicon.ico
 
 google_analytics:
   - UA-75620778-1
-  - serp-scrape.github.io
-
-extra_css:
-  - css/serps.css
+  - serp-spider.github.io
 
 
 markdown_extensions:
