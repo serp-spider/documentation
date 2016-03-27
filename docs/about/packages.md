@@ -69,9 +69,17 @@ List of packages that are part of this project
 
 ---
 
+
+## serp-spider.github.io
+
+*Simply the homepage at http://serp-spider.github.io/*
+
+[**<i class="fa fa-github-alt"></i> Github**](https://github.com/serp-spider/serp-spider.github.io)
+
+
 ## Documentation
 
-*The package that contains this documentation*
+*The package that contains this documentation at http://serp-spider.github.io/documentation*
 
 [**<i class="fa fa-github-alt"></i> Github**](https://github.com/serp-spider/documentation)
 
