@@ -26,8 +26,8 @@
     
         
     <url>
-     <loc>None</loc>
-     <lastmod></lastmod>
+     <loc>None/search-engine/google/</loc>
+     <lastmod>2016-03-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -53,6 +53,16 @@
         
     <url>
      <loc>None/about/packages/</loc>
+     <lastmod>2016-03-27</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/search-engine/google/parse-page/</loc>
      <lastmod>2016-03-27</lastmod>
      <changefreq>daily</changefreq>
     </url>
