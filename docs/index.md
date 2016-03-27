@@ -49,8 +49,8 @@ Looking forward to work with the library?
 Support & issue [<img class="frameless-image" alt="gitter" src="https://img.shields.io/gitter/room/nwjs/nw.js.svg" />](https://gitter.im/serp-spider/help)
 ---------------
 
-You have problems to get started with the library? We'd like to know what is your issue.
-If you have general question, [join us on gitter](https://gitter.im/serp-spider/help).
+You have problems to get started with the library or you have general question? We'd like to hear what is your issue,
+[join us on gitter](https://gitter.im/serp-spider/help).
 
 You spotted an issue with the library? Please report it on the 
 [github issue tracker](https://github.com/serp-spider/serps/issues)
