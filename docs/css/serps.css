@@ -1,3 +1,7 @@
+body{
+    margin-bottom: 50px;
+}
+
 .navbar{
     background: #613636;
     border-bottom: 2px solid #3C2020;
