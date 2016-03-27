@@ -292,5 +292,20 @@ $response = $client-&gt;query($request, $proxy, $cookieJar);
             </div>
         </div>
 
+    <script>
+        ((window.gitter = {}).chat = {}).options = {
+            room: 'serp-spider/help'
+        };
+        require.config({
+            paths: {
+                "sidecar": "https://sidecar.gitter.im/dist/sidecar.v1"
+            }
+        });
+        require( ["sidecar"], function ($) {
+                    console.log('sidecar loaded');
+                }
+        );
+    </script>
+
     </body>
 </html>

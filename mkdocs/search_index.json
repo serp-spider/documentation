@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/", 
-            "text": "SERPS\n\n\nThe PHP Search Engine Result Page Spider\n\n\n\n\n\n\nSERPS is a scraping library for php. It considerably decrease the complexity required to analyse search engines.\n\n\n\n\nWeb scraping\n (web harvesting or web data extraction) is a computer software technique of extracting \ninformation from websites. Usually, such software programs simulate human exploration of the World Wide Web \nby either implementing low-level Hypertext Transfer Protocol (HTTP), \nor embedding a fully-fledged web browser, such as Mozilla Firefox.\n\n\nWikipedia\n\n\n\n\nWhat is it?\n\n\nSerps is a set of tools that ease the parsing of \npopular search engines\n.\nIt helps to parse \nSERP\n (Search Engine Result Page) and gives you a standard output of what is parsed.\n\n\nThe problem\n\n\nMost of times search engines don't want you to parse them, and they don't offer a documentation or a standard way \nto extract the results from the SERP and it's hard to write and maintain a scraper.\n\n\nThe solution\n\n\nTo solve this problems we \nanalysed\n how search engines behave and we built the necessary tools to\nwork with them, from the URL generation to the parsing of the results. \nAt the endpoint we offer a \nstandard and documented API\n.\n\n\nGetting Started\n\n\nLooking forward to work with the library? \n\n\n\n\nStart with the \noverview\n.\n\n\nBrowse the available \nsearch engines\n and \nhttp clients\n from the top menu.\n\n\n\n\nLicensing\n\n\nThe work is placed under the terms of the \nFair License\n.\n\n\n\n\nUsage of the works is permitted provided that this instrument is retained with the works, \nso that any entity that uses the works is notified of this instrument.\n\n\nDISCLAIMER: THE WORKS ARE WITHOUT WARRANTY.", 
+            "text": "SERPS\n\n\nThe PHP Search Engine Result Page Spider\n\n\n\n\n\n\nSERPS is a scraping library for php. It considerably decrease the complexity required to analyse search engines.\n\n\n\n\nWeb scraping\n (web harvesting or web data extraction) is a computer software technique of extracting \ninformation from websites. Usually, such software programs simulate human exploration of the World Wide Web \nby either implementing low-level Hypertext Transfer Protocol (HTTP), \nor embedding a fully-fledged web browser, such as Mozilla Firefox.\n\n\nWikipedia\n\n\n\n\nWhat is it?\n\n\nSerps is a set of tools that ease the parsing of \npopular search engines\n (such as google, yahoo or bing).\nIt helps to parse \nSERP\n (Search Engine Result Page) and gives you a standard output of what is parsed.\n\n\nThe problem\n\n\nMost of times search engines don't want you to parse them, and they don't offer a documentation or a standard way \nto extract the results from the SERP and it's hard to write and maintain a scraper.\n\n\nThe solution\n\n\nTo solve this problems we \nanalysed\n how search engines behave and we built the necessary tools to\nwork with them, from the URL generation to the parsing of the results. \nAt the endpoint we offer a \nstandard and documented API\n.\n\n\nGetting Started\n\n\nLooking forward to work with the library? \n\n\n\n\nStart with the \noverview\n.\n\n\nBrowse the available \nsearch engines\n and \nhttp clients\n from the top menu.\n\n\n\n\nSupport \n issue \n\n\nYou have problems to get started with the library? We'd like to know what is your issue.\nIf you have general question, \njoin us on gitter\n.\n\n\nYou spotted an issue with the library? Please report it on the \n\ngithub issue tracker\n\n\nLicensing\n\n\nThe work is placed under the terms of the \nFair License\n.\n\n\n\n\nUsage of the works is permitted provided that this instrument is retained with the works, \nso that any entity that uses the works is notified of this instrument.\n\n\nDISCLAIMER: THE WORKS ARE WITHOUT WARRANTY.", 
             "title": "About SERPS"
         }, 
         {
@@ -12,7 +12,7 @@
         }, 
         {
             "location": "/#what-is-it", 
-            "text": "Serps is a set of tools that ease the parsing of  popular search engines .\nIt helps to parse  SERP  (Search Engine Result Page) and gives you a standard output of what is parsed.", 
+            "text": "Serps is a set of tools that ease the parsing of  popular search engines  (such as google, yahoo or bing).\nIt helps to parse  SERP  (Search Engine Result Page) and gives you a standard output of what is parsed.", 
             "title": "What is it?"
         }, 
         {
@@ -29,6 +29,11 @@
             "location": "/#getting-started", 
             "text": "Looking forward to work with the library?    Start with the  overview .  Browse the available  search engines  and  http clients  from the top menu.", 
             "title": "Getting Started"
+        }, 
+        {
+            "location": "/#support-issue", 
+            "text": "You have problems to get started with the library? We'd like to know what is your issue.\nIf you have general question,  join us on gitter .  You spotted an issue with the library? Please report it on the  github issue tracker", 
+            "title": "Support &amp; issue "
         }, 
         {
             "location": "/#licensing", 

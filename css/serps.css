@@ -117,3 +117,7 @@ div.col-md-9 img.frameless-image{
     background-color: #DDD;
     border-color: #CCC;
 }
+
+.gitter-chat-embed{
+    top: 52px;
+}
