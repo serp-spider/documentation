@@ -22,7 +22,7 @@ The google client is available with the package
 Overview
 --------
 
-The google client needs a http client interface to be constructed and an url to be parsed
+The google client needs a http client interface to be constructed and an url to be parsed.
 
 ```php
     use Serps\SearchEngine\Google\GoogleClient;
@@ -52,7 +52,7 @@ Working with urls
 
 ### Create an url
 
-The url builder has the required tools to build an url from scratch
+The url builder has the required tools to build an url from scratch.
 
 ```php
     use Serps\SearchEngine\Google\GoogleUrl;
@@ -66,7 +66,7 @@ The url builder has the required tools to build an url from scratch
 
 ### Url from a string
 
-It's also possible to parse an an existing google url string to an url object
+It's also possible to parse an an existing google url string to an url object.
 
 ```php
     use Serps\SearchEngine\Google\GoogleUrl;

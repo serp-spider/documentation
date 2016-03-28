@@ -314,5 +314,79 @@ Recent news results.
 # Adwords Results
 
 
+The google client offers an Adwords parser.
+
+```php
+    $adwordsResults = $response->getAdwordsResults();
+    
+    foreach($results as $result){
+        // do stuff
+    }
+```
+
+## Adwords sections
+
+Adwords results are composed from 3 distinct sections. These sections can be at the top, at the right or at the bottom
+of the natural results. See the schema:
+
+![Adwords positions](images/adwords-positions.jpg)
+
+
+By default all results are available in the result set, if you need 
+to get results from a section, you can use the section as a type filter:
+
+```php
+    use Serps\SearchEngine\Google\AdwordsResultType;
+
+    $adwordsResults = $response->getAdwordsResults();
+    
+    $topResults = $adwordsResults->getResultsByType(AdwordsResultType::SECTION_TOP);
+    $rightResults = $adwordsResults->getResultsByType(AdwordsResultType::SECTION_RIGHT);
+    $bottomResults = $adwordsResults->getResultsByType(AdwordsResultType::SECTION_BOTTOM);
+    
+    foreach($topResults as $result){
+        // Do stuff...
+    }
+```
+
+## Adwords Results
+
+### Ad
+
+
+Ads results are the basics results from adwords.
+
+
+![Tweets Carousel](images/result-types/adwords_ad.png)
+
+
+**Available with**
+
+- ``AdwordsResultType::AD``
+
+**Data**
+
+- ``title`` <small>**string**</small> **[A]**
+- ``url`` <small>**url**</small>: The url reach when clicking the title
+- ``visurl`` <small>**string**</small> **[B]**: The visual url
+- ``description``<small>**string**</small> **[C]**
+
+**Example**
+
+```php
+    use Serps\SearchEngine\Google\AdwordsResultType;
+
+    
+    $results = $response->getAdwordsResults();
+    
+    foreach($results as $result){
+        if($result->is(AdwordsResultType::AD)){
+            $url = $result->getDataValue('url');
+        }
+    }
+```
+
 
 # Related searches
+
+Not implemented yet.
