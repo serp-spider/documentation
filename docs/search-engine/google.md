@@ -7,7 +7,12 @@ Google Client
 
 ---
 
-Jump to [**parse a google page**](google/parse-page.md).
+Jump to:
+
+- [**Parse a google page**](google/parse-page.md)
+    - [**Parse natural results**](google/parse-page.md#natural-results)
+    - [**Parse adwords results**](google/parse-page.md#adwords-results)
+    
 
 ---
 
