@@ -36,15 +36,15 @@ div.col-md-9 img {
     margin: 20px auto 30px auto;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
     color: #444;
 }
 
 h1[id]:before, h2[id]:before, h3[id]:before, h4[id]:before, h5[id]:before, h6[id]:before {
     content: "";
     display: block;
-    margin-top: -75px;
-    height: 75px;
+    margin-top: -60px;
+    height: 60px;
     pointer-events: none;
 }
 
@@ -55,6 +55,16 @@ h1 {
 
 h2, h3, h4, h5, h6 {
     font-weight: 300;
+}
+
+h4[id]:before{
+    margin-top: -75px;
+    height: 75px;
+}
+
+h4{
+    margin-top: 25px;
+    font-size: 23px;
 }
 
 hr {
@@ -516,13 +526,13 @@ cite{
 ul.nav li.active{
     background: #E0E0E0;
 }
-ul.nav li.level-2,
 ul.nav li.level-3{
-    padding-left: 8px;
-}
-ul.nav li.level-3{
-    margin-left: 8px;
+    padding-left: 12px;
     font-size: 0.9em;
+}
+ul.nav li.level-4{
+    margin-left: 24px;
+    font-size: 0.88em;
 }
 
 div.col-md-9 img.frameless-image{

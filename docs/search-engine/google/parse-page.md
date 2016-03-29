@@ -19,7 +19,7 @@ has its own results types.
 Through there is a great diversity of results the library gives you the api to work with them, here we explain
 what are their differences.
 
-# Natural Results
+## Natural Results
 
 Natural results (aka organic results) are main results of the page.
 
@@ -56,7 +56,7 @@ Each of the result from the loop will have the following methods available:
 The difference between each result type is the list of data available with ``getDataValue($type)`` and ``getData()``.
 See bellow for all available data per result type.
 
-## Natural Result Types
+### Natural Result Types
 
 **Result types** can be accessed through the class ``NaturalResultType``,
 
@@ -73,21 +73,18 @@ See bellow for all available data per result type.
     if($result->is(NaturalResultType::CLASSICAL, NaturalResultType::IMAGE_GROUP)){
         // Do stuff
     }
-
 ```
 
 From the **resultSet** you can also access all the results matching the given type:
 
 ```php
-
     // Get all the results that are either classical or image_group
     $results = $results->getResultsByType(NaturalResultType::CLASSICAL, NaturalResultType::IMAGE_GROUP);
-
 ```
 
 
 
-### Classical
+#### Classical
 
 These results are the common natural results that have always existed in google.
 
@@ -120,7 +117,7 @@ These results are the common natural results that have always existed in google.
     }
 ```
 
-### Classical Video
+#### Classical Video
 
 This type an extension of the [classical result](#classical), but it refers to a video result.
 
@@ -162,7 +159,7 @@ The video result can be illustrated with either a thumbnail or a large image.
 ```
 
 
-### Image Group
+#### Image Group
 
 Images that appear as a group of results.
 
@@ -200,7 +197,7 @@ Images that appear as a group of results.
 ```
 
 
-### Map
+#### Map
 
 A result illustrated by a map and that contains sub-results.
 
@@ -240,7 +237,7 @@ A result illustrated by a map and that contains sub-results.
 ```
 
 
-### Tweet Carousel
+#### Tweet Carousel
 
 Recent tweet list from an user matching the search keywords.
 
@@ -273,7 +270,7 @@ Recent tweet list from an user matching the search keywords.
     }
 ```
 
-### In the News
+#### In the News
 
 Recent news results.
 
@@ -311,7 +308,7 @@ Recent news results.
 
 
 
-# Adwords Results
+## Adwords Results
 
 
 The google client offers an Adwords parser.
@@ -324,7 +321,7 @@ The google client offers an Adwords parser.
     }
 ```
 
-## Adwords sections
+### Adwords sections
 
 Adwords results are composed from 3 distinct sections. These sections can be at the top, at the right or at the bottom
 of the natural results. See the schema:
@@ -349,9 +346,9 @@ to get results from a section, you can use the section as a type filter:
     }
 ```
 
-## Adwords Results
+### Adwords Types
 
-### Ad
+#### Ad
 
 
 Ads results are the basics results from adwords.
@@ -387,6 +384,6 @@ Ads results are the basics results from adwords.
 ```
 
 
-# Related searches
+## Related searches
 
 Not implemented yet.
