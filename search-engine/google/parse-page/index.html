@@ -205,6 +205,8 @@
                     
                         <li class="level-4"><a href="#ad">Ad</a></li>
                     
+                        <li class="level-4"><a href="#shopping">Shopping</a></li>
+                    
             
         
             <li class="level-2"><a href="#related-searches">Related searches</a></li>
@@ -221,11 +223,20 @@
 <hr />
 <p>Back to the <a href="../"><strong>general google documentation</strong></a>.</p>
 <hr />
+<div class="admonition warning">
+<p class="admonition-title">Important notice about google update</p>
+<p>The current documentation can change at any time. As soon as google changes its page structure
+the following example may stop to work correctly.</p>
+<p>We place efforts to monitor the changes but we cannot guarantee that everything will be available at any time.</p>
+<p>Remember to tune your composer.json correctly to make sure to bring new changes as they come. 
+We use the <a href="http://semver.org/">semantic versioning</a> 
+and the best practise is to <a href="https://getcomposer.org/doc/articles/versions.md#tilde">use the tilde operator</a>. </p>
+</div>
 <p><img alt="Classical Results" src="../images/serp.png" /></p>
 <p>A google SERP can contain different type of result.
-Firstly they are divided in three distinct regions: natural (organic), paid (adwords) and graph results and each of them
-has its own results types.</p>
-<p>Through there is a great diversity of results the library gives you the api to work with them, here we explain
+Firstly they are divided in three distinct regions: <strong>natural</strong> (organic), <strong>paid</strong> (adwords) and <strong>graph results</strong> and each of them
+has its own results types. Graph result are currently <strong>not supported</strong> by the library.</p>
+<p>Through there is a great diversity of results the library gives you the api to work with them, here we document
 what are their differences.</p>
 <h2 id="natural-results">Natural Results</h2>
 <p>Natural results (aka organic results) are main results of the page.</p>
@@ -275,7 +286,7 @@ See bellow for all available data per result type.</p>
     }
 </code></pre>
 
-<p>From the <strong>resultSet</strong> you can also access all the results matching the given type:</p>
+<p>From the <strong>resultSet</strong> you can also access all the results matching one of the given type:</p>
 <pre><code class="php">    // Get all the results that are either classical or image_group
     $results = $results-&gt;getResultsByType(NaturalResultType::CLASSICAL, NaturalResultType::IMAGE_GROUP);
 </code></pre>
@@ -493,7 +504,7 @@ to get results from a section, you can use the section as a type filter:</p>
 <h3 id="adwords-types">Adwords Types</h3>
 <h4 id="ad">Ad</h4>
 <p>Ads results are the basics results from adwords.</p>
-<p><img alt="Tweets Carousel" src="../images/result-types/adwords_ad.png" /></p>
+<p><img alt="Adwords ads" src="../images/result-types/adwords_ad.png" /></p>
 <p><strong>Available with</strong></p>
 <ul>
 <li><code>AdwordsResultType::AD</code></li>
@@ -513,6 +524,36 @@ to get results from a section, you can use the section as a type filter:</p>
 
     foreach($results as $result){
         if($result-&gt;is(AdwordsResultType::AD)){
+            $url = $result-&gt;getDataValue('url');
+        }
+    }
+</code></pre>
+
+<h4 id="shopping">Shopping</h4>
+<p>These are the result from google shopping/merchant.</p>
+<p><img alt="Google shopping" src="../images/result-types/adwords_shopping.png" /></p>
+<p><strong>Available with</strong></p>
+<ul>
+<li><code>AdwordsResultType::SHOPPING_GROUP</code></li>
+</ul>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>products</code> <small><strong>array</strong></small>: The product list. Each product contains the following items:<ul>
+<li><code>title</code> <small><strong>string</strong></small> <strong>[A]</strong></li>
+<li><code>image</code> <small><strong>string</strong></small> <strong>[B]</strong></li>
+<li><code>url</code> <small><strong>url</strong></small>: The url reached when clicking the title</li>
+<li><code>target</code> <small><strong>string</strong></small> <strong>[C]</strong>: The target website as shown by google</li>
+<li><code>price</code><small><strong>string</strong></small> <strong>[D]</strong>: The price as show by google</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\AdwordsResultType;
+
+    $results = $response-&gt;getAdwordsResults();
+
+    foreach($results as $result){
+        if($result-&gt;is(AdwordsResultType::SHOPPING_GROUP)){
             $url = $result-&gt;getDataValue('url');
         }
     }

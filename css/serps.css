@@ -1,0 +1,142 @@
+body{
+    margin-bottom: 50px;
+}
+
+.navbar{
+    background: #613636;
+    border-bottom: 2px solid #3C2020;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #251B1B;
+}
+
+#main-content h1:first-of-type,
+#main-content>p:first-of-type{
+    text-align: center;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus,
+.navbar-brand:hover
+{
+    background-color: #3C2020;
+    outline-color: #3C2020;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus,
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.open>a:focus
+{
+    color: #fff;
+    background-color: #3C2020;
+}
+
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus,
+.dropdown-menu>.active>a,
+.dropdown-menu>.active>a:hover,
+.dropdown-menu>.active>a:focus{
+    background-color: #965C5C;
+}
+
+a {
+    color: #880D0D;
+}
+
+a:hover{
+    color: #400909;
+}
+
+
+.navbar-brand{
+    position: relative;
+    padding-left: 60px;
+}
+
+.navbar-brand img{
+    max-width: 100px;
+    max-height: 45px;
+    position: absolute;
+    top: 3px;
+    left: 10px;
+}
+
+
+body{
+    background-image: none;
+}
+
+code {
+    color: #848484;
+    background-color: #E8E8E8;
+    border: 1px solid #DDD;
+}
+
+
+pre code{
+    border: 0;
+    padding: 0;
+    margin: 0 -5px;
+}
+
+cite{
+    font-size: 14px;
+}
+
+
+/** HLJS **/
+
+.hljs-title{
+    color: #6d6d6d;
+    font-weight: normal;
+}
+
+
+ul.nav li.level-2,
+ul.nav li.level-3{
+    padding-left: 8px;
+}
+ul.nav li.level-3{
+    margin-left: 8px;
+    font-size: 0.9em;
+}
+
+div.col-md-9 img.frameless-image{
+    margin:1px;
+    border:0;
+    padding:0;
+    background: none;
+}
+
+
+
+.admonition.info {
+    color: #666;
+    background-color: #DDD;
+    border-color: #CCC;
+}
+
+.gitter-chat-embed{
+    top: 52px;
+}
+
+
+
+@media (min-width: 768px)  and (max-width: 1005px) {
+    .navbar .container {
+        width: 735px;
+    }
+}
+
+@media (min-width: 755px) and (max-width: 905px){
+    .nav>li>a {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+}
