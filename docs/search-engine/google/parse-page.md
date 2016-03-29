@@ -9,15 +9,28 @@
 Back to the [**general google documentation**](../google.md).
 
 ---
+
+
+!!! warning "Important notice about google update"
+    The current documentation can change at any time. As soon as google changes its page structure
+    the following example may stop to work correctly.
+    
+    We place efforts to monitor the changes but we cannot guarantee that everything will be available at any time.
+    
+    Remember to tune your composer.json correctly to make sure to bring new changes as they come. 
+    We use the [semantic versioning](http://semver.org/) 
+    and the best practise is to [use the tilde operator](https://getcomposer.org/doc/articles/versions.md#tilde). 
+
+
 ![Classical Results](images/serp.png)
 
-
 A google SERP can contain different type of result.
-Firstly they are divided in three distinct regions: natural (organic), paid (adwords) and graph results and each of them
-has its own results types.
+Firstly they are divided in three distinct regions: **natural** (organic), **paid** (adwords) and **graph results** and each of them
+has its own results types. Graph result are currently **not supported** by the library.
 
-Through there is a great diversity of results the library gives you the api to work with them, here we explain
+Through there is a great diversity of results the library gives you the api to work with them, here we document
 what are their differences.
+
 
 ## Natural Results
 
@@ -75,7 +88,7 @@ See bellow for all available data per result type.
     }
 ```
 
-From the **resultSet** you can also access all the results matching the given type:
+From the **resultSet** you can also access all the results matching one of the given type:
 
 ```php
     // Get all the results that are either classical or image_group
@@ -354,7 +367,7 @@ to get results from a section, you can use the section as a type filter:
 Ads results are the basics results from adwords.
 
 
-![Tweets Carousel](images/result-types/adwords_ad.png)
+![Adwords ads](images/result-types/adwords_ad.png)
 
 
 **Available with**
@@ -378,6 +391,42 @@ Ads results are the basics results from adwords.
     
     foreach($results as $result){
         if($result->is(AdwordsResultType::AD)){
+            $url = $result->getDataValue('url');
+        }
+    }
+```
+
+#### Shopping
+
+
+These are the result from google shopping/merchant.
+
+
+![Google shopping](images/result-types/adwords_shopping.png)
+
+
+**Available with**
+
+- ``AdwordsResultType::SHOPPING_GROUP``
+
+**Data**
+
+- ``products`` <small>**array**</small>: The product list. Each product contains the following items:
+    - ``title`` <small>**string**</small> **[A]**
+    - ``image`` <small>**string**</small> **[B]**
+    - ``url`` <small>**url**</small>: The url reached when clicking the title
+    - ``target`` <small>**string**</small> **[C]**: The target website as shown by google
+    - ``price``<small>**string**</small> **[D]**: The price as show by google
+
+**Example**
+
+```php
+    use Serps\SearchEngine\Google\AdwordsResultType;
+    
+    $results = $response->getAdwordsResults();
+    
+    foreach($results as $result){
+        if($result->is(AdwordsResultType::SHOPPING_GROUP)){
             $url = $result->getDataValue('url');
         }
     }
