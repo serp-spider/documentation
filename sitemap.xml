@@ -4,29 +4,19 @@
     
         
     <url>
-     <loc>None/</loc>
+     <loc>http://serp-spider.github.io/documentation/</loc>
      <lastmod>2016-03-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/overview/</loc>
+     <loc>http://serp-spider.github.io/documentation/overview/</loc>
      <lastmod>2016-03-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>None/cookies/</loc>
-     <lastmod>2016-03-29</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>None/search-engine/google/</loc>
+     <loc>http://serp-spider.github.io/documentation/cookies/</loc>
      <lastmod>2016-03-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -36,13 +26,7 @@
     
         
     <url>
-     <loc>None/http-client/curl/</loc>
-     <lastmod>2016-03-29</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>None/http-client/phantomJS/</loc>
+     <loc>http://serp-spider.github.io/documentation/search-engine/google/</loc>
      <lastmod>2016-03-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -52,7 +36,13 @@
     
         
     <url>
-     <loc>None/about/packages/</loc>
+     <loc>http://serp-spider.github.io/documentation/http-client/curl/</loc>
+     <lastmod>2016-03-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://serp-spider.github.io/documentation/http-client/phantomJS/</loc>
      <lastmod>2016-03-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -62,7 +52,17 @@
     
         
     <url>
-     <loc>None/search-engine/google/parse-page/</loc>
+     <loc>http://serp-spider.github.io/documentation/about/packages/</loc>
+     <lastmod>2016-03-29</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>http://serp-spider.github.io/documentation/search-engine/google/parse-page/</loc>
      <lastmod>2016-03-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
