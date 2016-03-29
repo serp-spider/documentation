@@ -1,5 +1,7 @@
 site_name: SERPS Documentation
 
+site_url: http://serp-spider.github.io/documentation
+
 pages:
   - Documentation:
     - About SERPS: index.md
