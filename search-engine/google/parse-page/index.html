@@ -178,37 +178,37 @@
     
         <li class="main active"><a href="#parse-a-google-page">Parse a Google Page</a></li>
         
-    
-        <li class="main "><a href="#natural-results">Natural Results</a></li>
-        
-            <li class="level-2"><a href="#natural-result-types">Natural Result Types</a></li>
+            <li class="level-2"><a href="#natural-results">Natural Results</a></li>
             
-                <li class="level-3"><a href="#classical">Classical</a></li>
-            
-                <li class="level-3"><a href="#classical-video">Classical Video</a></li>
-            
-                <li class="level-3"><a href="#image-group">Image Group</a></li>
-            
-                <li class="level-3"><a href="#map">Map</a></li>
-            
-                <li class="level-3"><a href="#tweet-carousel">Tweet Carousel</a></li>
-            
-                <li class="level-3"><a href="#in-the-news">In the News</a></li>
-            
-        
-    
-        <li class="main "><a href="#adwords-results">Adwords Results</a></li>
-        
-            <li class="level-2"><a href="#adwords-sections">Adwords sections</a></li>
+                <li class="level-3"><a href="#natural-result-types">Natural Result Types</a></li>
+                    
+                        <li class="level-4"><a href="#classical">Classical</a></li>
+                    
+                        <li class="level-4"><a href="#classical-video">Classical Video</a></li>
+                    
+                        <li class="level-4"><a href="#image-group">Image Group</a></li>
+                    
+                        <li class="level-4"><a href="#map">Map</a></li>
+                    
+                        <li class="level-4"><a href="#tweet-carousel">Tweet Carousel</a></li>
+                    
+                        <li class="level-4"><a href="#in-the-news">In the News</a></li>
+                    
             
         
-            <li class="level-2"><a href="#adwords-results_1">Adwords Results</a></li>
+            <li class="level-2"><a href="#adwords-results">Adwords Results</a></li>
             
-                <li class="level-3"><a href="#ad">Ad</a></li>
+                <li class="level-3"><a href="#adwords-sections">Adwords sections</a></li>
+                    
+            
+                <li class="level-3"><a href="#adwords-types">Adwords Types</a></li>
+                    
+                        <li class="level-4"><a href="#ad">Ad</a></li>
+                    
             
         
-    
-        <li class="main "><a href="#related-searches">Related searches</a></li>
+            <li class="level-2"><a href="#related-searches">Related searches</a></li>
+            
         
     
     </ul>
@@ -227,7 +227,7 @@ Firstly they are divided in three distinct regions: natural (organic), paid (adw
 has its own results types.</p>
 <p>Through there is a great diversity of results the library gives you the api to work with them, here we explain
 what are their differences.</p>
-<h1 id="natural-results">Natural Results</h1>
+<h2 id="natural-results">Natural Results</h2>
 <p>Natural results (aka organic results) are main results of the page.</p>
 <p>Each natural result has a position and some available data. You can access them the following way (see the foreach loop):</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
@@ -259,7 +259,7 @@ what are their differences.</p>
 </ul>
 <p>The difference between each result type is the list of data available with <code>getDataValue($type)</code> and <code>getData()</code>.
 See bellow for all available data per result type.</p>
-<h2 id="natural-result-types">Natural Result Types</h2>
+<h3 id="natural-result-types">Natural Result Types</h3>
 <p><strong>Result types</strong> can be accessed through the class <code>NaturalResultType</code>,</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
 
@@ -273,17 +273,14 @@ See bellow for all available data per result type.</p>
     if($result-&gt;is(NaturalResultType::CLASSICAL, NaturalResultType::IMAGE_GROUP)){
         // Do stuff
     }
-
 </code></pre>
 
 <p>From the <strong>resultSet</strong> you can also access all the results matching the given type:</p>
-<pre><code class="php">
-    // Get all the results that are either classical or image_group
+<pre><code class="php">    // Get all the results that are either classical or image_group
     $results = $results-&gt;getResultsByType(NaturalResultType::CLASSICAL, NaturalResultType::IMAGE_GROUP);
-
 </code></pre>
 
-<h3 id="classical">Classical</h3>
+<h4 id="classical">Classical</h4>
 <p>These results are the common natural results that have always existed in google.</p>
 <p><img alt="Classical Results" src="../images/result-types/classical.png" /></p>
 <p><strong>Available with</strong></p>
@@ -310,7 +307,7 @@ See bellow for all available data per result type.</p>
     }
 </code></pre>
 
-<h3 id="classical-video">Classical Video</h3>
+<h4 id="classical-video">Classical Video</h4>
 <p>This type an extension of the <a href="#classical">classical result</a>, but it refers to a video result.</p>
 <p>The video result can be illustrated with either a thumbnail or a large image.</p>
 <p><img alt="Video Results" src="../images/result-types/classical_video.png" /></p>
@@ -344,7 +341,7 @@ See bellow for all available data per result type.</p>
     }
 </code></pre>
 
-<h3 id="image-group">Image Group</h3>
+<h4 id="image-group">Image Group</h4>
 <p>Images that appear as a group of results.</p>
 <p><img alt="Image Group Result" src="../images/result-types/image_group.png" /></p>
 <p><strong>Available with</strong></p>
@@ -376,7 +373,7 @@ See bellow for all available data per result type.</p>
     }
 </code></pre>
 
-<h3 id="map">Map</h3>
+<h4 id="map">Map</h4>
 <p>A result illustrated by a map and that contains sub-results.</p>
 <p><img alt="Map Result" src="../images/result-types/map.png" /></p>
 <p><strong>Available with</strong></p>
@@ -410,7 +407,7 @@ See bellow for all available data per result type.</p>
     }
 </code></pre>
 
-<h3 id="tweet-carousel">Tweet Carousel</h3>
+<h4 id="tweet-carousel">Tweet Carousel</h4>
 <p>Recent tweet list from an user matching the search keywords.</p>
 <p><img alt="Tweets Carousel" src="../images/result-types/tweet_carousel.png" /></p>
 <p><strong>Available with</strong></p>
@@ -436,7 +433,7 @@ See bellow for all available data per result type.</p>
     }
 </code></pre>
 
-<h3 id="in-the-news">In the News</h3>
+<h4 id="in-the-news">In the News</h4>
 <p>Recent news results.</p>
 <p><img alt="In the News" src="../images/result-types/in_the_news.png" /></p>
 <p><strong>Available with</strong></p>
@@ -465,7 +462,7 @@ See bellow for all available data per result type.</p>
     }
 </code></pre>
 
-<h1 id="adwords-results">Adwords Results</h1>
+<h2 id="adwords-results">Adwords Results</h2>
 <p>The google client offers an Adwords parser.</p>
 <pre><code class="php">    $adwordsResults = $response-&gt;getAdwordsResults();
 
@@ -474,7 +471,7 @@ See bellow for all available data per result type.</p>
     }
 </code></pre>
 
-<h2 id="adwords-sections">Adwords sections</h2>
+<h3 id="adwords-sections">Adwords sections</h3>
 <p>Adwords results are composed from 3 distinct sections. These sections can be at the top, at the right or at the bottom
 of the natural results. See the schema:</p>
 <p><img alt="Adwords positions" src="../images/adwords-positions.jpg" /></p>
@@ -493,8 +490,8 @@ to get results from a section, you can use the section as a type filter:</p>
     }
 </code></pre>
 
-<h2 id="adwords-results_1">Adwords Results</h2>
-<h3 id="ad">Ad</h3>
+<h3 id="adwords-types">Adwords Types</h3>
+<h4 id="ad">Ad</h4>
 <p>Ads results are the basics results from adwords.</p>
 <p><img alt="Tweets Carousel" src="../images/result-types/adwords_ad.png" /></p>
 <p><strong>Available with</strong></p>
@@ -521,7 +518,7 @@ to get results from a section, you can use the section as a type filter:</p>
     }
 </code></pre>
 
-<h1 id="related-searches">Related searches</h1>
+<h2 id="related-searches">Related searches</h2>
 <p>Not implemented yet.</p></div>
             
         </div>
