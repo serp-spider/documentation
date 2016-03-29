@@ -427,7 +427,9 @@ These are the result from google shopping/merchant.
     
     foreach($results as $result){
         if($result->is(AdwordsResultType::SHOPPING_GROUP)){
-            $url = $result->getDataValue('url');
+            foreach($result->getDataValue('products') as $item){
+                $title = $item->getDataValue('title');
+            }
         }
     }
 ```
