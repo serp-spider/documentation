@@ -554,7 +554,9 @@ to get results from a section, you can use the section as a type filter:</p>
 
     foreach($results as $result){
         if($result-&gt;is(AdwordsResultType::SHOPPING_GROUP)){
-            $url = $result-&gt;getDataValue('url');
+            foreach($result-&gt;getDataValue('products') as $item){
+                $title = $item-&gt;getDataValue('title');
+            }
         }
     }
 </code></pre>
