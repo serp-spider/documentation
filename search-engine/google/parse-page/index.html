@@ -199,6 +199,14 @@
     
         <li class="main "><a href="#adwords-results">Adwords Results</a></li>
         
+            <li class="level-2"><a href="#adwords-sections">Adwords sections</a></li>
+            
+        
+            <li class="level-2"><a href="#adwords-results_1">Adwords Results</a></li>
+            
+                <li class="level-3"><a href="#ad">Ad</a></li>
+            
+        
     
         <li class="main "><a href="#related-searches">Related searches</a></li>
         
@@ -458,7 +466,63 @@ See bellow for all available data per result type.</p>
 </code></pre>
 
 <h1 id="adwords-results">Adwords Results</h1>
-<h1 id="related-searches">Related searches</h1></div>
+<p>The google client offers an Adwords parser.</p>
+<pre><code class="php">    $adwordsResults = $response-&gt;getAdwordsResults();
+
+    foreach($results as $result){
+        // do stuff
+    }
+</code></pre>
+
+<h2 id="adwords-sections">Adwords sections</h2>
+<p>Adwords results are composed from 3 distinct sections. These sections can be at the top, at the right or at the bottom
+of the natural results. See the schema:</p>
+<p><img alt="Adwords positions" src="../images/adwords-positions.jpg" /></p>
+<p>By default all results are available in the result set, if you need 
+to get results from a section, you can use the section as a type filter:</p>
+<pre><code class="php">    use Serps\SearchEngine\Google\AdwordsResultType;
+
+    $adwordsResults = $response-&gt;getAdwordsResults();
+
+    $topResults = $adwordsResults-&gt;getResultsByType(AdwordsResultType::SECTION_TOP);
+    $rightResults = $adwordsResults-&gt;getResultsByType(AdwordsResultType::SECTION_RIGHT);
+    $bottomResults = $adwordsResults-&gt;getResultsByType(AdwordsResultType::SECTION_BOTTOM);
+
+    foreach($topResults as $result){
+        // Do stuff...
+    }
+</code></pre>
+
+<h2 id="adwords-results_1">Adwords Results</h2>
+<h3 id="ad">Ad</h3>
+<p>Ads results are the basics results from adwords.</p>
+<p><img alt="Tweets Carousel" src="../images/result-types/adwords_ad.png" /></p>
+<p><strong>Available with</strong></p>
+<ul>
+<li><code>AdwordsResultType::AD</code></li>
+</ul>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>title</code> <small><strong>string</strong></small> <strong>[A]</strong></li>
+<li><code>url</code> <small><strong>url</strong></small>: The url reach when clicking the title</li>
+<li><code>visurl</code> <small><strong>string</strong></small> <strong>[B]</strong>: The visual url</li>
+<li><code>description</code><small><strong>string</strong></small> <strong>[C]</strong></li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\AdwordsResultType;
+
+
+    $results = $response-&gt;getAdwordsResults();
+
+    foreach($results as $result){
+        if($result-&gt;is(AdwordsResultType::AD)){
+            $url = $result-&gt;getDataValue('url');
+        }
+    }
+</code></pre>
+
+<h1 id="related-searches">Related searches</h1>
+<p>Not implemented yet.</p></div>
             
         </div>
 

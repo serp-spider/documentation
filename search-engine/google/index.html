@@ -220,14 +220,21 @@
 <p><img class="frameless-image" alt="Google logo" src="../../images/logo-google.png"/></p>
 <p><center>Everything about the google client</center></p>
 <hr />
-<p>Jump to <a href="parse-page/"><strong>parse a google page</strong></a>.</p>
+<p>Jump to:</p>
+<ul>
+<li><a href="parse-page/"><strong>Parse a google page</strong></a><ul>
+<li><a href="parse-page/#natural-results"><strong>Parse natural results</strong></a></li>
+<li><a href="parse-page/#adwords-results"><strong>Parse adwords results</strong></a></li>
+</ul>
+</li>
+</ul>
 <hr />
 <h2 id="installation">Installation</h2>
 <p>The google client is available with the package 
 <a href="https://packagist.org/packages/serps/search-engine-google">serps/search-engine-google</a>: </p>
 <p><code>$ composer require 'serps/search-engine-google'</code></p>
 <h2 id="overview">Overview</h2>
-<p>The google client needs a http client interface to be constructed and an url to be parsed</p>
+<p>The google client needs a http client interface to be constructed and an url to be parsed.</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
     use Serps\HttpClient\CurlClient;
     use Serps\SearchEngine\Google\GoogleUrl;
@@ -251,7 +258,7 @@
 <h2 id="working-with-urls">Working with urls</h2>
 <p><code>GoogleUrl</code> class offers many convenient tools to work with google urls.</p>
 <h3 id="create-an-url">Create an url</h3>
-<p>The url builder has the required tools to build an url from scratch</p>
+<p>The url builder has the required tools to build an url from scratch.</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\GoogleUrl;
 
     $googleUrl = new GoogleUrl();
@@ -262,7 +269,7 @@
 </code></pre>
 
 <h3 id="url-from-a-string">Url from a string</h3>
-<p>It's also possible to parse an an existing google url string to an url object</p>
+<p>It's also possible to parse an an existing google url string to an url object.</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\GoogleUrl;
 
     $googleUrl = GoogleUrl::fromString('https://google.com/search?q=simpsons');
