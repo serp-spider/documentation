@@ -1,3 +1,6 @@
+page_description: Get started using CURL to query search engines - The search engine Spider
+page_title: Using Curl
+
 Curl HTTP Client
 ================
 

@@ -1,3 +1,6 @@
+page_description: Get started using PhantomJS to query search engines - The search engine Spider
+page_title: Using PhantomJS
+
 PhantomJS HTTP Client
 =====================
 

@@ -1,3 +1,5 @@
+page_description: All about scrapping google with SERPS - Generate URLs and analyse the google pages.
+
 Google Client
 =============
 

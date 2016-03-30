@@ -1,3 +1,5 @@
+page_description: Accurate guide about how to parse a google page with SERPS - the Search Engine Spider.
+
 # Parse a Google Page
 
 <img class="frameless-image" alt="Google logo" src="../../../images/logo-google.png"/>

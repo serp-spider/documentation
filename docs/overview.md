@@ -1,3 +1,5 @@
+page_description: Overview of SERPS, minimal informations to get started with scraping search engines - The search engine Spider.
+
 Overview
 ========
 

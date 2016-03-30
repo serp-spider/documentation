@@ -3,7 +3,7 @@ SERPS
 
 **The PHP Search Engine Result Page Spider**
 
-<center><img class="frameless-image" style="max-height:100px" src="images/logo.png"/></center>
+<center><img class="frameless-image" alt="SERPS Logo" style="max-height:100px" src="images/logo.png"/></center>
 
 
 ---
