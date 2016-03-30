@@ -4,29 +4,19 @@
     
         
     <url>
-     <loc>http://serp-spider.github.io/documentation/</loc>
+     <loc>https://serp-spider.github.io/documentation/</loc>
      <lastmod>2016-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://serp-spider.github.io/documentation/overview/</loc>
+     <loc>https://serp-spider.github.io/documentation/overview/</loc>
      <lastmod>2016-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>http://serp-spider.github.io/documentation/cookies/</loc>
-     <lastmod>2016-03-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>http://serp-spider.github.io/documentation/search-engine/google/</loc>
+     <loc>https://serp-spider.github.io/documentation/cookies/</loc>
      <lastmod>2016-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -36,13 +26,7 @@
     
         
     <url>
-     <loc>http://serp-spider.github.io/documentation/http-client/curl/</loc>
-     <lastmod>2016-03-30</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>http://serp-spider.github.io/documentation/http-client/phantomJS/</loc>
+     <loc>https://serp-spider.github.io/documentation/search-engine/google/</loc>
      <lastmod>2016-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -52,7 +36,13 @@
     
         
     <url>
-     <loc>http://serp-spider.github.io/documentation/about/packages/</loc>
+     <loc>https://serp-spider.github.io/documentation/http-client/curl/</loc>
+     <lastmod>2016-03-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://serp-spider.github.io/documentation/http-client/phantomJS/</loc>
      <lastmod>2016-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -62,7 +52,17 @@
     
         
     <url>
-     <loc>http://serp-spider.github.io/documentation/search-engine/google/parse-page/</loc>
+     <loc>https://serp-spider.github.io/documentation/about/packages/</loc>
+     <lastmod>2016-03-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>https://serp-spider.github.io/documentation/search-engine/google/parse-page/</loc>
      <lastmod>2016-03-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
