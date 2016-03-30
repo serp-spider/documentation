@@ -226,13 +226,14 @@ A result illustrated by a map and that contains sub-results.
 
 **Data**
 
-- ``localPack`` <small>**array**</small>: the sub results for the map:
+- ``localPack`` <small>**array**</small>: The sub results for the map:
     - ``title`` <small>**string**</small> **[A]**: Name of the place
     - ``url``<small>**Url**</small> **[B]**: Website of the sub-result
     - ``street`` <small>**string**</small> **[C]**: The address of the sub-result
     - ``stars`` <small>**string**</small> **[D]**: The rating of the result as a number
-    - ``review`` <small>**string**</small> **[E]**: the review string as specified by google (e.g '1 review')
-- ``mapUrl`` <small>**Url**</small> **[F]**: the url to access the map search
+    - ``review`` <small>**string**</small> **[E]**: The review string as specified by google (e.g '1 review')
+    - ``phone`` <small>**string**</small> **[G]**: The phone number
+- ``mapUrl`` <small>**Url**</small> **[F]**: The url to access the map search
 
 **Example**
 
