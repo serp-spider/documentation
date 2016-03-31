@@ -9,13 +9,13 @@ List of packages that are part of this project
 
 *This is the core of SERPS. It contains the common tools that are used by search engine and http client implementations*
  
-[**<i class="fa fa-github-alt"></i> Github**](https://github.com/serp-spider/serps)
+[**<i class="fa fa-github-alt"></i> Github**](https://github.com/serp-spider/core)
 
 ``$ composer require serps/serps``
 
-[<img class="frameless-image" alt="Build Status" src="https://travis-ci.org/serp-spider/serps.svg?branch=master"/>](https://travis-ci.org/serp-spider/serps)
-[<img class="frameless-image" alt="Test Coverage" src="https://codeclimate.com/github/serp-spider/serps/badges/coverage.svg" />](https://codeclimate.com/github/serp-spider/serps/coverage)
-[<img class="frameless-image" alt="Latest Stable Version" src="https://poser.pugx.org/serps/serps/version" />](https://packagist.org/packages/serps/serps)
+[<img class="frameless-image" alt="Build Status" src="https://travis-ci.org/serp-spider/serps.svg?branch=master"/>](https://travis-ci.org/serp-spider/core)
+[<img class="frameless-image" alt="Test Coverage" src="https://codeclimate.com/github/serp-spider/serps/badges/coverage.svg" />](https://codeclimate.com/github/serp-spider/core/coverage)
+[<img class="frameless-image" alt="Latest Stable Version" src="https://poser.pugx.org/serps/serps/version" />](https://packagist.org/packages/serps/core)
 
 
 ---
