@@ -13,9 +13,9 @@ List of packages that are part of this project
 
 ``$ composer require serps/serps``
 
-[<img class="frameless-image" alt="Build Status" src="https://travis-ci.org/serp-spider/serps.svg?branch=master"/>](https://travis-ci.org/serp-spider/core)
-[<img class="frameless-image" alt="Test Coverage" src="https://codeclimate.com/github/serp-spider/serps/badges/coverage.svg" />](https://codeclimate.com/github/serp-spider/core/coverage)
-[<img class="frameless-image" alt="Latest Stable Version" src="https://poser.pugx.org/serps/serps/version" />](https://packagist.org/packages/serps/core)
+[<img class="frameless-image" alt="Build Status" src="https://travis-ci.org/serp-spider/core.svg?branch=master"/>](https://travis-ci.org/serp-spider/core)
+[<img class="frameless-image" alt="Test Coverage" src="https://codeclimate.com/github/serp-spider/core/badges/coverage.svg" />](https://codeclimate.com/github/serp-spider/core/coverage)
+[<img class="frameless-image" alt="Latest Stable Version" src="https://poser.pugx.org/serps/core/version" />](https://packagist.org/packages/serps/core)
 
 
 ---
@@ -69,6 +69,20 @@ List of packages that are part of this project
 
 ---
 
+
+## SpidyJS
+
+*nodejs browser built specially for SERPS*
+[**<i class="fa fa-github-alt"></i> Github**](https://github.com/serp-spider/spidyjs)
+
+``$ npm install spidyjs``
+
+
+[![npm version](https://badge.fury.io/js/spidy.svg)](https://badge.fury.io/js/spidy)
+master (node >= 4):
+[<img class="frameless-image" alt="Build Status" src="https://travis-ci.org/serp-spider/spidyjs.svg?branch=master"/>](https://travis-ci.org/serp-spider/spidyjs)
+1.x (node < 4):
+[<img class="frameless-image" alt="Build Status" src="https://travis-ci.org/serp-spider/spidyjs.svg?branch=1.x"/>](https://travis-ci.org/serp-spider/spidyjs)
 
 ## serp-spider.github.io
 
