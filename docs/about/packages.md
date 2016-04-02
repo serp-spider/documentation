@@ -78,7 +78,7 @@ List of packages that are part of this project
 ``$ npm install spidyjs``
 
 
-[![npm version](https://badge.fury.io/js/spidy.svg)](https://badge.fury.io/js/spidy)
+[![npm version](<img class="frameless-image" alt="Build Status" src="https://badge.fury.io/js/spidy.svg"/>)](https://badge.fury.io/js/spidy)
 master (node >= 4):
 [<img class="frameless-image" alt="Build Status" src="https://travis-ci.org/serp-spider/spidyjs.svg?branch=master"/>](https://travis-ci.org/serp-spider/spidyjs)
 1.x (node < 4):
