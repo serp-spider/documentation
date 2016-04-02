@@ -252,7 +252,7 @@
         }, 
         {
             "location": "/about/packages/", 
-            "text": "Packages\n\n\nList of packages that are part of this project\n\n\n\n\nCore\n\n\nThis is the core of SERPS. It contains the common tools that are used by search engine and http client implementations\n\n\n Github\n\n\n$ composer require serps/serps\n\n\n\n\n\n\n\n\n\n\nSearch engines\n\n\nGoogle\n\n\nThe google client implementation\n\n\n Github\n\n\n$ composer require serps/search-engine-google\n\n\n\n\n\n\n\n\n\n\nHttp clients\n\n\nCurl\n\n\nCurl Http client\n\n\n Doc\n\n\n Github\n\n\n$ composer require serps/http-client-curl\n\n\n\n\n\n\n\n\nPhantomJS\n\n\nPhantomJS Http client\n\n\n Doc\n\n\n Github\n\n\n$ composer require serps/http-client-phantomjs\n\n\n\n\n\n\n\n\n\n\nserp-spider.github.io\n\n\nSimply the homepage at http://serp-spider.github.io/\n\n\n Github\n\n\nDocumentation\n\n\nThe package that contains this documentation at http://serp-spider.github.io/documentation\n\n\n Github\n\n\nStatus monitor\n\n\nCli application that helps to monitor search engine changes\n\n\n Github", 
+            "text": "Packages\n\n\nList of packages that are part of this project\n\n\n\n\nCore\n\n\nThis is the core of SERPS. It contains the common tools that are used by search engine and http client implementations\n\n\n Github\n\n\n$ composer require serps/serps\n\n\n\n\n\n\n\n\n\n\nSearch engines\n\n\nGoogle\n\n\nThe google client implementation\n\n\n Github\n\n\n$ composer require serps/search-engine-google\n\n\n\n\n\n\n\n\n\n\nHttp clients\n\n\nCurl\n\n\nCurl Http client\n\n\n Doc\n\n\n Github\n\n\n$ composer require serps/http-client-curl\n\n\n\n\n\n\n\n\nPhantomJS\n\n\nPhantomJS Http client\n\n\n Doc\n\n\n Github\n\n\n$ composer require serps/http-client-phantomjs\n\n\n\n\n\n\n\n\n\n\nSpidyJS\n\n\nnodejs browser built specially for SERPS\n\n\n Github\n\n\n$ npm install spidyjs\n\n\n\nmaster (node \n= 4):\n\n\n1.x (node \n 4):\n\n\n\nserp-spider.github.io\n\n\nSimply the homepage at http://serp-spider.github.io/\n\n\n Github\n\n\nDocumentation\n\n\nThe package that contains this documentation at http://serp-spider.github.io/documentation\n\n\n Github\n\n\nStatus monitor\n\n\nCli application that helps to monitor search engine changes\n\n\n Github", 
             "title": "Packages"
         }, 
         {
@@ -289,6 +289,11 @@
             "location": "/about/packages/#phantomjs", 
             "text": "PhantomJS Http client   Doc   Github  $ composer require serps/http-client-phantomjs", 
             "title": "PhantomJS"
+        }, 
+        {
+            "location": "/about/packages/#spidyjs", 
+            "text": "nodejs browser built specially for SERPS   Github  $ npm install spidyjs  \nmaster (node  = 4): \n1.x (node   4):", 
+            "title": "SpidyJS"
         }, 
         {
             "location": "/about/packages/#serp-spidergithubio", 
