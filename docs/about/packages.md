@@ -73,6 +73,7 @@ List of packages that are part of this project
 ## SpidyJS
 
 *nodejs browser built specially for SERPS*
+
 [**<i class="fa fa-github-alt"></i> Github**](https://github.com/serp-spider/spidyjs)
 
 ``$ npm install spidyjs``
