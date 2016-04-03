@@ -78,15 +78,15 @@ List of packages that are part of this project
 ``$ npm install spidyjs``
 
 
-[![npm version](<img class="frameless-image" alt="Build Status" src="https://badge.fury.io/js/spidy.svg"/>)](https://badge.fury.io/js/spidy)
+[<img class="frameless-image" alt="npm version" src="https://badge.fury.io/js/spidy.svg"/>](https://badge.fury.io/js/spidy)
 master (node >= 4):
 [<img class="frameless-image" alt="Build Status" src="https://travis-ci.org/serp-spider/spidyjs.svg?branch=master"/>](https://travis-ci.org/serp-spider/spidyjs)
 1.x (node < 4):
 [<img class="frameless-image" alt="Build Status" src="https://travis-ci.org/serp-spider/spidyjs.svg?branch=1.x"/>](https://travis-ci.org/serp-spider/spidyjs)
 
-## serp-spider.github.io
+## Website homepage
 
-*Simply the homepage at http://serp-spider.github.io/*
+*Simply the homepage at https://serp-spider.github.io/*
 
 [**<i class="fa fa-github-alt"></i> Github**](https://github.com/serp-spider/serp-spider.github.io)
 
