@@ -14,3 +14,7 @@ The documentations are in ``docs/`` directory. Preview changes with:
 
 mkdocs serve
 ```
+
+## !! WARNING !!
+
+Never edit the ``gh-pages`` branch because it is auto generated, and overwritten at every publication.
