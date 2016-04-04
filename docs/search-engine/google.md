@@ -41,7 +41,7 @@ The google client needs a http client interface to be constructed and an url to 
 
     // Create the url that will be parsed
     $googleUrl = new GoogleUrl();
-    $google->setSearchTerm('simpsons');
+    $googleUrl->setSearchTerm('simpsons');
     
     $response = $googleClient->query($googleUrl);
     
