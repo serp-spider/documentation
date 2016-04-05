@@ -4,7 +4,7 @@ site_url: https://serp-spider.github.io/documentation
 
 pages:
   - Documentation:
-    - About SERPS: index.md
+    - Home: index.md
     - Overview: overview.md
     - Cookies: cookies.md
 
