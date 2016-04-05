@@ -221,9 +221,6 @@
                 <li class="level-3"><a href="#query-with-xpath">Query with xpath</a></li>
                     
             
-                <li class="level-3"><a href="#query-with-xpath_1">Query with xpath</a></li>
-                    
-            
                 <li class="level-3"><a href="#manipulate-the-dom-object">Manipulate the DOM object</a></li>
                     
             
@@ -581,7 +578,7 @@ to get results from a section, you can use the section as a type filter:</p>
 <h2 id="related-searches">Related searches</h2>
 <p>Not implemented yet.</p>
 <h2 id="custom-parsing">Custom parsing</h2>
-<p>Sometimes you need information that are not available in out parser. </p>
+<p>Sometimes you need information that are not available in our parser. </p>
 <p>First of all, search if someone already asked for this feature 
 on the <a href="https://github.com/serp-spider/search-engine-google/issues">issue tracker</a>. </p>
 <p>If you don't find a trace of this feature, but you still consider that this feature is important, then open an issue and
@@ -589,7 +586,7 @@ let's discuss it. This is very important because if the feature is implemented i
 being updated on google updates, and you wont have to maintain it.</p>
 <hr />
 <p>Back from the issue tracker, no one mentioned it and you still <strong>want to parse the information by yourself</strong>.
- Alright, here are the tools your need.</p>
+ Alright, here are the tools you need.</p>
 <h3 id="query-with-css">Query with css</h3>
 <p>The easiest way to do it for a web developer: <strong>with css</strong>.</p>
 <pre><code class="php">    $response = $googleClient-&gt;query($googleUrl);
@@ -628,20 +625,6 @@ to xpath and <a href="http://php.net/manual/fr/domxpath.query.php">DOMXPath::que
 
     $xpath = $response-&gt;getXpath();
     $xpath-&gt;query('someXpath');
-</code></pre>
-
-<h3 id="query-with-xpath_1">Query with xpath</h3>
-<p>That's very similar to the css way, except that you will use <strong>xpath</strong>.</p>
-<pre><code class="php">    $response = $googleClient-&gt;query($googleUrl);
-
-    $queryResult = $response-&gt;cssQuery('descendant::div[@id=&quot;someId&quot;]');
-
-    if ($queryResult-&gt;length == 1) {
-        // Gets all 'a' tags inside the element with the id 'someId'.
-        $queryResult = $response-&gt;cssQuery('a', $queryResult-&gt;item(0));
-    } else {
-        // some errors...
-    }
 </code></pre>
 
 <h3 id="manipulate-the-dom-object">Manipulate the DOM object</h3>
