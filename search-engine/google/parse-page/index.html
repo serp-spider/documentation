@@ -213,18 +213,6 @@
             <li class="level-2"><a href="#related-searches">Related searches</a></li>
             
         
-            <li class="level-2"><a href="#custom-parsing">Custom parsing</a></li>
-            
-                <li class="level-3"><a href="#query-with-css">Query with css</a></li>
-                    
-            
-                <li class="level-3"><a href="#query-with-xpath">Query with xpath</a></li>
-                    
-            
-                <li class="level-3"><a href="#manipulate-the-dom-object">Manipulate the DOM object</a></li>
-                    
-            
-        
     
     </ul>
 </div></div>
@@ -544,7 +532,7 @@ to get results from a section, you can use the section as a type filter:</p>
 </code></pre>
 
 <h4 id="shopping">Shopping</h4>
-<p>These are the results from google shopping/merchant.</p>
+<p>These are the result from google shopping/merchant.</p>
 <p><img alt="Google shopping" src="../images/result-types/adwords_shopping.png" /></p>
 <p><strong>Available with</strong></p>
 <ul>
@@ -576,66 +564,7 @@ to get results from a section, you can use the section as a type filter:</p>
 </code></pre>
 
 <h2 id="related-searches">Related searches</h2>
-<p>Not implemented yet.</p>
-<h2 id="custom-parsing">Custom parsing</h2>
-<p>Sometimes you need information that are not available in our parser. </p>
-<p>First of all, search if someone already asked for this feature 
-on the <a href="https://github.com/serp-spider/search-engine-google/issues">issue tracker</a>. </p>
-<p>If you don't find a trace of this feature, but you still consider that this feature is important, then open an issue and
-let's discuss it. This is very important because if the feature is implemented in the library it will take advantage of
-being updated on google updates, and you wont have to maintain it.</p>
-<hr />
-<p>Back from the issue tracker, no one mentioned it and you still <strong>want to parse the information by yourself</strong>.
- Alright, here are the tools you need.</p>
-<h3 id="query-with-css">Query with css</h3>
-<p>The easiest way to do it for a web developer: <strong>with css</strong>.</p>
-<pre><code class="php">    $response = $googleClient-&gt;query($googleUrl);
-
-    // Returns \DOMNodeList
-    $queryResult = $response-&gt;cssQuery('#someId');
-
-    if ($queryResult-&gt;length == 1) {
-        // You can query again to find items in the previous context.
-
-        // Gets all items with the class 'someClass' within the element with the id 'someId'
-        $queryResult = $response-&gt;cssQuery('.someClass', $queryResult-&gt;item(0));
-    } else {
-        // some errors...
-    }
-</code></pre>
-
-<p>It works exactly as <a href="http://php.net/manual/fr/domxpath.query.php">DOMXPath::query</a> does. Actually the css is translated 
-to xpath and <a href="http://php.net/manual/fr/domxpath.query.php">DOMXPath::query</a> is called on the dom element.</p>
-<h3 id="query-with-xpath">Query with xpath</h3>
-<p>That's very similar to the css way, except that you will use <strong>xpath</strong>.</p>
-<pre><code class="php">    $response = $googleClient-&gt;query($googleUrl);
-
-    $queryResult = $response-&gt;cssQuery('descendant::div[@id=&quot;someId&quot;]');
-
-    if ($queryResult-&gt;length == 1) {
-        // Gets all 'a' tags inside the element with the id 'someId'.
-        $queryResult = $response-&gt;cssQuery('a', $queryResult-&gt;item(0));
-    } else {
-        // some errors...
-    }
-</code></pre>
-
-<p>There is also a shortcut to the xpath object.</p>
-<pre><code class="php">    $response = $googleClient-&gt;query($googleUrl);
-
-    $xpath = $response-&gt;getXpath();
-    $xpath-&gt;query('someXpath');
-</code></pre>
-
-<h3 id="manipulate-the-dom-object">Manipulate the DOM object</h3>
-<p>You can get the <a href="http://php.net/manual/fr/class.domdocument.php">DOM object</a> to manipulate it, or to save it in a file.</p>
-<pre><code class="php">    $response = $googleClient-&gt;query($googleUrl);
-
-    $dom = $response-&gt;getDom();
-
-    // Writes the dom content in the file 'file.html'
-    $dom-&gt;save('file.html');
-</code></pre></div>
+<p>Not implemented yet.</p></div>
             
         </div>
 
