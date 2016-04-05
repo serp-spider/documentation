@@ -22,7 +22,7 @@
          */
          var disqus_config = function () {
          this.page.url = "{{ canonical_url }}";
-         this.page.identifier = "{% if meta and meta.discus_pageid %}{{meta.discus_pageid[0]}}{%else%}documentation/{{ current_page.abs_url }}{%endif%}";
+         this.page.identifier = "{% if meta and meta.discus_pageid %}{{meta.discus_pageid[0]}}{%else%}documentation{{ current_page.abs_url }}{%endif%}";
          };
 
         (function() { // DON'T EDIT BELOW THIS LINE
