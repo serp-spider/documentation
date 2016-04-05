@@ -445,7 +445,7 @@ Not implemented yet.
 
 ## Custom parsing
 
-Sometimes you need information that are not available in out parser. 
+Sometimes you need information that are not available in our parser. 
 
 First of all, search if someone already asked for this feature 
 on the [issue tracker](https://github.com/serp-spider/search-engine-google/issues). 
@@ -458,7 +458,7 @@ being updated on google updates, and you wont have to maintain it.
 ------ 
 
 Back from the issue tracker, no one mentioned it and you still **want to parse the information by yourself**.
- Alright, here are the tools your need.
+ Alright, here are the tools you need.
 
 ### Query with css
 
@@ -508,23 +508,6 @@ There is also a shortcut to the xpath object.
 
     $xpath = $response->getXpath();
     $xpath->query('someXpath');
-```
-
-### Query with xpath
-
-That's very similar to the css way, except that you will use **xpath**.
-
-```php
-    $response = $googleClient->query($googleUrl);
-
-    $queryResult = $response->cssQuery('descendant::div[@id="someId"]');
-    
-    if ($queryResult->length == 1) {
-        // Gets all 'a' tags inside the element with the id 'someId'.
-        $queryResult = $response->cssQuery('a', $queryResult->item(0));
-    } else {
-        // some errors...
-    }
 ```
 
 ### Manipulate the DOM object
