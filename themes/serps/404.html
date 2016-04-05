@@ -1,12 +1,59 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block content %}
+<head>
 
-<div class="row-fluid">
-    <div id="main-content" class="span12">
-        <h1 id="404-page-not-found" style="text-align: center">404</h1>
-        <p style="text-align: center"><strong>Page not found</strong></p>
-    </div>
+    <title>Not found | SERPS - The PHP SERP Spider</title>
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <style>
+
+        body{
+            text-align: center;
+            font-family: 'Source Sans Pro', sans-serif;
+            color: #fff;
+            background: #613636;
+            font-size: 18px;
+            margin-top:200px;
+        }
+
+        h1{
+            font-size: 4em;;
+            margin-bottom: 10px;
+        }
+
+        div{
+            margin-bottom: 10px;
+        }
+
+        a{
+            color: #211616;
+            text-decoration: none;
+            font-size: 0.8em;
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+<h1>
+    Not Found!
+</h1>
+<div>
+    The spider is probably hunting away...
 </div>
+<a href="{{ base_url }}">Back to the home of the documentation</a>
+</body>
 
-{% endblock %}
+
+</html>
