@@ -402,7 +402,7 @@ Ads results are the basics results from adwords.
 #### Shopping
 
 
-These are the result from google shopping/merchant.
+These are the results from google shopping/merchant.
 
 
 ![Google shopping](images/result-types/adwords_shopping.png)
@@ -441,3 +441,101 @@ These are the result from google shopping/merchant.
 ## Related searches
 
 Not implemented yet.
+
+
+## Custom parsing
+
+Sometimes you need information that are not available in out parser. 
+
+First of all, search if someone already asked for this feature 
+on the [issue tracker](https://github.com/serp-spider/search-engine-google/issues). 
+
+If you don't find a trace of this feature, but you still consider that this feature is important, then open an issue and
+let's discuss it. This is very important because if the feature is implemented in the library it will take advantage of
+being updated on google updates, and you wont have to maintain it.
+
+
+------ 
+
+Back from the issue tracker, no one mentioned it and you still **want to parse the information by yourself**.
+ Alright, here are the tools your need.
+
+### Query with css
+
+The easiest way to do it for a web developer: **with css**.
+
+```php
+    $response = $googleClient->query($googleUrl);
+
+    // Returns \DOMNodeList
+    $queryResult = $response->cssQuery('#someId');
+    
+    if ($queryResult->length == 1) {
+        // You can query again to find items in the previous context.
+        
+        // Gets all items with the class 'someClass' within the element with the id 'someId'
+        $queryResult = $response->cssQuery('.someClass', $queryResult->item(0));
+    } else {
+        // some errors...
+    }
+```
+
+It works exactly as [DOMXPath::query](http://php.net/manual/fr/domxpath.query.php) does. Actually the css is translated 
+to xpath and [DOMXPath::query](http://php.net/manual/fr/domxpath.query.php) is called on the dom element.
+
+
+### Query with xpath
+
+That's very similar to the css way, except that you will use **xpath**.
+
+```php
+    $response = $googleClient->query($googleUrl);
+
+    $queryResult = $response->cssQuery('descendant::div[@id="someId"]');
+    
+    if ($queryResult->length == 1) {
+        // Gets all 'a' tags inside the element with the id 'someId'.
+        $queryResult = $response->cssQuery('a', $queryResult->item(0));
+    } else {
+        // some errors...
+    }
+```
+
+There is also a shortcut to the xpath object.
+
+```php
+    $response = $googleClient->query($googleUrl);
+
+    $xpath = $response->getXpath();
+    $xpath->query('someXpath');
+```
+
+### Query with xpath
+
+That's very similar to the css way, except that you will use **xpath**.
+
+```php
+    $response = $googleClient->query($googleUrl);
+
+    $queryResult = $response->cssQuery('descendant::div[@id="someId"]');
+    
+    if ($queryResult->length == 1) {
+        // Gets all 'a' tags inside the element with the id 'someId'.
+        $queryResult = $response->cssQuery('a', $queryResult->item(0));
+    } else {
+        // some errors...
+    }
+```
+
+### Manipulate the DOM object
+
+You can get the [DOM object](http://php.net/manual/fr/class.domdocument.php) to manipulate it, or to save it in a file.
+
+```php
+    $response = $googleClient->query($googleUrl);
+    
+    $dom = $response->getDom();
+    
+    // Writes the dom content in the file 'file.html'
+    $dom->save('file.html');
+```
