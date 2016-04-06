@@ -5,13 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta name="description" content="Get started using PhantomJS to query search engines - The search engine Spider">
+        <meta name="description" content="SpidyJS makes possible to query search engines with a javascript emulated browser built around jsdom.">
         
-        <link rel="canonical" href="https://serp-spider.github.io/documentation/http-client/phantomJS/">
+        <link rel="canonical" href="https://serp-spider.github.io/documentation/http-client/spidyJS/">
         <link rel="shortcut icon" href="../../../../favicon.ico">
         
 
-	    <title>Using PhantomJS - Documentation - The SERP Spider</title>
+	    <title>SpidyJS Http client - Documentation - The SERP Spider</title>
 
         <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">        <link href="../../css/base.css" rel="stylesheet">
@@ -117,14 +117,14 @@
 
                         
                             
-<li class="active">
-    <a href="./">PhantomJS</a>
+<li >
+    <a href="../phantomJS/">PhantomJS</a>
 </li>
 
                         
                             
-<li >
-    <a href="../spidyJS/">SpidyJS</a>
+<li class="active">
+    <a href="./">SpidyJS</a>
 </li>
 
                         
@@ -183,7 +183,7 @@
 
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#phantomjs-http-client">PhantomJS HTTP Client</a></li>
+        <li class="main active"><a href="#spidyjs-http-client">SpidyJS HTTP Client</a></li>
         
             <li class="level-2"><a href="#installation">Installation</a></li>
             
@@ -199,39 +199,33 @@
 </div></div>
                 <div class="col-md-9" id="main-content" role="main">
 
-<h1 id="phantomjs-http-client">PhantomJS HTTP Client</h1>
-<p><img class="frameless-image" alt="PhantomJS logo" src="../../images/phantomjs.png"/></p>
-<p><center><a href="http://phantomjs.org/">PhantomJS</a> is a webkit implementation that helps to simulate the real browser.</center></p>
+<h1 id="spidyjs-http-client">SpidyJS HTTP Client</h1>
+<p><a href="../github.com/serp-spider/spidyjs">Spidy</a> is a browser built with javascript. </p>
 <hr />
-<p>By using this client you will execute the inner javascript code and make the DOM as real as in the true browser,
-that can be required for some search engines to work properly.</p>
-<div class="admonition info">
-<p class="admonition-title">This is an evaluating adapter</p>
-<p>When you use phantomJS client and you submit a request from it the resulting DOM 
-might be different of the source code returned by a server because
-javascript is executed before returning the DOM.</p>
-</div>
+<p>This adapter allows you to query search engines with spidyJS, it is a javascript headless browser. </p>
 <div class="admonition warning">
-<p class="admonition-title">Notice about cookies</p>
-<p>At the current state phantomJS adapter does not support internal cookieJar usage.</p>
+<p class="admonition-title">Warning</p>
+<p>This adapter is still a prototype. Use it with care.</p>
 </div>
 <h2 id="installation">Installation</h2>
 <p>The client is available with the package 
-<a href="https://packagist.org/packages/serps/http-client-phantomjs">serps/http-client-phantomjs</a>: </p>
-<p><code>$ composer require 'serps/http-client-phantomjs'</code></p>
+<a href="https://packagist.org/packages/serps/http-client-spidyjs">serps/http-client-spidyjs</a>: </p>
+<p><code>$ composer require 'serps/http-client-spidyjs'</code></p>
 <h3 id="additional-requirement">Additional requirement</h3>
-<p><strong><a href="http://phantomjs.org/">PhantomJS</a> binaries have to be installed</strong> to use the client. The process for installing
-it depends on your environment, you will find further guides on the internet.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The package <a href="https://github.com/jakoch/phantomjs-installer">jakoch/phantomjs-installer</a> 
-can help you to manage phantomJS as a dependency of your project.</p>
-</div>
-<h2 id="usage">Usage</h2>
-<pre><code class="php">use Serps\HttpClient\PhantomJsClient;
+<p>You will also need nodejs and npm to install spidy.</p>
+<pre><code>$ npm install -g spidy@2
+</code></pre>
 
-// The constructor accepts 1 optional parameter that is the path to the phantomjs binaries (default to 'phantomjs')
-$client = new PhantomJsClient();
+<p>If you use a nodejs version that is before 4.0, you will need to install spidy version 1 instead:</p>
+<pre><code>$ npm install -g spidy@1
+</code></pre>
+
+<h2 id="usage">Usage</h2>
+<pre><code class="php">use Serps\HttpClient\SpidyJsClient;
+
+
+// The constructor accepts 1 optional parameter that is the path to the spidyjs binaries (default to 'spidyjs')
+$client = new SpidyJsClient();
 </code></pre>
 
 
@@ -247,8 +241,8 @@ $client = new PhantomJsClient();
          * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
          */
          var disqus_config = function () {
-         this.page.url = "https://serp-spider.github.io/documentation/http-client/phantomJS/";
-         this.page.identifier = "documentation/http-client/phantomJS/";
+         this.page.url = "https://serp-spider.github.io/documentation/http-client/spidyJS/";
+         this.page.identifier = "documentation/http-client/spidyJS/";
          };
 
         (function() { // DON'T EDIT BELOW THIS LINE

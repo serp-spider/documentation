@@ -47,6 +47,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>https://serp-spider.github.io/documentation/http-client/spidyJS/</loc>
+     <lastmod>2016-04-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     

@@ -202,7 +202,7 @@
         }, 
         {
             "location": "/http-client/curl/", 
-            "text": "Curl HTTP Client\n\n\nCurl adapter for a simple scraping implementation\n\n\n\n\nCurl Adapter will allow to use the built in php CURL extension. This adapter \nfully supports proxies and cookies\n\n\nInstallation\n\n\nThe client is available with the package \n\nserps/http-client-curl\n: \n\n\n$ composer require 'serps/http-client-curl'\n\n\nAdditional requirement\n\n\nThis http client requires you to \ninstall the Curl php extension\n\n\nUsage\n\n\nuse Serps\\HttpClient\\PhantomJsClient;\n\n$client = new CurlClient();\n\n$response = $client-\nquery($request);\n\n// you can optionally add a proxy and a cookie as a second and third parameters\n$response = $client-\nquery($request, $proxy, $cookieJar);", 
+            "text": "Curl HTTP Client\n\n\nCurl adapter for a simple scraping implementation\n\n\n\n\nCurl Adapter will allow to use the built in php CURL extension. This adapter \nfully supports proxies and cookies\n\n\nInstallation\n\n\nThe client is available with the package \n\nserps/http-client-curl\n: \n\n\n$ composer require 'serps/http-client-curl'\n\n\nAdditional requirement\n\n\nThis http client requires you to \ninstall the Curl php extension\n\n\nUsage\n\n\nuse Serps\\HttpClient\\PhantomJsClient;\n\n$client = new CurlClient();", 
             "title": "CURL"
         }, 
         {
@@ -222,17 +222,17 @@
         }, 
         {
             "location": "/http-client/curl/#usage", 
-            "text": "use Serps\\HttpClient\\PhantomJsClient;\n\n$client = new CurlClient();\n\n$response = $client- query($request);\n\n// you can optionally add a proxy and a cookie as a second and third parameters\n$response = $client- query($request, $proxy, $cookieJar);", 
+            "text": "use Serps\\HttpClient\\PhantomJsClient;\n\n$client = new CurlClient();", 
             "title": "Usage"
         }, 
         {
             "location": "/http-client/phantomJS/", 
-            "text": "PhantomJS HTTP Client\n\n\n\n\nPhantomJS\n is a webkit implementation that helps to simulate the real browser.\n\n\n\n\nBy using this client you will execute the inner javascript code and make the DOM as real as in the true browser,\nthat can be required for some search engines to work properly.\n\n\n\n\nThis is an evaluating adapter\n\n\nWhen you use phantomJS client and you submit a request from it the resulting DOM \nmight be different of the source code returned by a server because\njavascript is executed before returning the DOM.\n\n\n\n\n\n\nKnown bug\n\n\nPhantomJS scrapping might be affected by \nthis bug\n\n\n\n\n\n\nNotice about cookies\n\n\nAt the current state phantomJS adapter does not support internal cookieJar usage.\n\n\n\n\nInstallation\n\n\nThe client is available with the package \n\nserps/http-client-phantomjs\n: \n\n\n$ composer require 'serps/http-client-phantomjs'\n\n\nAdditional requirement\n\n\nPhantomJS\n binaries have to be installed\n to use the client. The process for installing\nit depends on your environment, you will find further guides on the internet.\n\n\n\n\nNote\n\n\nThe package \njakoch/phantomjs-installer\n \ncan help you to manage phantomJS as a dependency of your project.\n\n\n\n\nUsage\n\n\nuse Serps\\HttpClient\\PhantomJsClient;\n\n// The client needs the path to the binary.\n// By default it will use 'phantomjs'\n$client = new PhantomJsClient(__DIR__ . '/bin/phantomjs');\n\n$response = $client-\nquery($request);\n\n// you can optionally add a proxy and a cookie as a second and third parameters\n// NOTE: though cookieJar is available, it is not implemented yet\n$response = $client-\nquery($request, $proxy, $cookieJar);", 
+            "text": "PhantomJS HTTP Client\n\n\n\n\nPhantomJS\n is a webkit implementation that helps to simulate the real browser.\n\n\n\n\nBy using this client you will execute the inner javascript code and make the DOM as real as in the true browser,\nthat can be required for some search engines to work properly.\n\n\n\n\nThis is an evaluating adapter\n\n\nWhen you use phantomJS client and you submit a request from it the resulting DOM \nmight be different of the source code returned by a server because\njavascript is executed before returning the DOM.\n\n\n\n\n\n\nNotice about cookies\n\n\nAt the current state phantomJS adapter does not support internal cookieJar usage.\n\n\n\n\nInstallation\n\n\nThe client is available with the package \n\nserps/http-client-phantomjs\n: \n\n\n$ composer require 'serps/http-client-phantomjs'\n\n\nAdditional requirement\n\n\nPhantomJS\n binaries have to be installed\n to use the client. The process for installing\nit depends on your environment, you will find further guides on the internet.\n\n\n\n\nNote\n\n\nThe package \njakoch/phantomjs-installer\n \ncan help you to manage phantomJS as a dependency of your project.\n\n\n\n\nUsage\n\n\nuse Serps\\HttpClient\\PhantomJsClient;\n\n// The constructor accepts 1 optional parameter that is the path to the phantomjs binaries (default to 'phantomjs')\n$client = new PhantomJsClient();", 
             "title": "PhantomJS"
         }, 
         {
             "location": "/http-client/phantomJS/#phantomjs-http-client", 
-            "text": "PhantomJS  is a webkit implementation that helps to simulate the real browser.   By using this client you will execute the inner javascript code and make the DOM as real as in the true browser,\nthat can be required for some search engines to work properly.   This is an evaluating adapter  When you use phantomJS client and you submit a request from it the resulting DOM \nmight be different of the source code returned by a server because\njavascript is executed before returning the DOM.    Known bug  PhantomJS scrapping might be affected by  this bug    Notice about cookies  At the current state phantomJS adapter does not support internal cookieJar usage.", 
+            "text": "PhantomJS  is a webkit implementation that helps to simulate the real browser.   By using this client you will execute the inner javascript code and make the DOM as real as in the true browser,\nthat can be required for some search engines to work properly.   This is an evaluating adapter  When you use phantomJS client and you submit a request from it the resulting DOM \nmight be different of the source code returned by a server because\njavascript is executed before returning the DOM.    Notice about cookies  At the current state phantomJS adapter does not support internal cookieJar usage.", 
             "title": "PhantomJS HTTP Client"
         }, 
         {
@@ -247,7 +247,32 @@
         }, 
         {
             "location": "/http-client/phantomJS/#usage", 
-            "text": "use Serps\\HttpClient\\PhantomJsClient;\n\n// The client needs the path to the binary.\n// By default it will use 'phantomjs'\n$client = new PhantomJsClient(__DIR__ . '/bin/phantomjs');\n\n$response = $client- query($request);\n\n// you can optionally add a proxy and a cookie as a second and third parameters\n// NOTE: though cookieJar is available, it is not implemented yet\n$response = $client- query($request, $proxy, $cookieJar);", 
+            "text": "use Serps\\HttpClient\\PhantomJsClient;\n\n// The constructor accepts 1 optional parameter that is the path to the phantomjs binaries (default to 'phantomjs')\n$client = new PhantomJsClient();", 
+            "title": "Usage"
+        }, 
+        {
+            "location": "/http-client/spidyJS/", 
+            "text": "SpidyJS HTTP Client\n\n\nSpidy\n is a browser built with javascript. \n\n\n\n\nThis adapter allows you to query search engines with spidyJS, it is a javascript headless browser. \n\n\n\n\nWarning\n\n\nThis adapter is still a prototype. Use it with care.\n\n\n\n\nInstallation\n\n\nThe client is available with the package \n\nserps/http-client-spidyjs\n: \n\n\n$ composer require 'serps/http-client-spidyjs'\n\n\nAdditional requirement\n\n\nYou will also need nodejs and npm to install spidy.\n\n\n$ npm install -g spidy@2\n\n\n\n\nIf you use a nodejs version that is before 4.0, you will need to install spidy version 1 instead:\n\n\n$ npm install -g spidy@1\n\n\n\n\nUsage\n\n\nuse Serps\\HttpClient\\SpidyJsClient;\n\n\n// The constructor accepts 1 optional parameter that is the path to the spidyjs binaries (default to 'spidyjs')\n$client = new SpidyJsClient();", 
+            "title": "SpidyJS"
+        }, 
+        {
+            "location": "/http-client/spidyJS/#spidyjs-http-client", 
+            "text": "Spidy  is a browser built with javascript.    This adapter allows you to query search engines with spidyJS, it is a javascript headless browser.    Warning  This adapter is still a prototype. Use it with care.", 
+            "title": "SpidyJS HTTP Client"
+        }, 
+        {
+            "location": "/http-client/spidyJS/#installation", 
+            "text": "The client is available with the package  serps/http-client-spidyjs :   $ composer require 'serps/http-client-spidyjs'", 
+            "title": "Installation"
+        }, 
+        {
+            "location": "/http-client/spidyJS/#additional-requirement", 
+            "text": "You will also need nodejs and npm to install spidy.  $ npm install -g spidy@2  If you use a nodejs version that is before 4.0, you will need to install spidy version 1 instead:  $ npm install -g spidy@1", 
+            "title": "Additional requirement"
+        }, 
+        {
+            "location": "/http-client/spidyJS/#usage", 
+            "text": "use Serps\\HttpClient\\SpidyJsClient;\n\n\n// The constructor accepts 1 optional parameter that is the path to the spidyjs binaries (default to 'spidyjs')\n$client = new SpidyJsClient();", 
             "title": "Usage"
         }, 
         {
