@@ -454,9 +454,10 @@ Represents the total number of results returned by the current search.
 The format of this number can change from country to country (61,000,000 or 61 000 000 or 6,10,00,000 etc...) 
 We take care of returning this number as a integer no matter the initial format.
 
-```php
-    use Serps\SearchEngine\Google\InvalidDOMException;
+If ``null`` is returned, it means that the parsing failed. In this case check that your client is up to date, or else 
+[open an issue](https://github.com/serp-spider/search-engine-google/issues).
 
+```php
     $numberOfResults = $response->getNumberOfResults();
     
     if(null === $numberOfResults){
@@ -466,7 +467,6 @@ We take care of returning this number as a integer no matter the initial format.
     } else {
         // a way too much
     }
-    
 ``` 
 
 ### Related searches
