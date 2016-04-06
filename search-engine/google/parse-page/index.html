@@ -216,7 +216,13 @@
                     
             
         
-            <li class="level-2"><a href="#related-searches">Related searches</a></li>
+            <li class="level-2"><a href="#additional-info">Additional info</a></li>
+            
+                <li class="level-3"><a href="#number-of-results">Number of results</a></li>
+                    
+            
+                <li class="level-3"><a href="#related-searches">Related searches</a></li>
+                    
             
         
             <li class="level-2"><a href="#custom-parsing">Custom parsing</a></li>
@@ -581,7 +587,28 @@ to get results from a section, you can use the section as a type filter:</p>
     }
 </code></pre>
 
-<h2 id="related-searches">Related searches</h2>
+<h2 id="additional-info">Additional info</h2>
+<p>A Google SERP contains even more information that the result list. Sometime they will be very helpful to get the
+most from the SERP.</p>
+<p>Here is the list of these info currently supported by the parser.</p>
+<h3 id="number-of-results">Number of results</h3>
+<p>Get the total number of results returned by the current search.</p>
+<p><img alt="number of results" src="../images/number_results.png" /></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\InvalidDOMException;
+
+    $numberOfResults = $response-&gt;getNumberOfResults();
+
+    if(null === $numberOfResults){
+        // houston, we have a problem...
+    } elseif($numberOfResults &gt; 2000) {
+        // not so many
+    } else {
+        // a way too much
+    }
+
+</code></pre>
+
+<h3 id="related-searches">Related searches</h3>
 <p>Not implemented yet.</p>
 <h2 id="custom-parsing">Custom parsing</h2>
 <p>Sometimes you need information that are not available in our parser. </p>
