@@ -596,6 +596,8 @@ most from the SERP.</p>
 <p>Represents the total number of results returned by the current search. 
 The format of this number can change from country to country (61,000,000 or 61 000 000 or 6,10,00,000 etc...) 
 We take care of returning this number as a integer no matter the initial format.</p>
+<p>If <code>null</code> is returned, it means that the parsing failed. In this case check that your client is up to date, or else 
+<a href="https://github.com/serp-spider/search-engine-google/issues">open an issue</a>.</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\InvalidDOMException;
 
     $numberOfResults = $response-&gt;getNumberOfResults();
