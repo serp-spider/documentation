@@ -438,7 +438,36 @@ These are the results from google shopping/merchant.
 ```
 
 
-## Related searches
+## Additional info
+
+A Google SERP contains even more information that the result list. Sometime they will be very helpful to get the
+most from the SERP.
+
+Here is the list of these info currently supported by the parser.
+
+
+### Number of results
+
+Get the total number of results returned by the current search.
+
+![number of results](images/number_results.png)
+
+```php
+    use Serps\SearchEngine\Google\InvalidDOMException;
+
+    $numberOfResults = $response->getNumberOfResults();
+    
+    if(null === $numberOfResults){
+        // houston, we have a problem...
+    } elseif($numberOfResults > 2000) {
+        // not so many
+    } else {
+        // a way too much
+    }
+    
+``` 
+
+### Related searches
 
 Not implemented yet.
 
