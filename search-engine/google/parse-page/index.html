@@ -592,8 +592,10 @@ to get results from a section, you can use the section as a type filter:</p>
 most from the SERP.</p>
 <p>Here is the list of these info currently supported by the parser.</p>
 <h3 id="number-of-results">Number of results</h3>
-<p>Get the total number of results returned by the current search.</p>
 <p><img alt="number of results" src="../images/number_results.png" /></p>
+<p>Represents the total number of results returned by the current search. 
+The format of this number can change from country to country (61,000,000 or 61 000 000 or 6,10,00,000 etc...) 
+We take care of returning this number as a integer no matter the initial format.</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\InvalidDOMException;
 
     $numberOfResults = $response-&gt;getNumberOfResults();
