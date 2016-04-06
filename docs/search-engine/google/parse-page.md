@@ -448,9 +448,11 @@ Here is the list of these info currently supported by the parser.
 
 ### Number of results
 
-Get the total number of results returned by the current search.
-
 ![number of results](images/number_results.png)
+
+Represents the total number of results returned by the current search. 
+The format of this number can change from country to country (61,000,000 or 61 000 000 or 6,10,00,000 etc...) 
+We take care of returning this number as a integer no matter the initial format.
 
 ```php
     use Serps\SearchEngine\Google\InvalidDOMException;
