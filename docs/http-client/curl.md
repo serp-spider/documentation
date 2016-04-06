@@ -28,9 +28,4 @@ This http client requires you to [install the Curl php extension](http://php.net
 use Serps\HttpClient\PhantomJsClient;
 
 $client = new CurlClient();
-
-$response = $client->query($request);
-
-// you can optionally add a proxy and a cookie as a second and third parameters
-$response = $client->query($request, $proxy, $cookieJar);
 ```

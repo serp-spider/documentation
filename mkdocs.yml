@@ -14,6 +14,7 @@ pages:
   - Http Clients:
       - CURL: http-client/curl.md
       - PhantomJS: http-client/phantomJS.md
+      - SpidyJS: http-client/spidyJS.md
 
   - About:
     - Packages: about/packages.md

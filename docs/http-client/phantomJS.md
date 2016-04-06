@@ -18,9 +18,6 @@ that can be required for some search engines to work properly.
     might be different of the source code returned by a server because
     javascript is executed before returning the DOM.
 
-!!! danger "Known bug"
-    PhantomJS scrapping might be affected by [this bug](https://github.com/ariya/phantomjs/issues/12750)
-
 !!! warning "Notice about cookies"
     At the current state phantomJS adapter does not support internal cookieJar usage.
 
@@ -46,13 +43,6 @@ it depends on your environment, you will find further guides on the internet.
 ```php
 use Serps\HttpClient\PhantomJsClient;
 
-// The client needs the path to the binary.
-// By default it will use 'phantomjs'
-$client = new PhantomJsClient(__DIR__ . '/bin/phantomjs');
-
-$response = $client->query($request);
-
-// you can optionally add a proxy and a cookie as a second and third parameters
-// NOTE: though cookieJar is available, it is not implemented yet
-$response = $client->query($request, $proxy, $cookieJar);
+// The constructor accepts 1 optional parameter that is the path to the phantomjs binaries (default to 'phantomjs')
+$client = new PhantomJsClient();
 ```
