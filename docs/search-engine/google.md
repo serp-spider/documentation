@@ -26,6 +26,16 @@ The google client is available with the package
 
 ``$ composer require 'serps/search-engine-google'``
 
+
+!!! Note "Important note agout google updates"
+    We don't know when google dom updates, but when it does, we will place as many efforts as possible
+    to get the client updated.
+    
+    To make sure you are always up to date we advice you to 
+    [watch the repository on github](https://github.com/serp-spider/search-engine-google/subscription).
+    Not only you will be notified when a release is published, but you will also know when a bug is detected and 
+    reported on the issue tracker.
+
 Overview
 --------
 
@@ -51,6 +61,77 @@ The google client needs a http client interface to be constructed and an url to 
         // Do stuff
     }
 ```
+
+
+Client Configuration
+--------------------
+
+
+### Cookie usage
+
+The google client can share cookies across several request, thus the state of the client will evolve and persist across
+many requests.
+
+By default it is disabled, to enable it, simply do:
+
+```php
+    $googleClient->enableCookies();
+```
+
+And to disable it again:
+
+```php
+    $googleClient->disableCookies();
+```
+
+By default the cookie jar is empty, but you can pass a custom cookie jar:
+
+
+```php
+    $googleClient->setCookieJar($cookieJar);
+```
+
+This way, it's possible to share the cookie jar with other client:
+
+
+
+```php
+    $cookieJar = $googleClient->getCookieJar();
+    $otherGoogleClient->setCookieJar($cookieJar);
+```
+
+
+View the dedicated [cookie documentation](/cookies.md) to learn more about cookies manipulation.
+
+### User agent
+
+**Setting an user agent is very important**. 
+By default it will be the one from the http client, and google would easily detect your script as a bot. 
+
+```php
+    $googleClient->setUserAgent('user agent string');
+```
+
+
+
+
+To avoid this you should **always** set a **real** user agent. See user agents list:
+
+- [from Chrome](http://www.useragentstring.com/pages/Chrome/)
+- [from Firefox](http://www.useragentstring.com/pages/Firefox/)
+- [from Opera](http://www.useragentstring.com/pages/Opera/)
+- [from IE](http://www.useragentstring.com/pages/Internet%20Explorer/)
+
+
+!!! Warning "User agent and evaluating http client"
+    If you don't use an user agent that **google knows**, then **javascript won't be sent** with the page 
+    and evaluating http clients won't have anything to evaluate.
+
+
+
+
+
+
 
 Working with urls
 -----------------
@@ -191,38 +272,6 @@ You can use a proxy at the request time
     
     $response = $googleClient->query($googleUrl, $proxy);
 ```
-
-Cookie usage
-------------
-
-The google client can persist cookies across several requests. 
-By default it is disabled, to enable it, simply do:
-
-```php
-    $googleClient->enableCookies();
-```
-
-And to disable it again:
-
-```php
-    $googleClient->disableCookies();
-```
-
-You can also get the current state of the cookieJar:
-
-```php
-    $googleClient->getCookieJar();
-```
-
-Or set a custom CookieJar
-
-
-```php
-    $googleClient->setCookieJar($cookieJar);
-```
-
-
-View the dedicated [cookie documentation](/cookies.md)
 
 
 
