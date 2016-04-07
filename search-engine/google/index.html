@@ -191,6 +191,15 @@
             <li class="level-2"><a href="#overview">Overview</a></li>
             
         
+            <li class="level-2"><a href="#client-configuration">Client Configuration</a></li>
+            
+                <li class="level-3"><a href="#cookie-usage">Cookie usage</a></li>
+                    
+            
+                <li class="level-3"><a href="#user-agent">User agent</a></li>
+                    
+            
+        
             <li class="level-2"><a href="#working-with-urls">Working with urls</a></li>
             
                 <li class="level-3"><a href="#create-an-url">Create an url</a></li>
@@ -218,9 +227,6 @@
             <li class="level-2"><a href="#proxy-usage">Proxy usage</a></li>
             
         
-            <li class="level-2"><a href="#cookie-usage">Cookie usage</a></li>
-            
-        
             <li class="level-2"><a href="#solve-a-captcha">Solve a Captcha</a></li>
             
         
@@ -246,6 +252,15 @@
 <p>The google client is available with the package 
 <a href="https://packagist.org/packages/serps/search-engine-google">serps/search-engine-google</a>: </p>
 <p><code>$ composer require 'serps/search-engine-google'</code></p>
+<div class="admonition note">
+<p class="admonition-title">Important note agout google updates</p>
+<p>We don't know when google dom updates, but when it does, we will place as many efforts as possible
+to get the client updated.</p>
+<p>To make sure you are always up to date we advice you to 
+<a href="https://github.com/serp-spider/search-engine-google/subscription">watch the repository on github</a>.
+Not only you will be notified when a release is published, but you will also know when a bug is detected and 
+reported on the issue tracker.</p>
+</div>
 <h2 id="overview">Overview</h2>
 <p>The google client needs a http client interface to be constructed and an url to be parsed.</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
@@ -268,6 +283,46 @@
     }
 </code></pre>
 
+<h2 id="client-configuration">Client Configuration</h2>
+<h3 id="cookie-usage">Cookie usage</h3>
+<p>The google client can share cookies across several request, thus the state of the client will evolve and persist across
+many requests.</p>
+<p>By default it is disabled, to enable it, simply do:</p>
+<pre><code class="php">    $googleClient-&gt;enableCookies();
+</code></pre>
+
+<p>And to disable it again:</p>
+<pre><code class="php">    $googleClient-&gt;disableCookies();
+</code></pre>
+
+<p>By default the cookie jar is empty, but you can pass a custom cookie jar:</p>
+<pre><code class="php">    $googleClient-&gt;setCookieJar($cookieJar);
+</code></pre>
+
+<p>This way, it's possible to share the cookie jar with other client:</p>
+<pre><code class="php">    $cookieJar = $googleClient-&gt;getCookieJar();
+    $otherGoogleClient-&gt;setCookieJar($cookieJar);
+</code></pre>
+
+<p>View the dedicated <a href="../../cookies/">cookie documentation</a> to learn more about cookies manipulation.</p>
+<h3 id="user-agent">User agent</h3>
+<p><strong>Setting an user agent is very important</strong>. 
+By default it will be the one from the http client, and google would easily detect your script as a bot. </p>
+<pre><code class="php">    $googleClient-&gt;setUserAgent('user agent string');
+</code></pre>
+
+<p>To avoid this you should <strong>always</strong> set a <strong>real</strong> user agent. See user agents list:</p>
+<ul>
+<li><a href="http://www.useragentstring.com/pages/Chrome/">from Chrome</a></li>
+<li><a href="http://www.useragentstring.com/pages/Firefox/">from Firefox</a></li>
+<li><a href="http://www.useragentstring.com/pages/Opera/">from Opera</a></li>
+<li><a href="http://www.useragentstring.com/pages/Internet%20Explorer/">from IE</a></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">User agent and evaluating http client</p>
+<p>If you don't use an user agent that <strong>google knows</strong>, then <strong>javascript won't be sent</strong> with the page 
+and evaluating http clients won't have anything to evaluate.</p>
+</div>
 <h2 id="working-with-urls">Working with urls</h2>
 <p><code>GoogleUrl</code> class offers many convenient tools to work with google urls.</p>
 <h3 id="create-an-url">Create an url</h3>
@@ -369,25 +424,6 @@ That is achieved by passing true as the third argument of <code>setParam</code>.
     $response = $googleClient-&gt;query($googleUrl, $proxy);
 </code></pre>
 
-<h2 id="cookie-usage">Cookie usage</h2>
-<p>The google client can persist cookies across several requests. 
-By default it is disabled, to enable it, simply do:</p>
-<pre><code class="php">    $googleClient-&gt;enableCookies();
-</code></pre>
-
-<p>And to disable it again:</p>
-<pre><code class="php">    $googleClient-&gt;disableCookies();
-</code></pre>
-
-<p>You can also get the current state of the cookieJar:</p>
-<pre><code class="php">    $googleClient-&gt;getCookieJar();
-</code></pre>
-
-<p>Or set a custom CookieJar</p>
-<pre><code class="php">    $googleClient-&gt;setCookieJar($cookieJar);
-</code></pre>
-
-<p>View the dedicated <a href="../../cookies/">cookie documentation</a></p>
 <h2 id="solve-a-captcha">Solve a Captcha</h2>
 <p>Solving captcha is not implemented at the moment</p>
 
