@@ -205,8 +205,8 @@
                 <li class="level-3"><a href="#remove-expired-cookies">Remove expired cookies</a></li>
                     
             
-                <li class="level-3"><a href="#serialize-cookies">Serialize cookies</a></li>
-                    
+        
+            <li class="level-2"><a href="#serialize-cookies">Serialize cookies</a></li>
             
         
     
@@ -304,9 +304,9 @@ $cookies = $cookieJar-&gt;removeTemporary();
 $cookies = $cookieJar-&gt;removeExpired();
 </code></pre>
 
-<h3 id="serialize-cookies">Serialize cookies</h3>
-<p>Cookies can be exported in a serializable format, thus it's possible to save the state of a cookie jar and to
-use it easily in an other script latter.</p>
+<h2 id="serialize-cookies">Serialize cookies</h2>
+<p>Cookies can be exported in a serializable format, thus it's possible to save the state and to
+use it latter.</p>
 <pre><code class="php">// serialize cookies using json
 $serializableCookieJar = $cookieJar-&gt;export();
 $serializedCookieJar = json_encode($serializableCookieJar);
