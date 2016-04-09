@@ -113,3 +113,19 @@ $cookies = $cookieJar->removeTemporary();
 // Remove all cookies that are expired
 $cookies = $cookieJar->removeExpired();
 ```
+
+
+## Serialize cookies
+
+Cookies can be exported in a serializable format, thus it's possible to save the state and to
+use it latter.
+
+
+```php
+// serialize cookies using json
+$serializableCookieJar = $cookieJar->export();
+$serializedCookieJar = json_encode($serializableCookieJar);
+
+// Unserialize cookies in an other cookie jar
+$otherCookieJar->import(json_decode($serializedCookieJar, true));
+```
