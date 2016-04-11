@@ -13,11 +13,6 @@ PhantomJS HTTP Client
 By using this client you will execute the inner javascript code and make the DOM as real as in the true browser,
 that can be required for some search engines to work properly.
 
-!!! info "This is an evaluating adapter"
-    When you use phantomJS client and you submit a request from it the resulting DOM 
-    might be different of the source code returned by a server because
-    javascript is executed before returning the DOM.
-
 !!! warning "Notice about cookies"
     At the current state phantomJS adapter does not support internal cookieJar usage.
 
