@@ -20,7 +20,8 @@ pages:
     - Packages: about/packages.md
 
   - _hidden:
-    - Parse a Page: search-engine/google/parse-page.md
+    - Parse a Google Page: search-engine/google/parse-page.md
+    - Configure Google Client: search-engine/google/client-configuration.md
 
 repo_url: https://github.com/serp-spider
 

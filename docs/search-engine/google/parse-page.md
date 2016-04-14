@@ -14,24 +14,19 @@ Back to the [**general google documentation**](../google.md).
 
 
 !!! warning "Important notice about google update"
-    The current documentation can change at any time. As soon as google changes its page structure
-    the following example may stop to work correctly.
+    The following examples can change at any time. 
     
-    We place efforts to monitor the changes but we cannot guarantee that everything will be available at any time.
-    
-    Remember to tune your composer.json correctly to make sure to bring new changes as they come. 
-    We use the [semantic versioning](http://semver.org/) 
-    and the best practise is to [use the tilde operator](https://getcomposer.org/doc/articles/versions.md#tilde). 
+    As soon as google changes its page structure, you may need to update the library.
 
 
 ![Classical Results](images/serp.png)
 
 A google SERP can contain different type of result.
 Firstly they are divided in three distinct regions: **natural** (organic), **paid** (adwords) and **graph results** and each of them
-has its own results types. Graph result are currently **not supported** by the library.
+has its own results types. Graph result are **not supported** by the library.
 
 Through there is a great diversity of results the library gives you the api to work with them, here we document
-what are their differences.
+how to work with it.
 
 
 ## Natural Results
@@ -469,7 +464,7 @@ If ``null`` is returned, it means that the parsing failed. In this case check th
     }
 ``` 
 
-### Related searches
+## Related searches
 
 Not implemented yet.
 
