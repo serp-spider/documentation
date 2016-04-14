@@ -1,5 +1,3 @@
-disqus_disabled: true
-
 SERPS
 =====
 
