@@ -11,7 +11,7 @@
         <link rel="shortcut icon" href="../../../../../../favicon.ico">
         
 
-	    <title>Parse a Page - Documentation - The SERP Spider</title>
+	    <title>Parse a Google Page - Documentation - The SERP Spider</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">        <link href="../../../css/base.css" rel="stylesheet">
@@ -221,8 +221,8 @@
                 <li class="level-3"><a href="#number-of-results">Number of results</a></li>
                     
             
-                <li class="level-3"><a href="#related-searches">Related searches</a></li>
-                    
+        
+            <li class="level-2"><a href="#related-searches">Related searches</a></li>
             
         
             <li class="level-2"><a href="#custom-parsing">Custom parsing</a></li>
@@ -250,19 +250,15 @@
 <hr />
 <div class="admonition warning">
 <p class="admonition-title">Important notice about google update</p>
-<p>The current documentation can change at any time. As soon as google changes its page structure
-the following example may stop to work correctly.</p>
-<p>We place efforts to monitor the changes but we cannot guarantee that everything will be available at any time.</p>
-<p>Remember to tune your composer.json correctly to make sure to bring new changes as they come. 
-We use the <a href="http://semver.org/">semantic versioning</a> 
-and the best practise is to <a href="https://getcomposer.org/doc/articles/versions.md#tilde">use the tilde operator</a>. </p>
+<p>The following examples can change at any time. </p>
+<p>As soon as google changes its page structure, you may need to update the library.</p>
 </div>
 <p><img alt="Classical Results" src="../images/serp.png" /></p>
 <p>A google SERP can contain different type of result.
 Firstly they are divided in three distinct regions: <strong>natural</strong> (organic), <strong>paid</strong> (adwords) and <strong>graph results</strong> and each of them
-has its own results types. Graph result are currently <strong>not supported</strong> by the library.</p>
+has its own results types. Graph result are <strong>not supported</strong> by the library.</p>
 <p>Through there is a great diversity of results the library gives you the api to work with them, here we document
-what are their differences.</p>
+how to work with it.</p>
 <h2 id="natural-results">Natural Results</h2>
 <p>Natural results (aka organic results) are main results of the page.</p>
 <p>Each natural result has a position and some available data. You can access them the following way (see the foreach loop):</p>
@@ -609,7 +605,7 @@ We take care of returning this number as a integer no matter the initial format.
     }
 </code></pre>
 
-<h3 id="related-searches">Related searches</h3>
+<h2 id="related-searches">Related searches</h2>
 <p>Not implemented yet.</p>
 <h2 id="custom-parsing">Custom parsing</h2>
 <p>Sometimes you need information that are not available in our parser. </p>
@@ -669,37 +665,7 @@ to xpath and <a href="http://php.net/manual/fr/domxpath.query.php">DOMXPath::que
 
     // Writes the dom content in the file 'file.html'
     $dom-&gt;save('file.html');
-</code></pre>
-
-
-    <br/>
-    <hr/>
-
-
-    <h2>React!</h2>
-    <div id="disqus_thread"></div>
-    <script>
-        /**
-         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-         */
-         var disqus_config = function () {
-         this.page.url = "https://serp-spider.github.io/documentation/search-engine/google/parse-page/";
-         this.page.identifier = "documentation/search-engine/google/parse-page/";
-         };
-
-        (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-
-            s.src = '//serpspider.disqus.com/embed.js';
-
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-</div>
+</code></pre></div>
             
         </div>
 

@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta name="description" content="All about scrapping google with SERPS - Generate URLs and analyse the google pages.">
+        <meta name="description" content="Al about scrlapping google with SERPS - Generate URLs and analyse the google pages.">
         
         <link rel="canonical" href="https://serp-spider.github.io/documentation/search-engine/google/">
         <link rel="shortcut icon" href="../../../../favicon.ico">
@@ -191,45 +191,6 @@
             <li class="level-2"><a href="#overview">Overview</a></li>
             
         
-            <li class="level-2"><a href="#client-configuration">Client Configuration</a></li>
-            
-                <li class="level-3"><a href="#cookie-usage">Cookie usage</a></li>
-                    
-            
-                <li class="level-3"><a href="#user-agent">User agent</a></li>
-                    
-            
-        
-            <li class="level-2"><a href="#working-with-urls">Working with urls</a></li>
-            
-                <li class="level-3"><a href="#create-an-url">Create an url</a></li>
-                    
-            
-                <li class="level-3"><a href="#url-from-a-string">Url from a string</a></li>
-                    
-            
-                <li class="level-3"><a href="#google-domain">Google domain</a></li>
-                    
-            
-                <li class="level-3"><a href="#add-and-remove-parameters">Add and remove parameters</a></li>
-                    
-            
-                <li class="level-3"><a href="#raw-parameters">Raw parameters</a></li>
-                    
-            
-                <li class="level-3"><a href="#more-parameters">More parameters</a></li>
-                    
-            
-        
-            <li class="level-2"><a href="#parsing-results">Parsing results</a></li>
-            
-        
-            <li class="level-2"><a href="#proxy-usage">Proxy usage</a></li>
-            
-        
-            <li class="level-2"><a href="#solve-a-captcha">Solve a Captcha</a></li>
-            
-        
     
     </ul>
 </div></div>
@@ -239,13 +200,11 @@
 <p><img class="frameless-image" alt="Google logo" src="../../images/logo-google.png"/></p>
 <p><center>Everything about the google client</center></p>
 <hr />
-<p>Jump to:</p>
 <ul>
-<li><a href="parse-page/"><strong>Parse a google page</strong></a><ul>
-<li><a href="parse-page/#natural-results"><strong>Parse natural results</strong></a></li>
-<li><a href="parse-page/#adwords-results"><strong>Parse adwords results</strong></a></li>
-</ul>
-</li>
+<li><a href="#installation"><strong>Installation</strong></a></li>
+<li><a href="#overview"><strong>Overview</strong></a></li>
+<li><a href="client-configuration/"><strong>Configure the google client</strong></a></li>
+<li><a href="parse-page/"><strong>Parse a google page</strong></a></li>
 </ul>
 <hr />
 <h2 id="installation">Installation</h2>
@@ -270,6 +229,10 @@ reported on the issue tracker.</p>
     // Create a google client using the curl http client
     $googleClient = new GoogleClient(new CurlClient());
 
+    // Tell the client to use a user agent
+    $userAgent = &quot;Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.93 Safari/537.36&quot;;
+    $googleClient-&gt;request-&gt;setUserAgent($userAgent);
+
     // Create the url that will be parsed
     $googleUrl = new GoogleUrl();
     $googleUrl-&gt;setSearchTerm('simpsons');
@@ -279,183 +242,12 @@ reported on the issue tracker.</p>
     $results = $response-&gt;getNaturalResults();
 
     foreach($results as $result){
-        // Do stuff
+        // Analyse the results
     }
 </code></pre>
 
-<h2 id="client-configuration">Client Configuration</h2>
-<h3 id="cookie-usage">Cookie usage</h3>
-<p>The google client can share cookies across several request, thus the state of the client will evolve and persist across
-many requests.</p>
-<p>By default it is disabled, to enable it, simply do:</p>
-<pre><code class="php">    $googleClient-&gt;enableCookies();
-</code></pre>
-
-<p>And to disable it again:</p>
-<pre><code class="php">    $googleClient-&gt;disableCookies();
-</code></pre>
-
-<p>By default the cookie jar is empty, but you can pass a custom cookie jar:</p>
-<pre><code class="php">    $googleClient-&gt;setCookieJar($cookieJar);
-</code></pre>
-
-<p>This way, it's possible to share the cookie jar with other client:</p>
-<pre><code class="php">    $cookieJar = $googleClient-&gt;getCookieJar();
-    $otherGoogleClient-&gt;setCookieJar($cookieJar);
-</code></pre>
-
-<p>View the dedicated <a href="../../cookies/">cookie documentation</a> to learn more about cookies manipulation.</p>
-<h3 id="user-agent">User agent</h3>
-<p><strong>Setting an user agent is very important</strong>. 
-By default it will be the one from the http client, and google would easily detect your script as a bot. </p>
-<pre><code class="php">    $googleClient-&gt;setUserAgent('user agent string');
-</code></pre>
-
-<p>To avoid this you should <strong>always</strong> set a <strong>real</strong> user agent. See user agents list:</p>
-<ul>
-<li><a href="http://www.useragentstring.com/pages/Chrome/">from Chrome</a></li>
-<li><a href="http://www.useragentstring.com/pages/Firefox/">from Firefox</a></li>
-<li><a href="http://www.useragentstring.com/pages/Opera/">from Opera</a></li>
-<li><a href="http://www.useragentstring.com/pages/Internet%20Explorer/">from IE</a></li>
-</ul>
-<div class="admonition warning">
-<p class="admonition-title">User agent and evaluating http client</p>
-<p>If you don't use an user agent that <strong>google knows</strong>, then <strong>javascript won't be sent</strong> with the page 
-and evaluating http clients won't have anything to evaluate.</p>
-</div>
-<h2 id="working-with-urls">Working with urls</h2>
-<p><code>GoogleUrl</code> class offers many convenient tools to work with google urls.</p>
-<h3 id="create-an-url">Create an url</h3>
-<p>The url builder has the required tools to build an url from scratch.</p>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleUrl;
-
-    $googleUrl = new GoogleUrl();
-    $googleUrl-&gt;setSearchTerm('simpsons');
-    $googleUrl-&gt;setLanguageRestriction('lang_en');
-    echo $googleUrl-&gt;buildUrl();
-    // https://google.com/search?q=simpsons&amp;lr=lang_en
-</code></pre>
-
-<h3 id="url-from-a-string">Url from a string</h3>
-<p>It's also possible to parse an an existing google url string to an url object.</p>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleUrl;
-
-    $googleUrl = GoogleUrl::fromString('https://google.com/search?q=simpsons');
-    echo $googleUrl-&gt;getSearchTerm();
-    // simpsons
-</code></pre>
-
-<p>Additionally you can continue to manipulate this url</p>
-<pre><code class="php">    $googleUrl-&gt;setLanguageRestriction('lang_en');
-    echo $googleUrl-&gt;buildUrl();
-    // https://google.com/search?q=simpsons&amp;lr=lang_en
-</code></pre>
-
-<h3 id="google-domain">Google domain</h3>
-<p>By default an url is generated for <code>google.com</code> but you can choose any domain of your choice:</p>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleUrl;
-
-    $googleUrl = new GoogleUrl('google.fr');
-    $googleUrl-&gt;setSearchTerm('simpsons');
-    echo $googleUrl-&gt;buildUrl();
-    // https://google.fr/search?q=simpsons
-</code></pre>
-
-<p>It's also possible to modify it latter</p>
-<pre><code class="php">    $googleUrl-&gt;setHost('google.de');
-    echo $googleUrl-&gt;buildUrl();
-    // https://google.de/search?q=simpsons
-</code></pre>
-
-<h3 id="add-and-remove-parameters">Add and remove parameters</h3>
-<p>It's possible to add or remove parameters</p>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleUrl;
-
-    $googleUrl = new GoogleUrl();
-    $googleUrl-&gt;setParam('q', 'simpsons');
-    $googleUrl-&gt;setParam('start', 11);
-    echo $googleUrl-&gt;buildUrl();
-    // https://google.com/search?q=simpsons&amp;start=11
-
-    $googleUrl-&gt;removeParam('start');
-    echo $googleUrl-&gt;buildUrl();
-    // https://google.com/search?q=simpsons
-</code></pre>
-
-<h3 id="raw-parameters">Raw parameters</h3>
-<p>By default parameters are encoded for urls. For instance <code>"Homer Simpsons"</code> will become <code>"Homer+Simpsons"</code>
-but <code>"Homer+Simpsons"</code> will become <code>"Homer%2BSimpson"</code></p>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleUrl;
-
-    $googleUrl = new GoogleUrl();
-    $googleUrl-&gt;setParam('q', 'Homer+Simpson');
-    echo $googleUrl-&gt;buildUrl();
-    // https://google.com/search?q=Homer%2BSimpson
-</code></pre>
-
-<p>It's possible to deal with raw params, this way the param will be passed to the url with no additional encoding. 
-That is achieved by passing true as the third argument of <code>setParam</code>.</p>
-<pre><code class="php">    $googleUrl = new GoogleUrl();
-    $googleUrl-&gt;setParam('q', 'Homer+Simpson', true);
-    echo $googleUrl-&gt;buildUrl();
-    // https://google.com/search?q=Homer+Simpson
-</code></pre>
-
-<h3 id="more-parameters">More parameters</h3>
-<p>Some parameters are very common and for some of them we created convenient shortcuts.</p>
-<p>TODO</p>
-<h2 id="parsing-results">Parsing results</h2>
-<p>The google client is also responsible for parsing the page and outputting a standard result set.</p>
-<p>A page can return different kind of results. For convenience the guide for parsing a page has its own page: <a href="parse-page/"><strong>view the guide</strong></a></p>
-<h2 id="proxy-usage">Proxy usage</h2>
-<p>You can use a proxy at the request time</p>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
-    use Serps\HttpClient\CurlClient;
-    use Serps\SearchEngine\Google\GoogleUrl;
-    use Serps\Core\Http\Proxy;
-
-    $googleClient = new GoogleClient(new CurlClient());
-
-    $googleUrl = new GoogleUrl();
-    $google-&gt;setSearchTerm('simpsons');
-
-    $proxy = new Proxy('1.1.1.1', 8080);
-
-    $response = $googleClient-&gt;query($googleUrl, $proxy);
-</code></pre>
-
-<h2 id="solve-a-captcha">Solve a Captcha</h2>
-<p>Solving captcha is not implemented at the moment</p>
-
-
-    <br/>
-    <hr/>
-
-
-    <h2>React!</h2>
-    <div id="disqus_thread"></div>
-    <script>
-        /**
-         * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-         * LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-         */
-         var disqus_config = function () {
-         this.page.url = "https://serp-spider.github.io/documentation/search-engine/google/";
-         this.page.identifier = "documentation/search-engine/google/";
-         };
-
-        (function() { // DON'T EDIT BELOW THIS LINE
-            var d = document, s = d.createElement('script');
-
-            s.src = '//serpspider.disqus.com/embed.js';
-
-            s.setAttribute('data-timestamp', +new Date());
-            (d.head || d.body).appendChild(s);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-
-</div>
+<p><br/></p>
+<p>Next step: <a href="client-configuration/"><strong>configure the client</strong></a></p></div>
             
         </div>
 
