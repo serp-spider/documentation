@@ -58,7 +58,8 @@ Each of the result from the loop will have the following methods available:
 
 - ``getTypes()``: the types of the result
 - ``is($type)``: check if the result is of the given type
-- ``getDataValue($type)``: Get the given data from the result
+- ``getDataValue($type)``: Get the given data from the result. Everything accessible with ``getDataValue``
+is also accessible with a property, e.g the two examples do the same thing: ``$result->getDataValue('url')`` and ``$result->url``
 - ``getData()``: Get the all the data of the result
 - ``getOnPagePosition()``: Get the position of the result on the page (not aware of the pagination)
 - ``getRealPosition()``: Get the global position of the result (aware of the pagination)
@@ -121,8 +122,8 @@ These results are the common natural results that have always existed in google.
     
     foreach($results as $result){
         if($result->is(NaturalResultType::CLASSICAL)){
-            $title = $result->getDataValue('title');
-            $url   = $result->getDataValue('url');
+            $title = $result->title;
+            $url   = $result->url;
         }
     }
 ```
@@ -160,8 +161,8 @@ The video result can be illustrated with either a thumbnail or a large image.
     
     foreach($results as $result){
         if($result->is(NaturalResultType::CLASSICAL_VIDEO)){
-            $title = $result->getDataValue('title');
-            if($result->getDataValue('videoLarge'){
+            $title = $result->title;
+            if($result->videoLarge){
                 // ...
             }
         }
@@ -199,8 +200,8 @@ Images that appear as a group of results.
     
     foreach($results as $result){
         if($result->is(NaturalResultType::IMAGE_GROUP)){
-            foreach($result->getDataValue('images') as $image){
-                $sourceUrl = $image->getDataValue('sourceUrl');
+            foreach($result->images as $image){
+                $sourceUrl = $image->sourceUrl;
             }
         }
     }
@@ -240,8 +241,8 @@ A result illustrated by a map and that contains sub-results.
     
     foreach($results as $result){
         if($result->is(NaturalResultType::MAP)){
-            foreach($result->getDataValue('localPack') as $place){
-                $website = $place->getDataValue('website');
+            foreach($result->localPack as $place){
+                $website = $place->website;
             }
         }
     }
@@ -276,7 +277,7 @@ Recent tweet list from an user matching the search keywords.
     
     foreach($results as $result){
         if($result->is(NaturalResultType::TWEETS_CAROUSEL)){
-            $user = $result->getDataValue('user');
+            $user = $result->user;
         }
     }
 ```
@@ -310,7 +311,7 @@ Recent news results.
     
     foreach($results as $result){
         if($result->is(NaturalResultType::IN_THE_NEWS)){
-            $title = $result->getDataValue('title');
+            $title = $result->title;
         }
     }
 ```
@@ -389,7 +390,7 @@ Ads results are the basics results from adwords.
     
     foreach($results as $result){
         if($result->is(AdwordsResultType::AD)){
-            $url = $result->getDataValue('url');
+            $url = $result->url;
         }
     }
 ```
@@ -411,7 +412,7 @@ These are the results from google shopping/merchant.
 
 - ``products`` <small>**array**</small>: The product list. Each product contains the following items:
     - ``title`` <small>**string**</small> **[A]**
-    - ``image`` <small>**string**</small> **[B]**
+    - ``image`` <small>**string**</small> **[B]**: the image as specified by google - either an image url or a base64 encoded image
     - ``url`` <small>**url**</small>: The url reached when clicking the title
     - ``target`` <small>**string**</small> **[C]**: The target website as shown by google
     - ``price``<small>**string**</small> **[D]**: The price as show by google
@@ -425,8 +426,8 @@ These are the results from google shopping/merchant.
     
     foreach($results as $result){
         if($result->is(AdwordsResultType::SHOPPING_GROUP)){
-            foreach($result->getDataValue('products') as $item){
-                $title = $item->getDataValue('title');
+            foreach($result->products as $item){
+                $title = $item->title;
             }
         }
     }
