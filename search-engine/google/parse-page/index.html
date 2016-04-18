@@ -284,7 +284,8 @@ how to work with it.</p>
 <ul>
 <li><code>getTypes()</code>: the types of the result</li>
 <li><code>is($type)</code>: check if the result is of the given type</li>
-<li><code>getDataValue($type)</code>: Get the given data from the result</li>
+<li><code>getDataValue($type)</code>: Get the given data from the result. Everything accessible with <code>getDataValue</code>
+is also accessible with a property, e.g the two examples do the same thing: <code>$result-&gt;getDataValue('url')</code> and <code>$result-&gt;url</code></li>
 <li><code>getData()</code>: Get the all the data of the result</li>
 <li><code>getOnPagePosition()</code>: Get the position of the result on the page (not aware of the pagination)</li>
 <li><code>getRealPosition()</code>: Get the global position of the result (aware of the pagination)</li>
@@ -333,8 +334,8 @@ See bellow for all available data per result type.</p>
 
     foreach($results as $result){
         if($result-&gt;is(NaturalResultType::CLASSICAL)){
-            $title = $result-&gt;getDataValue('title');
-            $url   = $result-&gt;getDataValue('url');
+            $title = $result-&gt;title;
+            $url   = $result-&gt;url;
         }
     }
 </code></pre>
@@ -365,8 +366,8 @@ See bellow for all available data per result type.</p>
 
     foreach($results as $result){
         if($result-&gt;is(NaturalResultType::CLASSICAL_VIDEO)){
-            $title = $result-&gt;getDataValue('title');
-            if($result-&gt;getDataValue('videoLarge'){
+            $title = $result-&gt;title;
+            if($result-&gt;videoLarge){
                 // ...
             }
         }
@@ -398,8 +399,8 @@ See bellow for all available data per result type.</p>
 
     foreach($results as $result){
         if($result-&gt;is(NaturalResultType::IMAGE_GROUP)){
-            foreach($result-&gt;getDataValue('images') as $image){
-                $sourceUrl = $image-&gt;getDataValue('sourceUrl');
+            foreach($result-&gt;images as $image){
+                $sourceUrl = $image-&gt;sourceUrl;
             }
         }
     }
@@ -433,8 +434,8 @@ See bellow for all available data per result type.</p>
 
     foreach($results as $result){
         if($result-&gt;is(NaturalResultType::MAP)){
-            foreach($result-&gt;getDataValue('localPack') as $place){
-                $website = $place-&gt;getDataValue('website');
+            foreach($result-&gt;localPack as $place){
+                $website = $place-&gt;website;
             }
         }
     }
@@ -461,7 +462,7 @@ See bellow for all available data per result type.</p>
 
     foreach($results as $result){
         if($result-&gt;is(NaturalResultType::TWEETS_CAROUSEL)){
-            $user = $result-&gt;getDataValue('user');
+            $user = $result-&gt;user;
         }
     }
 </code></pre>
@@ -490,7 +491,7 @@ See bellow for all available data per result type.</p>
 
     foreach($results as $result){
         if($result-&gt;is(NaturalResultType::IN_THE_NEWS)){
-            $title = $result-&gt;getDataValue('title');
+            $title = $result-&gt;title;
         }
     }
 </code></pre>
@@ -546,7 +547,7 @@ to get results from a section, you can use the section as a type filter:</p>
 
     foreach($results as $result){
         if($result-&gt;is(AdwordsResultType::AD)){
-            $url = $result-&gt;getDataValue('url');
+            $url = $result-&gt;url;
         }
     }
 </code></pre>
@@ -562,7 +563,7 @@ to get results from a section, you can use the section as a type filter:</p>
 <ul>
 <li><code>products</code> <small><strong>array</strong></small>: The product list. Each product contains the following items:<ul>
 <li><code>title</code> <small><strong>string</strong></small> <strong>[A]</strong></li>
-<li><code>image</code> <small><strong>string</strong></small> <strong>[B]</strong></li>
+<li><code>image</code> <small><strong>string</strong></small> <strong>[B]</strong>: the image as specified by google - either an image url or a base64 encoded image</li>
 <li><code>url</code> <small><strong>url</strong></small>: The url reached when clicking the title</li>
 <li><code>target</code> <small><strong>string</strong></small> <strong>[C]</strong>: The target website as shown by google</li>
 <li><code>price</code><small><strong>string</strong></small> <strong>[D]</strong>: The price as show by google</li>
@@ -576,8 +577,8 @@ to get results from a section, you can use the section as a type filter:</p>
 
     foreach($results as $result){
         if($result-&gt;is(AdwordsResultType::SHOPPING_GROUP)){
-            foreach($result-&gt;getDataValue('products') as $item){
-                $title = $item-&gt;getDataValue('title');
+            foreach($result-&gt;products as $item){
+                $title = $item-&gt;title;
             }
         }
     }
