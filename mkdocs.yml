@@ -21,6 +21,8 @@ pages:
 
   - _hidden:
     - Parse a Google Page: search-engine/google/parse-page.md
+    - Google Url: search-engine/google/google-url.md
+    - Handle Google error: search-engine/google/handle-errors.md
     - Configure Google Client: search-engine/google/client-configuration.md
 
 repo_url: https://github.com/serp-spider

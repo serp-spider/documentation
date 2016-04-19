@@ -318,12 +318,12 @@ Recent news results.
 
 
 
-
-
 ## Adwords Results
 
-
 The google client offers an Adwords parser.
+
+!!! Warning 
+    Adwords parsing is still experimental!
 
 ```php
     $adwordsResults = $response->getAdwordsResults();

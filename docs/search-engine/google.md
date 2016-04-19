@@ -1,4 +1,5 @@
 page_description: Al about scrlapping google with SERPS - Generate URLs and analyse the google pages.
+page_title: Google Client Overview
 
 Google Client
 =============
@@ -12,8 +13,10 @@ Google Client
 
 - [**Installation**](#installation)
 - [**Overview**](#overview)
+- [**Create urls**](google/google-url.md)
 - [**Configure the google client**](google/client-configuration.md)
 - [**Parse a google page**](google/parse-page.md)
+- [**Handle errors**](google/handle-errors.md)
 
 ---
 
