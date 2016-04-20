@@ -175,8 +175,6 @@
             
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
 
-    
-
     <div class="alpha-banner">
         <i class="fa fa-exclamation-circle"></i>
         The project is in alpha phase
@@ -225,12 +223,18 @@
 </blockquote>
 <pre><code class="json">{
     &quot;require&quot;: {
+        &quot;serps/core&quot;: &quot;*&quot;,
         &quot;serps/search-engine-google&quot;: &quot;*&quot;,
         &quot;serps/http-client-curl&quot;: &quot;*&quot;
     }
 }
 </code></pre>
 
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p>The library is still in alpha, no version is released yet that means that minor things can change until 
+the stable release and your code might become not compatible with the updates.</p>
+</div>
 <h2 id="search-engine-client">Search Engine client</h2>
 <p>In a regular workflow a search engine client allows to:</p>
 <ul>
