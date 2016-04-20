@@ -5,13 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta name="description" content="Tune the google client to fit your own needing.">
         
-        <link rel="canonical" href="https://serp-spider.github.io/documentation/search-engine/google/client-configuration/">
+        
+        <link rel="canonical" href="https://serp-spider.github.io/documentation/search-engine/google/handle-errors/">
         <link rel="shortcut icon" href="../../../../../../favicon.ico">
         
 
-	    <title>Configure Google Client - Documentation - The SERP Spider</title>
+	    <title>Handle Google error - Documentation - The SERP Spider</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">        <link href="../../../css/base.css" rel="stylesheet">
@@ -185,18 +185,24 @@
 
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#google-client-configuration">Google Client Configuration</a></li>
+        <li class="main active"><a href="#handle-erros-from-the-google-client">Handle erros from the google client</a></li>
         
-            <li class="level-2"><a href="#user-agent">User agent</a></li>
+            <li class="level-2"><a href="#request-error">Request error</a></li>
+            
+                <li class="level-3"><a href="#network-errors">Network errors</a></li>
+                    
+            
+                <li class="level-3"><a href="#http-errors">Http errors</a></li>
+                    
+            
+                <li class="level-3"><a href="#captcha-errors">Captcha errors</a></li>
+                    
             
         
-            <li class="level-2"><a href="#cookie-usage">Cookie usage</a></li>
+            <li class="level-2"><a href="#dom-errors">DOM errors</a></li>
             
         
-            <li class="level-2"><a href="#proxy-usage">Proxy usage</a></li>
-            
-        
-            <li class="level-2"><a href="#solve-a-captcha">Solve a Captcha</a></li>
+            <li class="level-2"><a href="#more-complete-example-of-error-handling">More complete example of error handling</a></li>
             
         
     
@@ -204,69 +210,176 @@
 </div></div>
                 <div class="col-md-9" id="main-content" role="main">
 
-<h1 id="google-client-configuration">Google Client Configuration</h1>
-<p>
-</p>
+<h1 id="handle-erros-from-the-google-client">Handle erros from the google client</h1>
+<p></p>
 
 <hr />
 <p>Back to the <a href="../"><strong>general google documentation</strong></a>.</p>
 <hr />
-<h2 id="user-agent">User agent</h2>
-<p><strong>Setting an user agent is very important</strong>. 
-By default it will be the one from the http client, and google would easily detect your script as a bot.</p>
-<p>To avoid that it happens configure an user agent:</p>
-<pre><code class="php">    $googleClient-&gt;request-&gt;setUserAgent('user agent string');
-</code></pre>
-
-<p>You should <strong>always</strong> set a <strong>real</strong> user agent. Here are a fow user agent lists:</p>
+<p>Working with google involves to make http request, to get an output from google and to parse this output. 
+All of these steps are not error free, you can encounter a network error, an error from google server, get a captcha
+or even face some updated google serp not supported by your version of the library.</p>
+<p>Errors are managed with exceptions, that makes them easy to handle.</p>
+<h2 id="request-error">Request error</h2>
+<p>There are several reasons for a request error to trigger:</p>
 <ul>
-<li><a href="http://www.useragentstring.com/pages/Chrome/">from Chrome</a></li>
-<li><a href="http://www.useragentstring.com/pages/Firefox/">from Firefox</a></li>
-<li><a href="http://www.useragentstring.com/pages/Opera/">from Opera</a></li>
-<li><a href="http://www.useragentstring.com/pages/Internet%20Explorer/">from IE</a></li>
+<li>A network error</li>
+<li>A http error</li>
+<li>A captcha error</li>
 </ul>
-<h2 id="cookie-usage">Cookie usage</h2>
-<p>The google client can share cookies across several request, thus the state of the client will evolve and persist across
-many requests.</p>
-<p>By default it is disabled, to enable it, simply do:</p>
-<pre><code class="php">    $googleClient-&gt;enableCookies();
-</code></pre>
-
-<p>And to disable it again:</p>
-<pre><code class="php">    $googleClient-&gt;disableCookies();
-</code></pre>
-
-<p>By default the cookie jar is empty, but you can pass a custom cookie jar:</p>
-<pre><code class="php">    $googleClient-&gt;setCookieJar($cookieJar);
-</code></pre>
-
-<p>This way, it's possible to share the cookie jar with other client:</p>
-<pre><code class="php">    $cookieJar = $googleClient-&gt;getCookieJar();
-    $otherGoogleClient-&gt;setCookieJar($cookieJar);
-</code></pre>
-
-<p>View the dedicated <a href="../../../cookies/">cookie documentation</a> to learn more about cookies manipulation.</p>
-<h2 id="proxy-usage">Proxy usage</h2>
-<p>You can use a proxy at the request time</p>
+<p>All these errors can be grouped under the same exception type:</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
     use Serps\HttpClient\CurlClient;
     use Serps\SearchEngine\Google\GoogleUrl;
-    use Serps\Core\Http\Proxy;
+    use Serps\Exception\RequestError\RequestErrorException;
 
     $googleClient = new GoogleClient(new CurlClient());
 
     $googleUrl = new GoogleUrl();
-    $google-&gt;setSearchTerm('simpsons');
+    $googleUrl-&gt;setSearchTerm('simpsons');
 
-    $proxy = new Proxy('1.1.1.1', 8080);
-
-    $response = $googleClient-&gt;query($googleUrl, $proxy);
+    try{
+        $response = $googleClient-&gt;query($googleUrl);
+    }catch(RequestErrorException $e){
+        // Some error with the request
+        $errorInfo = $e-&gt;getMessage();
+    }
 </code></pre>
 
-<h2 id="solve-a-captcha">Solve a Captcha</h2>
-<p>Solving captcha is not implemented at the moment</p>
-<p><br/></p>
-<p>Next step: <a href="../parse-page/"><strong>parse a page</strong></a></p></div>
+<p>It's possible to make the distinction between each of them, see bellow.</p>
+<h3 id="network-errors">Network errors</h3>
+<p>Network errors occur when it was not possible to create a valid http connexion with google. They use to be triggered
+by http client, and they can be different for each http client.</p>
+<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
+    use Serps\HttpClient\CurlClient;
+    use Serps\SearchEngine\Google\GoogleUrl;
+    use Serps\Exception\RequestError\NetworkErrorException;
+
+    $googleClient = new GoogleClient(new CurlClient());
+
+    $googleUrl = new GoogleUrl();
+    $googleUrl-&gt;setSearchTerm('simpsons');
+
+    try{
+        $response = $googleClient-&gt;query($googleUrl);
+    }catch(NetworkErrorException $e){
+        // Something wrong happened with network
+        $errorInfo = $e-&gt;getMessage();
+    }
+</code></pre>
+
+<h3 id="http-errors">Http errors</h3>
+<p>A http error happens when the http server returned a invalid response (status code 404, 500...).</p>
+<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
+    use Serps\HttpClient\CurlClient;
+    use Serps\SearchEngine\Google\GoogleUrl;
+    use Serps\Exception\RequestError\HttpResponseErrorException;
+
+    $googleClient = new GoogleClient(new CurlClient());
+
+    $googleUrl = new GoogleUrl();
+    $googleUrl-&gt;setSearchTerm('simpsons');
+
+    try{
+        $response = $googleClient-&gt;query($googleUrl);
+    }catch(HttpResponseErrorException $e){
+        // Http response is not valid
+        $errorInfo = $e-&gt;getMessage();
+    }
+</code></pre>
+
+<h3 id="captcha-errors">Captcha errors</h3>
+<p>A captcha error happens when the the server asks for a captcha to continue.</p>
+<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
+    use Serps\HttpClient\CurlClient;
+    use Serps\SearchEngine\Google\GoogleUrl;
+    use Serps\Exception\RequestError\CaptchaException;
+
+    $googleClient = new GoogleClient(new CurlClient());
+
+    $googleUrl = new GoogleUrl();
+    $googleUrl-&gt;setSearchTerm('simpsons');
+
+    try{
+        $response = $googleClient-&gt;query($googleUrl);
+    }catch(CaptchaException $e){
+        // Captcha required
+        $errorInfo = $e-&gt;getMessage();
+    }
+</code></pre>
+
+<h2 id="dom-errors">DOM errors</h2>
+<p>Once you got the data from google, you are ready to parse the DOM, but you are not safe against google DOM updates,
+Google might have updated its DOM structure and your version of the library is maybe not updated. That's what DOM 
+exceptions are made for.</p>
+<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
+    use Serps\HttpClient\CurlClient;
+    use Serps\SearchEngine\Google\GoogleUrl;
+    use Serps\SearchEngine\Google\Exception\InvalidDOMException;
+
+    $googleClient = new GoogleClient(new CurlClient());
+
+    $googleUrl = new GoogleUrl();
+    $googleUrl-&gt;setSearchTerm('simpsons');
+
+    $response = $googleClient-&gt;query($googleUrl);
+
+    try{
+        $results = $response-&gt;getNaturalResults();
+
+        foreach($results as $result){
+            // parse results
+        }
+    }catch(InvalidDOMException $e){
+        // Something bad happened while parsing
+        // Maybe an update of the library is needed, 
+        // the exception message maybe tells more
+        $errorInfo = $e-&gt;getMessage();
+    }
+</code></pre>
+
+<h2 id="more-complete-example-of-error-handling">More complete example of error handling</h2>
+<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
+    use Serps\HttpClient\CurlClient;
+    use Serps\SearchEngine\Google\GoogleUrl;
+    use Serps\Exception\RequestError\RequestErrorException;
+    use Serps\Exception\RequestError\HttpResponseErrorException;
+    use Serps\Exception\RequestError\CaptchaException;
+    use Serps\SearchEngine\Google\Exception\InvalidDOMException;
+
+    $googleClient = new GoogleClient(new CurlClient());
+
+    $googleUrl = new GoogleUrl();
+    $googleUrl-&gt;setSearchTerm('simpsons');
+
+    $response = null;
+
+    try{
+        $response = $googleClient-&gt;query($googleUrl);
+    }catch(HttpResponseErrorException $e){
+        // Http response is not valid, maybe an error from google or your url
+        $errorInfo = $e-&gt;getMessage();
+    }catch(CaptchaException $e){
+        // Captcha needs to be solved
+    }catch(RequestErrorException $e){
+        // Other request error are handled here, maybe something wrong with your network
+        $errorInfo = $e-&gt;getMessage();
+    }
+
+    if($response){
+        try{
+            $results = $response-&gt;getNaturalResults();
+            foreach($results as $result){
+                // parse results
+            }
+        }catch(InvalidDOMException $e){
+            // Something bad happened while parsing
+            // Maybe an update of the library is needed, 
+            // the exception message will tell more about
+            $errorInfo = $e-&gt;getMessage();
+        }
+    }
+</code></pre></div>
             
         </div>
 

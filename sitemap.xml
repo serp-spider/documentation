@@ -5,19 +5,19 @@
         
     <url>
      <loc>https://serp-spider.github.io/documentation/</loc>
-     <lastmod>2016-04-18</lastmod>
+     <lastmod>2016-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://serp-spider.github.io/documentation/overview/</loc>
-     <lastmod>2016-04-18</lastmod>
+     <lastmod>2016-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://serp-spider.github.io/documentation/cookies/</loc>
-     <lastmod>2016-04-18</lastmod>
+     <lastmod>2016-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -27,7 +27,7 @@
         
     <url>
      <loc>https://serp-spider.github.io/documentation/search-engine/google/</loc>
-     <lastmod>2016-04-18</lastmod>
+     <lastmod>2016-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -37,19 +37,19 @@
         
     <url>
      <loc>https://serp-spider.github.io/documentation/http-client/curl/</loc>
-     <lastmod>2016-04-18</lastmod>
+     <lastmod>2016-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://serp-spider.github.io/documentation/http-client/phantomJS/</loc>
-     <lastmod>2016-04-18</lastmod>
+     <lastmod>2016-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://serp-spider.github.io/documentation/http-client/spidyJS/</loc>
-     <lastmod>2016-04-18</lastmod>
+     <lastmod>2016-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -59,7 +59,7 @@
         
     <url>
      <loc>https://serp-spider.github.io/documentation/about/packages/</loc>
-     <lastmod>2016-04-18</lastmod>
+     <lastmod>2016-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -69,13 +69,25 @@
         
     <url>
      <loc>https://serp-spider.github.io/documentation/search-engine/google/parse-page/</loc>
-     <lastmod>2016-04-18</lastmod>
+     <lastmod>2016-04-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://serp-spider.github.io/documentation/search-engine/google/google-url/</loc>
+     <lastmod>2016-04-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://serp-spider.github.io/documentation/search-engine/google/handle-errors/</loc>
+     <lastmod>2016-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>https://serp-spider.github.io/documentation/search-engine/google/client-configuration/</loc>
-     <lastmod>2016-04-18</lastmod>
+     <lastmod>2016-04-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

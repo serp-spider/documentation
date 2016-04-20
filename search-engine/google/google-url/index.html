@@ -5,16 +5,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta name="description" content="Overview of SERPS, minimal informations to get started with scraping search engines - The search engine Spider.">
+        <meta name="description" content="With SERPS it's easy and semantic to create urls to browse google.">
         
-        <link rel="canonical" href="https://serp-spider.github.io/documentation/overview/">
-        <link rel="shortcut icon" href="../../favicon.ico">
+        <link rel="canonical" href="https://serp-spider.github.io/documentation/search-engine/google/google-url/">
+        <link rel="shortcut icon" href="../../../../../../favicon.ico">
         
 
-	    <title>Overview - Documentation - The SERP Spider</title>
+	    <title>Google Url - Documentation - The SERP Spider</title>
 
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">        <link href="../css/base.css" rel="stylesheet">
+        <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">        <link href="../../../css/base.css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -54,7 +54,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href="/"><img alt='SERPS logo' src="../images/logo.png">SERPS</a>
+            <a class="navbar-brand" href="/"><img alt='SERPS logo' src="../../../images/logo.png">SERPS</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -64,25 +64,25 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="..">Home</a>
-</li>
-
-                        
-                            
-<li class="active">
-    <a href="./">Overview</a>
+    <a href="../../..">Home</a>
 </li>
 
                         
                             
 <li >
-    <a href="../cookies/">Cookies</a>
+    <a href="../../../overview/">Overview</a>
+</li>
+
+                        
+                            
+<li >
+    <a href="../../../cookies/">Cookies</a>
 </li>
 
                         
@@ -97,7 +97,7 @@
                         
                             
 <li >
-    <a href="../search-engine/google/">Google</a>
+    <a href="../">Google</a>
 </li>
 
                         
@@ -112,19 +112,19 @@
                         
                             
 <li >
-    <a href="../http-client/curl/">CURL</a>
+    <a href="../../../http-client/curl/">CURL</a>
 </li>
 
                         
                             
 <li >
-    <a href="../http-client/phantomJS/">PhantomJS</a>
+    <a href="../../../http-client/phantomJS/">PhantomJS</a>
 </li>
 
                         
                             
 <li >
-    <a href="../http-client/spidyJS/">SpidyJS</a>
+    <a href="../../../http-client/spidyJS/">SpidyJS</a>
 </li>
 
                         
@@ -139,7 +139,7 @@
                         
                             
 <li >
-    <a href="../about/packages/">Packages</a>
+    <a href="../../../about/packages/">Packages</a>
 </li>
 
                         
@@ -185,24 +185,24 @@
 
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#overview">Overview</a></li>
+        <li class="main active"><a href="#work-with-google-urls">Work with google urls</a></li>
         
-            <li class="level-2"><a href="#install">Install</a></li>
+            <li class="level-2"><a href="#create-an-url">Create an url</a></li>
             
         
-            <li class="level-2"><a href="#search-engine-client">Search Engine client</a></li>
+            <li class="level-2"><a href="#url-from-a-string">Url from a string</a></li>
             
         
-            <li class="level-2"><a href="#http-client">Http Client</a></li>
+            <li class="level-2"><a href="#google-domain">Google domain</a></li>
             
         
-            <li class="level-2"><a href="#proxies">Proxies</a></li>
+            <li class="level-2"><a href="#add-and-remove-parameters">Add and remove parameters</a></li>
             
         
-            <li class="level-2"><a href="#captcha">Captcha</a></li>
+            <li class="level-2"><a href="#raw-parameters">Raw parameters</a></li>
             
         
-            <li class="level-2"><a href="#cookies">Cookies</a></li>
+            <li class="level-2"><a href="#more-parameters">More parameters</a></li>
             
         
     
@@ -210,98 +210,91 @@
 </div></div>
                 <div class="col-md-9" id="main-content" role="main">
 
-<h1 id="overview">Overview</h1>
-<p>This overview will help you to understand how the library is built and what are its main components.</p>
+<h1 id="work-with-google-urls">Work with google urls</h1>
+<p>SERPS gives you the tools you need to create urls for google.</p>
 <hr />
-<h2 id="install">Install</h2>
-<p>To work with SERPS you need two things:</p>
-<ul>
-<li>One or more search engine clients you want to parse</li>
-<li>A http client</li>
-</ul>
-<p>In addition <a href="https://getcomposer.org/">Composer</a> is required to manage the necessary dependencies.</p>
-<blockquote>
-<p><sub>composer.json example with the <strong>Google client</strong> and the <strong>Curl http client</strong></sub></p>
-</blockquote>
-<pre><code class="json">{
-    &quot;require&quot;: {
-        &quot;serps/search-engine-google&quot;: &quot;*&quot;,
-        &quot;serps/http-client-curl&quot;: &quot;*&quot;
-    }
-}
+<p>Back to the <a href="../"><strong>general google documentation</strong></a>.</p>
+<hr />
+<p>The class <code>GoogleUrl</code> offers many convenient tools to work with google urls. See how it works with examples.</p>
+<h3 id="create-an-url">Create an url</h3>
+<p>The url builder has the required tools to build an url from scratch.</p>
+<pre><code class="php">    use Serps\SearchEngine\Google\GoogleUrl;
+
+    $googleUrl = new GoogleUrl();
+    $googleUrl-&gt;setSearchTerm('simpsons');
+    $googleUrl-&gt;setLanguageRestriction('lang_en');
+    echo $googleUrl-&gt;buildUrl();
+    // https://google.com/search?q=simpsons&amp;lr=lang_en
 </code></pre>
 
-<h2 id="search-engine-client">Search Engine client</h2>
-<p>In a regular workflow a search engine client allows to:</p>
-<ul>
-<li>Manipulate an url and generate a request specific to the search engine</li>
-<li>Retrieve the response from the search engine</li>
-<li>Parse this response to a standard sets of results</li>
-</ul>
-<p>Each <strong>search engine</strong> has its set of specificities and thus each search engine implementation has its own dedicated guide.</p>
-<p>These search engines are currently available:</p>
-<ul>
-<li><a href="../search-engine/google/">Google</a></li>
-</ul>
-<h2 id="http-client">Http Client</h2>
-<p>Working with search engines involves to work with <strong>http requests</strong>.
-Usually the <strong>search engine client</strong> will need a http client to work correctly.</p>
-<blockquote>
-<p><sub>Example with the <strong>google client</strong> and the <strong>curl http client</strong></sub></p>
-</blockquote>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
-    use Serps\HttpClient\CurlClient;
+<h3 id="url-from-a-string">Url from a string</h3>
+<p>It's also possible to parse an an existing google url string to an url object.</p>
+<pre><code class="php">    use Serps\SearchEngine\Google\GoogleUrl;
 
-    $googleClient = new GoogleClient(new CurlClient());
+    $googleUrl = GoogleUrl::fromString('https://google.com/search?q=simpsons');
+    echo $googleUrl-&gt;getSearchTerm();
+    // simpsons
 </code></pre>
 
-<p>There are two kinds of http clients: those that return the raw html as returned from the search engine (e.g the curl client)
-and the others that evaluate the javascript and update the DOM before before returning (e.g the phantomJS client)</p>
-<p>These http clients are currently available:</p>
-<ul>
-<li>Raw clients:<ul>
-<li><a href="../http-client/curl/">CURL</a></li>
-</ul>
-</li>
-<li>Evaluating clients<ul>
-<li><a href="../http-client/phantomJS/">phantomJS</a></li>
-</ul>
-</li>
-</ul>
-<h2 id="proxies">Proxies</h2>
-<p>Most of time search engines don't want you to parse them thus 
-they use to block you with captcha when they think you are a bot
-When you deal with a very <strong>large number of requests</strong>, you will need to send requests
-through proxies.</p>
-<p>This is a major feature of scraping and we placed proxies at the very heart of the library. 
-Each request is proxy aware. 
-This way, with a single client you can use as many proxies as you want.</p>
-<blockquote>
-<p><sub>Example of <strong>proxy</strong> usage with the google client</sub></p>
-</blockquote>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
-    use Serps\HttpClient\CurlClient;
-
-    $googleClient = new GoogleClient(new CurlClient());
-
-    $googleClient-&gt;query($googleUrl, $proxy);
+<p>Additionally you can continue to manipulate this url</p>
+<pre><code class="php">    $googleUrl-&gt;setLanguageRestriction('lang_en');
+    echo $googleUrl-&gt;buildUrl();
+    // https://google.com/search?q=simpsons&amp;lr=lang_en
 </code></pre>
 
-<h2 id="captcha">Captcha</h2>
-<p>Even though you are using proxies and place all the efforts to act like an human, you might encounter the fatal captcha.</p>
-<p>When you get <strong>blocked</strong> by a captcha request, it is very important to stop sending request to the search engine and to
-solve the captcha before you continue. </p>
-<p>Dealing with captcha is not easy, at the current state the library can detect captcha but is not able to solve them
-for you we are <strong>currently working</strong> on a captcha solver implementation.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Captcha are proxy specific, when solving a captcha that should be done with the proxy that was initially blocked</p>
-</div>
-<h2 id="cookies">Cookies</h2>
-<p>SERPS integrates cookie management, that allows to share cookies across many requests.</p>
-<p>Cookie management is usually done at the search engine client level. You still want to know
-how to manipulate cookies and cookiejars: 
-<a href="../cookies/">see cookie documentation</a> </p></div>
+<h3 id="google-domain">Google domain</h3>
+<p>By default an url is generated for <code>google.com</code> but you can choose any domain of your choice:</p>
+<pre><code class="php">    use Serps\SearchEngine\Google\GoogleUrl;
+
+    $googleUrl = new GoogleUrl('google.fr');
+    $googleUrl-&gt;setSearchTerm('simpsons');
+    echo $googleUrl-&gt;buildUrl();
+    // https://google.fr/search?q=simpsons
+</code></pre>
+
+<p>It's also possible to modify it latter</p>
+<pre><code class="php">    $googleUrl-&gt;setHost('google.de');
+    echo $googleUrl-&gt;buildUrl();
+    // https://google.de/search?q=simpsons
+</code></pre>
+
+<h3 id="add-and-remove-parameters">Add and remove parameters</h3>
+<p>It's possible to add or remove parameters</p>
+<pre><code class="php">    use Serps\SearchEngine\Google\GoogleUrl;
+
+    $googleUrl = new GoogleUrl();
+    $googleUrl-&gt;setParam('q', 'simpsons');
+    $googleUrl-&gt;setParam('start', 11);
+    echo $googleUrl-&gt;buildUrl();
+    // https://google.com/search?q=simpsons&amp;start=11
+
+    $googleUrl-&gt;removeParam('start');
+    echo $googleUrl-&gt;buildUrl();
+    // https://google.com/search?q=simpsons
+</code></pre>
+
+<h3 id="raw-parameters">Raw parameters</h3>
+<p>By default parameters are encoded for urls. For instance <code>"Homer Simpsons"</code> will become <code>"Homer+Simpsons"</code>
+but <code>"Homer+Simpsons"</code> will become <code>"Homer%2BSimpson"</code></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\GoogleUrl;
+
+    $googleUrl = new GoogleUrl();
+    $googleUrl-&gt;setParam('q', 'Homer+Simpson');
+    echo $googleUrl-&gt;buildUrl();
+    // https://google.com/search?q=Homer%2BSimpson
+</code></pre>
+
+<p>It's possible to deal with raw params, this way the param will be passed to the url with no additional encoding. 
+That is achieved by passing true as the third argument of <code>setParam</code>.</p>
+<pre><code class="php">    $googleUrl = new GoogleUrl();
+    $googleUrl-&gt;setParam('q', 'Homer+Simpson', true);
+    echo $googleUrl-&gt;buildUrl();
+    // https://google.com/search?q=Homer+Simpson
+</code></pre>
+
+<h3 id="more-parameters">More parameters</h3>
+<p>Some parameters are very common and for some of them we created convenient shortcuts.</p>
+<p>TODO</p></div>
             
         </div>
 
@@ -320,10 +313,10 @@ how to manipulate cookies and cookiejars:
 
         <script   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="../js/highlight.pack.js"></script>
-        <script>var base_url = '..';</script>
-        <script data-main="../mkdocs/js/search.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"></script>
-        <script src="../js/base.js"></script>
+        <script src="../../../js/highlight.pack.js"></script>
+        <script>var base_url = '../../..';</script>
+        <script data-main="../../../mkdocs/js/search.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"></script>
+        <script src="../../../js/base.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
             <div class="modal-dialog">
