@@ -23,11 +23,16 @@ In addition [Composer](https://getcomposer.org/) is required to manage the neces
 ```json
 {
     "require": {
+        "serps/core": "*",
         "serps/search-engine-google": "*",
         "serps/http-client-curl": "*"
     }
 }
 ```
+
+!!! Danger
+    The library is still in alpha, no version is released yet that means that minor things can change until 
+    the stable release and your code might become not compatible with the updates.
 
 Search Engine client
 --------------------
