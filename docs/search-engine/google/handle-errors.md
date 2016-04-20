@@ -9,8 +9,8 @@ Back to the [**general google documentation**](../google.md).
 ---
 
 Working with google involves to make http request, to get an output from google and to parse this output. 
-All of these steps are not error free, you can have get a network error, an error from google server, get a captcha
-or even face some updated google dom not supported by your version of the library.
+All of these steps are not error free, you can encounter a network error, an error from google server, get a captcha
+or even face some updated google serp not supported by your version of the library.
 
 Errors are managed with exceptions, that makes them easy to handle.
 
