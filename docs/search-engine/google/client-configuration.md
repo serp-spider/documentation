@@ -22,7 +22,7 @@ To avoid that it happens configure an user agent:
     $googleClient->request->setUserAgent('user agent string');
 ```
 
-You should **always** set a **real** user agent. Here are a fow user agent lists:
+You should **always** set a **real** user agent. Here are a few user agent lists:
 
 - [from Chrome](http://www.useragentstring.com/pages/Chrome/)
 - [from Firefox](http://www.useragentstring.com/pages/Firefox/)
