@@ -32,6 +32,9 @@ You should **always** set a **real** user agent. Here are a fow user agent lists
 
 ## Cookie usage
 
+!!! Warning
+    Cookies usage is still at prototype stage and all http engines do not support cookies yet.
+
 The google client can share cookies across several request, thus the state of the client will evolve and persist across
 many requests.
 

@@ -13,6 +13,10 @@ SERPS offers convenient tools that emulate a cookiejar and allow to persist cook
  
 The following examples introduce the work with cookies
 
+
+!!! Warning
+    Cookies usage is still at prototype stage and all http engines do not support cookies yet.
+
 ## Create a cookie
 
 Parameters for creating a cookie:
