@@ -202,6 +202,21 @@
         
             <li class="level-2"><a href="#more-parameters">More parameters</a></li>
             
+                <li class="level-3"><a href="#setsearchterm">setSearchTerm</a></li>
+                    
+            
+                <li class="level-3"><a href="#setpage">setPage</a></li>
+                    
+            
+                <li class="level-3"><a href="#setresultsperpage">setResultsPerPage</a></li>
+                    
+            
+                <li class="level-3"><a href="#setlanguagerestriction">setLanguageRestriction</a></li>
+                    
+            
+                <li class="level-3"><a href="#setautocorrectionenabled">setAutoCorrectionEnabled</a></li>
+                    
+            
         
     
     </ul>
@@ -291,8 +306,32 @@ That is achieved by passing true as the third argument of <code>setParam</code>.
 </code></pre>
 
 <h3 id="more-parameters">More parameters</h3>
-<p>Some parameters are very common and for some of them we created convenient shortcuts.</p>
-<p>TODO</p></div>
+<p>Some parameters are very common and for some of them we created convenient shortcuts. See the list:</p>
+<h4 id="setsearchterm">setSearchTerm</h4>
+<p><code>$url-&gt;setSearchTerm($searchTerm)</code></p>
+<p>Sets the keywords to search for. Modifies the value for the <code>q</code> parameter.</p>
+<h4 id="setpage">setPage</h4>
+<p><code>$url-&gt;setPage($pageNumber)</code></p>
+<p>Sets the page to parse (starts at 0). Modifies the value for the <code>start</code> parameter.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If value is less than 0, then the param <code>start</code> will be removed from the url</p>
+</div>
+<h4 id="setresultsperpage">setResultsPerPage</h4>
+<p><code>$url-&gt;setResultsPerPage($resultsPerPages)</code></p>
+<p>Sets the number of results per pages (between 1 and 100). Modifies the value for the <code>num</code> parameter.</p>
+<h4 id="setlanguagerestriction">setLanguageRestriction</h4>
+<p><code>$url-&gt;setLanguageRestriction($lang)</code></p>
+<p>Sets language of the results. Modifies the value for the <code>lr</code> parameter. e.g  <code>"lang_en"</code>. </p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>"lang_"</code> will be automatically prepended if it is not present. </p>
+<p>That means that <code>$url-&gt;setLanguageRestriction('en')</code>
+and <code>$url-&gt;setLanguageRestriction('lang_en')</code> do the same thing.</p>
+</div>
+<h4 id="setautocorrectionenabled">setAutoCorrectionEnabled</h4>
+<p><code>$url-&gt;setAutoCorrectionEnabled($enabled)</code></p>
+<p>Sets if the auto correction should be enabled (<code>true</code> or <code>false</code>). Modifies the value for the <code>nfpr</code> parameter.</p></div>
             
         </div>
 
