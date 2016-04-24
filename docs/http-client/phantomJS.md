@@ -27,7 +27,14 @@ The client is available with the package
 ### Additional requirement
 
 **[PhantomJS](http://phantomjs.org/) binaries have to be installed** to use the client. The process for installing
-it depends on your environment, you will find further guides on the internet.
+it depends on your environment, you will find further guides on the internet. 
+
+The following PhantomJs version were tested with the library:
+
+- 1.9.7
+- 1.9.8
+- 2.0.0
+- 2.1.0
 
 !!! note
     The package [jakoch/phantomjs-installer](https://github.com/jakoch/phantomjs-installer) 
