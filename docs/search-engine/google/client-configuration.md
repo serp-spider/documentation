@@ -30,46 +30,6 @@ You should **always** set a **real** user agent. Here are a few user agent lists
 - [from IE](http://www.useragentstring.com/pages/Internet%20Explorer/)
 
 
-## Cookie usage
-
-!!! Warning
-    Cookies usage is still at prototype stage and all http engines do not support cookies yet.
-
-The google client can share cookies across several request, thus the state of the client will evolve and persist across
-many requests.
-
-By default it is disabled, to enable it, simply do:
-
-```php
-    $googleClient->enableCookies();
-```
-
-And to disable it again:
-
-```php
-    $googleClient->disableCookies();
-```
-
-By default the cookie jar is empty, but you can pass a custom cookie jar:
-
-
-```php
-    $googleClient->setCookieJar($cookieJar);
-```
-
-This way, it's possible to share the cookie jar with other client:
-
-
-```php
-    $cookieJar = $googleClient->getCookieJar();
-    $otherGoogleClient->setCookieJar($cookieJar);
-```
-
-
-View the dedicated [cookie documentation](/cookies.md) to learn more about cookies manipulation.
-
-
-
 ## Proxy usage
 
 You can use a proxy at the request time
@@ -79,17 +39,50 @@ You can use a proxy at the request time
     use Serps\SearchEngine\Google\GoogleClient;
     use Serps\HttpClient\CurlClient;
     use Serps\SearchEngine\Google\GoogleUrl;
-    use Serps\Core\Http\Proxy;
+    use Serps\Core\Cookie\ArrayCookieJar;
+    
 
     $googleClient = new GoogleClient(new CurlClient());
     
     $googleUrl = new GoogleUrl();
     $google->setSearchTerm('simpsons');
     
-    $proxy = new Proxy('1.1.1.1', 8080);
+    $cookieJar = new ArrayCookieJar();
+    
+    // After the query to google cookie jar will evolve according to the cookies from the request
+    $response = $googleClient->query($googleUrl, $cookieJar);
+```
+
+
+## Cookie usage
+
+!!! Warning
+    Cookies usage is still at prototype stage and all http engines do not support cookies yet.
+
+The google client can share cookies across several request, thus your navigation will evolve and persist across
+many requests.
+
+Like proxies, cookies are request dependent
+
+
+```php
+    use Serps\SearchEngine\Google\GoogleClient;
+    use Serps\HttpClient\CurlClient;
+    use Serps\SearchEngine\Google\GoogleUrl;
+
+    $googleClient = new GoogleClient(new CurlClient());
+    
+    $googleUrl = new GoogleUrl();
+    $google->setSearchTerm('simpsons');
+    
+    $cookieJar = new Proxy('1.1.1.1', 8080);
     
     $response = $googleClient->query($googleUrl, $proxy);
 ```
+
+
+View the dedicated [cookie documentation](/cookies.md) to learn more about cookies manipulation.
+
 
 
 
