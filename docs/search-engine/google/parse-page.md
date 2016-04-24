@@ -185,10 +185,10 @@ Images that appear as a group of results.
 **Data**
 
 - ``images`` <small>**array**</small>: the list of images that compose the image group, each image contains:
-    - ``sourceUrl`` <small>**Url**</small>: the url where the image was found
-    - ``targetUrl``<small>**Url**</small>: the url reached on clicking the image
+    - ``sourceUrl`` <small>**string**</small>: the url where the image was found
+    - ``targetUrl``<small>**string**</small>: the url reached on clicking the image
     - ``image`` <small>**string**</small>: the image data as specified by google (either an image url or a base64 encoded image)
-- ``moreUrl`` <small>**Url**</small>: The url corresponding to the google image search
+- ``moreUrl`` <small>**string**</small>: The url corresponding to the google image search
 
 **Example**
 
@@ -224,12 +224,12 @@ A result illustrated by a map and that contains sub-results.
 
 - ``localPack`` <small>**array**</small>: The sub results for the map:
     - ``title`` <small>**string**</small> **[A]**: Name of the place
-    - ``url``<small>**Url**</small> **[B]**: Website of the sub-result
+    - ``url``<small>**string**</small> **[B]**: Website of the sub-result
     - ``street`` <small>**string**</small> **[C]**: The address of the sub-result
     - ``stars`` <small>**string**</small> **[D]**: The rating of the result as a number
     - ``review`` <small>**string**</small> **[E]**: The review string as specified by google (e.g '1 review')
     - ``phone`` <small>**string**</small> **[G]**: The phone number
-- ``mapUrl`` <small>**Url**</small> **[F]**: The url to access the map search
+- ``mapUrl`` <small>**string**</small> **[F]**: The url to access the map search
 
 **Example**
 
@@ -265,7 +265,7 @@ Recent tweet list from an user matching the search keywords.
 
 - ``title`` <small>**string**</small> **[A]**
 - ``url`` <small>**string**</small>: The url reach when clicking the title
-- ``user``<small>**Url**</small>: The author of the tweets
+- ``user``<small>**string**</small>: The author of the tweets
 
 **Example**
 
@@ -298,7 +298,7 @@ Recent news results.
 
 - ``news`` <small>**array**</small>
     - ``title`` <small>**string**</small> **[A]**
-    - ``description`` <small>**Url**</small> **[B]**
+    - ``description`` <small>**string**</small> **[B]**
     - ``url``<small>**string**</small>: The url reached when clicking the title
 
 **Example**
@@ -376,7 +376,7 @@ Ads results are the basics results from adwords.
 **Data**
 
 - ``title`` <small>**string**</small> **[A]**
-- ``url`` <small>**url**</small>: The url reach when clicking the title
+- ``url`` <small>**string**</small>: The url reach when clicking the title
 - ``visurl`` <small>**string**</small> **[B]**: The visual url
 - ``description``<small>**string**</small> **[C]**
 
@@ -413,7 +413,7 @@ These are the results from google shopping/merchant.
 - ``products`` <small>**array**</small>: The product list. Each product contains the following items:
     - ``title`` <small>**string**</small> **[A]**
     - ``image`` <small>**string**</small> **[B]**: the image as specified by google - either an image url or a base64 encoded image
-    - ``url`` <small>**url**</small>: The url reached when clicking the title
+    - ``url`` <small>**string**</small>: The url reached when clicking the title
     - ``target`` <small>**string**</small> **[C]**: The target website as shown by google
     - ``price``<small>**string**</small> **[D]**: The price as show by google
 
