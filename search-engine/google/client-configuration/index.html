@@ -188,10 +188,10 @@
             <li class="level-2"><a href="#user-agent">User agent</a></li>
             
         
-            <li class="level-2"><a href="#cookie-usage">Cookie usage</a></li>
+            <li class="level-2"><a href="#proxy-usage">Proxy usage</a></li>
             
         
-            <li class="level-2"><a href="#proxy-usage">Proxy usage</a></li>
+            <li class="level-2"><a href="#cookie-usage">Cookie usage</a></li>
             
         
             <li class="level-2"><a href="#solve-a-captcha">Solve a Captcha</a></li>
@@ -223,48 +223,48 @@ By default it will be the one from the http client, and google would easily dete
 <li><a href="http://www.useragentstring.com/pages/Opera/">from Opera</a></li>
 <li><a href="http://www.useragentstring.com/pages/Internet%20Explorer/">from IE</a></li>
 </ul>
-<h2 id="cookie-usage">Cookie usage</h2>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Cookies usage is still at prototype stage and all http engines do not support cookies yet.</p>
-</div>
-<p>The google client can share cookies across several request, thus the state of the client will evolve and persist across
-many requests.</p>
-<p>By default it is disabled, to enable it, simply do:</p>
-<pre><code class="php">    $googleClient-&gt;enableCookies();
-</code></pre>
-
-<p>And to disable it again:</p>
-<pre><code class="php">    $googleClient-&gt;disableCookies();
-</code></pre>
-
-<p>By default the cookie jar is empty, but you can pass a custom cookie jar:</p>
-<pre><code class="php">    $googleClient-&gt;setCookieJar($cookieJar);
-</code></pre>
-
-<p>This way, it's possible to share the cookie jar with other client:</p>
-<pre><code class="php">    $cookieJar = $googleClient-&gt;getCookieJar();
-    $otherGoogleClient-&gt;setCookieJar($cookieJar);
-</code></pre>
-
-<p>View the dedicated <a href="../../../cookies/">cookie documentation</a> to learn more about cookies manipulation.</p>
 <h2 id="proxy-usage">Proxy usage</h2>
 <p>You can use a proxy at the request time</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
     use Serps\HttpClient\CurlClient;
     use Serps\SearchEngine\Google\GoogleUrl;
-    use Serps\Core\Http\Proxy;
+    use Serps\Core\Cookie\ArrayCookieJar;
+
 
     $googleClient = new GoogleClient(new CurlClient());
 
     $googleUrl = new GoogleUrl();
     $google-&gt;setSearchTerm('simpsons');
 
-    $proxy = new Proxy('1.1.1.1', 8080);
+    $cookieJar = new ArrayCookieJar();
+
+    // After the query to google cookie jar will evolve according to the cookies from the request
+    $response = $googleClient-&gt;query($googleUrl, $cookieJar);
+</code></pre>
+
+<h2 id="cookie-usage">Cookie usage</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Cookies usage is still at prototype stage and all http engines do not support cookies yet.</p>
+</div>
+<p>The google client can share cookies across several request, thus your navigation will evolve and persist across
+many requests.</p>
+<p>Like proxies, cookies are request dependent</p>
+<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
+    use Serps\HttpClient\CurlClient;
+    use Serps\SearchEngine\Google\GoogleUrl;
+
+    $googleClient = new GoogleClient(new CurlClient());
+
+    $googleUrl = new GoogleUrl();
+    $google-&gt;setSearchTerm('simpsons');
+
+    $cookieJar = new Proxy('1.1.1.1', 8080);
 
     $response = $googleClient-&gt;query($googleUrl, $proxy);
 </code></pre>
 
+<p>View the dedicated <a href="../../../cookies/">cookie documentation</a> to learn more about cookies manipulation.</p>
 <h2 id="solve-a-captcha">Solve a Captcha</h2>
 <p>Solving captcha is not implemented at the moment</p>
 <p><br/></p>
