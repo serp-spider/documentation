@@ -127,10 +127,10 @@ Sets the keywords to search for. Modifies the value for the ``q`` parameter.
 
 ``$url->setPage($pageNumber)``
 
-Sets the page to parse (starts at 0). Modifies the value for the ``start`` parameter.
+Sets the page to parse (starts at 1). Modifies the value for the ``start`` parameter.
 
 !!! Note
-    If value is less than 0, then the param ``start`` will be removed from the url
+    If value is less than 1, the param ``start`` will be removed from the url.
 
 #### setResultsPerPage
 
