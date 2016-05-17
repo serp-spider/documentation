@@ -34,6 +34,31 @@ You should **always** set a **real** user agent. Here are a few user agent lists
 
 You can use a proxy at the request time
 
+```php
+    use Serps\SearchEngine\Google\GoogleClient;
+    use Serps\HttpClient\CurlClient;
+    use Serps\SearchEngine\Google\GoogleUrl;
+
+    $googleClient = new GoogleClient(new CurlClient());
+    
+    $googleUrl = new GoogleUrl();
+    $google->setSearchTerm('simpsons');
+    
+    $cookieJar = new Proxy('1.1.1.1', 8080);
+    
+    $response = $googleClient->query($googleUrl, $proxy);
+```
+
+
+## Cookie usage
+
+!!! Warning
+    Cookies usage is still at prototype stage and all http engines do not support cookies yet.
+
+The google client can share cookies across several request, thus your navigation will evolve and persist across
+many requests.
+
+Like proxies, cookies are request dependent
 
 ```php
     use Serps\SearchEngine\Google\GoogleClient;
@@ -51,33 +76,6 @@ You can use a proxy at the request time
     
     // After the query to google cookie jar will evolve according to the cookies from the request
     $response = $googleClient->query($googleUrl, $cookieJar);
-```
-
-
-## Cookie usage
-
-!!! Warning
-    Cookies usage is still at prototype stage and all http engines do not support cookies yet.
-
-The google client can share cookies across several request, thus your navigation will evolve and persist across
-many requests.
-
-Like proxies, cookies are request dependent
-
-
-```php
-    use Serps\SearchEngine\Google\GoogleClient;
-    use Serps\HttpClient\CurlClient;
-    use Serps\SearchEngine\Google\GoogleUrl;
-
-    $googleClient = new GoogleClient(new CurlClient());
-    
-    $googleUrl = new GoogleUrl();
-    $google->setSearchTerm('simpsons');
-    
-    $cookieJar = new Proxy('1.1.1.1', 8080);
-    
-    $response = $googleClient->query($googleUrl, $proxy);
 ```
 
 
