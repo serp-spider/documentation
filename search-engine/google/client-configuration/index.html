@@ -228,18 +228,15 @@ By default it will be the one from the http client, and google would easily dete
 <pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
     use Serps\HttpClient\CurlClient;
     use Serps\SearchEngine\Google\GoogleUrl;
-    use Serps\Core\Cookie\ArrayCookieJar;
-
 
     $googleClient = new GoogleClient(new CurlClient());
 
     $googleUrl = new GoogleUrl();
     $google-&gt;setSearchTerm('simpsons');
 
-    $cookieJar = new ArrayCookieJar();
+    $cookieJar = new Proxy('1.1.1.1', 8080);
 
-    // After the query to google cookie jar will evolve according to the cookies from the request
-    $response = $googleClient-&gt;query($googleUrl, $cookieJar);
+    $response = $googleClient-&gt;query($googleUrl, $proxy);
 </code></pre>
 
 <h2 id="cookie-usage">Cookie usage</h2>
@@ -253,15 +250,18 @@ many requests.</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
     use Serps\HttpClient\CurlClient;
     use Serps\SearchEngine\Google\GoogleUrl;
+    use Serps\Core\Cookie\ArrayCookieJar;
+
 
     $googleClient = new GoogleClient(new CurlClient());
 
     $googleUrl = new GoogleUrl();
     $google-&gt;setSearchTerm('simpsons');
 
-    $cookieJar = new Proxy('1.1.1.1', 8080);
+    $cookieJar = new ArrayCookieJar();
 
-    $response = $googleClient-&gt;query($googleUrl, $proxy);
+    // After the query to google cookie jar will evolve according to the cookies from the request
+    $response = $googleClient-&gt;query($googleUrl, $cookieJar);
 </code></pre>
 
 <p>View the dedicated <a href="../../../cookies/">cookie documentation</a> to learn more about cookies manipulation.</p>
