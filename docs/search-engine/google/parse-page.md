@@ -128,6 +128,47 @@ These results are the common natural results that have always existed in google.
     }
 ```
 
+#### Classical Large
+
+This type an extension of the [classical result](#classical), with sitelinks in addition.
+
+![Largent Classical Results](images/result-types/classical_large.png)
+
+
+**Available with**
+
+- ``NaturalResultType::CLASSICAL_LARGE``
+
+**Data**
+
+- ``title`` <small>**string**</small> [**A**]
+- ``url`` <small>**string**</small>: the url targeted on clicking the title
+- ``destination`` <small>**string**</small> [**B**]: either a url or a breadcrumb-like destination
+- ``description`` <small>**string**</small> [**C**]
+- ``sitelinks`` <small>**array**</small>:
+    - ``title`` <small>**string**</small> [**D**]
+    - ``url`` <small>**string**</small>: the url targeted on clicking the sitelink title
+    - ``description`` <small>**string**</small> [**E**]
+
+**Example**
+
+```php
+    use Serps\SearchEngine\Google\NaturalResultType;
+
+    $results = $response->getNaturalResults();
+    
+    foreach($results as $result){
+        if($result->is(NaturalResultType::CLASSICAL_LARGE)){
+            $title = $result->title;
+            $url   = $result->url;
+            $sitelinks = $result->sitelinks;
+            foreach ($sitelinks as $sitelink) {
+                $sitelinkTitle = $sitelink->title;
+            }
+        }
+    }
+```
+
 #### Classical Video
 
 This type an extension of the [classical result](#classical), but it refers to a video result.
