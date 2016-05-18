@@ -740,11 +740,11 @@ to xpath and <a href="http://php.net/manual/fr/domxpath.query.php">DOMXPath::que
 <p>That's very similar to the css way, except that you will use <strong>xpath</strong>.</p>
 <pre><code class="php">    $response = $googleClient-&gt;query($googleUrl);
 
-    $queryResult = $response-&gt;cssQuery('descendant::div[@id=&quot;someId&quot;]');
+    $queryResult = $response-&gt;xpathQuery('descendant::div[@id=&quot;someId&quot;]');
 
     if ($queryResult-&gt;length == 1) {
         // Gets all 'a' tags inside the element with the id 'someId'.
-        $queryResult = $response-&gt;cssQuery('a', $queryResult-&gt;item(0));
+        $queryResult = $response-&gt;xpathQuery('a', $queryResult-&gt;item(0));
     } else {
         // some errors...
     }
