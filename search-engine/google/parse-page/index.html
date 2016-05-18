@@ -191,6 +191,8 @@
                     
                         <li class="level-4"><a href="#classical">Classical</a></li>
                     
+                        <li class="level-4"><a href="#classical-large">Classical Large</a></li>
+                    
                         <li class="level-4"><a href="#classical-video">Classical Video</a></li>
                     
                         <li class="level-4"><a href="#image-group">Image Group</a></li>
@@ -336,6 +338,43 @@ See bellow for all available data per result type.</p>
         if($result-&gt;is(NaturalResultType::CLASSICAL)){
             $title = $result-&gt;title;
             $url   = $result-&gt;url;
+        }
+    }
+</code></pre>
+
+<h4 id="classical-large">Classical Large</h4>
+<p>This type an extension of the <a href="#classical">classical result</a>, with sitelinks in addition.</p>
+<p><img alt="Largent Classical Results" src="../images/result-types/classical_large.png" /></p>
+<p><strong>Available with</strong></p>
+<ul>
+<li><code>NaturalResultType::CLASSICAL_LARGE</code></li>
+</ul>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>title</code> <small><strong>string</strong></small> [<strong>A</strong>]</li>
+<li><code>url</code> <small><strong>string</strong></small>: the url targeted on clicking the title</li>
+<li><code>destination</code> <small><strong>string</strong></small> [<strong>B</strong>]: either a url or a breadcrumb-like destination</li>
+<li><code>description</code> <small><strong>string</strong></small> [<strong>C</strong>]</li>
+<li><code>sitelinks</code> <small><strong>array</strong></small>:<ul>
+<li><code>title</code> <small><strong>string</strong></small> [<strong>D</strong>]</li>
+<li><code>url</code> <small><strong>string</strong></small>: the url targeted on clicking the sitelink title</li>
+<li><code>description</code> <small><strong>string</strong></small> [<strong>E</strong>]</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+    $results = $response-&gt;getNaturalResults();
+
+    foreach($results as $result){
+        if($result-&gt;is(NaturalResultType::CLASSICAL_LARGE)){
+            $title = $result-&gt;title;
+            $url   = $result-&gt;url;
+            $sitelinks = $result-&gt;sitelinks;
+            foreach ($sitelinks as $sitelink) {
+                $sitelinkTitle = $sitelink-&gt;title;
+            }
         }
     }
 </code></pre>
