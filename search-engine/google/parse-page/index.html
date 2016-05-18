@@ -203,6 +203,8 @@
                     
                         <li class="level-4"><a href="#in-the-news">In the News</a></li>
                     
+                        <li class="level-4"><a href="#flights">Flights</a></li>
+                    
             
         
             <li class="level-2"><a href="#adwords-results">Adwords Results</a></li>
@@ -531,6 +533,27 @@ See bellow for all available data per result type.</p>
     foreach($results as $result){
         if($result-&gt;is(NaturalResultType::IN_THE_NEWS)){
             $title = $result-&gt;title;
+        }
+    }
+</code></pre>
+
+<h4 id="flights">Flights</h4>
+<p>Flight sample from google flights</p>
+<p><img alt="Flights" src="../images/result-types/flights.png" /></p>
+<p><strong>Available with</strong></p>
+<ul>
+<li><code>NaturalResultType::FLIGHTS</code></li>
+</ul>
+<p><strong>Data</strong></p>
+<p>No data is parsed from flight results. There is no plan to implement it because it's complex and not very useful.</p>
+<p><strong>Example</strong></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+    $results = $response-&gt;getNaturalResults();
+
+    foreach($results as $result){
+        if($result-&gt;is(NaturalResultType::FLIGHTS)){
+            // Got a flight result
         }
     }
 </code></pre>
