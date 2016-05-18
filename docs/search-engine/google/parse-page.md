@@ -291,6 +291,39 @@ A result illustrated by a map and that contains sub-results.
 ```
 
 
+#### Answer Box
+
+Block that answers a question asked by the keywords.
+
+![Classical Results](images/result-types/answer_box.png)
+
+
+**Available with**
+
+- ``NaturalResultType::ANSWER_BOX``
+
+**Data**
+
+- ``title`` <small>**string**</small> [**A**]
+- ``url`` <small>**string**</small>: the url targeted on clicking the title
+- ``destination`` <small>**string**</small> [**B**]: either a url or a breadcrumb-like destination
+- ``description`` <small>**string**</small> [**C**]
+
+**Example**
+
+```php
+    use Serps\SearchEngine\Google\NaturalResultType;
+
+    $results = $response->getNaturalResults();
+    
+    foreach($results as $result){
+        if($result->is(NaturalResultType::ANSWER_BOX)){
+            $title = $result->title;
+            $url   = $result->url;
+        }
+    }
+```
+
 #### Tweet Carousel
 
 Recent tweet list from an user matching the search keywords.
