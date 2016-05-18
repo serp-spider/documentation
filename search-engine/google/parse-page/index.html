@@ -199,6 +199,8 @@
                     
                         <li class="level-4"><a href="#map">Map</a></li>
                     
+                        <li class="level-4"><a href="#answer-box">Answer Box</a></li>
+                    
                         <li class="level-4"><a href="#tweet-carousel">Tweet Carousel</a></li>
                     
                         <li class="level-4"><a href="#in-the-news">In the News</a></li>
@@ -350,6 +352,7 @@ See bellow for all available data per result type.</p>
 <p><strong>Available with</strong></p>
 <ul>
 <li><code>NaturalResultType::CLASSICAL_LARGE</code></li>
+<li><code>NaturalResultType::CLASSICAL</code></li>
 </ul>
 <p><strong>Data</strong></p>
 <ul>
@@ -478,6 +481,33 @@ See bellow for all available data per result type.</p>
             foreach($result-&gt;localPack as $place){
                 $website = $place-&gt;website;
             }
+        }
+    }
+</code></pre>
+
+<h4 id="answer-box">Answer Box</h4>
+<p>Block that answers a question asked by the keywords.</p>
+<p><img alt="Classical Results" src="../images/result-types/answer_box.png" /></p>
+<p><strong>Available with</strong></p>
+<ul>
+<li><code>NaturalResultType::ANSWER_BOX</code></li>
+</ul>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>title</code> <small><strong>string</strong></small> [<strong>A</strong>]</li>
+<li><code>url</code> <small><strong>string</strong></small>: the url targeted on clicking the title</li>
+<li><code>destination</code> <small><strong>string</strong></small> [<strong>B</strong>]: either a url or a breadcrumb-like destination</li>
+<li><code>description</code> <small><strong>string</strong></small> [<strong>C</strong>]</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+    $results = $response-&gt;getNaturalResults();
+
+    foreach($results as $result){
+        if($result-&gt;is(NaturalResultType::ANSWER_BOX)){
+            $title = $result-&gt;title;
+            $url   = $result-&gt;url;
         }
     }
 </code></pre>
