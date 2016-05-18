@@ -532,7 +532,10 @@ See bellow for all available data per result type.</p>
 
     foreach($results as $result){
         if($result-&gt;is(NaturalResultType::IN_THE_NEWS)){
-            $title = $result-&gt;title;
+            foreach($result-&gt;news as $news){
+                $newsTitle = $title;
+                $newsUrl = $url;
+            }
         }
     }
 </code></pre>
