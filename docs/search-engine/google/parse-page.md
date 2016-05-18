@@ -358,6 +358,37 @@ Recent news results.
 ```
 
 
+#### Flights
+
+Flight sample from google flights
+
+
+![Flights](images/result-types/flights.png)
+
+
+**Available with**
+
+- ``NaturalResultType::FLIGHTS``
+
+**Data**
+
+No data is parsed from flight results. There is no plan to implement it because it's complex and not very useful.
+
+**Example**
+
+```php
+    use Serps\SearchEngine\Google\NaturalResultType;
+
+    $results = $response->getNaturalResults();
+    
+    foreach($results as $result){
+        if($result->is(NaturalResultType::FLIGHTS)){
+            // Got a flight result
+        }
+    }
+```
+
+
 
 ## Adwords Results
 
