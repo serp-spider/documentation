@@ -627,11 +627,11 @@ That's very similar to the css way, except that you will use **xpath**.
 ```php
     $response = $googleClient->query($googleUrl);
 
-    $queryResult = $response->cssQuery('descendant::div[@id="someId"]');
+    $queryResult = $response->xpathQuery('descendant::div[@id="someId"]');
     
     if ($queryResult->length == 1) {
         // Gets all 'a' tags inside the element with the id 'someId'.
-        $queryResult = $response->cssQuery('a', $queryResult->item(0));
+        $queryResult = $response->xpathQuery('a', $queryResult->item(0));
     } else {
         // some errors...
     }
