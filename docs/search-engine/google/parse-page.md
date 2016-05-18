@@ -138,6 +138,7 @@ This type an extension of the [classical result](#classical), with sitelinks in 
 **Available with**
 
 - ``NaturalResultType::CLASSICAL_LARGE``
+- ``NaturalResultType::CLASSICAL``
 
 **Data**
 
