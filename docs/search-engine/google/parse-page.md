@@ -352,7 +352,10 @@ Recent news results.
     
     foreach($results as $result){
         if($result->is(NaturalResultType::IN_THE_NEWS)){
-            $title = $result->title;
+            foreach($result->news as $news){
+                $newsTitle = $title;
+                $newsUrl = $url;
+            }
         }
     }
 ```
