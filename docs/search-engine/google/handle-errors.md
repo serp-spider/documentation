@@ -69,15 +69,15 @@ by http client, and they can be different for each http client.
     }
 ```
 
-### Http errors
+### Invalide Response
 
-A http error happens when the http server returned a invalid response (status code 404, 500...).
+A invalid response happens when the http server returned a invalid response (status code 404, 500...).
 
 ```php
     use Serps\SearchEngine\Google\GoogleClient;
     use Serps\HttpClient\CurlClient;
     use Serps\SearchEngine\Google\GoogleUrl;
-    use Serps\Exception\RequestError\HttpResponseErrorException;
+    use Serps\Exception\RequestError\InvalidResponseException;
 
     $googleClient = new GoogleClient(new CurlClient());
     
@@ -86,7 +86,7 @@ A http error happens when the http server returned a invalid response (status co
 
     try{
         $response = $googleClient->query($googleUrl);
-    }catch(HttpResponseErrorException $e){
+    }catch(InvalidResponseException $e){
         // Http response is not valid
         $errorInfo = $e->getMessage();
     }
