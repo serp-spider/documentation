@@ -62,7 +62,7 @@ Each of the result from the loop will have the following methods available:
 is also accessible with a property, e.g the two examples do the same thing: ``$result->getDataValue('url')`` and ``$result->url``
 - ``getData()``: Get the all the data of the result
 - ``getOnPagePosition()``: Get the position of the result on the page (starting at 1)
-- ``getRealPosition()``: Get the global position of the result (starting at 1), that means it is aware of the pagination.
+- ``getRealPosition()``: Get the global position of the result (starting at 1), that means it is aware of the pagination. **Be aware** that in some circumstances this number can be wrong because google might show more results on the previous pages.
 
 The difference between each result type is the list of data available with ``getDataValue($type)`` and ``getData()``.
 See bellow for all available data per result type.
