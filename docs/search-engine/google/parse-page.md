@@ -576,8 +576,17 @@ If ``null`` is returned, it means that the parsing failed. In this case check th
 
 ## Related searches
 
-Not implemented yet.
+Google uses to give a list of related searches at the bottom of the page:
 
+![number of results](images/related-searches.png)
+
+```php
+    $relatedSearches = $response->getRelatedSearches();
+    foreach ($relatedSearches as $relatedSearch) {
+        $url = $relatedSearch->url;
+        $title = $relatedSearch->title;
+    }
+```
 
 ## Custom parsing
 
