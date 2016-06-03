@@ -574,11 +574,10 @@ If ``null`` is returned, it means that the parsing failed. In this case check th
     }
 ``` 
 
-## Related searches
+### Related searches
 
-Google uses to give a list of related searches at the bottom of the page:
 
-![number of results](images/related-searches.png)
+![related searches](images/related-searches.png)
 
 ```php
     $relatedSearches = $response->getRelatedSearches();
@@ -587,6 +586,8 @@ Google uses to give a list of related searches at the bottom of the page:
         $title = $relatedSearch->title;
     }
 ```
+
+Google uses to give a list of related searches at the bottom of the page:
 
 ## Custom parsing
 
