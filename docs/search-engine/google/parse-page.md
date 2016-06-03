@@ -579,6 +579,8 @@ If ``null`` is returned, it means that the parsing failed. In this case check th
 
 ![related searches](images/related-searches.png)
 
+Google uses to give a list of related searches at the bottom of the page. The method ``getRelatedSearches`` will return a list of these items.
+
 ```php
     $relatedSearches = $response->getRelatedSearches();
     foreach ($relatedSearches as $relatedSearch) {
@@ -587,7 +589,6 @@ If ``null`` is returned, it means that the parsing failed. In this case check th
     }
 ```
 
-Google uses to give a list of related searches at the bottom of the page:
 
 ## Custom parsing
 
