@@ -293,8 +293,8 @@ how to work with it.</p>
 <li><code>getDataValue($type)</code>: Get the given data from the result. Everything accessible with <code>getDataValue</code>
 is also accessible with a property, e.g the two examples do the same thing: <code>$result-&gt;getDataValue('url')</code> and <code>$result-&gt;url</code></li>
 <li><code>getData()</code>: Get the all the data of the result</li>
-<li><code>getOnPagePosition()</code>: Get the position of the result on the page (not aware of the pagination)</li>
-<li><code>getRealPosition()</code>: Get the global position of the result (aware of the pagination)</li>
+<li><code>getOnPagePosition()</code>: Get the position of the result on the page (starting at 1)</li>
+<li><code>getRealPosition()</code>: Get the global position of the result (starting at 1), that means it is aware of the pagination. <strong>Be aware</strong> that in some circumstances this number can be wrong because google might show more results on the previous pages.</li>
 </ul>
 <p>The difference between each result type is the list of data available with <code>getDataValue($type)</code> and <code>getData()</code>.
 See bellow for all available data per result type.</p>
@@ -706,7 +706,15 @@ We take care of returning this number as a integer no matter the initial format.
 </code></pre>
 
 <h2 id="related-searches">Related searches</h2>
-<p>Not implemented yet.</p>
+<p>Google uses to give a list of related searches at the bottom of the page:</p>
+<p><img alt="number of results" src="../images/related-searches.png" /></p>
+<pre><code class="php">    $relatedSearches = $response-&gt;getRelatedSearches();
+    foreach ($relatedSearches as $relatedSearch) {
+        $url = $relatedSearch-&gt;url;
+        $title = $relatedSearch-&gt;title;
+    }
+</code></pre>
+
 <h2 id="custom-parsing">Custom parsing</h2>
 <p>Sometimes you need information that are not available in our parser. </p>
 <p>First of all, search if someone already asked for this feature 

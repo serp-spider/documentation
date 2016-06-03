@@ -190,7 +190,7 @@
                 <li class="level-3"><a href="#network-errors">Network errors</a></li>
                     
             
-                <li class="level-3"><a href="#http-errors">Http errors</a></li>
+                <li class="level-3"><a href="#invalide-response">Invalide Response</a></li>
                     
             
                 <li class="level-3"><a href="#captcha-errors">Captcha errors</a></li>
@@ -209,7 +209,8 @@
                 <div class="col-md-9" id="main-content" role="main">
 
 <h1 id="handle-erros-from-the-google-client">Handle erros from the google client</h1>
-<p><p></p></p>
+<p></p>
+
 <hr />
 <p>Back to the <a href="../"><strong>general google documentation</strong></a>.</p>
 <hr />
@@ -265,12 +266,12 @@ by http client, and they can be different for each http client.</p>
     }
 </code></pre>
 
-<h3 id="http-errors">Http errors</h3>
-<p>A http error happens when the http server returned a invalid response (status code 404, 500...).</p>
+<h3 id="invalide-response">Invalide Response</h3>
+<p>A invalid response happens when the http server returned a invalid response (status code 404, 500...).</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
     use Serps\HttpClient\CurlClient;
     use Serps\SearchEngine\Google\GoogleUrl;
-    use Serps\Exception\RequestError\HttpResponseErrorException;
+    use Serps\Exception\RequestError\InvalidResponseException;
 
     $googleClient = new GoogleClient(new CurlClient());
 
@@ -279,7 +280,7 @@ by http client, and they can be different for each http client.</p>
 
     try{
         $response = $googleClient-&gt;query($googleUrl);
-    }catch(HttpResponseErrorException $e){
+    }catch(InvalidResponseException $e){
         // Http response is not valid
         $errorInfo = $e-&gt;getMessage();
     }
