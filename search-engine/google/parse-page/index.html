@@ -227,8 +227,8 @@
                 <li class="level-3"><a href="#number-of-results">Number of results</a></li>
                     
             
-        
-            <li class="level-2"><a href="#related-searches">Related searches</a></li>
+                <li class="level-3"><a href="#related-searches">Related searches</a></li>
+                    
             
         
             <li class="level-2"><a href="#custom-parsing">Custom parsing</a></li>
@@ -705,9 +705,8 @@ We take care of returning this number as a integer no matter the initial format.
     }
 </code></pre>
 
-<h2 id="related-searches">Related searches</h2>
-<p>Google uses to give a list of related searches at the bottom of the page:</p>
-<p><img alt="number of results" src="../images/related-searches.png" /></p>
+<h3 id="related-searches">Related searches</h3>
+<p><img alt="related searches" src="../images/related-searches.png" /></p>
 <pre><code class="php">    $relatedSearches = $response-&gt;getRelatedSearches();
     foreach ($relatedSearches as $relatedSearch) {
         $url = $relatedSearch-&gt;url;
@@ -715,6 +714,7 @@ We take care of returning this number as a integer no matter the initial format.
     }
 </code></pre>
 
+<p>Google uses to give a list of related searches at the bottom of the page:</p>
 <h2 id="custom-parsing">Custom parsing</h2>
 <p>Sometimes you need information that are not available in our parser. </p>
 <p>First of all, search if someone already asked for this feature 
