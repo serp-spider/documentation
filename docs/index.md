@@ -55,6 +55,13 @@ You have problems to get started with the library or you have general question? 
 You spotted an issue with the library? Please report it on the 
 [github issue tracker](https://github.com/serp-spider/serps/issues).
 
+Sponsored By
+---------------
+
+[<img class="frameless-image" alt="Mondovo Logo" style="max-height:100px" src="http://www.mondovo.com/app/templates/metronic/frontend_new/assets/frontend/layout/img/logos/logo-original.svg"/>](http://www.mondovo.com)
+
+The project has been sponsored by [Mondovo.com](http://www.mondovo.com)
+
                                                                                                  
 
 
