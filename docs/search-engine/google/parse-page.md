@@ -559,8 +559,7 @@ Represents the total number of results returned by the current search.
 The format of this number can change from country to country (61,000,000 or 61 000 000 or 6,10,00,000 etc...) 
 We take care of returning this number as a integer no matter the initial format.
 
-If ``null`` is returned, it means that the parsing failed. In this case check that your client is up to date, or else 
-[open an issue](https://github.com/serp-spider/search-engine-google/issues).
+In some cases this number is not available (for instance with mobile layout)
 
 ```php
     $numberOfResults = $response->getNumberOfResults();
