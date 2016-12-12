@@ -124,7 +124,7 @@ After:
     $response = $googleClient->query($googleUrl, $browser);
 ```
 
-As you can the browser instance manages most of what a real browser would manage:
+As you can see the browser instance manages most of what a real browser would manage (at least for request):
 
 - User agent string
 - Language headers (in previous version that was automatically set from the language detected in the google url) 
@@ -167,12 +167,12 @@ either as a stream, as binary data or as a base64 string or to save it in a file
 
 ## Google: drop support for raw parser
 
-At the very beginning of serps we though it would make sense to provide a raw parser for google SERPS that come
-without javascript, but in any case it was useful. Even the results from curl are the same as the javascript ones
+At the very beginning of serps we though it would make sense to provide a raw parser for raw google pages 
+(no-javascript pages), but in any case it was useful. Even the results from curl are the same as the javascript ones
 and this is due to the fact the the page needs to be evaluated to show a javascript disabled version (curl does 
-not evaluate the page and thus comes with the same version as the javascript-enabled one).
+not evaluate the page, thus it returns almost the same version as the javascript-enabled one).
 
-Maintaining a raw parser was a lot of efforts for a few results. We simply decided to drop support for the raw parser.
+Maintaining a raw parser was a lot of efforts for a few very results. We simply decided to drop support for the raw parser.
 
 ## Google: additional changes:
 
@@ -186,7 +186,7 @@ Maintaining a raw parser was a lot of efforts for a few results. We simply decid
 
 ## URL
 
-The url interface changed. Most of the changes are internal and you should not be warned by.
+The url interface changed. Most of the changes are internal and you should not be concerned by it.
 
 In case you played with the url, 
 see the [core changelog](https://github.com/serp-spider/core/blob/master/CHANGELOG.md) for more details
