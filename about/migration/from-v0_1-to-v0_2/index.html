@@ -323,7 +323,7 @@ manage the url given to the browser and the response returned from the browser.<
     $response = $googleClient-&gt;query($googleUrl, $browser);
 </code></pre>
 
-<p>As you can the browser instance manages most of what a real browser would manage:</p>
+<p>As you can see the browser instance manages most of what a real browser would manage (at least for request):</p>
 <ul>
 <li>User agent string</li>
 <li>Language headers (in previous version that was automatically set from the language detected in the google url) </li>
@@ -353,11 +353,11 @@ either as a stream, as binary data or as a base64 string or to save it in a file
 </code></pre>
 
 <h2 id="google-drop-support-for-raw-parser">Google: drop support for raw parser</h2>
-<p>At the very beginning of serps we though it would make sense to provide a raw parser for google SERPS that come
-without javascript, but in any case it was useful. Even the results from curl are the same as the javascript ones
+<p>At the very beginning of serps we though it would make sense to provide a raw parser for raw google pages 
+(no-javascript pages), but in any case it was useful. Even the results from curl are the same as the javascript ones
 and this is due to the fact the the page needs to be evaluated to show a javascript disabled version (curl does 
-not evaluate the page and thus comes with the same version as the javascript-enabled one).</p>
-<p>Maintaining a raw parser was a lot of efforts for a few results. We simply decided to drop support for the raw parser.</p>
+not evaluate the page, thus it returns almost the same version as the javascript-enabled one).</p>
+<p>Maintaining a raw parser was a lot of efforts for a few very results. We simply decided to drop support for the raw parser.</p>
 <h2 id="google-additional-changes">Google: additional changes:</h2>
 <ul>
 <li><code>Serps\SearchEngine\Google\GoogleDom</code> now extends <code>Serps\Core\Dom\WebPage</code> </li>
@@ -369,7 +369,7 @@ not evaluate the page and thus comes with the same version as the javascript-ena
 <li>Large video have the CLASSICAL type as mentioned in the doc (bugfix)</li>
 </ul>
 <h2 id="url">URL</h2>
-<p>The url interface changed. Most of the changes are internal and you should not be warned by.</p>
+<p>The url interface changed. Most of the changes are internal and you should not be concerned by it.</p>
 <p>In case you played with the url, 
 see the <a href="https://github.com/serp-spider/core/blob/master/CHANGELOG.md">core changelog</a> for more details</p>
 <h2 id="cookie-expiration-time">Cookie expiration time</h2>
