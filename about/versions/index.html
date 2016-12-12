@@ -5,17 +5,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta name="description" content="SERPS is a SERP Scraper for php. It offers a set of tools to manipulate and parse popular search engines such as Google, Yahoo, Bing...
-">
         
-        <link rel="canonical" href="https://serp-spider.github.io/documentation/">
-        <link rel="shortcut icon" href="./favicon.ico">
+        
+        <link rel="canonical" href="https://serp-spider.github.io/documentation/about/versions/">
+        <link rel="shortcut icon" href="../../../../favicon.ico">
         
 
-	    <title>Documentation - The SERP Spider</title>
+	    <title>Versions - Documentation - The SERP Spider</title>
 
-        <link href="./css/bootstrap-custom.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">        <link href="./css/base.css" rel="stylesheet">
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">        <link href="../../css/base.css" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -37,7 +36,7 @@
         
     </head>
 
-    <body class="homepage">
+    <body>
 
         <div class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
@@ -55,7 +54,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href="/"><img alt='SERPS logo' src="./images/logo.png">SERPS</a>
+            <a class="navbar-brand" href="/"><img alt='SERPS logo' src="../../images/logo.png">SERPS</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -65,25 +64,25 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="dropdown active">
+                    <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
-<li class="active">
-    <a href=".">Home</a>
+<li >
+    <a href="../..">Home</a>
 </li>
 
                         
                             
 <li >
-    <a href="overview/">Overview</a>
+    <a href="../../overview/">Overview</a>
 </li>
 
                         
                             
 <li >
-    <a href="cookies/">Cookies</a>
+    <a href="../../cookies/">Cookies</a>
 </li>
 
                         
@@ -98,7 +97,7 @@
                         
                             
 <li >
-    <a href="search-engine/google/">Google</a>
+    <a href="../../search-engine/google/">Google</a>
 </li>
 
                         
@@ -113,19 +112,19 @@
                         
                             
 <li >
-    <a href="http-client/curl/">CURL</a>
+    <a href="../../http-client/curl/">CURL</a>
 </li>
 
                         
                             
 <li >
-    <a href="http-client/phantomJS/">PhantomJS</a>
+    <a href="../../http-client/phantomJS/">PhantomJS</a>
 </li>
 
                         
                             
 <li >
-    <a href="http-client/spidyJS/">SpidyJS</a>
+    <a href="../../http-client/spidyJS/">SpidyJS</a>
 </li>
 
                         
@@ -134,19 +133,19 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">About <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
                             
 <li >
-    <a href="about/packages/">Packages</a>
+    <a href="../packages/">Packages</a>
 </li>
 
                         
                             
-<li >
-    <a href="about/versions/">Versions</a>
+<li class="active">
+    <a href="./">Versions</a>
 </li>
 
                         
@@ -190,77 +189,17 @@
 
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#serps">SERPS</a></li>
-        
-            <li class="level-2"><a href="#what-is-it">What is it?</a></li>
-            
-        
-            <li class="level-2"><a href="#the-problem">The problem</a></li>
-            
-        
-            <li class="level-2"><a href="#the-solution">The solution</a></li>
-            
-        
-            <li class="level-2"><a href="#getting-started">Getting Started</a></li>
-            
-        
-            <li class="level-2"><a href="#support-issue">Support &amp; issue </a></li>
-            
-        
-            <li class="level-2"><a href="#sponsored-by">Sponsored By</a></li>
-            
-        
-            <li class="level-2"><a href="#licensing">Licensing</a></li>
-            
+        <li class="main active"><a href="#versions">Versions</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" id="main-content" role="main">
 
-<h1 id="serps">SERPS</h1>
-<p><strong>The PHP Search Engine Result Page Spider</strong></p>
-<p><center><img class="frameless-image" alt="SERPS Logo" style="max-height:100px" src="images/logo.png"/></center></p>
-<hr />
-<p>SERPS is a scraping library for php. It considerably decrease the complexity required to analyse search engines.</p>
-<blockquote>
-<p><cite><strong>Web scraping</strong> (web harvesting or web data extraction) is a computer software technique of extracting 
-information from websites. Usually, such software programs simulate human exploration of the World Wide Web 
-by either implementing low-level Hypertext Transfer Protocol (HTTP), 
-or embedding a fully-fledged web browser, such as Mozilla Firefox.</cite></p>
-<p><small><a href="https://en.wikipedia.org/wiki/Web_scraping">Wikipedia</a></small></p>
-</blockquote>
-<h2 id="what-is-it">What is it?</h2>
-<p>Serps is a set of tools that ease the parsing of <strong>popular search engines</strong> (such as google, yahoo or bing).
-It helps to parse <strong>SERP</strong> (Search Engine Result Page) and gives you a standard output of what is parsed.</p>
-<h2 id="the-problem">The problem</h2>
-<p>Most of times search engines don't want you to parse them, and they don't offer a documentation or a standard way 
-to extract the results from the SERP and it's hard to write and maintain a scraper.</p>
-<h2 id="the-solution">The solution</h2>
-<p>To solve this problems we <strong>analysed</strong> how search engines behave and we built the necessary tools to
-work with them, from the URL generation to the parsing of the results. 
-At the endpoint we offer a <strong>standard and documented API</strong>.</p>
-<h2 id="getting-started">Getting Started</h2>
-<p>Looking forward to work with the library? </p>
+<h1 id="versions">Versions</h1>
 <ul>
-<li>Start with the <a href="overview/">overview</a>.</li>
-<li>Browse the available <strong>search engines</strong> and <strong>http clients</strong> from the top menu.</li>
-</ul>
-<h2 id="support-issue">Support &amp; issue <a href="https://gitter.im/serp-spider/help"><img class="frameless-image" alt="gitter" src="https://img.shields.io/gitter/room/nwjs/nw.js.svg" /></a></h2>
-<p>You have problems to get started with the library or you have general question? We'd like to hear about,
-<a href="https://gitter.im/serp-spider/help">join us on gitter</a>.</p>
-<p>You spotted an issue with the library? Please report it on the 
-<a href="https://github.com/serp-spider/serps/issues">github issue tracker</a>.</p>
-<h2 id="sponsored-by">Sponsored By</h2>
-<p><a href="http://www.mondovo.com"><img class="frameless-image" alt="Mondovo Logo" style="max-height:100px" src="http://www.mondovo.com/app/templates/metronic/frontend_new/assets/frontend/layout/img/logos/logo-original.svg"/></a></p>
-<p>The project has been sponsored by <a href="http://www.mondovo.com">Mondovo.com</a></p>
-<h2 id="licensing">Licensing</h2>
-<p>The work is placed under the terms of the <a href="https://github.com/serp-scrape/serps/blob/master/LICENSE"><strong>Fair License</strong></a>.</p>
-<blockquote>
-<p><cite>Usage of the works is permitted provided that this instrument is retained with the works, 
-so that any entity that uses the works is notified of this instrument.</cite></p>
-<p><cite>DISCLAIMER: THE WORKS ARE WITHOUT WARRANTY.</cite></p>
-</blockquote></div>
+<li><a href="../migration/from-v0_1-to-v0_2/">Migration to 0.2.0</a></li>
+</ul></div>
             
         </div>
 
@@ -279,10 +218,10 @@ so that any entity that uses the works is notified of this instrument.</cite></p
 
         <script   src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-        <script src="./js/highlight.pack.js"></script>
-        <script>var base_url = '.';</script>
-        <script data-main="./mkdocs/js/search.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"></script>
-        <script src="./js/base.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script>var base_url = '../..';</script>
+        <script data-main="../../mkdocs/js/search.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.2.0/require.min.js"></script>
+        <script src="../../js/base.js"></script>
 
         <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
             <div class="modal-dialog">
@@ -326,8 +265,3 @@ so that any entity that uses the works is notified of this instrument.</cite></p
 
     </body>
 </html>
-
-<!--
-MkDocs version : 0.15.3
-Build Date UTC : 2016-12-12 22:13:27.486407
--->

@@ -7,11 +7,11 @@
 
         
         
-        <link rel="canonical" href="https://serp-spider.github.io/documentation/search-engine/google/handle-errors/">
+        <link rel="canonical" href="https://serp-spider.github.io/documentation/about/migration/from-v0_1-to-v0_2/">
         <link rel="shortcut icon" href="../../../../../../favicon.ico">
         
 
-	    <title>Handle Google error - Documentation - The SERP Spider</title>
+	    <title>migration 0.2 - Documentation - The SERP Spider</title>
 
         <link href="../../../css/bootstrap-custom.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">        <link href="../../../css/base.css" rel="stylesheet">
@@ -97,7 +97,7 @@
                         
                             
 <li >
-    <a href="../">Google</a>
+    <a href="../../../search-engine/google/">Google</a>
 </li>
 
                         
@@ -139,13 +139,13 @@
                         
                             
 <li >
-    <a href="../../../about/packages/">Packages</a>
+    <a href="../../packages/">Packages</a>
 </li>
 
                         
                             
 <li >
-    <a href="../../../about/versions/">Versions</a>
+    <a href="../../versions/">Versions</a>
 </li>
 
                         
@@ -189,24 +189,36 @@
 
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#handle-erros-from-the-google-client">Handle erros from the google client</a></li>
+        <li class="main active"><a href="#migration-from-v01-to-v02">Migration from v0.1 to v0.2</a></li>
         
-            <li class="level-2"><a href="#request-error">Request error</a></li>
-            
-                <li class="level-3"><a href="#network-errors">Network errors</a></li>
-                    
-            
-                <li class="level-3"><a href="#invalide-response">Invalide Response</a></li>
-                    
-            
-                <li class="level-3"><a href="#captcha-errors">Captcha errors</a></li>
-                    
+            <li class="level-2"><a href="#version-02-overview">Version 0.2 overview</a></li>
             
         
-            <li class="level-2"><a href="#dom-errors">DOM errors</a></li>
+            <li class="level-2"><a href="#dependencies">Dependencies</a></li>
             
         
-            <li class="level-2"><a href="#more-complete-example-of-error-handling">More complete example of error handling</a></li>
+            <li class="level-2"><a href="#request-builder">Request Builder</a></li>
+            
+        
+            <li class="level-2"><a href="#google-client-update">Google: client update</a></li>
+            
+        
+            <li class="level-2"><a href="#google-css-parser">Google: CSS Parser</a></li>
+            
+        
+            <li class="level-2"><a href="#google-image-results">Google: image results</a></li>
+            
+        
+            <li class="level-2"><a href="#google-drop-support-for-raw-parser">Google: drop support for raw parser</a></li>
+            
+        
+            <li class="level-2"><a href="#google-additional-changes">Google: additional changes:</a></li>
+            
+        
+            <li class="level-2"><a href="#url">URL</a></li>
+            
+        
+            <li class="level-2"><a href="#cookie-expiration-time">Cookie expiration time</a></li>
             
         
     
@@ -214,176 +226,154 @@
 </div></div>
                 <div class="col-md-9" id="main-content" role="main">
 
-<h1 id="handle-erros-from-the-google-client">Handle erros from the google client</h1>
-<p></p>
-
-<hr />
-<p>Back to the <a href="../"><strong>general google documentation</strong></a>.</p>
-<hr />
-<p>Working with google involves to make http request, to get an output from google and to parse this output. 
-All of these steps are not error free, you can encounter a network error, an error from google server, get a captcha
-or even face some updated google serp not supported by your version of the library.</p>
-<p>Errors are managed with exceptions, that makes them easy to handle.</p>
-<h2 id="request-error">Request error</h2>
-<p>There are several reasons for a request error to trigger:</p>
+<h1 id="migration-from-v01-to-v02">Migration from v0.1 to v0.2</h1>
+<div class="admonition warning">
+<p class="admonition-title">Version not released yet</p>
+<p>Be aware that this version is yet under development and this migration guide is a draft that might evolve until
+the version is published.</p>
+</div>
+<h2 id="version-02-overview">Version 0.2 overview</h2>
+<p>The version 0.2 brings some improvements that target the future of the library. </p>
 <ul>
-<li>A network error</li>
-<li>A http error</li>
-<li>A captcha error</li>
+<li>The version brings better tools to work with captcha. </li>
+<li>Some parts from google package are moved to core package 
+in order to make them ready for implementing new search engines. </li>
+<li>It makes browser emulation more transparent by implementing a browser class that aims to mimic browser.</li>
+<li>Url interface was refactored to be more flexible</li>
+<li>There are also other changes, see the following guide for a review of the upgrade.</li>
 </ul>
-<p>All these errors can be grouped under the same exception type:</p>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
-    use Serps\HttpClient\CurlClient;
-    use Serps\SearchEngine\Google\GoogleUrl;
-    use Serps\Exception\RequestError\RequestErrorException;
+<h2 id="dependencies">Dependencies</h2>
+<p>Css parser moved from google package to core:</p>
+<ul>
+<li><code>serps/search-engine-google</code> does not depend on <code>symfony/css-selector</code> anymore</li>
+<li><code>serps/core</code> now depends on <code>symfony/css-selector:^2|^3</code></li>
+</ul>
+<p>Remove PSR-7 implementation:</p>
+<ul>
+<li><strong>IN PROGRESS</strong> <code>serps/search-engine-google</code> does not depend on <code>zendframework/zend-diactoros</code> anymore,
+instead you need to add either <code>zendframework/zend-diactoros</code> or <code>guzzle/psr7</code> to your dependency. </li>
+</ul>
+<h2 id="request-builder">Request Builder</h2>
+<p>Being said in the previous paragraph, serps does not provide a PSR-7 implementation anymore. 
+The goal was to let user choose what implementation to depend on. To make it worth serps now provides 
+a request builder that will automatically detect what package is installed in your dependencies and create
+a request object for you:</p>
+<pre><code class="php">    use Serps\Core\Psr7\RequestBuilder;
 
-    $googleClient = new GoogleClient(new CurlClient());
-
-    $googleUrl = new GoogleUrl();
-    $googleUrl-&gt;setSearchTerm('simpsons');
-
-    try{
-        $response = $googleClient-&gt;query($googleUrl);
-    }catch(RequestErrorException $e){
-        // Some error with the request
-        $errorInfo = $e-&gt;getMessage();
-    }
+    $request = RequestBuilder::buildRequest('http://foo.bar', 'GET');
 </code></pre>
 
-<p>It's possible to make the distinction between each of them, see bellow.</p>
-<h3 id="network-errors">Network errors</h3>
-<p>Network errors occur when it was not possible to create a valid http connexion with google. They use to be triggered
-by http client, and they can be different for each http client.</p>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
-    use Serps\HttpClient\CurlClient;
-    use Serps\SearchEngine\Google\GoogleUrl;
-    use Serps\Exception\RequestError\NetworkErrorException;
-
-    $googleClient = new GoogleClient(new CurlClient());
-
-    $googleUrl = new GoogleUrl();
-    $googleUrl-&gt;setSearchTerm('simpsons');
-
-    try{
-        $response = $googleClient-&gt;query($googleUrl);
-    }catch(NetworkErrorException $e){
-        // Something wrong happened with network
-        $errorInfo = $e-&gt;getMessage();
-    }
+<h2 id="google-client-update">Google: client update</h2>
+<p>This is probably the most sensible change from the upgrade. The google client changed the way it builds requests.</p>
+<p>Instead of giving it a <strong>http client</strong> at construction and <strong>proxy</strong> and <strong>cookie jar</strong> at request time, you will now
+give it a default browser instance that wraps all of these three items and that can be overriden at request time.
+In other words the constructor moved from </p>
+<pre><code class="php">    new GoogleClient(HttpClientInterface $client)
 </code></pre>
 
-<h3 id="invalide-response">Invalide Response</h3>
-<p>A invalid response happens when the http server returned a invalid response (status code 404, 500...).</p>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
-    use Serps\HttpClient\CurlClient;
-    use Serps\SearchEngine\Google\GoogleUrl;
-    use Serps\Exception\RequestError\InvalidResponseException;
-
-    $googleClient = new GoogleClient(new CurlClient());
-
-    $googleUrl = new GoogleUrl();
-    $googleUrl-&gt;setSearchTerm('simpsons');
-
-    try{
-        $response = $googleClient-&gt;query($googleUrl);
-    }catch(InvalidResponseException $e){
-        // Http response is not valid
-        $errorInfo = $e-&gt;getMessage();
-    }
+<p>to </p>
+<pre><code class="php">    new GoogleClient(BrowserInterface $browser = null)
 </code></pre>
 
-<h3 id="captcha-errors">Captcha errors</h3>
-<p>A captcha error happens when the the server asks for a captcha to continue.</p>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
-    use Serps\HttpClient\CurlClient;
-    use Serps\SearchEngine\Google\GoogleUrl;
-    use Serps\Exception\RequestError\CaptchaException;
-
-    $googleClient = new GoogleClient(new CurlClient());
-
-    $googleUrl = new GoogleUrl();
-    $googleUrl-&gt;setSearchTerm('simpsons');
-
-    try{
-        $response = $googleClient-&gt;query($googleUrl);
-    }catch(CaptchaException $e){
-        // Captcha required
-        $errorInfo = $e-&gt;getMessage();
-    }
+<p>And the query method moved from </p>
+<pre><code class="php">    GoogleClient::query(GoogleUrlInterface $googleUrl, Proxy $proxy = null, CookieJarInterface $cookieJar = null)
 </code></pre>
 
-<h2 id="dom-errors">DOM errors</h2>
-<p>Once you got the data from google, you are ready to parse the DOM, but you are not safe against google DOM updates,
-Google might have updated its DOM structure and your version of the library is maybe not updated. That's what DOM 
-exceptions are made for.</p>
+<p>to </p>
+<pre><code class="php">    GoogleClient::query(GoogleUrlInterface $googleUrl, BrowserInterface $browser = null)
+</code></pre>
+
+<p>In addition object <code>$googleClient-&gt;request</code>  and method <code>GoogleClient::getRequestBuilder()</code> do not exist anymore,
+they are fully replaced by the browser implementation.</p>
+<p>The reason of this change is that google client was managing the request by itself. Making it hard to keep a consistent
+browser behaviour from different places and that was an issue for managing captcha that need to have the same
+browser environment (user-agent string, cookies, proxy...).</p>
+<p>Now the google client acts more like a real browser, leaving all the request logic to the browser and it will only
+manage the url given to the browser and the response returned from the browser.</p>
+<p>Here is an example of how to use it before and after.</p>
+<p>Before:</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
     use Serps\HttpClient\CurlClient;
     use Serps\SearchEngine\Google\GoogleUrl;
-    use Serps\SearchEngine\Google\Exception\InvalidDOMException;
+
+    $userAgent = &quot;Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.93 Safari/537.36&quot;;
+    $googleClient-&gt;request-&gt;setUserAgent($userAgent);
 
     $googleClient = new GoogleClient(new CurlClient());
 
-    $googleUrl = new GoogleUrl();
-    $googleUrl-&gt;setSearchTerm('simpsons');
+    $response = $googleClient-&gt;query($googleUrl, $someProxy, $someCookies);
+</code></pre>
 
+<p>After:</p>
+<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
+    use Serps\HttpClient\CurlClient;
+    use Serps\Core\Browser\Browser;
+    use Serps\SearchEngine\Google\GoogleUrl;
+
+    $userAgent = 'Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.93 Safari/537.36';
+    $language = 'en-US,en;q=0.8';
+
+    $browser = new Browser(new CurlClient(), $userAgent, $language, $someProxy, $someCookies);
+
+    $googleClient = new GoogleClient($browser);
     $response = $googleClient-&gt;query($googleUrl);
 
-    try{
-        $results = $response-&gt;getNaturalResults();
-
-        foreach($results as $result){
-            // parse results
-        }
-    }catch(InvalidDOMException $e){
-        // Something bad happened while parsing
-        // Maybe an update of the library is needed, 
-        // the exception message maybe tells more
-        $errorInfo = $e-&gt;getMessage();
-    }
+    // Alternatively you can pass browser at request time:
+    $googleClient = new GoogleClient();
+    $response = $googleClient-&gt;query($googleUrl, $browser);
 </code></pre>
 
-<h2 id="more-complete-example-of-error-handling">More complete example of error handling</h2>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
-    use Serps\HttpClient\CurlClient;
-    use Serps\SearchEngine\Google\GoogleUrl;
-    use Serps\Exception\RequestError\RequestErrorException;
-    use Serps\Exception\RequestError\HttpResponseErrorException;
-    use Serps\Exception\RequestError\CaptchaException;
-    use Serps\SearchEngine\Google\Exception\InvalidDOMException;
+<p>As you can the browser instance manages most of what a real browser would manage:</p>
+<ul>
+<li>User agent string</li>
+<li>Language headers (in previous version that was automatically set from the language detected in the google url) </li>
+<li>Additional headers</li>
+<li>Proxy</li>
+<li>Cookie</li>
+</ul>
+<h2 id="google-css-parser">Google: CSS Parser</h2>
+<p>The css parser is not available from google package anymore, if you were using it you will need to rely on the 
+replacement from the core package.</p>
+<p>Before:</p>
+<pre><code class="php">Serps\SearchEngine\Google\Css:::toXPath('.expression');
+</code></pre>
 
-    $googleClient = new GoogleClient(new CurlClient());
+<p>After:</p>
+<pre><code class="php">Serps\Core\Dom\Css:::toXPath('.expression');
+</code></pre>
 
-    $googleUrl = new GoogleUrl();
-    $googleUrl-&gt;setSearchTerm('simpsons');
+<h2 id="google-image-results">Google: image results</h2>
+<p>Thanks to the addition of the <a href="#MediaInterface">MediaInterface</a> serps makes it easy to work with image results parsed 
+from google. </p>
+<p>With the previous version image result format was unpredictable: that could be an url, or a base64 image... 
+now you wont have to care anymore about this. The only thing in you need to care about is how to store the image.</p>
+<p>Concretely the media interface will detect for you the type of image and gives you the possibility to get it
+either as a stream, as binary data or as a base64 string or to save it in a file:</p>
+<pre><code>    $result-&gt;image-&gt;saveFile('myImage.png');
+</code></pre>
 
-    $response = null;
-
-    try{
-        $response = $googleClient-&gt;query($googleUrl);
-    }catch(HttpResponseErrorException $e){
-        // Http response is not valid, maybe an error from google or your url
-        $errorInfo = $e-&gt;getMessage();
-    }catch(CaptchaException $e){
-        // Captcha needs to be solved
-    }catch(RequestErrorException $e){
-        // Other request error are handled here, maybe something wrong with your network
-        $errorInfo = $e-&gt;getMessage();
-    }
-
-    if($response){
-        try{
-            $results = $response-&gt;getNaturalResults();
-            foreach($results as $result){
-                // parse results
-            }
-        }catch(InvalidDOMException $e){
-            // Something bad happened while parsing
-            // Maybe an update of the library is needed, 
-            // the exception message will tell more about
-            $errorInfo = $e-&gt;getMessage();
-        }
-    }
-</code></pre></div>
+<h2 id="google-drop-support-for-raw-parser">Google: drop support for raw parser</h2>
+<p>At the very beginning of serps we though it would make sense to provide a raw parser for google SERPS that come
+without javascript, but in any case it was useful. Even the results from curl are the same as the javascript ones
+and this is due to the fact the the page needs to be evaluated to show a javascript disabled version (curl does 
+not evaluate the page and thus comes with the same version as the javascript-enabled one).</p>
+<p>Maintaining a raw parser was a lot of efforts for a few results. We simply decided to drop support for the raw parser.</p>
+<h2 id="google-additional-changes">Google: additional changes:</h2>
+<ul>
+<li><code>Serps\SearchEngine\Google\GoogleDom</code> now extends <code>Serps\Core\Dom\WebPage</code> </li>
+<li><code>Serps\SearchEngine\Google\GoogleError</code> now extends <code>Serps\Core\Dom\WebPage</code> 
+    and does not extend <code>Serps\SearchEngine\Google\GoogleDom</code> anymore</li>
+<li>Google cards results are now supported</li>
+<li>Mobile page detection: GoogleSerp::isMobile() </li>
+<li>Mobile results have now their own parser</li>
+<li>Large video have the CLASSICAL type as mentioned in the doc (bugfix)</li>
+</ul>
+<h2 id="url">URL</h2>
+<p>The url interface changed. Most of the changes are internal and you should not be warned by.</p>
+<p>In case you played with the url, 
+see the <a href="https://github.com/serp-spider/core/blob/master/CHANGELOG.md">core changelog</a> for more details</p>
+<h2 id="cookie-expiration-time">Cookie expiration time</h2>
+<p>Cookie expiration time was not standard and was invalid most of time. Now cookie expiration is correctly managed.</p></div>
             
         </div>
 
