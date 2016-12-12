@@ -18,12 +18,14 @@ pages:
 
   - About:
     - Packages: about/packages.md
+    - Versions: about/versions.md
 
   - _hidden:
     - Parse a Google Page: search-engine/google/parse-page.md
     - Google Url: search-engine/google/google-url.md
     - Handle Google error: search-engine/google/handle-errors.md
     - Configure Google Client: search-engine/google/client-configuration.md
+    - migration 0.2: about/migration/from-v0_1-to-v0_2.md
 
 repo_url: https://github.com/serp-spider
 
