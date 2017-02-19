@@ -22,8 +22,9 @@ The client is available with the package
 
 This http client requires you to [install the Curl php extension](http://php.net/manual/fr/curl.installation.php)
 
-**Warning !** It appears that before version 7.48 of curl a bug affects the cookie management. Make sure that
-the version of curl on your system is >=7.48 (``curl --version`` to check).
+**Warning !** It appears that before version 7.48 of curl [a bug](https://github.com/curl/curl/issues/697) affects 
+the cookie management. 
+Make sure that the version of curl on your system is >=7.48 (``curl --version`` to check).
 
 ## Usage
 
