@@ -157,7 +157,7 @@
         }, 
         {
             "location": "/http-client/curl/", 
-            "text": "Curl HTTP Client\n\n\nCurl adapter for a simple scraping implementation\n\n\n\n\nCurl Adapter will allow to use the built in php CURL extension. This adapter \nfully supports proxies and cookies\n\n\nInstallation\n\n\nThe client is available with the package \n\nserps/http-client-curl\n: \n\n\n$ composer require 'serps/http-client-curl'\n\n\nAdditional requirement\n\n\nThis http client requires you to \ninstall the Curl php extension\n\n\nUsage\n\n\nuse Serps\\HttpClient\\PhantomJsClient;\n\n$client = new CurlClient();", 
+            "text": "Curl HTTP Client\n\n\nCurl adapter for a simple scraping implementation\n\n\n\n\nCurl Adapter will allow to use the built in php CURL extension. This adapter \nfully supports proxies and cookies\n\n\nInstallation\n\n\nThe client is available with the package \n\nserps/http-client-curl\n: \n\n\n$ composer require 'serps/http-client-curl'\n\n\nAdditional requirement\n\n\nThis http client requires you to \ninstall the Curl php extension\n\n\nWarning !\n It appears that before version 7.48 of curl a bug affects the cookie management. Make sure that\nthe version of curl on your system is \n=7.48 (\ncurl --version\n to check).\n\n\nUsage\n\n\nuse Serps\\HttpClient\\PhantomJsClient;\n\n$client = new CurlClient();", 
             "title": "CURL"
         }, 
         {
@@ -172,7 +172,7 @@
         }, 
         {
             "location": "/http-client/curl/#additional-requirement", 
-            "text": "This http client requires you to  install the Curl php extension", 
+            "text": "This http client requires you to  install the Curl php extension  Warning !  It appears that before version 7.48 of curl a bug affects the cookie management. Make sure that\nthe version of curl on your system is  =7.48 ( curl --version  to check).", 
             "title": "Additional requirement"
         }, 
         {
