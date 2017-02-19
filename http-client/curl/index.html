@@ -215,8 +215,9 @@
 <p><code>$ composer require 'serps/http-client-curl'</code></p>
 <h3 id="additional-requirement">Additional requirement</h3>
 <p>This http client requires you to <a href="http://php.net/manual/fr/curl.installation.php">install the Curl php extension</a></p>
-<p><strong>Warning !</strong> It appears that before version 7.48 of curl a bug affects the cookie management. Make sure that
-the version of curl on your system is &gt;=7.48 (<code>curl --version</code> to check).</p>
+<p><strong>Warning !</strong> It appears that before version 7.48 of curl <a href="https://github.com/curl/curl/issues/697">a bug</a> affects 
+the cookie management. 
+Make sure that the version of curl on your system is &gt;=7.48 (<code>curl --version</code> to check).</p>
 <h2 id="usage">Usage</h2>
 <pre><code class="php">use Serps\HttpClient\PhantomJsClient;
 
