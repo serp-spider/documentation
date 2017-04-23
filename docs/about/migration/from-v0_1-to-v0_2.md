@@ -11,10 +11,10 @@ Version 0.2 overview
 The version 0.2 brings some improvements that target the future of the library. 
 
 - The version brings better tools to work with captcha. 
-- Some parts from google package are moved to core package 
-in order to make them ready for implementing new search engines. 
-- It makes browser emulation more transparent by implementing a browser class that aims to mimic browser.
-- Url interface was refactored to be more flexible
+- Some parts from google package are moved to core package (like css parser)
+in order to make them ready for implementing new search engines. These change should be invisible to you.
+- It makes browser emulation more transparent by implementing a browser class that aims to mimic real browsers.
+- Url interface was refactored to be more flexible.
 - There are also other changes, see the following guide for a review of the upgrade.
 
 
@@ -33,7 +33,8 @@ instead you need to add either ``zendframework/zend-diactoros`` or ``guzzle/psr7
 
 ## Request Builder
 
-Being said in the previous paragraph, serps does not provide a PSR-7 implementation anymore. 
+Being said in the previous paragraph, serps does not provide a PSR-7 implementation anymore. Until now we forced the
+users to use zend-diactoros, now the choice of the PSR-7 implementation will be up to the user. 
 The goal was to let user choose what implementation to depend on. To make it worth serps now provides 
 a request builder that will automatically detect what package is installed in your dependencies and create
 a request object for you:
@@ -43,6 +44,8 @@ a request object for you:
     
     $request = RequestBuilder::buildRequest('http://foo.bar', 'GET');
 ```
+
+In most cases this API change will be invisible to you.
 
 
 ## Google: client update
@@ -76,7 +79,7 @@ to
     GoogleClient::query(GoogleUrlInterface $googleUrl, BrowserInterface $browser = null)
 ```
 
-In addition object ``$googleClient->request``  and method ``GoogleClient::getRequestBuilder()`` do not exist anymore,
+In addition property ``$googleClient->request``  and method ``GoogleClient::getRequestBuilder()`` do not exist anymore,
 they are fully replaced by the browser implementation.
 
 The reason of this change is that google client was managing the request by itself. Making it hard to keep a consistent
@@ -132,6 +135,13 @@ As you can see the browser instance manages most of what a real browser would ma
 - Proxy
 - Cookie
 
+!!! Warning
+    Although the class is named ``Browser`` it does not mean that it will parse the css and javascript of the page.
+    The name browser was chosen because it's an object that encapsulates all the request logic and that is able to 
+    manage cookies and proxies as a real browser would do. 
+    
+    **In any case** this class is capable to parse javascript and css or to render the html by itself .
+
 
 ## Google: CSS Parser
 
@@ -168,11 +178,11 @@ either as a stream, as binary data or as a base64 string or to save it in a file
 ## Google: drop support for raw parser
 
 At the very beginning of serps we though it would make sense to provide a raw parser for raw google pages 
-(no-javascript pages), but in any case it was useful. Even the results from curl are the same as the javascript ones
-and this is due to the fact the the page needs to be evaluated to show a javascript disabled version (curl does 
+(no-javascript pages), but there is actually no use for it. Even the results from curl are the same as the javascript ones
+and this is due to the fact that the page needs to be evaluated to show a javascript disabled version (curl does 
 not evaluate the page, thus it returns almost the same version as the javascript-enabled one).
 
-Maintaining a raw parser was a lot of efforts for a few very results. We simply decided to drop support for the raw parser.
+Maintaining a raw parser was a lot of efforts for a very few results. We simply decided to drop support for the raw parser.
 
 ## Google: additional changes:
 
