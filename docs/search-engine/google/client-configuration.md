@@ -49,7 +49,7 @@ You can use a proxy at the request time
     $response = $googleClient->query($googleUrl, $proxy);
 ```
 
-Read the [proxy doc](/proxy.md) to learn more about proxy creation
+Read the [proxy doc](/proxy.md) to learn more about proxy creation.
 
 
 ## Cookie usage

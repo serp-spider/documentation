@@ -8,8 +8,7 @@ Guide to proxy management in SERPS
 
 ---
 
-
-Proxies are standardized in serps and this short guide will show you how to create them.
+Provided you have a working proxy, this short guide will show you to use it with SERPS in a standardized way. 
 
 
 ## Create a proxy

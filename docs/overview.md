@@ -99,6 +99,7 @@ This way, with a single client you can use as many proxies as you want.
     
     $googleClient->query($googleUrl, $proxy);
 ```
+Read the [proxy doc](/proxy.md) to learn more about proxy creation.
 
 Captcha
 -------
