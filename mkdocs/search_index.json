@@ -136,6 +136,36 @@
             "title": "Serialize cookies"
         }, 
         {
+            "location": "/proxy/", 
+            "text": "Proxy\n\n\nGuide to proxy management in SERPS\n\n\n\n\nProxies are standardized in serps and this short guide will show you how to create them.\n\n\nCreate a proxy\n\n\nProxy creation is possible in two ways. You can either build it from a \nsimple proxy string\n, or with \nproxy parts\n\n\nCreate a proxy from a string\n\n\nAssuming we have the proxy as a string, for instance with \n196.168.192.168:8080\n, you can use this string to \ncreate the proxy:\n\n\n use Serps\\Core\\Http\\Proxy;\n\n $proxy = Proxy::createFromString('196.168.192.168:8080');\n\n\n\n\nBy default the proxy will be a \nHTTP\n proxy but serps proxy also accepts \nHTTPS\n,\n \nSOCKS4\n and \nSOCKS5\n proxies, see with examples:\n\n\n use Serps\\Core\\Http\\Proxy;\n\n $httpProxy = Proxy::createFromString('http://196.168.192.168:8080');\n $httpsProxy = Proxy::createFromString('https://196.168.192.168:8080');\n $socks4Proxy = Proxy::createFromString('socks4://196.168.192.168:8080');\n $socks5Proxy = Proxy::createFromString('socks5://196.168.192.168:8080');\n\n\n\n\nYou can also add \nauthentication\n details (by default no authentication is set). You can do it by using the form\n\nauthentication\n@\nhost\n:\n\n\n    use Serps\\Core\\Http\\Proxy;\n\n    $proxy = Proxy::createFromString('https://user:password@196.168.192.168:8080');\n\n\n\n\nCreate a proxy from parts\n\n\nNow let's consider that you have some proxy parts (ip, port...) that are not put together as a string, you can use\nthem directly with the proxy constructor to create a new proxy:\n\n\n    use Serps\\Core\\Http\\Proxy;\n\n    $ip   = '192.168.192.168';\n    $port = 8080;\n\n    $proxy = new Proxy($ip, $port);\n\n\n\n\nBy default authentication is disabled and the proxy is an \nHTTP\n proxy but you can provide these details:\n\n\n    use Serps\\Core\\Http\\Proxy;\n\n     $type = 'HTTP';\n     $ip   = '192.168.192.168';\n     $port = 8080;\n     $user = 'user';\n     $pass = 'password';\n\n    $proxy = new Proxy($ip, $port, $user, $pass, $type);\n\n\n\n\nWhat to do with proxies\n\n\nThese proxies are usable with any http client. Find example on how to use them:\n\n\n\n\nwith google client", 
+            "title": "Proxies"
+        }, 
+        {
+            "location": "/proxy/#proxy", 
+            "text": "Guide to proxy management in SERPS   Proxies are standardized in serps and this short guide will show you how to create them.", 
+            "title": "Proxy"
+        }, 
+        {
+            "location": "/proxy/#create-a-proxy", 
+            "text": "Proxy creation is possible in two ways. You can either build it from a  simple proxy string , or with  proxy parts", 
+            "title": "Create a proxy"
+        }, 
+        {
+            "location": "/proxy/#create-a-proxy-from-a-string", 
+            "text": "Assuming we have the proxy as a string, for instance with  196.168.192.168:8080 , you can use this string to \ncreate the proxy:   use Serps\\Core\\Http\\Proxy;\n\n $proxy = Proxy::createFromString('196.168.192.168:8080');  By default the proxy will be a  HTTP  proxy but serps proxy also accepts  HTTPS ,\n  SOCKS4  and  SOCKS5  proxies, see with examples:   use Serps\\Core\\Http\\Proxy;\n\n $httpProxy = Proxy::createFromString('http://196.168.192.168:8080');\n $httpsProxy = Proxy::createFromString('https://196.168.192.168:8080');\n $socks4Proxy = Proxy::createFromString('socks4://196.168.192.168:8080');\n $socks5Proxy = Proxy::createFromString('socks5://196.168.192.168:8080');  You can also add  authentication  details (by default no authentication is set). You can do it by using the form authentication @ host :      use Serps\\Core\\Http\\Proxy;\n\n    $proxy = Proxy::createFromString('https://user:password@196.168.192.168:8080');", 
+            "title": "Create a proxy from a string"
+        }, 
+        {
+            "location": "/proxy/#create-a-proxy-from-parts", 
+            "text": "Now let's consider that you have some proxy parts (ip, port...) that are not put together as a string, you can use\nthem directly with the proxy constructor to create a new proxy:      use Serps\\Core\\Http\\Proxy;\n\n    $ip   = '192.168.192.168';\n    $port = 8080;\n\n    $proxy = new Proxy($ip, $port);  By default authentication is disabled and the proxy is an  HTTP  proxy but you can provide these details:      use Serps\\Core\\Http\\Proxy;\n\n     $type = 'HTTP';\n     $ip   = '192.168.192.168';\n     $port = 8080;\n     $user = 'user';\n     $pass = 'password';\n\n    $proxy = new Proxy($ip, $port, $user, $pass, $type);", 
+            "title": "Create a proxy from parts"
+        }, 
+        {
+            "location": "/proxy/#what-to-do-with-proxies", 
+            "text": "These proxies are usable with any http client. Find example on how to use them:   with google client", 
+            "title": "What to do with proxies"
+        }, 
+        {
             "location": "/search-engine/google/", 
             "text": "Google Client\n\n\n\n\nEverything about the google client\n\n\n\n\n\n\nInstallation\n\n\nOverview\n\n\nCreate urls\n\n\nConfigure the google client\n\n\nParse a google page\n\n\nHandle errors\n\n\n\n\n\n\nInstallation\n\n\nThe google client is available with the package \n\nserps/search-engine-google\n: \n\n\n$ composer require 'serps/search-engine-google'\n\n\n\n\nImportant note agout google updates\n\n\nWe don't know when google dom updates, but when it does, we will place as many efforts as possible\nto get the client updated.\n\n\nTo make sure you are always up to date we advice you to \n\nwatch the repository on github\n.\nNot only you will be notified when a release is published, but you will also know when a bug is detected and \nreported on the issue tracker.\n\n\n\n\nOverview\n\n\nThe google client needs a http client interface to be constructed and an url to be parsed.\n\n\n    use Serps\\SearchEngine\\Google\\GoogleClient;\n    use Serps\\HttpClient\\CurlClient;\n    use Serps\\SearchEngine\\Google\\GoogleUrl;\n\n    // Create a google client using the curl http client\n    $googleClient = new GoogleClient(new CurlClient());\n\n    // Tell the client to use a user agent\n    $userAgent = \nMozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.93 Safari/537.36\n;\n    $googleClient-\nrequest-\nsetUserAgent($userAgent);\n\n    // Create the url that will be parsed\n    $googleUrl = new GoogleUrl();\n    $googleUrl-\nsetSearchTerm('simpsons');\n\n    $response = $googleClient-\nquery($googleUrl);\n\n    $results = $response-\ngetNaturalResults();\n\n    foreach($results as $result){\n        // Analyse the results\n    }\n\n\n\n\n\n\nNext step: \nconfigure the client", 
             "title": "Google"
