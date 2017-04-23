@@ -242,10 +242,10 @@ the version is published.</p>
 <p>The version 0.2 brings some improvements that target the future of the library. </p>
 <ul>
 <li>The version brings better tools to work with captcha. </li>
-<li>Some parts from google package are moved to core package 
-in order to make them ready for implementing new search engines. </li>
-<li>It makes browser emulation more transparent by implementing a browser class that aims to mimic browser.</li>
-<li>Url interface was refactored to be more flexible</li>
+<li>Some parts from google package are moved to core package (like css parser)
+in order to make them ready for implementing new search engines. These change should be invisible to you.</li>
+<li>It makes browser emulation more transparent by implementing a browser class that aims to mimic real browsers.</li>
+<li>Url interface was refactored to be more flexible.</li>
 <li>There are also other changes, see the following guide for a review of the upgrade.</li>
 </ul>
 <h2 id="dependencies">Dependencies</h2>
@@ -260,7 +260,8 @@ in order to make them ready for implementing new search engines. </li>
 instead you need to add either <code>zendframework/zend-diactoros</code> or <code>guzzle/psr7</code> to your dependency. </li>
 </ul>
 <h2 id="request-builder">Request Builder</h2>
-<p>Being said in the previous paragraph, serps does not provide a PSR-7 implementation anymore. 
+<p>Being said in the previous paragraph, serps does not provide a PSR-7 implementation anymore. Until now we forced the
+users to use zend-diactoros, now the choice of the PSR-7 implementation will be up to the user. 
 The goal was to let user choose what implementation to depend on. To make it worth serps now provides 
 a request builder that will automatically detect what package is installed in your dependencies and create
 a request object for you:</p>
@@ -269,6 +270,7 @@ a request object for you:</p>
     $request = RequestBuilder::buildRequest('http://foo.bar', 'GET');
 </code></pre>
 
+<p>In most cases this API change will be invisible to you.</p>
 <h2 id="google-client-update">Google: client update</h2>
 <p>This is probably the most sensible change from the upgrade. The google client changed the way it builds requests.</p>
 <p>Instead of giving it a <strong>http client</strong> at construction and <strong>proxy</strong> and <strong>cookie jar</strong> at request time, you will now
@@ -289,7 +291,7 @@ In other words the constructor moved from </p>
 <pre><code class="php">    GoogleClient::query(GoogleUrlInterface $googleUrl, BrowserInterface $browser = null)
 </code></pre>
 
-<p>In addition object <code>$googleClient-&gt;request</code>  and method <code>GoogleClient::getRequestBuilder()</code> do not exist anymore,
+<p>In addition property <code>$googleClient-&gt;request</code>  and method <code>GoogleClient::getRequestBuilder()</code> do not exist anymore,
 they are fully replaced by the browser implementation.</p>
 <p>The reason of this change is that google client was managing the request by itself. Making it hard to keep a consistent
 browser behaviour from different places and that was an issue for managing captcha that need to have the same
@@ -337,6 +339,13 @@ manage the url given to the browser and the response returned from the browser.<
 <li>Proxy</li>
 <li>Cookie</li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Although the class is named <code>Browser</code> it does not mean that it will parse the css and javascript of the page.
+The name browser was chosen because it's an object that encapsulates all the request logic and that is able to 
+manage cookies and proxies as a real browser would do. </p>
+<p><strong>In any case</strong> this class is capable to parse javascript and css or to render the html by itself .</p>
+</div>
 <h2 id="google-css-parser">Google: CSS Parser</h2>
 <p>The css parser is not available from google package anymore, if you were using it you will need to rely on the 
 replacement from the core package.</p>
@@ -360,10 +369,10 @@ either as a stream, as binary data or as a base64 string or to save it in a file
 
 <h2 id="google-drop-support-for-raw-parser">Google: drop support for raw parser</h2>
 <p>At the very beginning of serps we though it would make sense to provide a raw parser for raw google pages 
-(no-javascript pages), but in any case it was useful. Even the results from curl are the same as the javascript ones
-and this is due to the fact the the page needs to be evaluated to show a javascript disabled version (curl does 
+(no-javascript pages), but there is actually no use for it. Even the results from curl are the same as the javascript ones
+and this is due to the fact that the page needs to be evaluated to show a javascript disabled version (curl does 
 not evaluate the page, thus it returns almost the same version as the javascript-enabled one).</p>
-<p>Maintaining a raw parser was a lot of efforts for a few very results. We simply decided to drop support for the raw parser.</p>
+<p>Maintaining a raw parser was a lot of efforts for a very few results. We simply decided to drop support for the raw parser.</p>
 <h2 id="google-additional-changes">Google: additional changes:</h2>
 <ul>
 <li><code>Serps\SearchEngine\Google\GoogleDom</code> now extends <code>Serps\Core\Dom\WebPage</code> </li>
