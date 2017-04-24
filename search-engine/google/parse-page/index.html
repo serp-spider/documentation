@@ -217,6 +217,8 @@
                     
                         <li class="level-4"><a href="#in-the-news">In the News</a></li>
                     
+                        <li class="level-4"><a href="#top-stories">Top Stories</a></li>
+                    
                         <li class="level-4"><a href="#flights">Flights</a></li>
                     
             
@@ -552,6 +554,11 @@ See bellow for all available data per result type.</p>
 
 <h4 id="in-the-news">In the News</h4>
 <p>Recent news results.</p>
+<div class="admonition danger">
+<p class="admonition-title">These results do not exists anymore</p>
+<p>In early 2017 Google deleted in the news results, they were replaced by "top stories" results.
+These results are now deprecated and might be deleted from serps in future releases.</p>
+</div>
 <p><img alt="In the News" src="../images/result-types/in_the_news.png" /></p>
 <p><strong>Available with</strong></p>
 <ul>
@@ -574,6 +581,46 @@ See bellow for all available data per result type.</p>
 
     foreach($results as $result){
         if($result-&gt;is(NaturalResultType::IN_THE_NEWS)){
+            foreach($result-&gt;news as $news){
+                $newsTitle = $title;
+                $newsUrl = $url;
+            }
+        }
+    }
+</code></pre>
+
+<h4 id="top-stories">Top Stories</h4>
+<p>Carousel of recent popular news.</p>
+<blockquote>
+<p>Implemented in version <code>0.1.4</code> as a successor for "in the news"</p>
+</blockquote>
+<p>Top stories might be present in 2 distinctive formats: <code>carousel</code> or <code>vertical</code>. 
+Note that vertical form is very rare.</p>
+<p><strong>Carousel</strong></p>
+<p><img alt="Topstories carousel" src="../images/result-types/top_stories_carousel.jpg" /></p>
+<p><strong>Vertical</strong></p>
+<p><img alt="Topstories carousel" src="../images/result-types/top_stories_vertical.jpg" /></p>
+<p><strong>Available with</strong></p>
+<ul>
+<li><code>NaturalResultType::TOP_STORIES</code></li>
+</ul>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>is_carousel</code> <small><strong>boolean</strong></small>: true when is a carousel, false when vertical</li>
+<li><code>news</code> <small><strong>array</strong></small><ul>
+<li><code>title</code> <small><strong>string</strong></small> <strong>[A]</strong></li>
+<li><code>url</code><small><strong>string</strong></small>: The url reached when clicking the title</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+
+    $results = $response-&gt;getNaturalResults();
+
+    foreach($results as $result){
+        if($result-&gt;is(NaturalResultType::TOP_STORIES)){
             foreach($result-&gt;news as $news){
                 $newsTitle = $title;
                 $newsUrl = $url;
