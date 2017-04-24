@@ -362,6 +362,10 @@ Recent tweet list from an user matching the search keywords.
 Recent news results.
 
 
+!!! danger "These results do not exists anymore"
+    In early 2017 Google deleted in the news results, they were replaced by "top stories" results.
+    These results are now deprecated and might be deleted from serps in future releases.
+
 ![In the News](images/result-types/in_the_news.png)
 
 
@@ -386,6 +390,56 @@ Recent news results.
     
     foreach($results as $result){
         if($result->is(NaturalResultType::IN_THE_NEWS)){
+            foreach($result->news as $news){
+                $newsTitle = $title;
+                $newsUrl = $url;
+            }
+        }
+    }
+```
+
+
+
+#### Top Stories
+
+Carousel of recent popular news.
+
+> Implemented in version ``0.1.4`` as a successor for "in the news"
+
+Top stories might be present in 2 distinctive formats: ``carousel`` or ``vertical``. 
+Note that vertical form is very rare.
+
+**Carousel**
+
+![Topstories carousel](images/result-types/top_stories_carousel.jpg)
+
+
+**Vertical**
+
+![Topstories carousel](images/result-types/top_stories_vertical.jpg)
+
+
+**Available with**
+
+- ``NaturalResultType::TOP_STORIES``
+
+**Data**
+
+- ``is_carousel`` <small>**boolean**</small>: true when is a carousel, false when vertical
+- ``news`` <small>**array**</small>
+    - ``title`` <small>**string**</small> **[A]**
+    - ``url``<small>**string**</small>: The url reached when clicking the title
+
+**Example**
+
+```php
+    use Serps\SearchEngine\Google\NaturalResultType;
+
+    
+    $results = $response->getNaturalResults();
+    
+    foreach($results as $result){
+        if($result->is(NaturalResultType::TOP_STORIES)){
             foreach($result->news as $news){
                 $newsTitle = $title;
                 $newsUrl = $url;
