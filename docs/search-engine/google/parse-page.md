@@ -425,7 +425,7 @@ Note that vertical form is very rare.
 
 **Data**
 
-- ``is_carousel`` <small>**boolean**</small>: true when is a carousel, false when vertical
+- ``isCarousel`` <small>**boolean**</small>: true when is a carousel, false when vertical
 - ``news`` <small>**array**</small>
     - ``title`` <small>**string**</small> **[A]**
     - ``url``<small>**string**</small>: The url reached when clicking the title
