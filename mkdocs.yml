@@ -6,6 +6,7 @@ pages:
   - Documentation:
     - Home: index.md
     - Overview: overview.md
+    - Browser: browser.md
     - Cookies: cookies.md
     - Proxies: proxy.md
 

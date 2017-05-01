@@ -1,22 +1,24 @@
 Migration from v0.1 to v0.2
 ===========================
 
-!!! Warning "Version not released yet"
-    Be aware that this version is yet under development and this migration guide is a draft that might evolve until
-    the version is published.
-
 Version 0.2 overview
 --------------------
 
 The version 0.2 brings some improvements that target the future of the library. 
 
-- The version brings better tools to work with captcha. 
 - Some parts from google package are moved to core package (like css parser)
 in order to make them ready for implementing new search engines. These change should be invisible to you.
 - It makes browser emulation more transparent by implementing a browser class that aims to mimic real browsers.
+- Google client in now able to **parse mobile results**
 - Url interface was refactored to be more flexible.
+- We started to review tools to work with captcha in next releases.
 - There are also other changes, see the following guide for a review of the upgrade.
 
+
+The following guide is aimed to help you to upgrade to v0.2, if you encounter any problem during the upgrade, the
+community might help you on the gitter chat room, just ask!
+
+The version 0.1 is now deprecated and wont be maintained anymore.
 
 
 ## Dependencies
@@ -28,8 +30,8 @@ Css parser moved from google package to core:
 
 Remove PSR-7 implementation:
 
-- **IN PROGRESS** ``serps/search-engine-google`` does not depend on ``zendframework/zend-diactoros`` anymore,
-instead you need to add either ``zendframework/zend-diactoros`` or ``guzzle/psr7`` to your dependency. 
+- ``serps/search-engine-google`` does not depend on ``zendframework/zend-diactoros`` anymore,
+instead you need to add either ``zendframework/zend-diactoros`` or ``guzzlehttp/psr7`` to your dependency. 
 
 ## Request Builder
 
@@ -45,7 +47,7 @@ a request object for you:
     $request = RequestBuilder::buildRequest('http://foo.bar', 'GET');
 ```
 
-In most cases this API change will be invisible to you.
+In most cases this API change will be invisible to you, except that you need to add a psr7 dependency by yourself.
 
 
 ## Google: client update
@@ -142,6 +144,11 @@ As you can see the browser instance manages most of what a real browser would ma
     
     **In any case** this class is capable to parse javascript and css or to render the html by itself .
 
+## Google: support for mobile results
+
+Google is now able to parse mobile results. All the mobile have been implemented in the same way as the other results
+and that should be invisible to you except that now you can parse mobile pages. 
+The [google parse guide](/search-engine/google/parse-page.md) was updated with new mobile results
 
 ## Google: CSS Parser
 
@@ -162,7 +169,9 @@ Serps\Core\Dom\Css:::toXPath('.expression');
 
 ## Google: image results
 
-Thanks to the addition of the [MediaInterface](#MediaInterface) serps makes it easy to work with image results parsed 
+Thanks to the recent addition of the 
+[MediaInterface](https://github.com/serp-spider/core/blob/a016dc324c01fca3c8a921d641ab251c43fa4e18/src/Core/Media/MediaInterface.php) 
+serps makes it easy to work with image results parsed 
 from google. 
 
 With the previous version image result format was unpredictable: that could be an url, or a base64 image... 

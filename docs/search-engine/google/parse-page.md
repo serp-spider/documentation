@@ -13,10 +13,16 @@ Back to the [**general google documentation**](../google.md).
 ---
 
 
+Parsing a page consists in the structured extraction of parts of the page. The end result is the ability to 
+make the distinction between these different parts and to gather details on them to show them in another fashion.
+
+
 !!! warning "Important notice about google update"
     The following examples can change at any time. 
     
     As soon as google changes its page structure, you may need to update the library.
+    You can [watch the repository on github](https://github.com/serp-spider/search-engine-google/subscription)
+    to be warned of new releases as they come.
 
 
 ![Classical Results](images/serp.png)
@@ -25,9 +31,8 @@ A google SERP can contain different type of result.
 Firstly they are divided in three distinct regions: **natural** (organic), **paid** (adwords) and **graph results** and each of them
 has its own results types. Graph result are **not supported** by the library.
 
-Through there is a great diversity of results the library gives you the api to work with them, here we document
-how to work with it.
-
+There is a great diversity of results and the library gives you the api to work with them, here we document
+how you will work with. 
 
 ## Natural Results
 
@@ -130,9 +135,13 @@ These results are the common natural results that have always existed in google.
 
 #### Classical Large
 
-This type an extension of the [classical result](#classical), with sitelinks in addition.
+This type is an extension of the [classical result](#classical), with sitelinks in addition.
 
-![Largent Classical Results](images/result-types/classical_large.png)
+![Largent Classical Results](images/result-types/classical_large.jpg)
+
+Mobile version (since version 0.2): 
+
+![Largent Classical Results on mobiles](images/result-types/classical_large_mobile.jpg)
 
 
 **Available with**
@@ -217,7 +226,13 @@ The video result can be illustrated with either a thumbnail or a large image.
 Images that appear as a group of results.
 
 
-![Image Group Result](images/result-types/image_group.png)
+![Image Group Result](images/result-types/image_group.jpg)
+
+
+Mobile version (since version 0.2):
+
+![Image Group Result](images/result-types/image_group_carousel.jpg)
+
 
 
 **Available with**
@@ -231,6 +246,7 @@ Images that appear as a group of results.
     - ``targetUrl``<small>**string**</small>: the url reached on clicking the image
     - ``image`` <small>**string**</small>: the image data as specified by google (either an image url or a base64 encoded image)
 - ``moreUrl`` <small>**string**</small>: The url corresponding to the google image search
+- ``isCarousel`` <small>**boolean**</small>: True if images have the form of a carousel (since version 0.2)
 
 **Example**
 
@@ -250,12 +266,51 @@ Images that appear as a group of results.
 ```
 
 
+#### Video Group
+
+This type is present on mobile results and was added with version ``0.2``. 
+
+
+It shows some videos (usualy 10) arranged in a carousel.
+
+![Video Results](images/result-types/video_group.jpg)
+
+
+**Available with**
+
+- ``NaturalResultType::VIDEO_GROUP``
+
+**Data**
+
+
+- ``videos`` <small>**array**</small>: the list of images that compose the image group, each image contains:
+    - ``title`` <small>**string**</small>: Title of the video
+    - ``url``<small>**string**</small>: the url reached on clicking the item
+    - ``image`` <small>**Media object**</small>: image of the video
+
+**Example**
+
+```php
+    use Serps\SearchEngine\Google\NaturalResultType;
+
+    
+    $results = $response->getNaturalResults();
+    
+    foreach($results as $result){
+        if($result->is(NaturalResultType::VIDEO_GROUP)){
+            foreach($result->videos as $video){
+                $url = $video->url;
+            }
+        }
+    }
+```
+
 #### Map
 
 A result illustrated by a map and that contains sub-results.
 
 
-![Map Result](images/result-types/map.png)
+![Map Result](images/result-types/map.jpg)
 
 
 **Available with**
@@ -619,11 +674,11 @@ In some cases this number is not available (for instance with mobile layout)
     $numberOfResults = $response->getNumberOfResults();
     
     if(null === $numberOfResults){
-        // houston, we have a problem...
-    } elseif($numberOfResults > 2000) {
-        // not so many
+        // D'oh!
+    } elseif($numberOfResults < 2000) {
+        // ...
     } else {
-        // a way too much
+        // ...
     }
 ``` 
 
@@ -722,3 +777,12 @@ You can get the [DOM object](http://php.net/manual/fr/class.domdocument.php) to 
     // Writes the dom content in the file 'file.html'
     $dom->save('file.html');
 ```
+
+
+--------
+
+view also:
+
+- [**Configure the google client**](google/client-configuration.md)
+- [**Create urls**](google/google-url.md)
+- [**Handle errors**](google/handle-errors.md)

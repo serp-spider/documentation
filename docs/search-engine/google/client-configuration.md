@@ -11,79 +11,63 @@ Back to the [**general google documentation**](../google.md).
 
 ---
 
-## User agent
+## Query google
 
-**Setting an user agent is very important**. 
-By default it will be the one from the http client, and google would easily detect your script as a bot.
+To query google you need to have a working google client. 
 
-To avoid that it happens configure an user agent:
+When a query is emitted by the google client there are 2 main components involved: a [browser](/browser.md) 
+that serves to create the http request and a [google url](google-url.md).
 
-```php
-    $googleClient->request->setUserAgent('user agent string');
-```
-
-You should **always** set a **real** user agent. Here are a few user agent lists:
-
-- [from Chrome](http://www.useragentstring.com/pages/Chrome/)
-- [from Firefox](http://www.useragentstring.com/pages/Firefox/)
-- [from Opera](http://www.useragentstring.com/pages/Opera/)
-- [from IE](http://www.useragentstring.com/pages/Internet%20Explorer/)
-
-
-## Proxy usage
-
-You can use a proxy at the request time
+Here is a bare example of how it works:
 
 ```php
-    use Serps\SearchEngine\Google\GoogleClient;
-    use Serps\HttpClient\CurlClient;
-    use Serps\SearchEngine\Google\GoogleUrl;
 
-    $googleClient = new GoogleClient(new CurlClient());
-    
-    $googleUrl = new GoogleUrl();
-    $google->setSearchTerm('simpsons');
-    
-    $cookieJar = new Proxy('1.1.1.1', 8080);
-    
-    $response = $googleClient->query($googleUrl, $proxy);
+use Serps\SearchEngine\Google\GoogleClient;
+use Serps\HttpClient\CurlClient;
+use Serps\SearchEngine\Google\GoogleUrl;
+use Serps\Core\Browser\Browser;
+
+// 1. First you need to create a browser instance
+
+$browser = new Browser(new CurlClient());
+
+
+// 2. Then we create an google url for the search term "simpsons"
+
+$googleUrl = new GoogleUrl();
+$googleUrl->setSearchTerm('simpsons');
+
+
+// 3. We create a google client with our browser
+
+$googleClient = new GoogleClient($browser);
+
+// 4. Finally we send the query to google with our url
+
+$googleData = $googleClient->query($googleUrl);
+
 ```
 
-Read the [proxy doc](/proxy.md) to learn more about proxy creation.
-
-
-## Cookie usage
-
-!!! Warning
-    Cookies usage is still at prototype stage and all http engines do not support cookies yet.
-
-The google client can share cookies across several request, thus your navigation will evolve and persist across
-many requests.
-
-Like proxies, cookies are request dependent
+Note that you are not required to give a browser when creating the googleClient and you can only specify it 
+at request time. In this case steps 3 and 4 become:
 
 ```php
-    use Serps\SearchEngine\Google\GoogleClient;
-    use Serps\HttpClient\CurlClient;
-    use Serps\SearchEngine\Google\GoogleUrl;
-    use Serps\Core\Cookie\ArrayCookieJar;
-    
 
-    $googleClient = new GoogleClient(new CurlClient());
-    
-    $googleUrl = new GoogleUrl();
-    $google->setSearchTerm('simpsons');
-    
-    $cookieJar = new ArrayCookieJar();
-    
-    // After the query to google cookie jar will evolve according to the cookies from the request
-    $response = $googleClient->query($googleUrl, $cookieJar);
+// 3. We create a google client without the browser
+
+$googleClient = new GoogleClient();
+
+// 4. Finally we send the query to google with our url and our browser
+
+$googleData = $googleClient->query($googleUrl, $browser);
+
 ```
 
+## Configure the request
 
-View the dedicated [cookie documentation](/cookies.md) to learn more about cookies manipulation.
-
-
+At the first release of the google client it was possible to modify user agent, proxy, language headers and cookies 
+on the google client. For better management of requests all this logic has moved on the browser since version ``0.2``. 
+To learn more on this configuration, visit the  [browser documentation](/browser.md).
 
 
 ## Solve a Captcha

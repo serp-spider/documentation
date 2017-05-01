@@ -156,3 +156,11 @@ Sets language of the results. Modifies the value for the ``lr`` parameter. e.g  
 ``$url->setAutoCorrectionEnabled($enabled)``
 
 Sets if the auto correction should be enabled (``true`` or ``false``). Modifies the value for the ``nfpr`` parameter.
+
+-------
+
+View also:
+
+- [**Configure the google client**](google/client-configuration.md)
+- [**Parse a google page**](google/parse-page.md)
+- [**Handle errors**](google/handle-errors.md)

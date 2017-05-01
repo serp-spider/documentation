@@ -192,3 +192,13 @@ exceptions are made for.
         }
     }
 ```
+
+
+
+-------
+
+View also:
+
+- [**Configure the google client**](google/client-configuration.md)
+- [**Create urls**](google/google-url.md)
+- [**Parse a google page**](google/parse-page.md)

@@ -56,7 +56,7 @@ $cookie = new Cookie('baz', 'bar', ['domain' => 'foo.bar']);
 $cookieJar->set($cookie);
 ```
 
-## Retrieves cookies
+## Retrieving cookies
 
 The ``all`` method is responsible for getting cookies matching some filters
 
@@ -81,7 +81,7 @@ $cookies = $cookieJar->all("foo.bar");
 $cookies = $cookieJar->all("foo.bar", "/", "foo", false, false);
 ```
 
-### Retrieve cookie for a request
+### Retrieve cookies for a request
 
 It's possible to automatically retrieve cookies that match a given PSR-7 request:
 
