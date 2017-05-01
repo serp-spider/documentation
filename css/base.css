@@ -574,7 +574,11 @@ div.col-md-9 img.frameless-image{
 .alpha-banner{
     padding: 15px 0;
     font-weight: bold;
-    background: #783D5A;
+    background: #75b379;
     color: #FFF;
     text-align: center;
+}
+
+.alpha-banner a:link, .alpha-banner a:visited{
+    color: #444444;
 }

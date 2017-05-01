@@ -82,6 +82,12 @@
                         
                             
 <li >
+    <a href="../../browser/">Browser</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../cookies/">Cookies</a>
 </li>
 
@@ -189,7 +195,7 @@
 
     <div class="alpha-banner">
         <i class="fa fa-exclamation-circle"></i>
-        The project is in alpha phase
+        We just released <a href="/about/migration/from-v0_1-to-v0_2/">version 0.2</a>
         <i class="fa fa-exclamation-circle"></i>
     </div>
 
@@ -203,6 +209,9 @@
             <li class="level-2"><a href="#overview">Overview</a></li>
             
         
+            <li class="level-2"><a href="#disclaimer">Disclaimer</a></li>
+            
+        
     
     </ul>
 </div></div>
@@ -213,10 +222,9 @@
 <p><center>Everything about the google client</center></p>
 <hr />
 <ul>
-<li><a href="#installation"><strong>Installation</strong></a></li>
-<li><a href="#overview"><strong>Overview</strong></a></li>
-<li><a href="google-url/"><strong>Create urls</strong></a></li>
+<li><a href="#installation"><strong>Installation and overview</strong></a></li>
 <li><a href="client-configuration/"><strong>Configure the google client</strong></a></li>
+<li><a href="google-url/"><strong>Create urls</strong></a></li>
 <li><a href="parse-page/"><strong>Parse a google page</strong></a></li>
 <li><a href="handle-errors/"><strong>Handle errors</strong></a></li>
 </ul>
@@ -225,6 +233,10 @@
 <p>The google client is available with the package 
 <a href="https://packagist.org/packages/serps/search-engine-google">serps/search-engine-google</a>: </p>
 <p><code>$ composer require 'serps/search-engine-google'</code></p>
+<p>In addition you will require to install either zend-diactoros or guzzle/psr7 to provide a psr7 implementation</p>
+<p><code>$ composer require 'zendframework/zend-diactoros'</code></p>
+<p>or </p>
+<p><code>$ composer require 'guzzlehttp/psr7'</code></p>
 <div class="admonition note">
 <p class="admonition-title">Important note agout google updates</p>
 <p>We don't know when google dom updates, but when it does, we will place as many efforts as possible
@@ -235,17 +247,19 @@ Not only you will be notified when a release is published, but you will also kno
 reported on the issue tracker.</p>
 </div>
 <h2 id="overview">Overview</h2>
-<p>The google client needs a http client interface to be constructed and an url to be parsed.</p>
+<p>The google client needs a browser to be constructed and an url to be parsed.</p>
 <pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
     use Serps\HttpClient\CurlClient;
     use Serps\SearchEngine\Google\GoogleUrl;
+    use Serps\Core\Browser\Browser;
 
-    // Create a google client using the curl http client
-    $googleClient = new GoogleClient(new CurlClient());
-
-    // Tell the client to use a user agent
     $userAgent = &quot;Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.93 Safari/537.36&quot;;
-    $googleClient-&gt;request-&gt;setUserAgent($userAgent);
+    $browserLanguage = &quot;fr-FR&quot;;
+
+    $browser = new Browser(new CurlClient(), $userAgent, $browserLanguage);
+
+    // Create a google client using the browser we configured
+    $googleClient = new GoogleClient($browser);
 
     // Create the url that will be parsed
     $googleUrl = new GoogleUrl();
@@ -261,7 +275,24 @@ reported on the issue tracker.</p>
 </code></pre>
 
 <p><br/></p>
-<p>Next step: <a href="client-configuration/"><strong>configure the client</strong></a></p></div>
+<h2 id="disclaimer">Disclaimer</h2>
+<blockquote>
+<p><cite>Using our Services does not give you ownership of any intellectual property rights in 
+our Services or the content you access. 
+You may not use content from our Services unless you obtain permission from its owner or 
+are otherwise permitted by law.</cite></p>
+<p><small>Extract from <a href="https://www.google.com/policies/terms/">Google terms of services</a></small></p>
+</blockquote>
+<p>When using this software must respect terms of services of third parties like Google.
+Serps authors and contributors cannot be hold as liable for the use you make of this software. </p>
+<hr />
+<p>Next steps: </p>
+<ul>
+<li><a href="client-configuration/"><strong>Configure the google client</strong></a></li>
+<li><a href="google-url/"><strong>Create urls</strong></a></li>
+<li><a href="parse-page/"><strong>Parse a google page</strong></a></li>
+<li><a href="handle-errors/"><strong>Handle errors</strong></a></li>
+</ul></div>
             
         </div>
 

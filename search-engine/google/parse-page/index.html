@@ -82,6 +82,12 @@
                         
                             
 <li >
+    <a href="../../../browser/">Browser</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../../cookies/">Cookies</a>
 </li>
 
@@ -189,7 +195,7 @@
 
     <div class="alpha-banner">
         <i class="fa fa-exclamation-circle"></i>
-        The project is in alpha phase
+        We just released <a href="/about/migration/from-v0_1-to-v0_2/">version 0.2</a>
         <i class="fa fa-exclamation-circle"></i>
     </div>
 
@@ -208,6 +214,8 @@
                         <li class="level-4"><a href="#classical-video">Classical Video</a></li>
                     
                         <li class="level-4"><a href="#image-group">Image Group</a></li>
+                    
+                        <li class="level-4"><a href="#video-group">Video Group</a></li>
                     
                         <li class="level-4"><a href="#map">Map</a></li>
                     
@@ -268,17 +276,21 @@
 <hr />
 <p>Back to the <a href="../"><strong>general google documentation</strong></a>.</p>
 <hr />
+<p>Parsing a page consists in the structured extraction of parts of the page. The end result is the ability to 
+make the distinction between these different parts and to gather details on them to show them in another fashion.</p>
 <div class="admonition warning">
 <p class="admonition-title">Important notice about google update</p>
 <p>The following examples can change at any time. </p>
-<p>As soon as google changes its page structure, you may need to update the library.</p>
+<p>As soon as google changes its page structure, you may need to update the library.
+You can <a href="https://github.com/serp-spider/search-engine-google/subscription">watch the repository on github</a>
+to be warned of new releases as they come.</p>
 </div>
 <p><img alt="Classical Results" src="../images/serp.png" /></p>
 <p>A google SERP can contain different type of result.
 Firstly they are divided in three distinct regions: <strong>natural</strong> (organic), <strong>paid</strong> (adwords) and <strong>graph results</strong> and each of them
 has its own results types. Graph result are <strong>not supported</strong> by the library.</p>
-<p>Through there is a great diversity of results the library gives you the api to work with them, here we document
-how to work with it.</p>
+<p>There is a great diversity of results and the library gives you the api to work with them, here we document
+how you will work with. </p>
 <h2 id="natural-results">Natural Results</h2>
 <p>Natural results (aka organic results) are main results of the page.</p>
 <p>Each natural result has a position and some available data. You can access them the following way (see the foreach loop):</p>
@@ -361,8 +373,10 @@ See bellow for all available data per result type.</p>
 </code></pre>
 
 <h4 id="classical-large">Classical Large</h4>
-<p>This type an extension of the <a href="#classical">classical result</a>, with sitelinks in addition.</p>
-<p><img alt="Largent Classical Results" src="../images/result-types/classical_large.png" /></p>
+<p>This type is an extension of the <a href="#classical">classical result</a>, with sitelinks in addition.</p>
+<p><img alt="Largent Classical Results" src="../images/result-types/classical_large.jpg" /></p>
+<p>Mobile version (since version 0.2): </p>
+<p><img alt="Largent Classical Results on mobiles" src="../images/result-types/classical_large_mobile.jpg" /></p>
 <p><strong>Available with</strong></p>
 <ul>
 <li><code>NaturalResultType::CLASSICAL_LARGE</code></li>
@@ -434,7 +448,9 @@ See bellow for all available data per result type.</p>
 
 <h4 id="image-group">Image Group</h4>
 <p>Images that appear as a group of results.</p>
-<p><img alt="Image Group Result" src="../images/result-types/image_group.png" /></p>
+<p><img alt="Image Group Result" src="../images/result-types/image_group.jpg" /></p>
+<p>Mobile version (since version 0.2):</p>
+<p><img alt="Image Group Result" src="../images/result-types/image_group_carousel.jpg" /></p>
 <p><strong>Available with</strong></p>
 <ul>
 <li><code>NaturalResultType::IMAGE_GROUP</code></li>
@@ -448,6 +464,7 @@ See bellow for all available data per result type.</p>
 </ul>
 </li>
 <li><code>moreUrl</code> <small><strong>string</strong></small>: The url corresponding to the google image search</li>
+<li><code>isCarousel</code> <small><strong>boolean</strong></small>: True if images have the form of a carousel (since version 0.2)</li>
 </ul>
 <p><strong>Example</strong></p>
 <pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
@@ -464,9 +481,41 @@ See bellow for all available data per result type.</p>
     }
 </code></pre>
 
+<h4 id="video-group">Video Group</h4>
+<p>This type is present on mobile results and was added with version <code>0.2</code>. </p>
+<p>It shows some videos (usualy 10) arranged in a carousel.</p>
+<p><img alt="Video Results" src="../images/result-types/video_group.jpg" /></p>
+<p><strong>Available with</strong></p>
+<ul>
+<li><code>NaturalResultType::VIDEO_GROUP</code></li>
+</ul>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>videos</code> <small><strong>array</strong></small>: the list of images that compose the image group, each image contains:<ul>
+<li><code>title</code> <small><strong>string</strong></small>: Title of the video</li>
+<li><code>url</code><small><strong>string</strong></small>: the url reached on clicking the item</li>
+<li><code>image</code> <small><strong>Media object</strong></small>: image of the video</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+
+    $results = $response-&gt;getNaturalResults();
+
+    foreach($results as $result){
+        if($result-&gt;is(NaturalResultType::VIDEO_GROUP)){
+            foreach($result-&gt;videos as $video){
+                $url = $video-&gt;url;
+            }
+        }
+    }
+</code></pre>
+
 <h4 id="map">Map</h4>
 <p>A result illustrated by a map and that contains sub-results.</p>
-<p><img alt="Map Result" src="../images/result-types/map.png" /></p>
+<p><img alt="Map Result" src="../images/result-types/map.jpg" /></p>
 <p><strong>Available with</strong></p>
 <ul>
 <li><code>NaturalResultType::MAP</code></li>
@@ -606,7 +655,7 @@ Note that vertical form is very rare.</p>
 </ul>
 <p><strong>Data</strong></p>
 <ul>
-<li><code>is_carousel</code> <small><strong>boolean</strong></small>: true when is a carousel, false when vertical</li>
+<li><code>isCarousel</code> <small><strong>boolean</strong></small>: true when is a carousel, false when vertical</li>
 <li><code>news</code> <small><strong>array</strong></small><ul>
 <li><code>title</code> <small><strong>string</strong></small> <strong>[A]</strong></li>
 <li><code>url</code><small><strong>string</strong></small>: The url reached when clicking the title</li>
@@ -755,11 +804,11 @@ We take care of returning this number as a integer no matter the initial format.
 <pre><code class="php">    $numberOfResults = $response-&gt;getNumberOfResults();
 
     if(null === $numberOfResults){
-        // houston, we have a problem...
-    } elseif($numberOfResults &gt; 2000) {
-        // not so many
+        // D'oh!
+    } elseif($numberOfResults &lt; 2000) {
+        // ...
     } else {
-        // a way too much
+        // ...
     }
 </code></pre>
 
@@ -831,7 +880,15 @@ to xpath and <a href="http://php.net/manual/fr/domxpath.query.php">DOMXPath::que
 
     // Writes the dom content in the file 'file.html'
     $dom-&gt;save('file.html');
-</code></pre></div>
+</code></pre>
+
+<hr />
+<p>view also:</p>
+<ul>
+<li><a href="google/client-configuration.md"><strong>Configure the google client</strong></a></li>
+<li><a href="google/google-url.md"><strong>Create urls</strong></a></li>
+<li><a href="google/handle-errors.md"><strong>Handle errors</strong></a></li>
+</ul></div>
             
         </div>
 

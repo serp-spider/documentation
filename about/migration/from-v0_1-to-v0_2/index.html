@@ -82,6 +82,12 @@
                         
                             
 <li >
+    <a href="../../../browser/">Browser</a>
+</li>
+
+                        
+                            
+<li >
     <a href="../../../cookies/">Cookies</a>
 </li>
 
@@ -189,7 +195,7 @@
 
     <div class="alpha-banner">
         <i class="fa fa-exclamation-circle"></i>
-        The project is in alpha phase
+        We just released <a href="/about/migration/from-v0_1-to-v0_2/">version 0.2</a>
         <i class="fa fa-exclamation-circle"></i>
     </div>
 
@@ -207,6 +213,9 @@
             
         
             <li class="level-2"><a href="#google-client-update">Google: client update</a></li>
+            
+        
+            <li class="level-2"><a href="#google-support-for-mobile-results">Google: support for mobile results</a></li>
             
         
             <li class="level-2"><a href="#google-css-parser">Google: CSS Parser</a></li>
@@ -233,21 +242,20 @@
                 <div class="col-md-9" id="main-content" role="main">
 
 <h1 id="migration-from-v01-to-v02">Migration from v0.1 to v0.2</h1>
-<div class="admonition warning">
-<p class="admonition-title">Version not released yet</p>
-<p>Be aware that this version is yet under development and this migration guide is a draft that might evolve until
-the version is published.</p>
-</div>
 <h2 id="version-02-overview">Version 0.2 overview</h2>
 <p>The version 0.2 brings some improvements that target the future of the library. </p>
 <ul>
-<li>The version brings better tools to work with captcha. </li>
 <li>Some parts from google package are moved to core package (like css parser)
 in order to make them ready for implementing new search engines. These change should be invisible to you.</li>
 <li>It makes browser emulation more transparent by implementing a browser class that aims to mimic real browsers.</li>
+<li>Google client in now able to <strong>parse mobile results</strong></li>
 <li>Url interface was refactored to be more flexible.</li>
+<li>We started to review tools to work with captcha in next releases.</li>
 <li>There are also other changes, see the following guide for a review of the upgrade.</li>
 </ul>
+<p>The following guide is aimed to help you to upgrade to v0.2, if you encounter any problem during the upgrade, the
+community might help you on the gitter chat room, just ask!</p>
+<p>The version 0.1 is now deprecated and wont be maintained anymore.</p>
 <h2 id="dependencies">Dependencies</h2>
 <p>Css parser moved from google package to core:</p>
 <ul>
@@ -256,8 +264,8 @@ in order to make them ready for implementing new search engines. These change sh
 </ul>
 <p>Remove PSR-7 implementation:</p>
 <ul>
-<li><strong>IN PROGRESS</strong> <code>serps/search-engine-google</code> does not depend on <code>zendframework/zend-diactoros</code> anymore,
-instead you need to add either <code>zendframework/zend-diactoros</code> or <code>guzzle/psr7</code> to your dependency. </li>
+<li><code>serps/search-engine-google</code> does not depend on <code>zendframework/zend-diactoros</code> anymore,
+instead you need to add either <code>zendframework/zend-diactoros</code> or <code>guzzlehttp/psr7</code> to your dependency. </li>
 </ul>
 <h2 id="request-builder">Request Builder</h2>
 <p>Being said in the previous paragraph, serps does not provide a PSR-7 implementation anymore. Until now we forced the
@@ -270,7 +278,7 @@ a request object for you:</p>
     $request = RequestBuilder::buildRequest('http://foo.bar', 'GET');
 </code></pre>
 
-<p>In most cases this API change will be invisible to you.</p>
+<p>In most cases this API change will be invisible to you, except that you need to add a psr7 dependency by yourself.</p>
 <h2 id="google-client-update">Google: client update</h2>
 <p>This is probably the most sensible change from the upgrade. The google client changed the way it builds requests.</p>
 <p>Instead of giving it a <strong>http client</strong> at construction and <strong>proxy</strong> and <strong>cookie jar</strong> at request time, you will now
@@ -346,6 +354,10 @@ The name browser was chosen because it's an object that encapsulates all the req
 manage cookies and proxies as a real browser would do. </p>
 <p><strong>In any case</strong> this class is capable to parse javascript and css or to render the html by itself .</p>
 </div>
+<h2 id="google-support-for-mobile-results">Google: support for mobile results</h2>
+<p>Google is now able to parse mobile results. All the mobile have been implemented in the same way as the other results
+and that should be invisible to you except that now you can parse mobile pages. 
+The <a href="../../../search-engine/google/parse-page/">google parse guide</a> was updated with new mobile results</p>
 <h2 id="google-css-parser">Google: CSS Parser</h2>
 <p>The css parser is not available from google package anymore, if you were using it you will need to rely on the 
 replacement from the core package.</p>
@@ -358,7 +370,9 @@ replacement from the core package.</p>
 </code></pre>
 
 <h2 id="google-image-results">Google: image results</h2>
-<p>Thanks to the addition of the <a href="#MediaInterface">MediaInterface</a> serps makes it easy to work with image results parsed 
+<p>Thanks to the recent addition of the 
+<a href="https://github.com/serp-spider/core/blob/a016dc324c01fca3c8a921d641ab251c43fa4e18/src/Core/Media/MediaInterface.php">MediaInterface</a> 
+serps makes it easy to work with image results parsed 
 from google. </p>
 <p>With the previous version image result format was unpredictable: that could be an url, or a base64 image... 
 now you wont have to care anymore about this. The only thing in you need to care about is how to store the image.</p>

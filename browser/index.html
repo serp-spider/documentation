@@ -5,13 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <meta name="description" content="Create and use proxy to use them with your browser implementation">
+        <meta name="description" content="This guide helps you to configure the browsing experience with SERPS - The search engine Spider.">
         
-        <link rel="canonical" href="https://serp-spider.github.io/documentation/proxy/">
+        <link rel="canonical" href="https://serp-spider.github.io/documentation/browser/">
         <link rel="shortcut icon" href="../../favicon.ico">
         
 
-	    <title>Proxies - Documentation - The SERP Spider</title>
+	    <title>Browser - Documentation - The SERP Spider</title>
 
         <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">        <link href="../css/base.css" rel="stylesheet">
@@ -81,8 +81,8 @@
 
                         
                             
-<li >
-    <a href="../browser/">Browser</a>
+<li class="active">
+    <a href="./">Browser</a>
 </li>
 
                         
@@ -93,8 +93,8 @@
 
                         
                             
-<li class="active">
-    <a href="./">Proxies</a>
+<li >
+    <a href="../proxy/">Proxies</a>
 </li>
 
                         
@@ -201,18 +201,21 @@
 
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#proxy">Proxy</a></li>
+        <li class="main active"><a href="#browser">Browser</a></li>
         
-            <li class="level-2"><a href="#create-a-proxy">Create a proxy</a></li>
-            
-                <li class="level-3"><a href="#create-a-proxy-from-a-string">Create a proxy from a string</a></li>
-                    
-            
-                <li class="level-3"><a href="#create-a-proxy-from-parts">Create a proxy from parts</a></li>
-                    
+            <li class="level-2"><a href="#create-a-browser">Create a browser</a></li>
             
         
-            <li class="level-2"><a href="#what-to-do-with-proxies">What to do with proxies</a></li>
+            <li class="level-2"><a href="#setting-user-agent">Setting user agent</a></li>
+            
+        
+            <li class="level-2"><a href="#setting-the-language">Setting the language</a></li>
+            
+        
+            <li class="level-2"><a href="#using-a-cookie-jar">Using a cookie jar</a></li>
+            
+        
+            <li class="level-2"><a href="#using-a-proxy">Using a proxy</a></li>
             
         
     
@@ -220,65 +223,108 @@
 </div></div>
                 <div class="col-md-9" id="main-content" role="main">
 
-<h1 id="proxy">Proxy</h1>
-<p>Guide to proxy management in SERPS</p>
+<h1 id="browser">Browser</h1>
+<p>Guide for browser instance management </p>
 <hr />
-<p>Provided you have a working proxy, this short guide will show you to use it with SERPS in a standardized way. </p>
-<h2 id="create-a-proxy">Create a proxy</h2>
-<p>Proxy creation is possible in two ways. You can either build it from a <strong>simple proxy string</strong>, or with <strong>proxy parts</strong></p>
-<h3 id="create-a-proxy-from-a-string">Create a proxy from a string</h3>
-<p>Assuming we have the proxy as a string, for instance with <code>196.168.192.168:8080</code>, you can use this string to 
-create the proxy:</p>
-<pre><code class="php"> use Serps\Core\Http\Proxy;
+<p>In SERPS the <code>browser</code> is an element that helps to mimic the behavior of a browser. </p>
+<p>Be aware that the name browser stand for the fact that this entity is capable of emitting http request as a real
+browser would do, taking care of cookies, proxies, language, etc... but <strong>in any case</strong> this class is able
+to render a html page or to evaluate css or javascript.</p>
+<p><code>Browser</code> are available since version <code>0.2</code> of <code>serps/core</code>. </p>
+<h2 id="create-a-browser">Create a browser</h2>
+<p>A minimal browser only requires a http client to send request through:</p>
+<pre><code class="php">use Serps\Core\Browser\Browser;
+use Serps\HttpClient\CurlClient;
 
- $proxy = Proxy::createFromString('196.168.192.168:8080');
+$browser = new Browser(new CurlClient());
 </code></pre>
 
-<p>By default the proxy will be a <code>HTTP</code> proxy but serps proxy also accepts <code>HTTPS</code>,
- <code>SOCKS4</code> and <code>SOCKS5</code> proxies, see with examples:</p>
-<pre><code class="php"> use Serps\Core\Http\Proxy;
+<h2 id="setting-user-agent">Setting user agent</h2>
+<p>The next step in configuring the browser is to specify what user agent we want to use:</p>
+<pre><code class="php">use Serps\Core\Browser\Browser;
+use Serps\HttpClient\CurlClient;
 
- $httpProxy = Proxy::createFromString('http://196.168.192.168:8080');
- $httpsProxy = Proxy::createFromString('https://196.168.192.168:8080');
- $socks4Proxy = Proxy::createFromString('socks4://196.168.192.168:8080');
- $socks5Proxy = Proxy::createFromString('socks5://196.168.192.168:8080');
+$userAgent = 'some user agent';
+
+$browser = new Browser(new CurlClient(), $userAgent);
+
+// Or set it latter:
+
+$browser-&gt;setAcceptLanguage('fr-CA');
+
 </code></pre>
 
-<p>You can also add <strong>authentication</strong> details (by default no authentication is set). You can do it by using the form
-<strong>authentication</strong>@<strong>host</strong>:</p>
-<pre><code class="php">    use Serps\Core\Http\Proxy;
-
-    $proxy = Proxy::createFromString('https://user:password@196.168.192.168:8080');
-</code></pre>
-
-<h3 id="create-a-proxy-from-parts">Create a proxy from parts</h3>
-<p>Now let's consider that you have some proxy parts (ip, port...) that are not put together as a string, you can use
-them directly with the proxy constructor to create a new proxy:</p>
-<pre><code class="php">    use Serps\Core\Http\Proxy;
-
-    $ip   = '192.168.192.168';
-    $port = 8080;
-
-    $proxy = new Proxy($ip, $port);
-</code></pre>
-
-<p>By default authentication is disabled and the proxy is an <code>HTTP</code> proxy but you can provide these details:</p>
-<pre><code class="php">    use Serps\Core\Http\Proxy;
-
-     $type = 'HTTP';
-     $ip   = '192.168.192.168';
-     $port = 8080;
-     $user = 'user';
-     $pass = 'password';
-
-    $proxy = new Proxy($ip, $port, $user, $pass, $type);
-</code></pre>
-
-<h2 id="what-to-do-with-proxies">What to do with proxies</h2>
-<p>These proxies are usable with any http client. Find example on how to use them:</p>
+<p>When setting a user agent you will prefer using a real user agent string.
+Here are a few user agent lists:</p>
 <ul>
-<li><a href="../search-engine/google/client-configuration/#proxy-usage">with google client</a></li>
-</ul></div>
+<li><a href="http://www.useragentstring.com/pages/Chrome/">from Chrome</a></li>
+<li><a href="http://www.useragentstring.com/pages/Firefox/">from Firefox</a></li>
+<li><a href="http://www.useragentstring.com/pages/Opera/">from Opera</a></li>
+<li><a href="http://www.useragentstring.com/pages/Internet%20Explorer/">from IE</a></li>
+</ul>
+<h2 id="setting-the-language">Setting the language</h2>
+<p>The browser is responsible for headers management. The accept-language header is one of the most important and thus
+you should specify it when creating a new browser:</p>
+<pre><code class="php">use Serps\Core\Browser\Browser;
+use Serps\HttpClient\CurlClient;
+
+$language = 'fr-FR';
+
+$browser = new Browser(new CurlClient(), $userAgent, $language);
+
+// Or set it latter:
+
+$browser-&gt;setUserAgent('other UA');
+
+</code></pre>
+
+<p>If you dont specify a language or if you set it to <code>null</code> the default value <code>en-US,en;q=0.8</code> will be used.</p>
+<h2 id="using-a-cookie-jar">Using a cookie jar</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Cookies usage is still at prototype stage and all http engines do not support cookies yet.</p>
+</div>
+<p>As real browser the browser class has the ability to use a cookie jar:</p>
+<pre><code class="php">use Serps\Core\Browser\Browser;
+use Serps\HttpClient\CurlClient;
+
+$cookieJar = ....;
+
+$browser = new Browser(new CurlClient(), $userAgent, $language, $cookieJar);
+
+// Or set it latter:
+
+$browser-&gt;setCookieJar($otherCookieJar);
+
+// You can also remove it to disable cookies
+
+$browser-&gt;setCookieJar(null);
+
+</code></pre>
+
+<p>By default no cookie jar will be used and requests will be free of cookies.</p>
+<p>To learn more on how to create cookie jar, please check <a href="../cookies/">the cookie documentation</a></p>
+<h2 id="using-a-proxy">Using a proxy</h2>
+<p>It's possible to give a proxy for the browser. The browser will use this proxy for every requests.</p>
+<pre><code class="php">use Serps\Core\Browser\Browser;
+use Serps\HttpClient\CurlClient;
+
+$proxy = ....;
+
+$browser = new Browser(new CurlClient(), $userAgent, $language, $cookieJar, $proxy);
+
+// Or set it latter:
+
+$browser-&gt;setProxy($otherProxy);
+
+// You can also remove it to disable proxy
+
+$browser-&gt;setProxy(null);
+
+</code></pre>
+
+<p>By default no proxy is used.</p>
+<p>To learn more on how to create proxies, please check <a href="../proxy/">the proxy documentation</a></p></div>
             
         </div>
 

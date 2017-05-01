@@ -81,6 +81,12 @@
 
                         
                             
+<li >
+    <a href="../browser/">Browser</a>
+</li>
+
+                        
+                            
 <li class="active">
     <a href="./">Cookies</a>
 </li>
@@ -189,7 +195,7 @@
 
     <div class="alpha-banner">
         <i class="fa fa-exclamation-circle"></i>
-        The project is in alpha phase
+        We just released <a href="/about/migration/from-v0_1-to-v0_2/">version 0.2</a>
         <i class="fa fa-exclamation-circle"></i>
     </div>
 
@@ -203,9 +209,9 @@
             <li class="level-2"><a href="#populate-a-cookie-jar">Populate a Cookie Jar</a></li>
             
         
-            <li class="level-2"><a href="#retrieves-cookies">Retrieves cookies</a></li>
+            <li class="level-2"><a href="#retrieving-cookies">Retrieving cookies</a></li>
             
-                <li class="level-3"><a href="#retrieve-cookie-for-a-request">Retrieve cookie for a request</a></li>
+                <li class="level-3"><a href="#retrieve-cookies-for-a-request">Retrieve cookies for a request</a></li>
                     
             
         
@@ -272,7 +278,7 @@ $cookie = new Cookie('baz', 'bar', ['domain' =&gt; 'foo.bar']);
 $cookieJar-&gt;set($cookie);
 </code></pre>
 
-<h2 id="retrieves-cookies">Retrieves cookies</h2>
+<h2 id="retrieving-cookies">Retrieving cookies</h2>
 <p>The <code>all</code> method is responsible for getting cookies matching some filters</p>
 <p>Method parameters:</p>
 <ul>
@@ -293,7 +299,7 @@ $cookies = $cookieJar-&gt;all(&quot;foo.bar&quot;);
 $cookies = $cookieJar-&gt;all(&quot;foo.bar&quot;, &quot;/&quot;, &quot;foo&quot;, false, false);
 </code></pre>
 
-<h3 id="retrieve-cookie-for-a-request">Retrieve cookie for a request</h3>
+<h3 id="retrieve-cookies-for-a-request">Retrieve cookies for a request</h3>
 <p>It's possible to automatically retrieve cookies that match a given PSR-7 request:</p>
 <pre><code class="php">// retrieves all cookies matching the request
 $cookies = $cookieJar-&gt;getMatchingCookies($request);
