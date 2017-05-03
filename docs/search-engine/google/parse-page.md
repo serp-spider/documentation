@@ -200,7 +200,7 @@ The video result can be illustrated with either a thumbnail or a large image.
 - ``destination`` <small>**string**</small> [**B**]: either a url or a breadcrumb-like destination
 - ``description`` <small>**string**</small> [**C**]
 - ``videoLarge`` <small>**bool**</small>: true if the video is image is large (usually first result)
-- ``videoCover`` <small>**string**</small>: the video picture as given by google - either an image url or a base64 encoded image
+- ``videoCover`` <small>**Media Object**</small>: The video cover. Only if videoLarge is true
 
 **Example**
 
@@ -219,6 +219,20 @@ The video result can be illustrated with either a thumbnail or a large image.
         }
     }
 ```
+
+
+#### Classical Illustrated
+
+Classical results might have an additional ``CLASSICAL_ILLUSTRATED`` type when the results is 
+illustrated with a thumbnail. Non large video results have this type as well.
+
+**Available with**
+
+- ``NaturalResultType::CLASSICAL_ILLUSTRATED``
+
+**Data**
+
+- ``thumb`` <small>**Media Object**</small>: the thumbnail
 
 
 #### Image Group
