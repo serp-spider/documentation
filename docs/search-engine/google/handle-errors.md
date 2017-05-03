@@ -199,6 +199,6 @@ exceptions are made for.
 
 View also:
 
-- [**Configure the google client**](google/client-configuration.md)
-- [**Create urls**](google/google-url.md)
-- [**Parse a google page**](google/parse-page.md)
+- [**Configure the google client**](client-configuration.md)
+- [**Create urls**](google-url.md)
+- [**Parse a google page**](parse-page.md)

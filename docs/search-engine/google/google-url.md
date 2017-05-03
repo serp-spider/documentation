@@ -161,6 +161,6 @@ Sets if the auto correction should be enabled (``true`` or ``false``). Modifies 
 
 View also:
 
-- [**Configure the google client**](google/client-configuration.md)
-- [**Parse a google page**](google/parse-page.md)
-- [**Handle errors**](google/handle-errors.md)
+- [**Configure the google client**](client-configuration.md)
+- [**Parse a google page**](parse-page.md)
+- [**Handle errors**](handle-errors.md)

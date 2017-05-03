@@ -783,6 +783,6 @@ You can get the [DOM object](http://php.net/manual/fr/class.domdocument.php) to 
 
 view also:
 
-- [**Configure the google client**](google/client-configuration.md)
-- [**Create urls**](google/google-url.md)
-- [**Handle errors**](google/handle-errors.md)
+- [**Configure the google client**](client-configuration.md)
+- [**Create urls**](google-url.md)
+- [**Handle errors**](handle-errors.md)
