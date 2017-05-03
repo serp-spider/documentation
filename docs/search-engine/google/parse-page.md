@@ -364,7 +364,7 @@ A result illustrated by a map and that contains sub-results.
 
 Block that answers a question asked by the keywords.
 
-![Classical Results](images/result-types/answer_box.png)
+![Answer Box Results](images/result-types/answer_box.png)
 
 
 **Available with**
@@ -389,6 +389,47 @@ Block that answers a question asked by the keywords.
         if($result->is(NaturalResultType::ANSWER_BOX)){
             $title = $result->title;
             $url   = $result->url;
+        }
+    }
+```
+
+
+
+
+#### Knowledge
+
+**Since version 0.2.1**
+
+Knowledge boxes that appear among mobile results. 
+
+
+Be aware that knowledge results are only included if they are present among the result list. 
+That means that on non-mobile results knowledge results are not available because they are placed on the right 
+of natural results.
+
+![Knowledge Results](images/result-types/knowledge.jpg)
+
+
+**Available with**
+
+- ``NaturalResultType::KNOWLEDGE``
+
+**Data**
+
+- ``title`` <small>**string**</small> [**A**]
+- ``shortDescription`` <small>**string**</small> [**B**] nature of the element (character, 
+
+**Example**
+
+```php
+    use Serps\SearchEngine\Google\NaturalResultType;
+
+    $results = $response->getNaturalResults();
+    
+    foreach($results as $result){
+        if($result->is(NaturalResultType::KNOWLEDGE)){
+            $title = $result->title;
+            $description   = $result->shortDescription;
         }
     }
 ```
