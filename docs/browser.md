@@ -49,10 +49,10 @@ $browser->setAcceptLanguage('fr-CA');
 When setting a user agent you will prefer using a real user agent string.
 Here are a few user agent lists:
 
-- [from Chrome](http://www.useragentstring.com/pages/Chrome/)
-- [from Firefox](http://www.useragentstring.com/pages/Firefox/)
-- [from Opera](http://www.useragentstring.com/pages/Opera/)
-- [from IE](http://www.useragentstring.com/pages/Internet%20Explorer/)
+- [from Chrome](http://www.useragentstring.com/pages/useragentstring.php?name=Chrome)
+- [from Firefox](http://www.useragentstring.com/pages/useragentstring.php?name=Firefox)
+- [from Opera](http://www.useragentstring.com/pages/useragentstring.php?name=Opera)
+- [from IE](http://www.useragentstring.com/pages/useragentstring.php?name=Internet+Explorer)
 
 
 ## Setting the language
