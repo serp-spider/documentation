@@ -35,7 +35,7 @@ or
 
 ``$ composer require 'guzzlehttp/psr7'``
 
-!!! Note "Important note agout google updates"
+!!! Note "Important note about google updates"
     We don't know when google dom updates, but when it does, we will place as many efforts as possible
     to get the client updated.
     
