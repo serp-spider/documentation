@@ -1,0 +1,23 @@
+<div class="bs-sidebar hidden-print affix well" role="complementary">
+
+    <div class="alpha-banner">
+        <i class="fa fa-exclamation-circle"></i>
+        We just released <a href="{{ base_url }}/about/migration/from-v0_1-to-v0_2/">version 0.2</a>
+        <i class="fa fa-exclamation-circle"></i>
+    </div>
+
+    <ul class="nav bs-sidenav">
+    {% for toc_item in toc %}
+        <li class="main {% if toc_item.active %}active{% endif %}"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
+        {% for toc_item in toc_item.children %}
+            <li class="level-2"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
+            {% for toc_item in toc_item.children %}
+                <li class="level-3"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
+                    {% for toc_item in toc_item.children %}
+                        <li class="level-4"><a href="{{ toc_item.url }}">{{ toc_item.title }}</a></li>
+                    {% endfor %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+    </ul>
+</div>
