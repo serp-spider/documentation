@@ -211,6 +211,9 @@
         
             <li class="level-2"><a href="#usage">Usage</a></li>
             
+                <li class="level-3"><a href="#custom-headers">Custom headers</a></li>
+                    
+            
         
     
     </ul>
@@ -251,6 +254,16 @@ can help you to manage phantomJS as a dependency of your project.</p>
 
 // The constructor accepts 1 optional parameter that is the path to the phantomjs binaries (default to 'phantomjs')
 $client = new PhantomJsClient();
+</code></pre>
+
+<h3 id="custom-headers">Custom headers</h3>
+<p>It's possible to set custom headers that will be sent with all requests sent with the client</p>
+<pre><code class="php">use Serps\HttpClient\PhantomJsClient;
+
+// The constructor accepts 1 optional parameter that is the path to the phantomjs binaries (default to 'phantomjs')
+$client = new PhantomJsClient();
+$client-&gt;setCustomHeader('referer', 'https://www.google.com'); 
+// All request will the header 'referer: https://www.google.com' added
 </code></pre></div>
             
         </div>

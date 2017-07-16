@@ -223,6 +223,8 @@
                     
                         <li class="level-4"><a href="#answer-box">Answer Box</a></li>
                     
+                        <li class="level-4"><a href="#knowledge">Knowledge</a></li>
+                    
                         <li class="level-4"><a href="#tweet-carousel">Tweet Carousel</a></li>
                     
                         <li class="level-4"><a href="#in-the-news">In the News</a></li>
@@ -563,7 +565,7 @@ illustrated with a thumbnail. Non large video results have this type as well.</p
 
 <h4 id="answer-box">Answer Box</h4>
 <p>Block that answers a question asked by the keywords.</p>
-<p><img alt="Classical Results" src="../images/result-types/answer_box.png" /></p>
+<p><img alt="Answer Box Results" src="../images/result-types/answer_box.png" /></p>
 <p><strong>Available with</strong></p>
 <ul>
 <li><code>NaturalResultType::ANSWER_BOX</code></li>
@@ -584,6 +586,35 @@ illustrated with a thumbnail. Non large video results have this type as well.</p
         if($result-&gt;is(NaturalResultType::ANSWER_BOX)){
             $title = $result-&gt;title;
             $url   = $result-&gt;url;
+        }
+    }
+</code></pre>
+
+<h4 id="knowledge">Knowledge</h4>
+<p><strong>Since version 0.2.1</strong></p>
+<p>Knowledge boxes that appear among mobile results. </p>
+<p>Be aware that knowledge results are only included if they are present among the result list. 
+That means that on non-mobile results knowledge results are not available because they are placed on the right 
+of natural results.</p>
+<p><img alt="Knowledge Results" src="../images/result-types/knowledge.jpg" /></p>
+<p><strong>Available with</strong></p>
+<ul>
+<li><code>NaturalResultType::KNOWLEDGE</code></li>
+</ul>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>title</code> <small><strong>string</strong></small> [<strong>A</strong>]</li>
+<li><code>shortDescription</code> <small><strong>string</strong></small> [<strong>B</strong>] nature of the element (character, </li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+    $results = $response-&gt;getNaturalResults();
+
+    foreach($results as $result){
+        if($result-&gt;is(NaturalResultType::KNOWLEDGE)){
+            $title = $result-&gt;title;
+            $description   = $result-&gt;shortDescription;
         }
     }
 </code></pre>
