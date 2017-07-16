@@ -48,3 +48,17 @@ use Serps\HttpClient\PhantomJsClient;
 // The constructor accepts 1 optional parameter that is the path to the phantomjs binaries (default to 'phantomjs')
 $client = new PhantomJsClient();
 ```
+
+
+### Custom headers
+
+It's possible to set custom headers that will be sent with all requests sent with the client
+
+```php
+use Serps\HttpClient\PhantomJsClient;
+
+// The constructor accepts 1 optional parameter that is the path to the phantomjs binaries (default to 'phantomjs')
+$client = new PhantomJsClient();
+$client->setCustomHeader('referer', 'https://www.google.com'); 
+// All request will the header 'referer: https://www.google.com' added
+```
