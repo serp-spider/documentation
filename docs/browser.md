@@ -136,3 +136,26 @@ $browser->setProxy(null);
 By default no proxy is used.
 
 To learn more on how to create proxies, please check [the proxy documentation](proxy.md)
+
+
+## Setting default headers
+
+The browser instance is able to add default headers for every requests sent to the browser.
+
+That might be helpful, for instance, when you want to set a custom referrer to the http requests you send to a server.
+
+```php
+$browser->setDefaultHeader('Referer', 'my custom referrer');
+```
+
+You are also able to check if a default header is configured for the browser or to get the value for the header:
+
+```php
+$browser->hasDefaultHeader('Referer');      // = true
+$browser->getDefaultHeaderValue('Referer'); // = "my custom referrer"
+$browser->hasDefaultHeader('foo');          // = false 
+$browser->getDefaultHeaderValue('foo');     // = null
+
+// note that hasDefaultHeader and getDefaultHeaderValue are case insensitive
+```
+
