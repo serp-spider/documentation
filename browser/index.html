@@ -218,6 +218,9 @@
             <li class="level-2"><a href="#using-a-proxy">Using a proxy</a></li>
             
         
+            <li class="level-2"><a href="#setting-default-headers">Setting default headers</a></li>
+            
+        
     
     </ul>
 </div></div>
@@ -324,7 +327,21 @@ $browser-&gt;setProxy(null);
 </code></pre>
 
 <p>By default no proxy is used.</p>
-<p>To learn more on how to create proxies, please check <a href="../proxy/">the proxy documentation</a></p></div>
+<p>To learn more on how to create proxies, please check <a href="../proxy/">the proxy documentation</a></p>
+<h2 id="setting-default-headers">Setting default headers</h2>
+<p>The browser instance is able to add default headers for every requests sent to the browser.</p>
+<p>That might be helpful, for instance, when you want to set a custom referrer to the http requests you send to a server.</p>
+<pre><code class="php">$browser-&gt;setDefaultHeader('Referer', 'my custom referrer');
+</code></pre>
+
+<p>You are also able to check if a default header is configured for the browser or to get the value for the header:</p>
+<pre><code class="php">$browser-&gt;hasDefaultHeader('Referer');      // = true
+$browser-&gt;getDefaultHeaderValue('Referer'); // = &quot;my custom referrer&quot;
+$browser-&gt;hasDefaultHeader('foo');          // = false 
+$browser-&gt;getDefaultHeaderValue('foo');     // = null
+
+// note that hasDefaultHeader and getDefaultHeaderValue are case insensitive
+</code></pre></div>
             
         </div>
 
