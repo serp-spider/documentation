@@ -512,19 +512,17 @@ Recent news results.
 
 #### Top Stories
 
-Carousel of recent popular news.
+List of recent popular news.
 
 > Implemented in version ``0.1.4`` as a successor for "in the news"
 
 > Composed top stories for mobile were implemented with version ``0.2.2`` 
 
-Top stories might be present in 2 distinctive formats: ``carousel`` or ``vertical``. 
-Note that vertical form is very rare.
+Top stories might be present in 3 distinctive formats: ``carousel``, ``vertical``, ``composed``. 
 
 **Carousel**
 
 ![Topstories carousel](images/result-types/top_stories_carousel.jpg)
-
 
 **Vertical**
 
@@ -539,6 +537,10 @@ Note that vertical form is very rare.
 
 - ``NaturalResultType::TOP_STORIES``
 - ``NaturalResultType::COMPOSED_TOP_STORIES``
+
+Note: all top stories have the type ``NaturalResultType::TOP_STORIES``. In addition of what composed top stories
+also have ``NaturalResultType::COMPOSED_TOP_STORIES``.
+
 
 **Data**
 
