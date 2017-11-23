@@ -686,6 +686,7 @@ These results are now deprecated and might be deleted from serps in future relea
 <p>Carousel of recent popular news.</p>
 <blockquote>
 <p>Implemented in version <code>0.1.4</code> as a successor for "in the news"</p>
+<p>Composed top stories for mobile were implemented with version <code>0.2.2</code> </p>
 </blockquote>
 <p>Top stories might be present in 2 distinctive formats: <code>carousel</code> or <code>vertical</code>. 
 Note that vertical form is very rare.</p>
@@ -693,13 +694,17 @@ Note that vertical form is very rare.</p>
 <p><img alt="Topstories carousel" src="../images/result-types/top_stories_carousel.jpg" /></p>
 <p><strong>Vertical</strong></p>
 <p><img alt="Topstories carousel" src="../images/result-types/top_stories_vertical.jpg" /></p>
+<p><strong>Composed</strong> (mobile)</p>
+<p><img alt="Topstories carousel" src="../images/result-types/top_stories_composed.jpg" /></p>
 <p><strong>Available with</strong></p>
 <ul>
 <li><code>NaturalResultType::TOP_STORIES</code></li>
+<li><code>NaturalResultType::COMPOSED_TOP_STORIES</code></li>
 </ul>
 <p><strong>Data</strong></p>
 <ul>
-<li><code>isCarousel</code> <small><strong>boolean</strong></small>: true when is a carousel, false when vertical</li>
+<li><code>isCarousel</code> <small><strong>boolean</strong></small>: true when has a carousel</li>
+<li><code>isVertical</code> <small><strong>boolean</strong></small>: true when has vertical items</li>
 <li><code>news</code> <small><strong>array</strong></small><ul>
 <li><code>title</code> <small><strong>string</strong></small> <strong>[A]</strong></li>
 <li><code>url</code><small><strong>string</strong></small>: The url reached when clicking the title</li>
@@ -720,6 +725,27 @@ Note that vertical form is very rare.</p>
             }
         }
     }
+</code></pre>
+
+<p><strong>About composed top stories</strong></p>
+<p>Composed top stories are mixing both of vertical and carousel news that appear on mobiles. 
+The composed results will have variables <code>isCarousel</code> <strong>and</strong> <code>isVertical</code> set to true.</p>
+<p>When iterating over news you can check if the news is a carousel or a vertical result:</p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+    foreach($result-&gt;news as $news){
+        if ($news-&gt;is(NaturalResultType::TOP_STORIES_NEWS_CAROUSEL) {
+            // carousel
+        } elseif ($news-&gt;is(NaturalResultType::TOP_STORIES_NEWS_VERTICAL) {
+            // vertical
+        }
+    }
+</code></pre>
+
+<p>You can also distinctly get one of the result types:</p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+    $carouselResults = $result-&gt;news-&gt;getResultsByType(NaturalResultType::TOP_STORIES_NEWS_CAROUSEL);
 </code></pre>
 
 <h4 id="flights">Flights</h4>
