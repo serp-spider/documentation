@@ -516,6 +516,8 @@ Carousel of recent popular news.
 
 > Implemented in version ``0.1.4`` as a successor for "in the news"
 
+> Composed top stories for mobile were implemented with version ``0.2.2`` 
+
 Top stories might be present in 2 distinctive formats: ``carousel`` or ``vertical``. 
 Note that vertical form is very rare.
 
@@ -528,14 +530,20 @@ Note that vertical form is very rare.
 
 ![Topstories carousel](images/result-types/top_stories_vertical.jpg)
 
+**Composed** (mobile)
+
+![Topstories carousel](images/result-types/top_stories_composed.jpg)
+
 
 **Available with**
 
 - ``NaturalResultType::TOP_STORIES``
+- ``NaturalResultType::COMPOSED_TOP_STORIES``
 
 **Data**
 
-- ``isCarousel`` <small>**boolean**</small>: true when is a carousel, false when vertical
+- ``isCarousel`` <small>**boolean**</small>: true when has a carousel
+- ``isVertical`` <small>**boolean**</small>: true when has vertical items
 - ``news`` <small>**array**</small>
     - ``title`` <small>**string**</small> **[A]**
     - ``url``<small>**string**</small>: The url reached when clicking the title
@@ -556,6 +564,33 @@ Note that vertical form is very rare.
             }
         }
     }
+```
+
+**About composed top stories**
+
+Composed top stories are mixing both of vertical and carousel news that appear on mobiles. 
+The composed results will have variables ``isCarousel`` **and** ``isVertical`` set to true.
+
+When iterating over news you can check if the news is a carousel or a vertical result:
+
+```php
+    use Serps\SearchEngine\Google\NaturalResultType;
+    
+    foreach($result->news as $news){
+        if ($news->is(NaturalResultType::TOP_STORIES_NEWS_CAROUSEL) {
+            // carousel
+        } elseif ($news->is(NaturalResultType::TOP_STORIES_NEWS_VERTICAL) {
+            // vertical
+        }
+    }
+```
+
+You can also distinctly get one of the result types:
+
+```php
+    use Serps\SearchEngine\Google\NaturalResultType;
+    
+    $carouselResults = $result->news->getResultsByType(NaturalResultType::TOP_STORIES_NEWS_CAROUSEL);
 ```
 
 
