@@ -528,11 +528,11 @@ Note that vertical form is very rare.
 
 **Vertical**
 
-![Topstories carousel](images/result-types/top_stories_vertical.jpg)
+![Topstories vertical](images/result-types/top_stories_vertical.jpg)
 
 **Composed** (mobile)
 
-![Topstories carousel](images/result-types/top_stories_composed.jpg)
+![Topstories composed](images/result-types/top_stories_composed.png)
 
 
 **Available with**
