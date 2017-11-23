@@ -683,13 +683,12 @@ These results are now deprecated and might be deleted from serps in future relea
 </code></pre>
 
 <h4 id="top-stories">Top Stories</h4>
-<p>Carousel of recent popular news.</p>
+<p>List of recent popular news.</p>
 <blockquote>
 <p>Implemented in version <code>0.1.4</code> as a successor for "in the news"</p>
 <p>Composed top stories for mobile were implemented with version <code>0.2.2</code> </p>
 </blockquote>
-<p>Top stories might be present in 2 distinctive formats: <code>carousel</code> or <code>vertical</code>. 
-Note that vertical form is very rare.</p>
+<p>Top stories might be present in 3 distinctive formats: <code>carousel</code>, <code>vertical</code>, <code>composed</code>. </p>
 <p><strong>Carousel</strong></p>
 <p><img alt="Topstories carousel" src="../images/result-types/top_stories_carousel.jpg" /></p>
 <p><strong>Vertical</strong></p>
@@ -701,6 +700,8 @@ Note that vertical form is very rare.</p>
 <li><code>NaturalResultType::TOP_STORIES</code></li>
 <li><code>NaturalResultType::COMPOSED_TOP_STORIES</code></li>
 </ul>
+<p>Note: all top stories have the type <code>NaturalResultType::TOP_STORIES</code>. In addition of what composed top stories
+also have <code>NaturalResultType::COMPOSED_TOP_STORIES</code>.</p>
 <p><strong>Data</strong></p>
 <ul>
 <li><code>isCarousel</code> <small><strong>boolean</strong></small>: true when has a carousel</li>
