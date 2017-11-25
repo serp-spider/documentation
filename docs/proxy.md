@@ -81,6 +81,5 @@ By default authentication is disabled and the proxy is an ``HTTP`` proxy but you
 
 ## What to do with proxies
 
-These proxies are usable with any http client. Find example on how to use them:
-
-- [with google client](search-engine/google/client-configuration/#proxy-usage)
+These proxies are aimed to be used by ``Browser`` instances. Find example on how to use them on the 
+[browser documentation](browser.md)
