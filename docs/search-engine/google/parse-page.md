@@ -117,6 +117,7 @@ These results are the common natural results that have always existed in google.
 - ``url`` <small>**string**</small>: the url targeted on clicking the title
 - ``destination`` <small>**string**</small> [**B**]: either a url or a breadcrumb-like destination
 - ``description`` <small>**string**</small> [**C**]
+- ``isAmp`` <small>**boolean**</small> true if the results is an ``AMP`` result
 
 **Example**
 
@@ -430,6 +431,43 @@ of natural results.
         if($result->is(NaturalResultType::KNOWLEDGE)){
             $title = $result->title;
             $description   = $result->shortDescription;
+        }
+    }
+```
+
+
+#### People Also Ask
+
+**Since version 0.2.3**
+
+List of questions that people also ask
+
+![People Also Ask](images/result-types/people_also_ask.png)
+
+
+**Available with**
+
+- ``NaturalResultType::PEOPLE_ALSO_ASK``
+
+**Data**
+
+- ``questions`` <small>**array**</small>
+    - ``question`` <small>**string**</small>
+
+**Example**
+
+```php
+    use Serps\SearchEngine\Google\NaturalResultType;
+
+    $results = $response->getNaturalResults();
+    
+    foreach($results as $result){
+        if($result->is(NaturalResultType::PEOPLE_ALSO_ASK)){
+            $questions = $result->questions;
+            
+            foreach ($questions as $question) {
+                $questionText = $question->question;
+            }
         }
     }
 ```
