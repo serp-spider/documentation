@@ -225,6 +225,8 @@
                     
                         <li class="level-4"><a href="#knowledge">Knowledge</a></li>
                     
+                        <li class="level-4"><a href="#people-also-ask">People Also Ask</a></li>
+                    
                         <li class="level-4"><a href="#tweet-carousel">Tweet Carousel</a></li>
                     
                         <li class="level-4"><a href="#in-the-news">In the News</a></li>
@@ -615,6 +617,37 @@ of natural results.</p>
         if($result-&gt;is(NaturalResultType::KNOWLEDGE)){
             $title = $result-&gt;title;
             $description   = $result-&gt;shortDescription;
+        }
+    }
+</code></pre>
+
+<h4 id="people-also-ask">People Also Ask</h4>
+<p><strong>Since version 0.2.3</strong></p>
+<p>List of questions that people also ask</p>
+<p><img alt="People Also Ask" src="../images/result-types/people_also_ask.png" /></p>
+<p><strong>Available with</strong></p>
+<ul>
+<li><code>NaturalResultType::PEOPLE_ALSO_ASK</code></li>
+</ul>
+<p><strong>Data</strong></p>
+<ul>
+<li><code>questions</code> <small><strong>array</strong></small><ul>
+<li><code>question</code> <small><strong>string</strong></small></li>
+</ul>
+</li>
+</ul>
+<p><strong>Example</strong></p>
+<pre><code class="php">    use Serps\SearchEngine\Google\NaturalResultType;
+
+    $results = $response-&gt;getNaturalResults();
+
+    foreach($results as $result){
+        if($result-&gt;is(NaturalResultType::PEOPLE_ALSO_ASK)){
+            $questions = $result-&gt;questions;
+
+            foreach ($questions as $question) {
+                $questionText = $question-&gt;question;
+            }
         }
     }
 </code></pre>
