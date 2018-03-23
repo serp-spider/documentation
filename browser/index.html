@@ -221,6 +221,9 @@
             <li class="level-2"><a href="#setting-default-headers">Setting default headers</a></li>
             
         
+            <li class="level-2"><a href="#issue-http-requests">Issue http requests</a></li>
+            
+        
     
     </ul>
 </div></div>
@@ -341,6 +344,27 @@ $browser-&gt;hasDefaultHeader('foo');          // = false
 $browser-&gt;getDefaultHeaderValue('foo');     // = null
 
 // note that hasDefaultHeader and getDefaultHeaderValue are case insensitive
+</code></pre>
+
+<h2 id="issue-http-requests">Issue http requests</h2>
+<p>You can get response from a given url:</p>
+<pre><code class="php">use Serps\Core\Browser\Browser;
+use Serps\HttpClient\CurlClient;
+use Serps\Core\Url;
+
+$browser = new Browser(new CurlClient());
+
+$response = $browser-&gt;navigateToUrl(Url::fromString('https://example.com'));
+
+$statusCode = $response-&gt;getHttpResponseStatus();
+$pageContent = $response-&gt;getPageContent();
+</code></pre>
+
+<p>Or use PSR-7 requests:</p>
+<pre><code class="php">$response = $browser-&gt;sendRequest($myPsr7Request);
+
+$statusCode = $response-&gt;getHttpResponseStatus();
+$pageContent = $response-&gt;getPageContent();
 </code></pre></div>
             
         </div>

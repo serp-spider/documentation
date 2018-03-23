@@ -212,6 +212,9 @@
             <li class="level-2"><a href="#http-client">Http Client</a></li>
             
         
+            <li class="level-2"><a href="#browser-objects">Browser Objects</a></li>
+            
+        
             <li class="level-2"><a href="#proxies">Proxies</a></li>
             
         
@@ -250,8 +253,9 @@
 
 <div class="admonition danger">
 <p class="admonition-title">Danger</p>
-<p>The library is still in alpha, no version is released yet that means that minor things can change until 
-the stable release and your code might become not compatible with the updates.</p>
+<p>The library is still in alpha, that means that major things can change until 
+the stable release and your code might become not compatible with the updates.
+Note that we follow <a href="https://semver.org/">semver</a>.</p>
 </div>
 <h2 id="search-engine-client">Search Engine client</h2>
 <p>In a regular workflow a search engine client allows to:</p>
@@ -267,17 +271,14 @@ the stable release and your code might become not compatible with the updates.</
 </ul>
 <h2 id="http-client">Http Client</h2>
 <p>Working with search engines involves to work with <strong>http requests</strong>.
-Usually the <strong>search engine client</strong> will need a http client to work correctly.</p>
-<blockquote>
-<p><sub>Example with the <strong>google client</strong> and the <strong>curl http client</strong></sub></p>
-</blockquote>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
-    use Serps\HttpClient\CurlClient;
+Providing a http client is mandatory for be able perform http requests.</p>
+<pre><code class="php">    use Serps\HttpClient\CurlClient;
+    use Serps\Core\Browser\Browser;
 
-    $googleClient = new GoogleClient(new CurlClient());
+    $browser = new Browser(new CurlClient());
 </code></pre>
 
-<p>There are two kinds of http clients: those that return the raw html as returned from the search engine (e.g the curl client)
+<p>There are two kinds of http clients: those that return the raw html as returned from the http response (e.g the curl client)
 and the others that evaluate the javascript and update the DOM before before returning (e.g the phantomJS client)</p>
 <p>These http clients are currently available:</p>
 <ul>
@@ -290,6 +291,18 @@ and the others that evaluate the javascript and update the DOM before before ret
 </ul>
 </li>
 </ul>
+<h2 id="browser-objects">Browser Objects</h2>
+<p>Browser objects are used to wrap all information you need to issue stateful requests.
+Note that even though a browser is named "browser", it does not mean that it will evaluate html, css and js 
+as chrome or firefox would. Here are major features of a browser:</p>
+<ul>
+<li>an user agent</li>
+<li>a accept language header</li>
+<li>any other headers required</li>
+<li>cookies management</li>
+<li>proxy management</li>
+</ul>
+<p><a href="../browser/">View the browser documentation</a></p>
 <h2 id="proxies">Proxies</h2>
 <p>Most of time search engines don't want you to parse them thus 
 they use to block you with captcha when they think you are a bot
@@ -301,30 +314,33 @@ This way, with a single client you can use as many proxies as you want.</p>
 <blockquote>
 <p><sub>Example of <strong>proxy</strong> usage with the google client</sub></p>
 </blockquote>
-<pre><code class="php">    use Serps\SearchEngine\Google\GoogleClient;
+<pre><code class="php">    use Serps\Core\Browser\Browser;
     use Serps\HttpClient\CurlClient;
+    use Serps\Core\Http\Proxy;
 
-    $googleClient = new GoogleClient(new CurlClient());
+    $proxyIp   = '192.168.192.168';
+    $proxyPort = 8080;
 
-    $googleClient-&gt;query($googleUrl, $proxy);
+    $browser = new Browser(new CurlClient());
+    $browser-&gt;setProxy(new Proxy($ip, $port));
 </code></pre>
 
-<p>Read the <a href="/proxy.md">proxy doc</a> to learn more about proxy creation.</p>
+<p>Read the <a href="../proxy/">proxy doc</a> to learn more about proxy creation.</p>
 <h2 id="captcha">Captcha</h2>
 <p>Even though you are using proxies and place all the efforts to act like an human, you might encounter the fatal captcha.</p>
 <p>When you get <strong>blocked</strong> by a captcha request, it is very important to stop sending request to the search engine and to
 solve the captcha before you continue. </p>
 <p>Dealing with captcha is not easy, at the current state the library can detect captcha but is not able to solve them
-for you we are <strong>currently working</strong> on a captcha solver implementation.</p>
+for you. We are <strong>currently working</strong> on a captcha solver implementation but cannot guarantee it will released soon.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Captcha are proxy specific, when solving a captcha that should be done with the proxy that was initially blocked</p>
 </div>
 <h2 id="cookies">Cookies</h2>
 <p>SERPS integrates cookie management, that allows to share cookies across many requests.</p>
-<p>Cookie management is usually done at the search engine client level. You still want to know
+<p>Cookie management is usually done at the http client level. You still want to know
 how to manipulate cookies and cookiejars: 
-<a href="/cookies.md">see cookie documentation</a> </p></div>
+<a href="../cookies/">see cookie documentation</a> </p></div>
             
         </div>
 
