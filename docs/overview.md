@@ -31,8 +31,9 @@ In addition [Composer](https://getcomposer.org/) is required to manage the neces
 ```
 
 !!! Danger
-    The library is still in alpha, no version is released yet that means that minor things can change until 
+    The library is still in alpha, that means that major things can change until 
     the stable release and your code might become not compatible with the updates.
+    Note that we follow [semver](https://semver.org/).
 
 Search Engine client
 --------------------
@@ -53,19 +54,17 @@ Http Client
 -----------
 
 Working with search engines involves to work with **http requests**.
-Usually the **search engine client** will need a http client to work correctly.
-
-> <sub>Example with the **google client** and the **curl http client**</sub>
+Providing a http client is mandatory for be able perform http requests.
 
 ```php
-    use Serps\SearchEngine\Google\GoogleClient;
     use Serps\HttpClient\CurlClient;
+    use Serps\Core\Browser\Browser;
 
-    $googleClient = new GoogleClient(new CurlClient());
+    $browser = new Browser(new CurlClient());
 ```
 
 
-There are two kinds of http clients: those that return the raw html as returned from the search engine (e.g the curl client)
+There are two kinds of http clients: those that return the raw html as returned from the http response (e.g the curl client)
 and the others that evaluate the javascript and update the DOM before before returning (e.g the phantomJS client)
 
 These http clients are currently available:
@@ -74,6 +73,21 @@ These http clients are currently available:
     - [CURL](http-client/curl.md)
 - Evaluating clients
     - [phantomJS](http-client/phantomJS.md)
+    
+Browser Objects
+---------------
+
+Browser objects are used to wrap all information you need to issue stateful requests.
+Note that even though a browser is named "browser", it does not mean that it will evaluate html, css and js 
+as chrome or firefox would. Here are major features of a browser:
+
+- an user agent
+- a accept language header
+- any other headers required
+- cookies management
+- proxy management
+
+[View the browser documentation](./browser.md)
 
 
 Proxies
@@ -92,14 +106,18 @@ This way, with a single client you can use as many proxies as you want.
 > <sub>Example of **proxy** usage with the google client</sub>
 
 ```php
-    use Serps\SearchEngine\Google\GoogleClient;
+    use Serps\Core\Browser\Browser;
     use Serps\HttpClient\CurlClient;
-
-    $googleClient = new GoogleClient(new CurlClient());
+    use Serps\Core\Http\Proxy;
     
-    $googleClient->query($googleUrl, $proxy);
+    $proxyIp   = '192.168.192.168';
+    $proxyPort = 8080;
+    
+    $browser = new Browser(new CurlClient());
+    $browser->setProxy(new Proxy($ip, $port));
 ```
-Read the [proxy doc](/proxy.md) to learn more about proxy creation.
+
+Read the [proxy doc](./proxy.md) to learn more about proxy creation.
 
 Captcha
 -------
@@ -110,7 +128,7 @@ When you get **blocked** by a captcha request, it is very important to stop send
 solve the captcha before you continue. 
 
 Dealing with captcha is not easy, at the current state the library can detect captcha but is not able to solve them
-for you we are **currently working** on a captcha solver implementation.
+for you. We are **currently working** on a captcha solver implementation but cannot guarantee it will released soon.
 
 !!! note
     Captcha are proxy specific, when solving a captcha that should be done with the proxy that was initially blocked
@@ -120,6 +138,6 @@ Cookies
 
 SERPS integrates cookie management, that allows to share cookies across many requests.
 
-Cookie management is usually done at the search engine client level. You still want to know
+Cookie management is usually done at the http client level. You still want to know
 how to manipulate cookies and cookiejars: 
-[see cookie documentation](/cookies.md) 
+[see cookie documentation](./cookies.md) 

@@ -159,3 +159,30 @@ $browser->getDefaultHeaderValue('foo');     // = null
 // note that hasDefaultHeader and getDefaultHeaderValue are case insensitive
 ```
 
+
+Issue http requests
+-------------------
+
+You can get response from a given url:
+
+```php
+use Serps\Core\Browser\Browser;
+use Serps\HttpClient\CurlClient;
+use Serps\Core\Url;
+
+$browser = new Browser(new CurlClient());
+
+$response = $browser->navigateToUrl(Url::fromString('https://example.com'));
+
+$statusCode = $response->getHttpResponseStatus();
+$pageContent = $response->getPageContent();
+```
+
+Or use PSR-7 requests:
+
+```php
+$response = $browser->sendRequest($myPsr7Request);
+
+$statusCode = $response->getHttpResponseStatus();
+$pageContent = $response->getPageContent();
+```

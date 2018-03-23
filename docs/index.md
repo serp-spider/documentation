@@ -8,7 +8,7 @@ SERPS
 
 ---
 
-SERPS is a scraping library for php. It considerably decrease the complexity required to analyse search engines.
+SERPS is a scraping library for php. It considerably decreases the complexity required to analyse search engines.
 
 
 > <cite>**Web scraping** (web harvesting or web data extraction) is a computer software technique of extracting 
