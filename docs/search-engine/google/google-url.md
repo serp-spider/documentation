@@ -25,7 +25,7 @@ The url builder has the required tools to build an url from scratch.
     $googleUrl->setSearchTerm('simpsons');
     $googleUrl->setLanguageRestriction('lang_en');
     echo $googleUrl->buildUrl();
-    // https://google.com/search?q=simpsons&lr=lang_en
+    // https://www.google.com/search?q=simpsons&lr=lang_en
 ```
 
 ### Url from a string
@@ -35,7 +35,7 @@ It's also possible to parse an an existing google url string to an url object.
 ```php
     use Serps\SearchEngine\Google\GoogleUrl;
     
-    $googleUrl = GoogleUrl::fromString('https://google.com/search?q=simpsons');
+    $googleUrl = GoogleUrl::fromString('https://www.google.com/search?q=simpsons');
     echo $googleUrl->getSearchTerm();
     // simpsons
 ```
@@ -45,19 +45,19 @@ Additionally you can continue to manipulate this url
 ```php
     $googleUrl->setLanguageRestriction('lang_en');
     echo $googleUrl->buildUrl();
-    // https://google.com/search?q=simpsons&lr=lang_en
+    // https://www.google.com/search?q=simpsons&lr=lang_en
 ```
 
 
 
 ### Google domain
 
-By default an url is generated for ``google.com`` but you can choose any domain of your choice:
+By default an url is generated for ``www.google.com`` but you can choose any domain of your choice:
 
 ```php
     use Serps\SearchEngine\Google\GoogleUrl;
     
-    $googleUrl = new GoogleUrl('google.fr');
+    $googleUrl = new GoogleUrl('www.google.fr');
     $googleUrl->setSearchTerm('simpsons');
     echo $googleUrl->buildUrl();
     // https://google.fr/search?q=simpsons
@@ -66,9 +66,9 @@ By default an url is generated for ``google.com`` but you can choose any domain 
 It's also possible to modify it latter
 
 ```php
-    $googleUrl->setHost('google.de');
+    $googleUrl->setHost('www.google.de');
     echo $googleUrl->buildUrl();
-    // https://google.de/search?q=simpsons
+    // https://www.google.de/search?q=simpsons
 ```
 
 ### Add and remove parameters
@@ -82,11 +82,11 @@ It's possible to add or remove parameters
     $googleUrl->setParam('q', 'simpsons');
     $googleUrl->setParam('start', 11);
     echo $googleUrl->buildUrl();
-    // https://google.com/search?q=simpsons&start=11
+    // https://www.google.com/search?q=simpsons&start=11
     
     $googleUrl->removeParam('start');
     echo $googleUrl->buildUrl();
-    // https://google.com/search?q=simpsons
+    // https://www.google.com/search?q=simpsons
 ```
 
 ### Raw parameters
@@ -100,7 +100,7 @@ but ``"Homer+Simpsons"`` will become ``"Homer%2BSimpson"``
     $googleUrl = new GoogleUrl();
     $googleUrl->setParam('q', 'Homer+Simpson');
     echo $googleUrl->buildUrl();
-    // https://google.com/search?q=Homer%2BSimpson
+    // https://www.google.com/search?q=Homer%2BSimpson
 ```
  
 It's possible to deal with raw params, this way the param will be passed to the url with no additional encoding. 
@@ -110,7 +110,7 @@ That is achieved by passing true as the third argument of ``setParam``.
     $googleUrl = new GoogleUrl();
     $googleUrl->setParam('q', 'Homer+Simpson', true);
     echo $googleUrl->buildUrl();
-    // https://google.com/search?q=Homer+Simpson
+    // https://www.google.com/search?q=Homer+Simpson
 ```
 
 ### More parameters 
